@@ -1,21 +1,17 @@
 import json
 import logging
-from logs.logs import log_with_args
-from conf.conf import level
-import time
+from beacon.logs.logs import log_with_args
+from beacon.conf.conf import level
 import asyncio
 import aiohttp.web as web
-import time
-from aiohttp.web import StreamResponse
-from logs.logs import log_with_args
 
 @log_with_args(level=logging.DEBUG)
 async def hello(request):
-    response_obj = {'status': 'hello'}
+    response_obj = {'status': 'pepe'}
     return web.Response(text=json.dumps(response_obj), status=200, content_type='application/json')
 
 
-async def apitry():
+async def create_api():
     app = web.Application()
     #app.on_startup.append(initialize)
     app.add_routes([web.get('/', hello)])
@@ -29,4 +25,4 @@ async def apitry():
         await asyncio.sleep(3600)
 
 if __name__ == '__main__':
-    asyncio.run(apitry())
+    asyncio.run(create_api())

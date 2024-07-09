@@ -2,7 +2,7 @@ import logging
 import time
 
 LOG = logging.getLogger(__name__)
-fh = logging.FileHandler("logs/logs.log")
+fh = logging.FileHandler("beacon/logs/logs.log")
 fh.setLevel(logging.DEBUG)
 fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 formatter = logging.Formatter(fmt)
