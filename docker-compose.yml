@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
  
- beaconega:
+ beaconprod:
     build:
       context: .
     container_name: beaconprod
@@ -10,5 +10,5 @@ services:
       - "5070:5070"
     entrypoint: ['python','-m','beacon']
     volumes:
-      - ./logs/logs.log:/logs/logs.log
-      - ./conf/conf.py:/conf/conf.py
+      - ./beacon/logs/logs.log:/beacon/logs/logs.log
+      - ./beacon/conf/conf.py:/beacon/conf/conf.py
