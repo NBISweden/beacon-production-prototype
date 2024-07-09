@@ -1,12 +1,12 @@
+import json
+import logging
+from logs.logs import log_with_args
+from conf.conf import level
+import time
 import asyncio
 import aiohttp.web as web
-import logging
-import json
 from aiohttp.web import StreamResponse
-import asyncio
 from logs.logs import log_with_args
-
-LOG = logging.getLogger(__name__)
 
 @log_with_args(level=logging.DEBUG)
 async def hello(request):

@@ -9,3 +9,6 @@ services:
     ports:
       - "5070:5070"
     entrypoint: ['python','__main__.py']
+    volumes:
+      - ./logs/logs.log:/logs/logs.log
+      - ./conf/conf.py:/conf/conf.py
