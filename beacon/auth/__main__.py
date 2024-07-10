@@ -8,6 +8,12 @@ from dotenv import load_dotenv
 from beacon.logs.logs import log_with_args
 import asyncio
 
+#dummy test anonymous
+#dummy test login
+#add test coverage
+#audit --> agafar informació molt específica que ens interessa guardar per sempre (de quins individuals ha obtingut resultats positius)
+
+
 @log_with_args(level=logging.DEBUG)
 def validate_access_token(access_token, idp_issuer, jwks_url, algorithm, aud):
     if not jwt.algorithms.has_crypto:

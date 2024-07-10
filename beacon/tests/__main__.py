@@ -17,6 +17,8 @@ def create_app():
 
 # loop_context is provided as a utility. You can use any
 # asyncio.BaseEventLoop class in its place.
+# test_ + nom del mòdul + nom rebel·lador del que fa el test (objectiu del test)
+# control test en comptes de success, deixar 1 positiu
 class TestApp(unittest.TestCase):
     def test_api_success(self):
         with loop_context() as loop:
