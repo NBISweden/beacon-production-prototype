@@ -3,12 +3,7 @@ import time
 import uuid
 from beacon.conf.conf import level
 
-#Status, timing, funció i missatge
-#Cridar id únic a les crides per mostrar-ho als logs
 #Tirar queries concurrents
-
-#DEBUG --> tota la informació per saber perquè peta i timings
-#INFO --> quan ha arrancat el servidor i quan s'ha tancat
 
 LOG = logging.getLogger(__name__)
 fh = logging.FileHandler("beacon/logs/logs.log")

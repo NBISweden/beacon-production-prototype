@@ -22,24 +22,16 @@ async def destroy(app):
     pass
 
 @log_with_args(level=level)
-async def success(request):
+async def control(request):
     status = calculate(4)
     response_obj = {'status': int(status)}
     return web.Response(text=json.dumps(response_obj), status=200, content_type='application/json')
-
-@log_with_args(level=level)
-async def failure(request):
-    status = calculate('nonumber')
-    response_obj = {'status': int(status)}
-    return web.Response(text=json.dumps(response_obj), status=200, content_type='application/json')
-
 
 async def create_api():
     app = web.Application()
     app.on_startup.append(initialize)
     app.on_cleanup.append(destroy)
-    app.add_routes([web.get('/success', success)])
-    app.add_routes([web.get('/failure', failure)])
+    app.add_routes([web.get('/control', control)])
 
     runner = web.AppRunner(app)
     await runner.setup()
