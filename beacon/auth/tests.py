@@ -1,7 +1,6 @@
 from aiohttp.test_utils import TestClient, TestServer, loop_context
-from aiohttp import web
-from beacon.__main__ import control
 from beacon.logs.logs import log_with_args
+from beacon.tests.__main__ import create_app
 import logging
 import json
 import unittest
@@ -10,15 +9,6 @@ import unittest
 #dummy test login
 #add test coverage
 #audit --> agafar informació molt específica que ens interessa guardar per sempre (de quins individuals ha obtingut resultats positius)
-
-def create_app():
-    app = web.Application()
-    #app.on_startup.append(initialize)
-    app.add_routes([web.get('/control', control)])
-    return app
-
-# loop_context is provided as a utility. You can use any
-# asyncio.BaseEventLoop class in its place.
 
 class TestApp(unittest.TestCase):
     def test_auth_check_control_endpoint_is_working(self):

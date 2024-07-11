@@ -6,7 +6,6 @@ from aiohttp import web
 import os
 from dotenv import load_dotenv
 from beacon.logs.logs import log_with_args
-import asyncio
 
 @log_with_args(level=logging.DEBUG)
 def validate_access_token(access_token, idp_issuer, jwks_url, algorithm, aud):
@@ -127,7 +126,7 @@ async def authentication(access_token):
 
 @log_with_args(level=logging.DEBUG)
 def bearer_required(func):
-    async def decorated(request):
+    async def authentication(request):
         auth = request.headers.get('Authorization')
         if not auth or not auth.lower().startswith('bearer '):
             raise web.HTTPUnauthorized()
@@ -145,7 +144,7 @@ def bearer_required(func):
         else:
             username = user.get('preferred_username')
         return await func(request, username, list_visa_datasets)
-    return decorated
+    return authentication
 
 '''
 if __name__ == '__main__':

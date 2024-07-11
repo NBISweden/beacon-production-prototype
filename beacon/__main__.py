@@ -22,7 +22,11 @@ async def destroy(app):
 
 @log_with_args(level=level)
 async def control(request):
-    permissions_dict = await permission(request)
+    try:
+        permissions_dict = await permission(request)
+    except Exception:
+        user = 'public'
+        visa_datasets = []
     status = calculate(4)
     response_obj = {'status': int(status)}
     return web.Response(text=json.dumps(response_obj), status=200, content_type='application/json')
