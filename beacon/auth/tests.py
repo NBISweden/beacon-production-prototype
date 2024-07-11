@@ -6,6 +6,11 @@ import logging
 import json
 import unittest
 
+#dummy test anonymous
+#dummy test login
+#add test coverage
+#audit --> agafar informació molt específica que ens interessa guardar per sempre (de quins individuals ha obtingut resultats positius)
+
 def create_app():
     app = web.Application()
     #app.on_startup.append(initialize)
@@ -16,19 +21,16 @@ def create_app():
 # asyncio.BaseEventLoop class in its place.
 
 class TestApp(unittest.TestCase):
-    def test_main_check_control_endpoint_is_working(self):
+    def test_auth_check_control_endpoint_is_working(self):
         with loop_context() as loop:
             app = create_app()
             client = TestClient(TestServer(app), loop=loop)
             loop.run_until_complete(client.start_server())
             @log_with_args(level=logging.DEBUG)
             async def test_check_control_endpoint_is_working():
-                resp = await client.get("/control")
+                resp = await client.post('/control', headers={'Auhtorization': 'Bearer access_token'})
                 assert resp.status == 200
                 text = await resp.text()
                 assert json.dumps({'status': 2}) == text
             loop.run_until_complete(test_check_control_endpoint_is_working())
             loop.run_until_complete(client.close())
-
-if __name__ == '__main__':
-    unittest.main()

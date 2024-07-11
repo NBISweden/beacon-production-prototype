@@ -1,10 +1,9 @@
 import json
-import logging
 from beacon.logs.logs import log_with_args
 from beacon.conf.conf import level
+from beacon.permissions.__main__ import permission
 import asyncio
 import aiohttp.web as web
-from beacon.logs.logs import LOG
 
 def calculate(nombre):
     try:
@@ -23,6 +22,7 @@ async def destroy(app):
 
 @log_with_args(level=level)
 async def control(request):
+    permissions_dict = await permission(request)
     status = calculate(4)
     response_obj = {'status': int(status)}
     return web.Response(text=json.dumps(response_obj), status=200, content_type='application/json')

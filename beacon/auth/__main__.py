@@ -8,12 +8,6 @@ from dotenv import load_dotenv
 from beacon.logs.logs import log_with_args
 import asyncio
 
-#dummy test anonymous
-#dummy test login
-#add test coverage
-#audit --> agafar informació molt específica que ens interessa guardar per sempre (de quins individuals ha obtingut resultats positius)
-
-
 @log_with_args(level=logging.DEBUG)
 def validate_access_token(access_token, idp_issuer, jwks_url, algorithm, aud):
     if not jwt.algorithms.has_crypto:
@@ -153,5 +147,7 @@ def bearer_required(func):
         return await func(request, username, list_visa_datasets)
     return decorated
 
+'''
 if __name__ == '__main__':
-    asyncio.run(authentication('eyJraWQiOiJyc2ExIiwidHlwIjoiYXQrand0IiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOiI5ZGI5NTBkYi0zMWQ4LTQ5NjYtOWYzNS1lODIyMmQyZmRjZjYiLCJzdWIiOiJhYWUwYWFjMzMzOGFiNDkwNTk3MmZjODRjZjQ5NDAwN2U1OTQxMDlmQGVsaXhpci1ldXJvcGUub3JnIiwiYWNyIjoiaHR0cHM6Ly9yZWZlZHMub3JnL3Byb2ZpbGUvc2ZhIiwic2NvcGUiOiJnYTRnaF9wYXNzcG9ydF92MSBvcGVuaWQgZW1haWwgb2ZmbGluZV9hY2Nlc3MgcHJvZmlsZSIsImF1dGhfdGltZSI6MTcyMDUzOTEwNiwiaXNzIjoiaHR0cHM6Ly9sb2dpbi5lbGl4aXItY3plY2gub3JnL29pZGMvIiwiZXhwIjoxNzIwNTQyNzIzLCJpYXQiOjE3MjA1MzkxMjQsImNsaWVudF9pZCI6IjlkYjk1MGRiLTMxZDgtNDk2Ni05ZjM1LWU4MjIyZDJmZGNmNiIsImp0aSI6ImI1ODcxNjkxLTMyMGYtNDNhMS1iODMwLTAyZTBlZDViMmVjYyJ9.JnYz7LZgiHx6-Pr2alt-1P4RHfwB4Lb-Tc8UPydyQ9VhV_X0YYtSnQ1SEzL6knVJ8gioSmhea0XfnQQq9pNlyfMdcrI5V0RJqy4VkQdnY75m42IrjIUJuEM3oNUXkbEr2PuWSnekpQy3T5DosI5zvgPOhKha4HDvA6DHpUnqG0M0ZDNukWalHTgSTZ-c7dB3vD5wBz8DlOLkpaPaDWVOhULsWRCzqZcGXMslkpjv8HsMNYe7Ky5d9k2EFFFDNz2OHaFOeoasYSneVdpLKdDiCAW3_bWG3g0WktJ7ZD3LpnO1I_g8M_2y9P4qbbrYQllYe1-LqtX0-JYPImPfLTnQLQ'))
+    asyncio.run(authentication('ey...'))
+'''
