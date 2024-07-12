@@ -3,3 +3,398 @@ DEBUG - 2024-07-12 07:22:14,187 - 7621e410 - bearer_required((<function permissi
 DEBUG - 2024-07-12 07:22:14,187 - 7622030a - initialize((<Application 0xffffb3356ef0>,),{}) - initial call
 DEBUG - 2024-07-12 07:22:14,188 - 7622030a - initialize((<Application 0xffffb3356ef0>,),{}) - 0.00010347366333007812 - returned <coroutine object initialize at 0xffffb2cf4200>
 INFO - 2024-07-12 07:22:14,188 - 7622030a - Initialization done
+DEBUG - 2024-07-12 09:35:13,069 - 09ea9388 - bearer_required((<function permission at 0xffffaa2811b0>,),{}) - initial call
+DEBUG - 2024-07-12 09:35:13,094 - 09ea9388 - bearer_required((<function permission at 0xffffaa2811b0>,),{}) - 0.025182485580444336 - returned <function bearer_required.<locals>.authentication at 0xffffa9209bd0>
+DEBUG - 2024-07-12 09:35:52,798 - 2198e3ea - bearer_required((<function permission at 0xffff9ebd91b0>,),{}) - initial call
+DEBUG - 2024-07-12 09:35:52,800 - 2198e3ea - bearer_required((<function permission at 0xffff9ebd91b0>,),{}) - 0.0019118785858154297 - returned <function bearer_required.<locals>.authentication at 0xffff9db69bd0>
+DEBUG - 2024-07-12 09:35:52,805 - 2199fb68 - initialize((<Application 0xffff9e1d5c90>,),{}) - initial call
+DEBUG - 2024-07-12 09:35:52,807 - 2199fb68 - initialize((<Application 0xffff9e1d5c90>,),{}) - 0.0022211074829101562 - returned <coroutine object initialize at 0xffff9db702e0>
+INFO - 2024-07-12 09:35:52,808 - 2199fb68 - Initialization done
+DEBUG - 2024-07-12 09:35:58,246 - 24d82aac - info((<Request GET /info >,),{}) - initial call
+DEBUG - 2024-07-12 09:35:58,249 - 24d82aac - info((<Request GET /info >,),{}) - 0.0032906532287597656 - returned <coroutine object info at 0xffff9db70660>
+DEBUG - 2024-07-12 09:52:03,300 - 640fbe18 - bearer_required((<function permission at 0xffffb3c611b0>,),{}) - initial call
+DEBUG - 2024-07-12 09:52:03,301 - 640fbe18 - bearer_required((<function permission at 0xffffb3c611b0>,),{}) - 0.0009684562683105469 - returned <function bearer_required.<locals>.authentication at 0xffffb2bf1bd0>
+DEBUG - 2024-07-12 09:52:03,303 - 64103d7a - initialize((<Application 0xffffb325dc90>,),{}) - initial call
+DEBUG - 2024-07-12 09:52:03,304 - 64103d7a - initialize((<Application 0xffffb325dc90>,),{}) - 0.0003788471221923828 - returned <coroutine object initialize at 0xffffb2bf82e0>
+INFO - 2024-07-12 09:52:03,304 - 64103d7a - Initialization done
+DEBUG - 2024-07-12 09:52:13,568 - 6a2e6ea2 - bearer_required((<function permission at 0xffffa39228c0>,),{}) - initial call
+DEBUG - 2024-07-12 09:52:13,568 - 6a2e6ea2 - bearer_required((<function permission at 0xffffa39228c0>,),{}) - 0.000278472900390625 - returned <function bearer_required.<locals>.authentication at 0xffffa2a8dab0>
+DEBUG - 2024-07-12 09:52:42,460 - 7b671822 - bearer_required((<function permission at 0xffffaa8651b0>,),{}) - initial call
+DEBUG - 2024-07-12 09:52:42,462 - 7b671822 - bearer_required((<function permission at 0xffffaa8651b0>,),{}) - 0.001466989517211914 - returned <function bearer_required.<locals>.authentication at 0xffffa97f5bd0>
+DEBUG - 2024-07-12 09:52:42,467 - 7b68174a - initialize((<Application 0xffffa9e61c90>,),{}) - initial call
+DEBUG - 2024-07-12 09:52:42,467 - 7b68174a - initialize((<Application 0xffffa9e61c90>,),{}) - 0.0007917881011962891 - returned <coroutine object initialize at 0xffffa97fc2e0>
+INFO - 2024-07-12 09:52:42,468 - 7b68174a - Initialization done
+DEBUG - 2024-07-12 09:53:08,435 - 8ae273d2 - bearer_required((<function permission at 0xffff9aad91b0>,),{}) - initial call
+DEBUG - 2024-07-12 09:53:08,436 - 8ae273d2 - bearer_required((<function permission at 0xffff9aad91b0>,),{}) - 0.001645803451538086 - returned <function bearer_required.<locals>.authentication at 0xffff99a5dbd0>
+DEBUG - 2024-07-12 09:53:08,441 - 8ae36aee - initialize((<Application 0xffff9a0c9c90>,),{}) - initial call
+DEBUG - 2024-07-12 09:53:08,442 - 8ae36aee - initialize((<Application 0xffff9a0c9c90>,),{}) - 0.0008158683776855469 - returned <coroutine object initialize at 0xffff99a642e0>
+INFO - 2024-07-12 09:53:08,442 - 8ae36aee - Initialization done
+DEBUG - 2024-07-12 09:53:46,295 - a17372d6 - bearer_required((<function permission at 0xffff7dffd1b0>,),{}) - initial call
+DEBUG - 2024-07-12 09:53:46,296 - a17372d6 - bearer_required((<function permission at 0xffff7dffd1b0>,),{}) - 0.0014636516571044922 - returned <function bearer_required.<locals>.authentication at 0xffff7cf8dbd0>
+DEBUG - 2024-07-12 09:53:46,301 - a174629a - initialize((<Application 0xffff7d5f9c90>,),{}) - initial call
+DEBUG - 2024-07-12 09:53:46,302 - a174629a - initialize((<Application 0xffff7d5f9c90>,),{}) - 0.0008444786071777344 - returned <coroutine object initialize at 0xffff7cf942e0>
+INFO - 2024-07-12 09:53:46,302 - a174629a - Initialization done
+DEBUG - 2024-07-12 09:54:07,911 - ae55ea06 - bearer_required((<function permission at 0xffffb7bde950>,),{}) - initial call
+DEBUG - 2024-07-12 09:54:07,912 - ae55ea06 - bearer_required((<function permission at 0xffffb7bde950>,),{}) - 0.000354766845703125 - returned <function bearer_required.<locals>.authentication at 0xffffb6d4db40>
+DEBUG - 2024-07-12 09:55:23,107 - db27da30 - bearer_required((<function permission at 0xffff801291b0>,),{}) - initial call
+DEBUG - 2024-07-12 09:55:23,108 - db27da30 - bearer_required((<function permission at 0xffff801291b0>,),{}) - 0.0009608268737792969 - returned <function bearer_required.<locals>.authentication at 0xffff7f0b1bd0>
+DEBUG - 2024-07-12 09:55:23,110 - db2857b2 - initialize((<Application 0xffff7f71dc90>,),{}) - initial call
+DEBUG - 2024-07-12 09:55:23,111 - db2857b2 - initialize((<Application 0xffff7f71dc90>,),{}) - 0.0003905296325683594 - returned <coroutine object initialize at 0xffff7f0b82e0>
+INFO - 2024-07-12 09:55:23,111 - db2857b2 - Initialization done
+DEBUG - 2024-07-12 09:55:29,618 - df096114 - bearer_required((<function permission at 0xffffac55e830>,),{}) - initial call
+DEBUG - 2024-07-12 09:55:29,618 - df096114 - bearer_required((<function permission at 0xffffac55e830>,),{}) - 0.0003757476806640625 - returned <function bearer_required.<locals>.authentication at 0xffffab6cda20>
+DEBUG - 2024-07-12 10:00:12,866 - 87dd8888 - bearer_required((<function permission at 0xffffabb491b0>,),{}) - initial call
+DEBUG - 2024-07-12 10:00:12,867 - 87dd8888 - bearer_required((<function permission at 0xffffabb491b0>,),{}) - 0.0007731914520263672 - returned <function bearer_required.<locals>.authentication at 0xffffaaad9bd0>
+DEBUG - 2024-07-12 10:00:12,869 - 87de0358 - initialize((<Application 0xffffab145c90>,),{}) - initial call
+DEBUG - 2024-07-12 10:00:12,869 - 87de0358 - initialize((<Application 0xffffab145c90>,),{}) - 0.0004100799560546875 - returned <coroutine object initialize at 0xffffaaae02e0>
+INFO - 2024-07-12 10:00:12,870 - 87de0358 - Initialization done
+DEBUG - 2024-07-12 10:00:21,984 - 8d4cece6 - bearer_required((<function permission at 0xffff96cbe830>,),{}) - initial call
+DEBUG - 2024-07-12 10:00:21,985 - 8d4cece6 - bearer_required((<function permission at 0xffff96cbe830>,),{}) - 0.0005583763122558594 - returned <function bearer_required.<locals>.authentication at 0xffff95e29a20>
+DEBUG - 2024-07-12 10:00:55,199 - a1191ac4 - bearer_required((<function permission at 0xffff9dc011b0>,),{}) - initial call
+DEBUG - 2024-07-12 10:00:55,201 - a1191ac4 - bearer_required((<function permission at 0xffff9dc011b0>,),{}) - 0.001542806625366211 - returned <function bearer_required.<locals>.authentication at 0xffff9cb91bd0>
+DEBUG - 2024-07-12 10:00:55,203 - a119beca - initialize((<Application 0xffff9d1fdc90>,),{}) - initial call
+DEBUG - 2024-07-12 10:00:55,204 - a119beca - initialize((<Application 0xffff9d1fdc90>,),{}) - 0.0004584789276123047 - returned <coroutine object initialize at 0xffff9cb982e0>
+INFO - 2024-07-12 10:00:55,204 - a119beca - Initialization done
+DEBUG - 2024-07-12 10:00:58,747 - a3368490 - bearer_required((<function permission at 0xffff809ae830>,),{}) - initial call
+DEBUG - 2024-07-12 10:00:58,748 - a3368490 - bearer_required((<function permission at 0xffff809ae830>,),{}) - 0.0006513595581054688 - returned <function bearer_required.<locals>.authentication at 0xffff7fb1da20>
+DEBUG - 2024-07-12 10:00:58,874 - a349d3b0 - test_check_control_endpoint_is_working((),{}) - initial call
+DEBUG - 2024-07-12 10:00:58,874 - a349d3b0 - test_check_control_endpoint_is_working((),{}) - 0.0004296302795410156 - returned <coroutine object TestApp.test_main_check_control_endpoint_is_working.<locals>.test_check_control_endpoint_is_working at 0xffff7f48d930>
+DEBUG - 2024-07-12 10:00:58,876 - a34a385a - control((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:00:58,877 - a34a385a - control((<Request GET /control >,),{}) - 0.0004038810729980469 - returned <coroutine object control at 0xffff7f48df50>
+DEBUG - 2024-07-12 10:00:58,877 - a34a59f2 - authentication((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:00:58,878 - a34a59f2 - authentication((<Request GET /control >,),{}) - 0.00030732154846191406 - returned <coroutine object bearer_required.<locals>.authentication at 0xffff7f48dfc0>
+DEBUG - 2024-07-12 10:00:58,899 - a34dab0c - test_validate_info((),{}) - initial call
+DEBUG - 2024-07-12 10:00:58,900 - a34dab0c - test_validate_info((),{}) - 0.0006289482116699219 - returned <coroutine object TestValidator.test_validator_validate_info.<locals>.test_validate_info at 0xffff7f5f22d0>
+DEBUG - 2024-07-12 10:00:58,907 - a34ed220 - info((<Request GET /info >,),{}) - initial call
+DEBUG - 2024-07-12 10:00:58,908 - a34ed220 - info((<Request GET /info >,),{}) - 0.0009660720825195312 - returned <coroutine object info at 0xffff9cb98510>
+DEBUG - 2024-07-12 10:02:41,506 - e0764188 - bearer_required((<function permission at 0xffff90c351b0>,),{}) - initial call
+DEBUG - 2024-07-12 10:02:41,508 - e0764188 - bearer_required((<function permission at 0xffff90c351b0>,),{}) - 0.002199411392211914 - returned <function bearer_required.<locals>.authentication at 0xffff8fbb9bd0>
+DEBUG - 2024-07-12 10:02:41,513 - e0774236 - initialize((<Application 0xffff90225c90>,),{}) - initial call
+DEBUG - 2024-07-12 10:02:41,514 - e0774236 - initialize((<Application 0xffff90225c90>,),{}) - 0.0009996891021728516 - returned <coroutine object initialize at 0xffff8fbc02e0>
+INFO - 2024-07-12 10:02:41,515 - e0774236 - Initialization done
+DEBUG - 2024-07-12 10:02:43,399 - e1971146 - bearer_required((<function permission at 0xffff9b37e830>,),{}) - initial call
+DEBUG - 2024-07-12 10:02:43,399 - e1971146 - bearer_required((<function permission at 0xffff9b37e830>,),{}) - 0.0005285739898681641 - returned <function bearer_required.<locals>.authentication at 0xffff9a4eda20>
+DEBUG - 2024-07-12 10:02:43,511 - e1a82c2e - test_check_control_endpoint_is_working((),{}) - initial call
+DEBUG - 2024-07-12 10:02:43,511 - e1a82c2e - test_check_control_endpoint_is_working((),{}) - 0.00048422813415527344 - returned <coroutine object TestApp.test_main_check_control_endpoint_is_working.<locals>.test_check_control_endpoint_is_working at 0xffff99e519a0>
+DEBUG - 2024-07-12 10:02:43,513 - e1a88cd2 - control((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:02:43,514 - e1a88cd2 - control((<Request GET /control >,),{}) - 0.00042438507080078125 - returned <coroutine object control at 0xffff99e51fc0>
+DEBUG - 2024-07-12 10:02:43,514 - e1a8abb8 - authentication((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:02:43,514 - e1a8abb8 - authentication((<Request GET /control >,),{}) - 0.00030112266540527344 - returned <coroutine object bearer_required.<locals>.authentication at 0xffff99e52030>
+DEBUG - 2024-07-12 10:02:43,530 - e1ab195c - test_validate_info((),{}) - initial call
+DEBUG - 2024-07-12 10:02:43,531 - e1ab195c - test_validate_info((),{}) - 0.000415802001953125 - returned <coroutine object TestValidator.test_validator_validate_info.<locals>.test_validate_info at 0xffff99fb69d0>
+DEBUG - 2024-07-12 10:02:43,531 - e1ab3b4e - info_check(('http://localhost:5070/info',),{}) - initial call
+DEBUG - 2024-07-12 10:02:43,535 - e1abd306 - info((<Request GET /info >,),{}) - initial call
+DEBUG - 2024-07-12 10:02:43,536 - e1abd306 - info((<Request GET /info >,),{}) - 0.0008776187896728516 - returned <coroutine object info at 0xffff8fbc0510>
+DEBUG - 2024-07-12 10:02:43,544 - e1ab3b4e - info_check(('http://localhost:5070/info',),{}) - 0.0127716064453125 - returned []
+DEBUG - 2024-07-12 10:04:00,306 - 0f6e28d4 - bearer_required((<function permission at 0xffffb37751b0>,),{}) - initial call
+DEBUG - 2024-07-12 10:04:00,307 - 0f6e28d4 - bearer_required((<function permission at 0xffffb37751b0>,),{}) - 0.0015041828155517578 - returned <function bearer_required.<locals>.authentication at 0xffffb2705bd0>
+DEBUG - 2024-07-12 10:04:00,310 - 0f6ec97e - initialize((<Application 0xffffb2d6dc90>,),{}) - initial call
+DEBUG - 2024-07-12 10:04:00,311 - 0f6ec97e - initialize((<Application 0xffffb2d6dc90>,),{}) - 0.0005080699920654297 - returned <coroutine object initialize at 0xffffb270c2e0>
+INFO - 2024-07-12 10:04:00,311 - 0f6ec97e - Initialization done
+DEBUG - 2024-07-12 10:04:02,125 - 1083bdec - bearer_required((<function permission at 0xffffba4da830>,),{}) - initial call
+DEBUG - 2024-07-12 10:04:02,126 - 1083bdec - bearer_required((<function permission at 0xffffba4da830>,),{}) - 0.0004191398620605469 - returned <function bearer_required.<locals>.authentication at 0xffffb9649a20>
+DEBUG - 2024-07-12 10:04:02,211 - 1090deb4 - test_check_control_endpoint_is_working((),{}) - initial call
+DEBUG - 2024-07-12 10:04:02,211 - 1090deb4 - test_check_control_endpoint_is_working((),{}) - 0.00031828880310058594 - returned <coroutine object TestApp.test_main_check_control_endpoint_is_working.<locals>.test_check_control_endpoint_is_working at 0xffffb8fb99a0>
+DEBUG - 2024-07-12 10:04:02,213 - 10912f40 - control((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:04:02,213 - 10912f40 - control((<Request GET /control >,),{}) - 0.00029468536376953125 - returned <coroutine object control at 0xffffb8fb9fc0>
+DEBUG - 2024-07-12 10:04:02,214 - 109149a8 - authentication((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:04:02,214 - 109149a8 - authentication((<Request GET /control >,),{}) - 0.00030112266540527344 - returned <coroutine object bearer_required.<locals>.authentication at 0xffffb8fba030>
+DEBUG - 2024-07-12 10:04:02,231 - 1093e712 - test_validate_info((),{}) - initial call
+DEBUG - 2024-07-12 10:04:02,231 - 1093e712 - test_validate_info((),{}) - 0.00029754638671875 - returned <coroutine object TestValidator.test_validator_validate_info.<locals>.test_validate_info at 0xffffb911ea40>
+DEBUG - 2024-07-12 10:04:02,232 - 1093fe5a - info_check(('http://localhost:5070/info',),{}) - initial call
+DEBUG - 2024-07-12 10:04:02,234 - 10946a3e - info((<Request GET /info >,),{}) - initial call
+DEBUG - 2024-07-12 10:04:02,235 - 10946a3e - info((<Request GET /info >,),{}) - 0.00033354759216308594 - returned <coroutine object info at 0xffffb270c510>
+DEBUG - 2024-07-12 10:04:02,240 - 1093fe5a - info_check(('http://localhost:5070/info',),{}) - 0.008295059204101562 - returned ['http://localhost:5070/info', []]
+DEBUG - 2024-07-12 10:04:49,140 - 2c89b0b4 - bearer_required((<function permission at 0xffffa68091b0>,),{}) - initial call
+DEBUG - 2024-07-12 10:04:49,141 - 2c89b0b4 - bearer_required((<function permission at 0xffffa68091b0>,),{}) - 0.0006954669952392578 - returned <function bearer_required.<locals>.authentication at 0xffffa5791bd0>
+DEBUG - 2024-07-12 10:04:49,143 - 2c8a0f50 - initialize((<Application 0xffffa5dfdc90>,),{}) - initial call
+DEBUG - 2024-07-12 10:04:49,143 - 2c8a0f50 - initialize((<Application 0xffffa5dfdc90>,),{}) - 0.00027251243591308594 - returned <coroutine object initialize at 0xffffa57982e0>
+INFO - 2024-07-12 10:04:49,143 - 2c8a0f50 - Initialization done
+DEBUG - 2024-07-12 10:04:52,778 - 2eb4b9f6 - bearer_required((<function permission at 0xffff7e40e830>,),{}) - initial call
+DEBUG - 2024-07-12 10:04:52,778 - 2eb4b9f6 - bearer_required((<function permission at 0xffff7e40e830>,),{}) - 0.0003476142883300781 - returned <function bearer_required.<locals>.authentication at 0xffff7d57da20>
+DEBUG - 2024-07-12 10:04:52,841 - 2ebe4f52 - test_check_control_endpoint_is_working((),{}) - initial call
+DEBUG - 2024-07-12 10:04:52,841 - 2ebe4f52 - test_check_control_endpoint_is_working((),{}) - 0.00023889541625976562 - returned <coroutine object TestApp.test_main_check_control_endpoint_is_working.<locals>.test_check_control_endpoint_is_working at 0xffff7ceed9a0>
+DEBUG - 2024-07-12 10:04:52,842 - 2ebe8030 - control((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:04:52,842 - 2ebe8030 - control((<Request GET /control >,),{}) - 0.0002028942108154297 - returned <coroutine object control at 0xffff7ceedfc0>
+DEBUG - 2024-07-12 10:04:52,842 - 2ebe8fb2 - authentication((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:04:52,842 - 2ebe8fb2 - authentication((<Request GET /control >,),{}) - 0.00020933151245117188 - returned <coroutine object bearer_required.<locals>.authentication at 0xffff7ceee030>
+DEBUG - 2024-07-12 10:04:52,851 - 2ebff9e2 - test_validate_info((),{}) - initial call
+DEBUG - 2024-07-12 10:04:52,852 - 2ebff9e2 - test_validate_info((),{}) - 0.00022554397583007812 - returned <coroutine object TestValidator.test_validator_validate_info.<locals>.test_validate_info at 0xffff7d052a40>
+DEBUG - 2024-07-12 10:04:52,852 - 2ec00dba - info_check(('http://localhost:5070/info',),{}) - initial call
+DEBUG - 2024-07-12 10:04:52,854 - 2ec06080 - info((<Request GET /info >,),{}) - initial call
+DEBUG - 2024-07-12 10:04:52,854 - 2ec06080 - info((<Request GET /info >,),{}) - 0.00028252601623535156 - returned <coroutine object info at 0xffffa5798510>
+DEBUG - 2024-07-12 10:04:52,860 - 2ec00dba - info_check(('http://localhost:5070/info',),{}) - 0.007737636566162109 - returned []
+DEBUG - 2024-07-12 10:05:52,843 - 5281da58 - bearer_required((<function permission at 0xffffa993d1b0>,),{}) - initial call
+DEBUG - 2024-07-12 10:05:52,844 - 5281da58 - bearer_required((<function permission at 0xffffa993d1b0>,),{}) - 0.0019927024841308594 - returned <function bearer_required.<locals>.authentication at 0xffffa88cdbd0>
+DEBUG - 2024-07-12 10:05:52,848 - 5282c68e - initialize((<Application 0xffffa8f39c90>,),{}) - initial call
+DEBUG - 2024-07-12 10:05:52,849 - 5282c68e - initialize((<Application 0xffffa8f39c90>,),{}) - 0.0006639957427978516 - returned <coroutine object initialize at 0xffffa88d42e0>
+INFO - 2024-07-12 10:05:52,850 - 5282c68e - Initialization done
+DEBUG - 2024-07-12 10:05:55,951 - 545c241e - bearer_required((<function permission at 0xffffafe0a830>,),{}) - initial call
+DEBUG - 2024-07-12 10:05:55,951 - 545c241e - bearer_required((<function permission at 0xffffafe0a830>,),{}) - 0.00033164024353027344 - returned <function bearer_required.<locals>.authentication at 0xffffaef75a20>
+DEBUG - 2024-07-12 10:05:56,022 - 54670ec4 - test_check_control_endpoint_is_working((),{}) - initial call
+DEBUG - 2024-07-12 10:05:56,022 - 54670ec4 - test_check_control_endpoint_is_working((),{}) - 0.0003147125244140625 - returned <coroutine object TestApp.test_main_check_control_endpoint_is_working.<locals>.test_check_control_endpoint_is_working at 0xffffae8dd9a0>
+DEBUG - 2024-07-12 10:05:56,024 - 546755dc - control((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:05:56,024 - 546755dc - control((<Request GET /control >,),{}) - 0.00029468536376953125 - returned <coroutine object control at 0xffffae8ddfc0>
+DEBUG - 2024-07-12 10:05:56,025 - 54676cf2 - authentication((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:05:56,025 - 54676cf2 - authentication((<Request GET /control >,),{}) - 0.0002503395080566406 - returned <coroutine object bearer_required.<locals>.authentication at 0xffffae8de030>
+DEBUG - 2024-07-12 10:05:56,038 - 54698b0e - test_validate_info((),{}) - initial call
+DEBUG - 2024-07-12 10:05:56,039 - 54698b0e - test_validate_info((),{}) - 0.00024080276489257812 - returned <coroutine object TestValidator.test_validator_validate_info.<locals>.test_validate_info at 0xffffaea429d0>
+DEBUG - 2024-07-12 10:05:56,039 - 54699fc2 - info_check(('http://localhost:5070/info',),{}) - initial call
+DEBUG - 2024-07-12 10:05:56,043 - 546a305e - info((<Request GET /info >,),{}) - initial call
+DEBUG - 2024-07-12 10:05:56,043 - 546a305e - info((<Request GET /info >,),{}) - 0.000316619873046875 - returned <coroutine object info at 0xffffa88d4510>
+DEBUG - 2024-07-12 10:05:56,047 - 54699fc2 - info_check(('http://localhost:5070/info',),{}) - 0.008171558380126953 - returned []
+DEBUG - 2024-07-12 10:41:10,271 - 4097cdd4 - bearer_required((<function permission at 0xffff8d0651b0>,),{}) - initial call
+DEBUG - 2024-07-12 10:41:10,272 - 4097cdd4 - bearer_required((<function permission at 0xffff8d0651b0>,),{}) - 0.0011267662048339844 - returned <function bearer_required.<locals>.authentication at 0xffff8bff5bd0>
+DEBUG - 2024-07-12 10:41:10,273 - 409821ee - initialize((<Application 0xffff8c661c90>,),{}) - initial call
+DEBUG - 2024-07-12 10:41:10,273 - 409821ee - initialize((<Application 0xffff8c661c90>,),{}) - 0.00014591217041015625 - returned <coroutine object initialize at 0xffff8bffc2e0>
+INFO - 2024-07-12 10:41:10,273 - 409821ee - Initialization done
+DEBUG - 2024-07-12 10:41:13,603 - 42943852 - bearer_required((<function permission at 0xffffb2aee8c0>,),{}) - initial call
+DEBUG - 2024-07-12 10:41:13,603 - 42943852 - bearer_required((<function permission at 0xffffb2aee8c0>,),{}) - 0.0003407001495361328 - returned <function bearer_required.<locals>.authentication at 0xffffb1c59ab0>
+DEBUG - 2024-07-12 10:41:13,670 - 429e79a2 - test_check_control_endpoint_is_working((),{}) - initial call
+DEBUG - 2024-07-12 10:41:13,670 - 429e79a2 - test_check_control_endpoint_is_working((),{}) - 0.0002536773681640625 - returned <coroutine object TestApp.test_main_check_control_endpoint_is_working.<locals>.test_check_control_endpoint_is_working at 0xffffb15c5a10>
+DEBUG - 2024-07-12 10:41:13,671 - 429eab5c - control((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:41:13,671 - 429eab5c - control((<Request GET /control >,),{}) - 0.00019097328186035156 - returned <coroutine object control at 0xffffb15c6030>
+DEBUG - 2024-07-12 10:41:13,672 - 429ebc8c - authentication((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:41:13,672 - 429ebc8c - authentication((<Request GET /control >,),{}) - 0.000202178955078125 - returned <coroutine object bearer_required.<locals>.authentication at 0xffffb15c60a0>
+DEBUG - 2024-07-12 10:41:13,682 - 42a047aa - test_validate_info((),{}) - initial call
+DEBUG - 2024-07-12 10:41:13,682 - 42a047aa - test_validate_info((),{}) - 0.00023555755615234375 - returned <coroutine object TestInfo.test_info_validate_info_schema.<locals>.test_validate_info at 0xffffb1726340>
+DEBUG - 2024-07-12 10:41:13,682 - 42a05a88 - info_check(('http://localhost:5070/info',),{}) - initial call
+DEBUG - 2024-07-12 10:41:13,683 - 42a06280 - load_json_from_url(('http://localhost:5070/info',),{}) - initial call
+DEBUG - 2024-07-12 10:41:13,684 - 42a0ad80 - info((<Request GET /info >,),{}) - initial call
+DEBUG - 2024-07-12 10:41:13,685 - 42a0ad80 - info((<Request GET /info >,),{}) - 0.00019407272338867188 - returned <coroutine object info at 0xffff8bffc510>
+DEBUG - 2024-07-12 10:41:13,685 - 42a06280 - load_json_from_url(('http://localhost:5070/info',),{}) - 0.002733945846557617 - returned {'meta': {'beaconId': 'org.ega-archive.ega-beacon', 'apiVersion': 'v2.0-b8fa53a', 'returnedGranularity': 'record', 'receivedRequestSummary': {'apiVersion': 'v2.0-b8fa53a', 'requestedSchemas': [], 'filters': [], 'requestParameters': {}, 'includeResultsetResponses': 'HIT', 'pagination': {'skip': 0, 'limit': 10}, 'requestedGranularity': 'record', 'testMode': False}, 'returnedSchemas': []}, 'response': {'id': 'org.ega-archive.ega-beacon', 'name': 'EGA Beacon', 'apiVersion': 'v2.0-b8fa53a', 'environment': 'test', 'organization': {'id': 'EGA', 'name': 'European Genome-Phenome Archive (EGA)', 'description': 'The European Genome-phenome Archive (EGA) is a service for permanent archiving and sharing of all types of personally identifiable genetic and phenotypic data resulting from biomedical research projects.', 'address': 'C/ Dr. Aiguader, 88PRBB Building08003 Barcelona, Spain', 'welcomeUrl': 'https://ega-archive.org/', 'contactUrl': 'mailto:beacon.ega@crg.eu', 'logoUrl': 'https://legacy.ega-archive.org/images/logo.png'}, 'description': 'This beacon is based on the European Genome-Phenome Archive datasets. Now it only contains a public dataset coming from tcga coadread, with samples for patients with colorectal adenocarcinoma disease.', 'version': 'v2.0', 'welcomeUrl': 'https://beacon.ega-archive.org/', 'alternativeUrl': 'https://beacon.ega-archive.org/api', 'createDateTime': '2021-11-29T12:00:00.000000', 'updateDateTime': '2024-07-04T08:58:01.228066', 'datasets': []}}
+DEBUG - 2024-07-12 10:41:13,686 - 42a0f466 - validate_endpoint(('beacon/validator/ref_schemas/framework/json/responses/beaconInfoResponse.json', {'meta': {'beaconId': 'org.ega-archive.ega-beacon', 'apiVersion': 'v2.0-b8fa53a', 'returnedGranularity': 'record', 'receivedRequestSummary': {'apiVersion': 'v2.0-b8fa53a', 'requestedSchemas': [], 'filters': [], 'requestParameters': {}, 'includeResultsetResponses': 'HIT', 'pagination': {'skip': 0, 'limit': 10}, 'requestedGranularity': 'record', 'testMode': False}, 'returnedSchemas': []}, 'response': {'id': 'org.ega-archive.ega-beacon', 'name': 'EGA Beacon', 'apiVersion': 'v2.0-b8fa53a', 'environment': 'test', 'organization': {'id': 'EGA', 'name': 'European Genome-Phenome Archive (EGA)', 'description': 'The European Genome-phenome Archive (EGA) is a service for permanent archiving and sharing of all types of personally identifiable genetic and phenotypic data resulting from biomedical research projects.', 'address': 'C/ Dr. Aiguader, 88PRBB Building08003 Barcelona, Spain', 'welcomeUrl': 'https://ega-archive.org/', 'contactUrl': 'mailto:beacon.ega@crg.eu', 'logoUrl': 'https://legacy.ega-archive.org/images/logo.png'}, 'description': 'This beacon is based on the European Genome-Phenome Archive datasets. Now it only contains a public dataset coming from tcga coadread, with samples for patients with colorectal adenocarcinoma disease.', 'version': 'v2.0', 'welcomeUrl': 'https://beacon.ega-archive.org/', 'alternativeUrl': 'https://beacon.ega-archive.org/api', 'createDateTime': '2021-11-29T12:00:00.000000', 'updateDateTime': '2024-07-04T08:58:01.228066', 'datasets': []}}),{}) - initial call
+DEBUG - 2024-07-12 10:41:13,689 - 42a0f466 - validate_endpoint(('beacon/validator/ref_schemas/framework/json/responses/beaconInfoResponse.json', {'meta': {'beaconId': 'org.ega-archive.ega-beacon', 'apiVersion': 'v2.0-b8fa53a', 'returnedGranularity': 'record', 'receivedRequestSummary': {'apiVersion': 'v2.0-b8fa53a', 'requestedSchemas': [], 'filters': [], 'requestParameters': {}, 'includeResultsetResponses': 'HIT', 'pagination': {'skip': 0, 'limit': 10}, 'requestedGranularity': 'record', 'testMode': False}, 'returnedSchemas': []}, 'response': {'id': 'org.ega-archive.ega-beacon', 'name': 'EGA Beacon', 'apiVersion': 'v2.0-b8fa53a', 'environment': 'test', 'organization': {'id': 'EGA', 'name': 'European Genome-Phenome Archive (EGA)', 'description': 'The European Genome-phenome Archive (EGA) is a service for permanent archiving and sharing of all types of personally identifiable genetic and phenotypic data resulting from biomedical research projects.', 'address': 'C/ Dr. Aiguader, 88PRBB Building08003 Barcelona, Spain', 'welcomeUrl': 'https://ega-archive.org/', 'contactUrl': 'mailto:beacon.ega@crg.eu', 'logoUrl': 'https://legacy.ega-archive.org/images/logo.png'}, 'description': 'This beacon is based on the European Genome-Phenome Archive datasets. Now it only contains a public dataset coming from tcga coadread, with samples for patients with colorectal adenocarcinoma disease.', 'version': 'v2.0', 'welcomeUrl': 'https://beacon.ega-archive.org/', 'alternativeUrl': 'https://beacon.ega-archive.org/api', 'createDateTime': '2021-11-29T12:00:00.000000', 'updateDateTime': '2024-07-04T08:58:01.228066', 'datasets': []}}),{}) - 0.003080129623413086 - returned []
+DEBUG - 2024-07-12 10:41:13,690 - 42a05a88 - info_check(('http://localhost:5070/info',),{}) - 0.007330656051635742 - returned []
+DEBUG - 2024-07-12 10:41:13,705 - 42a3d078 - test_load_json_from_url((),{}) - initial call
+DEBUG - 2024-07-12 10:41:13,734 - 42a3d078 - test_load_json_from_url((),{}) - 0.028749465942382812 - returned <coroutine object TestValidator.test_validator_load_json_from_url.<locals>.test_load_json_from_url at 0xffffb1726340>
+DEBUG - 2024-07-12 10:41:13,736 - 42a88730 - control((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:41:13,736 - 42a88730 - control((<Request GET /control >,),{}) - 0.00042819976806640625 - returned <coroutine object control at 0xffffb15c6ce0>
+DEBUG - 2024-07-12 10:41:13,737 - 42a8a986 - authentication((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:41:13,738 - 42a8a986 - authentication((<Request GET /control >,),{}) - 0.0007503032684326172 - returned <coroutine object bearer_required.<locals>.authentication at 0xffffb15c6dc0>
+DEBUG - 2024-07-12 10:41:13,746 - 42a9fb56 - load_json_from_url((<ClientResponse(http://127.0.0.1:38311/control) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '13', 'Date': 'Fri, 12 Jul 2024 10:41:13 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>
+,),{}) - initial call
+DEBUG - 2024-07-12 10:41:13,748 - 42a9fb56 - load_json_from_url((<ClientResponse(http://127.0.0.1:38311/control) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '13', 'Date': 'Fri, 12 Jul 2024 10:41:13 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>
+,),{}) - 0.0021414756774902344 - returned No connection adapters were found for "<ClientResponse(http://127.0.0.1:38311/control) [200 OK]>\n<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '13', 'Date': 'Fri, 12 Jul 2024 10:41:13 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>\n"
+DEBUG - 2024-07-12 10:41:49,655 - 5811665a - bearer_required((<function permission at 0xffffa31891b0>,),{}) - initial call
+DEBUG - 2024-07-12 10:41:49,656 - 5811665a - bearer_required((<function permission at 0xffffa31891b0>,),{}) - 0.0003764629364013672 - returned <function bearer_required.<locals>.authentication at 0xffffa2119bd0>
+DEBUG - 2024-07-12 10:41:49,657 - 5811a232 - initialize((<Application 0xffffa2785c90>,),{}) - initial call
+DEBUG - 2024-07-12 10:41:49,657 - 5811a232 - initialize((<Application 0xffffa2785c90>,),{}) - 0.00019669532775878906 - returned <coroutine object initialize at 0xffffa21202e0>
+INFO - 2024-07-12 10:41:49,657 - 5811a232 - Initialization done
+DEBUG - 2024-07-12 10:41:51,090 - 58ec3fd2 - bearer_required((<function permission at 0xffffa936e830>,),{}) - initial call
+DEBUG - 2024-07-12 10:41:51,090 - 58ec3fd2 - bearer_required((<function permission at 0xffffa936e830>,),{}) - 0.0003387928009033203 - returned <function bearer_required.<locals>.authentication at 0xffffa84dda20>
+DEBUG - 2024-07-12 10:41:51,150 - 58f58402 - test_check_control_endpoint_is_working((),{}) - initial call
+DEBUG - 2024-07-12 10:41:51,151 - 58f58402 - test_check_control_endpoint_is_working((),{}) - 0.000316619873046875 - returned <coroutine object TestApp.test_main_check_control_endpoint_is_working.<locals>.test_check_control_endpoint_is_working at 0xffffa7e4da80>
+DEBUG - 2024-07-12 10:41:51,152 - 58f5bd8c - control((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:41:51,152 - 58f5bd8c - control((<Request GET /control >,),{}) - 0.0002474784851074219 - returned <coroutine object control at 0xffffa7e4e0a0>
+DEBUG - 2024-07-12 10:41:51,152 - 58f5d0b0 - authentication((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:41:51,152 - 58f5d0b0 - authentication((<Request GET /control >,),{}) - 0.00020885467529296875 - returned <coroutine object bearer_required.<locals>.authentication at 0xffffa7e4e110>
+DEBUG - 2024-07-12 10:41:51,162 - 58f74b5c - test_validate_info((),{}) - initial call
+DEBUG - 2024-07-12 10:41:51,162 - 58f74b5c - test_validate_info((),{}) - 0.00023794174194335938 - returned <coroutine object TestInfo.test_info_validate_info_schema.<locals>.test_validate_info at 0xffffa7fb23b0>
+DEBUG - 2024-07-12 10:41:51,162 - 58f75e12 - info_check(('http://localhost:5070/info',),{}) - initial call
+DEBUG - 2024-07-12 10:41:51,163 - 58f76c22 - load_json_from_url(('http://localhost:5070/info',),{}) - initial call
+DEBUG - 2024-07-12 10:41:51,166 - 58f7d680 - info((<Request GET /info >,),{}) - initial call
+DEBUG - 2024-07-12 10:41:51,166 - 58f7d680 - info((<Request GET /info >,),{}) - 0.0002777576446533203 - returned <coroutine object info at 0xffffa2120510>
+DEBUG - 2024-07-12 10:41:51,167 - 58f76c22 - load_json_from_url(('http://localhost:5070/info',),{}) - 0.003743886947631836 - returned {'meta': {'beaconId': 'org.ega-archive.ega-beacon', 'apiVersion': 'v2.0-b8fa53a', 'returnedGranularity': 'record', 'receivedRequestSummary': {'apiVersion': 'v2.0-b8fa53a', 'requestedSchemas': [], 'filters': [], 'requestParameters': {}, 'includeResultsetResponses': 'HIT', 'pagination': {'skip': 0, 'limit': 10}, 'requestedGranularity': 'record', 'testMode': False}, 'returnedSchemas': []}, 'response': {'id': 'org.ega-archive.ega-beacon', 'name': 'EGA Beacon', 'apiVersion': 'v2.0-b8fa53a', 'environment': 'test', 'organization': {'id': 'EGA', 'name': 'European Genome-Phenome Archive (EGA)', 'description': 'The European Genome-phenome Archive (EGA) is a service for permanent archiving and sharing of all types of personally identifiable genetic and phenotypic data resulting from biomedical research projects.', 'address': 'C/ Dr. Aiguader, 88PRBB Building08003 Barcelona, Spain', 'welcomeUrl': 'https://ega-archive.org/', 'contactUrl': 'mailto:beacon.ega@crg.eu', 'logoUrl': 'https://legacy.ega-archive.org/images/logo.png'}, 'description': 'This beacon is based on the European Genome-Phenome Archive datasets. Now it only contains a public dataset coming from tcga coadread, with samples for patients with colorectal adenocarcinoma disease.', 'version': 'v2.0', 'welcomeUrl': 'https://beacon.ega-archive.org/', 'alternativeUrl': 'https://beacon.ega-archive.org/api', 'createDateTime': '2021-11-29T12:00:00.000000', 'updateDateTime': '2024-07-04T08:58:01.228066', 'datasets': []}}
+DEBUG - 2024-07-12 10:41:51,167 - 58f80b96 - validate_endpoint(('beacon/validator/ref_schemas/framework/json/responses/beaconInfoResponse.json', {'meta': {'beaconId': 'org.ega-archive.ega-beacon', 'apiVersion': 'v2.0-b8fa53a', 'returnedGranularity': 'record', 'receivedRequestSummary': {'apiVersion': 'v2.0-b8fa53a', 'requestedSchemas': [], 'filters': [], 'requestParameters': {}, 'includeResultsetResponses': 'HIT', 'pagination': {'skip': 0, 'limit': 10}, 'requestedGranularity': 'record', 'testMode': False}, 'returnedSchemas': []}, 'response': {'id': 'org.ega-archive.ega-beacon', 'name': 'EGA Beacon', 'apiVersion': 'v2.0-b8fa53a', 'environment': 'test', 'organization': {'id': 'EGA', 'name': 'European Genome-Phenome Archive (EGA)', 'description': 'The European Genome-phenome Archive (EGA) is a service for permanent archiving and sharing of all types of personally identifiable genetic and phenotypic data resulting from biomedical research projects.', 'address': 'C/ Dr. Aiguader, 88PRBB Building08003 Barcelona, Spain', 'welcomeUrl': 'https://ega-archive.org/', 'contactUrl': 'mailto:beacon.ega@crg.eu', 'logoUrl': 'https://legacy.ega-archive.org/images/logo.png'}, 'description': 'This beacon is based on the European Genome-Phenome Archive datasets. Now it only contains a public dataset coming from tcga coadread, with samples for patients with colorectal adenocarcinoma disease.', 'version': 'v2.0', 'welcomeUrl': 'https://beacon.ega-archive.org/', 'alternativeUrl': 'https://beacon.ega-archive.org/api', 'createDateTime': '2021-11-29T12:00:00.000000', 'updateDateTime': '2024-07-04T08:58:01.228066', 'datasets': []}}),{}) - initial call
+DEBUG - 2024-07-12 10:41:51,170 - 58f80b96 - validate_endpoint(('beacon/validator/ref_schemas/framework/json/responses/beaconInfoResponse.json', {'meta': {'beaconId': 'org.ega-archive.ega-beacon', 'apiVersion': 'v2.0-b8fa53a', 'returnedGranularity': 'record', 'receivedRequestSummary': {'apiVersion': 'v2.0-b8fa53a', 'requestedSchemas': [], 'filters': [], 'requestParameters': {}, 'includeResultsetResponses': 'HIT', 'pagination': {'skip': 0, 'limit': 10}, 'requestedGranularity': 'record', 'testMode': False}, 'returnedSchemas': []}, 'response': {'id': 'org.ega-archive.ega-beacon', 'name': 'EGA Beacon', 'apiVersion': 'v2.0-b8fa53a', 'environment': 'test', 'organization': {'id': 'EGA', 'name': 'European Genome-Phenome Archive (EGA)', 'description': 'The European Genome-phenome Archive (EGA) is a service for permanent archiving and sharing of all types of personally identifiable genetic and phenotypic data resulting from biomedical research projects.', 'address': 'C/ Dr. Aiguader, 88PRBB Building08003 Barcelona, Spain', 'welcomeUrl': 'https://ega-archive.org/', 'contactUrl': 'mailto:beacon.ega@crg.eu', 'logoUrl': 'https://legacy.ega-archive.org/images/logo.png'}, 'description': 'This beacon is based on the European Genome-Phenome Archive datasets. Now it only contains a public dataset coming from tcga coadread, with samples for patients with colorectal adenocarcinoma disease.', 'version': 'v2.0', 'welcomeUrl': 'https://beacon.ega-archive.org/', 'alternativeUrl': 'https://beacon.ega-archive.org/api', 'createDateTime': '2021-11-29T12:00:00.000000', 'updateDateTime': '2024-07-04T08:58:01.228066', 'datasets': []}}),{}) - 0.0027618408203125 - returned []
+DEBUG - 2024-07-12 10:41:51,170 - 58f75e12 - info_check(('http://localhost:5070/info',),{}) - 0.007984161376953125 - returned []
+DEBUG - 2024-07-12 10:42:55,025 - 7f07fe90 - bearer_required((<function permission at 0xffffa8b911b0>,),{}) - initial call
+DEBUG - 2024-07-12 10:42:55,026 - 7f07fe90 - bearer_required((<function permission at 0xffffa8b911b0>,),{}) - 0.0012447834014892578 - returned <function bearer_required.<locals>.authentication at 0xffffa7b21bd0>
+DEBUG - 2024-07-12 10:42:55,027 - 7f086128 - initialize((<Application 0xffffa8189c90>,),{}) - initial call
+DEBUG - 2024-07-12 10:42:55,028 - 7f086128 - initialize((<Application 0xffffa8189c90>,),{}) - 0.00021529197692871094 - returned <coroutine object initialize at 0xffffa7b282e0>
+INFO - 2024-07-12 10:42:55,028 - 7f086128 - Initialization done
+DEBUG - 2024-07-12 10:42:57,637 - 809687ea - bearer_required((<function permission at 0xffff9972e8c0>,),{}) - initial call
+DEBUG - 2024-07-12 10:42:57,637 - 809687ea - bearer_required((<function permission at 0xffff9972e8c0>,),{}) - 0.0003905296325683594 - returned <function bearer_required.<locals>.authentication at 0xffff9889dab0>
+DEBUG - 2024-07-12 10:42:57,704 - 80a0bfee - test_check_control_endpoint_is_working((),{}) - initial call
+DEBUG - 2024-07-12 10:42:57,704 - 80a0bfee - test_check_control_endpoint_is_working((),{}) - 0.00026679039001464844 - returned <coroutine object TestApp.test_main_check_control_endpoint_is_working.<locals>.test_check_control_endpoint_is_working at 0xffff98201a80>
+DEBUG - 2024-07-12 10:42:57,705 - 80a0f93c - control((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:42:57,705 - 80a0f93c - control((<Request GET /control >,),{}) - 0.00023603439331054688 - returned <coroutine object control at 0xffff982020a0>
+DEBUG - 2024-07-12 10:42:57,706 - 80a10af8 - authentication((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:42:57,706 - 80a10af8 - authentication((<Request GET /control >,),{}) - 0.00026726722717285156 - returned <coroutine object bearer_required.<locals>.authentication at 0xffff98202110>
+DEBUG - 2024-07-12 10:42:57,715 - 80a270dc - test_validate_info((),{}) - initial call
+DEBUG - 2024-07-12 10:42:57,715 - 80a270dc - test_validate_info((),{}) - 0.0003218650817871094 - returned <coroutine object TestInfo.test_info_validate_info_schema.<locals>.test_validate_info at 0xffff983663b0>
+DEBUG - 2024-07-12 10:42:57,716 - 80a28ec8 - info_check(('http://localhost:5070/info',),{}) - initial call
+DEBUG - 2024-07-12 10:42:57,716 - 80a2a0a2 - load_json_from_url(('http://localhost:5070/info',),{}) - initial call
+DEBUG - 2024-07-12 10:42:57,719 - 80a30ca4 - info((<Request GET /info >,),{}) - initial call
+DEBUG - 2024-07-12 10:42:57,719 - 80a30ca4 - info((<Request GET /info >,),{}) - 0.0003292560577392578 - returned <coroutine object info at 0xffffa7b28510>
+DEBUG - 2024-07-12 10:42:57,720 - 80a2a0a2 - load_json_from_url(('http://localhost:5070/info',),{}) - 0.004384279251098633 - returned {'meta': {'beaconId': 'org.ega-archive.ega-beacon', 'apiVersion': 'v2.0-b8fa53a', 'returnedGranularity': 'record', 'receivedRequestSummary': {'apiVersion': 'v2.0-b8fa53a', 'requestedSchemas': [], 'filters': [], 'requestParameters': {}, 'includeResultsetResponses': 'HIT', 'pagination': {'skip': 0, 'limit': 10}, 'requestedGranularity': 'record', 'testMode': False}, 'returnedSchemas': []}, 'response': {'id': 'org.ega-archive.ega-beacon', 'name': 'EGA Beacon', 'apiVersion': 'v2.0-b8fa53a', 'environment': 'test', 'organization': {'id': 'EGA', 'name': 'European Genome-Phenome Archive (EGA)', 'description': 'The European Genome-phenome Archive (EGA) is a service for permanent archiving and sharing of all types of personally identifiable genetic and phenotypic data resulting from biomedical research projects.', 'address': 'C/ Dr. Aiguader, 88PRBB Building08003 Barcelona, Spain', 'welcomeUrl': 'https://ega-archive.org/', 'contactUrl': 'mailto:beacon.ega@crg.eu', 'logoUrl': 'https://legacy.ega-archive.org/images/logo.png'}, 'description': 'This beacon is based on the European Genome-Phenome Archive datasets. Now it only contains a public dataset coming from tcga coadread, with samples for patients with colorectal adenocarcinoma disease.', 'version': 'v2.0', 'welcomeUrl': 'https://beacon.ega-archive.org/', 'alternativeUrl': 'https://beacon.ega-archive.org/api', 'createDateTime': '2021-11-29T12:00:00.000000', 'updateDateTime': '2024-07-04T08:58:01.228066', 'datasets': []}}
+DEBUG - 2024-07-12 10:42:57,721 - 80a363de - validate_endpoint(('beacon/validator/ref_schemas/framework/json/responses/beaconInfoResponse.json', {'meta': {'beaconId': 'org.ega-archive.ega-beacon', 'apiVersion': 'v2.0-b8fa53a', 'returnedGranularity': 'record', 'receivedRequestSummary': {'apiVersion': 'v2.0-b8fa53a', 'requestedSchemas': [], 'filters': [], 'requestParameters': {}, 'includeResultsetResponses': 'HIT', 'pagination': {'skip': 0, 'limit': 10}, 'requestedGranularity': 'record', 'testMode': False}, 'returnedSchemas': []}, 'response': {'id': 'org.ega-archive.ega-beacon', 'name': 'EGA Beacon', 'apiVersion': 'v2.0-b8fa53a', 'environment': 'test', 'organization': {'id': 'EGA', 'name': 'European Genome-Phenome Archive (EGA)', 'description': 'The European Genome-phenome Archive (EGA) is a service for permanent archiving and sharing of all types of personally identifiable genetic and phenotypic data resulting from biomedical research projects.', 'address': 'C/ Dr. Aiguader, 88PRBB Building08003 Barcelona, Spain', 'welcomeUrl': 'https://ega-archive.org/', 'contactUrl': 'mailto:beacon.ega@crg.eu', 'logoUrl': 'https://legacy.ega-archive.org/images/logo.png'}, 'description': 'This beacon is based on the European Genome-Phenome Archive datasets. Now it only contains a public dataset coming from tcga coadread, with samples for patients with colorectal adenocarcinoma disease.', 'version': 'v2.0', 'welcomeUrl': 'https://beacon.ega-archive.org/', 'alternativeUrl': 'https://beacon.ega-archive.org/api', 'createDateTime': '2021-11-29T12:00:00.000000', 'updateDateTime': '2024-07-04T08:58:01.228066', 'datasets': []}}),{}) - initial call
+DEBUG - 2024-07-12 10:42:57,725 - 80a363de - validate_endpoint(('beacon/validator/ref_schemas/framework/json/responses/beaconInfoResponse.json', {'meta': {'beaconId': 'org.ega-archive.ega-beacon', 'apiVersion': 'v2.0-b8fa53a', 'returnedGranularity': 'record', 'receivedRequestSummary': {'apiVersion': 'v2.0-b8fa53a', 'requestedSchemas': [], 'filters': [], 'requestParameters': {}, 'includeResultsetResponses': 'HIT', 'pagination': {'skip': 0, 'limit': 10}, 'requestedGranularity': 'record', 'testMode': False}, 'returnedSchemas': []}, 'response': {'id': 'org.ega-archive.ega-beacon', 'name': 'EGA Beacon', 'apiVersion': 'v2.0-b8fa53a', 'environment': 'test', 'organization': {'id': 'EGA', 'name': 'European Genome-Phenome Archive (EGA)', 'description': 'The European Genome-phenome Archive (EGA) is a service for permanent archiving and sharing of all types of personally identifiable genetic and phenotypic data resulting from biomedical research projects.', 'address': 'C/ Dr. Aiguader, 88PRBB Building08003 Barcelona, Spain', 'welcomeUrl': 'https://ega-archive.org/', 'contactUrl': 'mailto:beacon.ega@crg.eu', 'logoUrl': 'https://legacy.ega-archive.org/images/logo.png'}, 'description': 'This beacon is based on the European Genome-Phenome Archive datasets. Now it only contains a public dataset coming from tcga coadread, with samples for patients with colorectal adenocarcinoma disease.', 'version': 'v2.0', 'welcomeUrl': 'https://beacon.ega-archive.org/', 'alternativeUrl': 'https://beacon.ega-archive.org/api', 'createDateTime': '2021-11-29T12:00:00.000000', 'updateDateTime': '2024-07-04T08:58:01.228066', 'datasets': []}}),{}) - 0.0037310123443603516 - returned []
+DEBUG - 2024-07-12 10:42:57,725 - 80a28ec8 - info_check(('http://localhost:5070/info',),{}) - 0.009636878967285156 - returned []
+DEBUG - 2024-07-12 10:42:57,737 - 80a5c3ae - test_load_json_from_url((),{}) - initial call
+DEBUG - 2024-07-12 10:42:57,737 - 80a5c3ae - test_load_json_from_url((),{}) - 0.00022029876708984375 - returned <coroutine object TestValidator.test_validator_load_json_from_url.<locals>.test_load_json_from_url at 0xffff983663b0>
+DEBUG - 2024-07-12 10:42:57,738 - 80a5ec76 - control((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:42:57,738 - 80a5ec76 - control((<Request GET /control >,),{}) - 0.00016736984252929688 - returned <coroutine object control at 0xffff98202d50>
+DEBUG - 2024-07-12 10:42:57,738 - 80a5faae - authentication((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:42:57,738 - 80a5faae - authentication((<Request GET /control >,),{}) - 0.00022792816162109375 - returned <coroutine object bearer_required.<locals>.authentication at 0xffff98202e30>
+DEBUG - 2024-07-12 10:42:57,739 - 80a61aca - load_json_from_url((<ClientResponse(http://127.0.0.1:35467/control) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '13', 'Date': 'Fri, 12 Jul 2024 10:42:57 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>
+,),{}) - initial call
+DEBUG - 2024-07-12 10:42:57,739 - 80a61aca - load_json_from_url((<ClientResponse(http://127.0.0.1:35467/control) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '13', 'Date': 'Fri, 12 Jul 2024 10:42:57 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>
+,),{}) - 0.0004417896270751953 - returned No connection adapters were found for "<ClientResponse(http://127.0.0.1:35467/control) [200 OK]>\n<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '13', 'Date': 'Fri, 12 Jul 2024 10:42:57 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>\n"
+DEBUG - 2024-07-12 10:45:01,982 - cab420ee - bearer_required((<function permission at 0xffff93f511b0>,),{}) - initial call
+DEBUG - 2024-07-12 10:45:01,984 - cab420ee - bearer_required((<function permission at 0xffff93f511b0>,),{}) - 0.001398324966430664 - returned <function bearer_required.<locals>.authentication at 0xffff92ee1bd0>
+DEBUG - 2024-07-12 10:45:01,987 - cab4e51a - initialize((<Application 0xffff9354dc90>,),{}) - initial call
+DEBUG - 2024-07-12 10:45:01,988 - cab4e51a - initialize((<Application 0xffff9354dc90>,),{}) - 0.00058746337890625 - returned <coroutine object initialize at 0xffff92ee82e0>
+INFO - 2024-07-12 10:45:01,988 - cab4e51a - Initialization done
+DEBUG - 2024-07-12 10:45:03,099 - cb5e8674 - bearer_required((<function permission at 0xffffacb46950>,),{}) - initial call
+DEBUG - 2024-07-12 10:45:03,099 - cb5e8674 - bearer_required((<function permission at 0xffffacb46950>,),{}) - 0.0005507469177246094 - returned <function bearer_required.<locals>.authentication at 0xffffabcb5b40>
+DEBUG - 2024-07-12 10:45:03,236 - cb736058 - test_load_json_from_url((),{}) - initial call
+DEBUG - 2024-07-12 10:45:03,236 - cb736058 - test_load_json_from_url((),{}) - 0.0007379055023193359 - returned <coroutine object TestValidator.test_validator_load_json_from_url.<locals>.test_load_json_from_url at 0xffffab6219a0>
+DEBUG - 2024-07-12 10:45:03,240 - cb74018e - control((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:45:03,241 - cb74018e - control((<Request GET /control >,),{}) - 0.0011327266693115234 - returned <coroutine object control at 0xffffab621fc0>
+DEBUG - 2024-07-12 10:45:03,242 - cb7454b8 - authentication((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:45:03,242 - cb7454b8 - authentication((<Request GET /control >,),{}) - 0.0005865097045898438 - returned <coroutine object bearer_required.<locals>.authentication at 0xffffab622030>
+DEBUG - 2024-07-12 10:45:03,244 - cb74b44e - load_json_from_url((<ClientResponse(http://127.0.0.1:45317/control) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '13', 'Date': 'Fri, 12 Jul 2024 10:45:03 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>
+,),{}) - initial call
+DEBUG - 2024-07-12 10:45:03,246 - cb74b44e - load_json_from_url((<ClientResponse(http://127.0.0.1:45317/control) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '13', 'Date': 'Fri, 12 Jul 2024 10:45:03 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>
+,),{}) - 0.001466512680053711 - returned No connection adapters were found for "<ClientResponse(http://127.0.0.1:45317/control) [200 OK]>\n<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '13', 'Date': 'Fri, 12 Jul 2024 10:45:03 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>\n"
+DEBUG - 2024-07-12 10:46:46,967 - 09479408 - bearer_required((<function permission at 0xffffa6f091b0>,),{}) - initial call
+DEBUG - 2024-07-12 10:46:46,969 - 09479408 - bearer_required((<function permission at 0xffffa6f091b0>,),{}) - 0.0021047592163085938 - returned <function bearer_required.<locals>.authentication at 0xffffa5e99bd0>
+DEBUG - 2024-07-12 10:46:46,973 - 09488b2e - initialize((<Application 0xffffa6505c90>,),{}) - initial call
+DEBUG - 2024-07-12 10:46:46,974 - 09488b2e - initialize((<Application 0xffffa6505c90>,),{}) - 0.00075531005859375 - returned <coroutine object initialize at 0xffffa5ea02e0>
+INFO - 2024-07-12 10:46:46,975 - 09488b2e - Initialization done
+DEBUG - 2024-07-12 10:46:48,561 - 0a3ac074 - bearer_required((<function permission at 0xffff7db1a950>,),{}) - initial call
+DEBUG - 2024-07-12 10:46:48,561 - 0a3ac074 - bearer_required((<function permission at 0xffff7db1a950>,),{}) - 0.0006346702575683594 - returned <function bearer_required.<locals>.authentication at 0xffff7cc89b40>
+DEBUG - 2024-07-12 10:46:48,686 - 0a4ddad8 - test_load_json_from_url((),{}) - initial call
+DEBUG - 2024-07-12 10:46:48,686 - 0a4ddad8 - test_load_json_from_url((),{}) - 0.00046896934509277344 - returned <coroutine object TestValidator.test_validator_load_json_from_url.<locals>.test_load_json_from_url at 0xffff7c7e59a0>
+DEBUG - 2024-07-12 10:46:48,689 - 0a4e4e14 - info((<Request GET /info >,),{}) - initial call
+DEBUG - 2024-07-12 10:46:48,689 - 0a4e4e14 - info((<Request GET /info >,),{}) - 0.00046944618225097656 - returned <coroutine object info at 0xffff7c7e5fc0>
+DEBUG - 2024-07-12 10:46:48,690 - 0a4e891a - load_json_from_url((<ClientResponse(http://127.0.0.1:42651/info) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '1485', 'Date': 'Fri, 12 Jul 2024 10:46:48 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>
+,),{}) - initial call
+DEBUG - 2024-07-12 10:46:48,691 - 0a4e891a - load_json_from_url((<ClientResponse(http://127.0.0.1:42651/info) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '1485', 'Date': 'Fri, 12 Jul 2024 10:46:48 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>
+,),{}) - 0.0009737014770507812 - returned No connection adapters were found for "<ClientResponse(http://127.0.0.1:42651/info) [200 OK]>\n<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '1485', 'Date': 'Fri, 12 Jul 2024 10:46:48 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>\n"
+DEBUG - 2024-07-12 10:49:04,814 - 5b71584a - bearer_required((<function permission at 0xffffa85351b0>,),{}) - initial call
+DEBUG - 2024-07-12 10:49:04,815 - 5b71584a - bearer_required((<function permission at 0xffffa85351b0>,),{}) - 0.0013589859008789062 - returned <function bearer_required.<locals>.authentication at 0xffffa74bdbd0>
+DEBUG - 2024-07-12 10:49:04,820 - 5b722f2c - initialize((<Application 0xffffa7b29c90>,),{}) - initial call
+DEBUG - 2024-07-12 10:49:04,820 - 5b722f2c - initialize((<Application 0xffffa7b29c90>,),{}) - 0.0007414817810058594 - returned <coroutine object initialize at 0xffffa74c42e0>
+INFO - 2024-07-12 10:49:04,821 - 5b722f2c - Initialization done
+DEBUG - 2024-07-12 10:49:06,116 - 5c3809d6 - bearer_required((<function permission at 0xffffb5336950>,),{}) - initial call
+DEBUG - 2024-07-12 10:49:06,117 - 5c3809d6 - bearer_required((<function permission at 0xffffb5336950>,),{}) - 0.0006358623504638672 - returned <function bearer_required.<locals>.authentication at 0xffffb449db40>
+DEBUG - 2024-07-12 10:49:06,287 - 5c520ff2 - test_load_json_from_url((),{}) - initial call
+DEBUG - 2024-07-12 10:49:06,287 - 5c520ff2 - test_load_json_from_url((),{}) - 0.0006549358367919922 - returned <coroutine object TestValidator.test_validator_load_json_from_url.<locals>.test_load_json_from_url at 0xffffb3e05930>
+DEBUG - 2024-07-12 10:49:06,290 - 5c529120 - control((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:49:06,291 - 5c529120 - control((<Request GET /control >,),{}) - 0.0005433559417724609 - returned <coroutine object control at 0xffffb3e05f50>
+DEBUG - 2024-07-12 10:49:06,291 - 5c52bb00 - authentication((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:49:06,292 - 5c52bb00 - authentication((<Request GET /control >,),{}) - 0.00048089027404785156 - returned <coroutine object bearer_required.<locals>.authentication at 0xffffb3e05fc0>
+DEBUG - 2024-07-12 10:49:06,293 - 5c530704 - load_json_from_url((<ClientResponse(http://127.0.0.1:46495/control) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '13', 'Date': 'Fri, 12 Jul 2024 10:49:06 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>
+,),{}) - initial call
+DEBUG - 2024-07-12 10:49:06,295 - 5c530704 - load_json_from_url((<ClientResponse(http://127.0.0.1:46495/control) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '13', 'Date': 'Fri, 12 Jul 2024 10:49:06 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>
+,),{}) - 0.0014421939849853516 - returned No connection adapters were found for "<ClientResponse(http://127.0.0.1:46495/control) [200 OK]>\n<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '13', 'Date': 'Fri, 12 Jul 2024 10:49:06 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>\n"
+DEBUG - 2024-07-12 10:50:40,735 - 949dac72 - bearer_required((<function permission at 0xffffbab291b0>,),{}) - initial call
+DEBUG - 2024-07-12 10:50:40,737 - 949dac72 - bearer_required((<function permission at 0xffffbab291b0>,),{}) - 0.001909494400024414 - returned <function bearer_required.<locals>.authentication at 0xffffb9ab9bd0>
+DEBUG - 2024-07-12 10:50:40,740 - 949e72f6 - initialize((<Application 0xffffba125c90>,),{}) - initial call
+DEBUG - 2024-07-12 10:50:40,740 - 949e72f6 - initialize((<Application 0xffffba125c90>,),{}) - 0.0005645751953125 - returned <coroutine object initialize at 0xffffb9ac02e0>
+INFO - 2024-07-12 10:50:40,741 - 949e72f6 - Initialization done
+DEBUG - 2024-07-12 10:50:42,695 - 95c8d018 - bearer_required((<function permission at 0xffff7f6ba950>,),{}) - initial call
+DEBUG - 2024-07-12 10:50:42,696 - 95c8d018 - bearer_required((<function permission at 0xffff7f6ba950>,),{}) - 0.0008876323699951172 - returned <function bearer_required.<locals>.authentication at 0xffff7e825b40>
+DEBUG - 2024-07-12 10:50:42,805 - 95d98b92 - test_load_json_from_url((),{}) - initial call
+DEBUG - 2024-07-12 10:50:42,805 - 95d98b92 - test_load_json_from_url((),{}) - 0.00038933753967285156 - returned <coroutine object TestValidator.test_validator_load_json_from_url.<locals>.test_load_json_from_url at 0xffff7e1959a0>
+DEBUG - 2024-07-12 10:50:42,807 - 95d9eae2 - control((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:50:42,808 - 95d9eae2 - control((<Request GET /control >,),{}) - 0.0003116130828857422 - returned <coroutine object control at 0xffff7e195fc0>
+DEBUG - 2024-07-12 10:50:42,808 - 95da037e - authentication((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:50:42,808 - 95da037e - authentication((<Request GET /control >,),{}) - 0.0002903938293457031 - returned <coroutine object bearer_required.<locals>.authentication at 0xffff7e196030>
+DEBUG - 2024-07-12 10:50:42,809 - 95da2fac - load_json_from_url((<ClientResponse(http://127.0.0.1:42995/control) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '13', 'Date': 'Fri, 12 Jul 2024 10:50:42 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>
+,),{}) - initial call
+DEBUG - 2024-07-12 10:50:42,810 - 95da2fac - load_json_from_url((<ClientResponse(http://127.0.0.1:42995/control) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '13', 'Date': 'Fri, 12 Jul 2024 10:50:42 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>
+,),{}) - 0.0009548664093017578 - returned No connection adapters were found for "<ClientResponse(http://127.0.0.1:42995/control) [200 OK]>\n<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '13', 'Date': 'Fri, 12 Jul 2024 10:50:42 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>\n"
+DEBUG - 2024-07-12 10:50:42,810 - No connection adapters were found for "<ClientResponse(http://127.0.0.1:42995/control) [200 OK]>\n<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '13', 'Date': 'Fri, 12 Jul 2024 10:50:42 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>\n"
+DEBUG - 2024-07-12 10:52:51,004 - e2431f0c - bearer_required((<function permission at 0xffffb8bc11b0>,),{}) - initial call
+DEBUG - 2024-07-12 10:52:51,006 - e2431f0c - bearer_required((<function permission at 0xffffb8bc11b0>,),{}) - 0.002165555953979492 - returned <function bearer_required.<locals>.authentication at 0xffffb7b45bd0>
+DEBUG - 2024-07-12 10:52:51,010 - e24423de - initialize((<Application 0xffffb81b1c90>,),{}) - initial call
+DEBUG - 2024-07-12 10:52:51,011 - e24423de - initialize((<Application 0xffffb81b1c90>,),{}) - 0.0008435249328613281 - returned <coroutine object initialize at 0xffffb7b4c2e0>
+INFO - 2024-07-12 10:52:51,012 - e24423de - Initialization done
+DEBUG - 2024-07-12 10:52:52,603 - e3371bc0 - bearer_required((<function permission at 0xffff99556950>,),{}) - initial call
+DEBUG - 2024-07-12 10:52:52,604 - e3371bc0 - bearer_required((<function permission at 0xffff99556950>,),{}) - 0.0010199546813964844 - returned <function bearer_required.<locals>.authentication at 0xffff986c1b40>
+DEBUG - 2024-07-12 10:52:52,807 - e356461c - test_load_json_from_url((),{}) - initial call
+DEBUG - 2024-07-12 10:52:52,808 - e356461c - test_load_json_from_url((),{}) - 0.0007739067077636719 - returned <coroutine object TestValidator.test_validator_load_json_from_url.<locals>.test_load_json_from_url at 0xffff98031930>
+DEBUG - 2024-07-12 10:52:52,809 - e356a54e - load_json_from_url(('http://localhost:5070/control',),{}) - initial call
+DEBUG - 2024-07-12 10:52:52,815 - e3578e78 - control((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:52:52,816 - e3578e78 - control((<Request GET /control >,),{}) - 0.00080108642578125 - returned <coroutine object control at 0xffffb7b4c510>
+DEBUG - 2024-07-12 10:52:52,817 - e357c92e - authentication((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:52:52,817 - e357c92e - authentication((<Request GET /control >,),{}) - 0.0006487369537353516 - returned <coroutine object bearer_required.<locals>.authentication at 0xffffb7b4c580>
+DEBUG - 2024-07-12 10:52:52,820 - e356a54e - load_json_from_url(('http://localhost:5070/control',),{}) - 0.010505914688110352 - returned {'status': 2}
+DEBUG - 2024-07-12 10:53:25,163 - f69f6aa0 - bearer_required((<function permission at 0xffff8c5d51b0>,),{}) - initial call
+DEBUG - 2024-07-12 10:53:25,163 - f69f6aa0 - bearer_required((<function permission at 0xffff8c5d51b0>,),{}) - 0.0006086826324462891 - returned <function bearer_required.<locals>.authentication at 0xffff8b55dbd0>
+DEBUG - 2024-07-12 10:53:25,166 - f69fde90 - initialize((<Application 0xffff8bbc9c90>,),{}) - initial call
+DEBUG - 2024-07-12 10:53:25,166 - f69fde90 - initialize((<Application 0xffff8bbc9c90>,),{}) - 0.0004229545593261719 - returned <coroutine object initialize at 0xffff8b5642e0>
+INFO - 2024-07-12 10:53:25,167 - f69fde90 - Initialization done
+DEBUG - 2024-07-12 10:53:26,303 - f74d4f62 - bearer_required((<function permission at 0xffff80452950>,),{}) - initial call
+DEBUG - 2024-07-12 10:53:26,304 - f74d4f62 - bearer_required((<function permission at 0xffff80452950>,),{}) - 0.0014102458953857422 - returned <function bearer_required.<locals>.authentication at 0xffff7f5c1b40>
+DEBUG - 2024-07-12 10:53:26,439 - f7621668 - test_load_json_from_url((),{}) - initial call
+DEBUG - 2024-07-12 10:53:26,439 - f7621668 - test_load_json_from_url((),{}) - 0.0005064010620117188 - returned <coroutine object TestValidator.test_validator_load_json_from_url.<locals>.test_load_json_from_url at 0xffff7ef319a0>
+DEBUG - 2024-07-12 10:53:26,440 - f7623cce - load_json_from_url(('http://localhost:5070/control',),{}) - initial call
+DEBUG - 2024-07-12 10:53:26,443 - f762c464 - control((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:53:26,444 - f762c464 - control((<Request GET /control >,),{}) - 0.0004868507385253906 - returned <coroutine object control at 0xffff8b564510>
+DEBUG - 2024-07-12 10:53:26,444 - f762e7f0 - authentication((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:53:26,444 - f762e7f0 - authentication((<Request GET /control >,),{}) - 0.00037932395935058594 - returned <coroutine object bearer_required.<locals>.authentication at 0xffff8b564580>
+DEBUG - 2024-07-12 10:53:26,446 - f7623cce - load_json_from_url(('http://localhost:5070/control',),{}) - 0.006151914596557617 - returned {'status': 2}
+DEBUG - 2024-07-12 10:56:31,133 - 65783628 - bearer_required((<function permission at 0xffffaa98d1b0>,),{}) - initial call
+DEBUG - 2024-07-12 10:56:31,134 - 65783628 - bearer_required((<function permission at 0xffffaa98d1b0>,),{}) - 0.001135110855102539 - returned <function bearer_required.<locals>.authentication at 0xffffa991dbd0>
+DEBUG - 2024-07-12 10:56:31,139 - 6579204c - initialize((<Application 0xffffa9f89c90>,),{}) - initial call
+DEBUG - 2024-07-12 10:56:31,140 - 6579204c - initialize((<Application 0xffffa9f89c90>,),{}) - 0.0006811618804931641 - returned <coroutine object initialize at 0xffffa99242e0>
+INFO - 2024-07-12 10:56:31,141 - 6579204c - Initialization done
+DEBUG - 2024-07-12 10:56:32,777 - 66731e62 - bearer_required((<function permission at 0xffffa3212950>,),{}) - initial call
+DEBUG - 2024-07-12 10:56:32,778 - 66731e62 - bearer_required((<function permission at 0xffffa3212950>,),{}) - 0.0005400180816650391 - returned <function bearer_required.<locals>.authentication at 0xffffa237db40>
+DEBUG - 2024-07-12 10:56:32,883 - 6683436e - test_catching_errors_load_json_from_url((),{}) - initial call
+DEBUG - 2024-07-12 10:56:32,884 - 6683436e - test_catching_errors_load_json_from_url((),{}) - 0.00043654441833496094 - returned <coroutine object TestValidator.test_validator_catching_errors_load_json_from_url.<locals>.test_catching_errors_load_json_from_url at 0xffffa1cf1a80>
+DEBUG - 2024-07-12 10:56:32,884 - 66836718 - load_json_from_url(('http://localhost:5070/contro',),{}) - initial call
+DEBUG - 2024-07-12 10:56:32,888 - 66836718 - load_json_from_url(('http://localhost:5070/contro',),{}) - 0.003795146942138672 - returned Extra data: line 1 column 4 (char 3)
+DEBUG - 2024-07-12 10:56:32,890 - 66844a98 - test_load_json_from_url((),{}) - initial call
+DEBUG - 2024-07-12 10:56:32,890 - 66844a98 - test_load_json_from_url((),{}) - 0.00032806396484375 - returned <coroutine object TestValidator.test_validator_load_json_from_url.<locals>.test_load_json_from_url at 0xffffa1d638b0>
+DEBUG - 2024-07-12 10:56:32,891 - 668486f2 - load_json_from_url(('http://localhost:5070/control',),{}) - initial call
+DEBUG - 2024-07-12 10:56:32,893 - 6684cb44 - control((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:56:32,894 - 6684cb44 - control((<Request GET /control >,),{}) - 0.0003383159637451172 - returned <coroutine object control at 0xffffa9924660>
+DEBUG - 2024-07-12 10:56:32,894 - 6684e44e - authentication((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 10:56:32,894 - 6684e44e - authentication((<Request GET /control >,),{}) - 0.00024437904357910156 - returned <coroutine object bearer_required.<locals>.authentication at 0xffffa99246d0>
+DEBUG - 2024-07-12 10:56:32,895 - 668486f2 - load_json_from_url(('http://localhost:5070/control',),{}) - 0.003626585006713867 - returned {'status': 2}
+DEBUG - 2024-07-12 11:00:19,600 - eda5774a - bearer_required((<function permission at 0xffff8d8451b0>,),{}) - initial call
+DEBUG - 2024-07-12 11:00:19,601 - eda5774a - bearer_required((<function permission at 0xffff8d8451b0>,),{}) - 0.0013360977172851562 - returned <function bearer_required.<locals>.authentication at 0xffff8c7c9bd0>
+DEBUG - 2024-07-12 11:00:19,605 - eda6485a - initialize((<Application 0xffff8ce35c90>,),{}) - initial call
+DEBUG - 2024-07-12 11:00:19,606 - eda6485a - initialize((<Application 0xffff8ce35c90>,),{}) - 0.0006611347198486328 - returned <coroutine object initialize at 0xffff8c7d02e0>
+INFO - 2024-07-12 11:00:19,606 - eda6485a - Initialization done
+DEBUG - 2024-07-12 11:00:21,686 - eee3b9dc - bearer_required((<function permission at 0xffff82d9a950>,),{}) - initial call
+DEBUG - 2024-07-12 11:00:21,686 - eee3b9dc - bearer_required((<function permission at 0xffff82d9a950>,),{}) - 0.0004734992980957031 - returned <function bearer_required.<locals>.authentication at 0xffff81f05b40>
+DEBUG - 2024-07-12 11:00:21,796 - eef48a5a - test_catching_errors_load_json_from_url((),{}) - initial call
+DEBUG - 2024-07-12 11:00:21,796 - eef48a5a - test_catching_errors_load_json_from_url((),{}) - 0.00044226646423339844 - returned <coroutine object TestValidator.test_validator_catching_errors_load_json_from_url.<locals>.test_catching_errors_load_json_from_url at 0xffff81879a10>
+DEBUG - 2024-07-12 11:00:21,796 - eef4a8fa - load_json_from_url(('http://localhost:5070/contro',),{}) - initial call
+DEBUG - 2024-07-12 11:00:21,801 - eef4a8fa - load_json_from_url(('http://localhost:5070/contro',),{}) - 0.0043010711669921875 - returned No active exception to reraise
+DEBUG - 2024-07-12 11:00:21,803 - eef5aa52 - test_load_json_from_url((),{}) - initial call
+DEBUG - 2024-07-12 11:00:21,803 - eef5aa52 - test_load_json_from_url((),{}) - 0.0002529621124267578 - returned <coroutine object TestValidator.test_validator_load_json_from_url.<locals>.test_load_json_from_url at 0xffff818eb7d0>
+DEBUG - 2024-07-12 11:00:21,804 - eef5c0c8 - load_json_from_url(('http://localhost:5070/control',),{}) - initial call
+DEBUG - 2024-07-12 11:00:21,805 - eef601d2 - control((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 11:00:21,806 - eef601d2 - control((<Request GET /control >,),{}) - 0.0003216266632080078 - returned <coroutine object control at 0xffff8c7d0660>
+DEBUG - 2024-07-12 11:00:21,806 - eef61aaa - authentication((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 11:00:21,806 - eef61aaa - authentication((<Request GET /control >,),{}) - 0.00027251243591308594 - returned <coroutine object bearer_required.<locals>.authentication at 0xffff8c7d06d0>
+DEBUG - 2024-07-12 11:00:21,807 - eef5c0c8 - load_json_from_url(('http://localhost:5070/control',),{}) - 0.0035114288330078125 - returned {'status': 2}
+DEBUG - 2024-07-12 11:02:24,029 - 37cfd78e - bearer_required((<function permission at 0xffffb39ad1b0>,),{}) - initial call
+DEBUG - 2024-07-12 11:02:24,031 - 37cfd78e - bearer_required((<function permission at 0xffffb39ad1b0>,),{}) - 0.0023975372314453125 - returned <function bearer_required.<locals>.authentication at 0xffffb293dbd0>
+DEBUG - 2024-07-12 11:02:24,037 - 37d103de - initialize((<Application 0xffffb2fa9c90>,),{}) - initial call
+DEBUG - 2024-07-12 11:02:24,037 - 37d103de - initialize((<Application 0xffffb2fa9c90>,),{}) - 0.0008029937744140625 - returned <coroutine object initialize at 0xffffb29442e0>
+INFO - 2024-07-12 11:02:24,038 - 37d103de - Initialization done
+DEBUG - 2024-07-12 11:02:27,135 - 39a9c880 - bearer_required((<function permission at 0xffffb44ce950>,),{}) - initial call
+DEBUG - 2024-07-12 11:02:27,136 - 39a9c880 - bearer_required((<function permission at 0xffffb44ce950>,),{}) - 0.0005781650543212891 - returned <function bearer_required.<locals>.authentication at 0xffffb3635b40>
+DEBUG - 2024-07-12 11:02:27,235 - 39b91d76 - test_catching_errors_load_json_from_url((),{}) - initial call
+DEBUG - 2024-07-12 11:02:27,236 - 39b91d76 - test_catching_errors_load_json_from_url((),{}) - 0.00039076805114746094 - returned <coroutine object TestValidator.test_validator_catching_errors_load_json_from_url.<locals>.test_catching_errors_load_json_from_url at 0xffffb2fa1a10>
+DEBUG - 2024-07-12 11:02:27,236 - 39b941b6 - load_json_from_url(('http://localhost:5070/contro',),{}) - initial call
+DEBUG - 2024-07-12 11:02:27,241 - 39b941b6 - load_json_from_url(('http://localhost:5070/contro',),{}) - 0.0046842098236083984 - returned Not Found
+DEBUG - 2024-07-12 11:02:27,255 - 39bc11ca - test_load_json_from_url((),{}) - initial call
+DEBUG - 2024-07-12 11:02:27,255 - 39bc11ca - test_load_json_from_url((),{}) - 0.0003752708435058594 - returned <coroutine object TestValidator.test_validator_load_json_from_url.<locals>.test_load_json_from_url at 0xffffb31063b0>
+DEBUG - 2024-07-12 11:02:27,256 - 39bc324a - load_json_from_url(('http://localhost:5070/control',),{}) - initial call
+DEBUG - 2024-07-12 11:02:27,257 - 39bc793a - control((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 11:02:27,258 - 39bc793a - control((<Request GET /control >,),{}) - 0.00043082237243652344 - returned <coroutine object control at 0xffffb2944660>
+DEBUG - 2024-07-12 11:02:27,258 - 39bc9f28 - authentication((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-12 11:02:27,259 - 39bc9f28 - authentication((<Request GET /control >,),{}) - 0.0003235340118408203 - returned <coroutine object bearer_required.<locals>.authentication at 0xffffb29446d0>
+DEBUG - 2024-07-12 11:02:27,260 - 39bc324a - load_json_from_url(('http://localhost:5070/control',),{}) - 0.004253387451171875 - returned {'status': 2}
