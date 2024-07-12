@@ -1,0 +1,5 @@
+DEBUG - 2024-07-12 07:22:14,187 - 7621e410 - bearer_required((<function permission at 0xffffb3d611b0>,),{}) - initial call
+DEBUG - 2024-07-12 07:22:14,187 - 7621e410 - bearer_required((<function permission at 0xffffb3d611b0>,),{}) - 0.0002925395965576172 - returned <function bearer_required.<locals>.authentication at 0xffffb2ce9bd0>
+DEBUG - 2024-07-12 07:22:14,187 - 7622030a - initialize((<Application 0xffffb3356ef0>,),{}) - initial call
+DEBUG - 2024-07-12 07:22:14,188 - 7622030a - initialize((<Application 0xffffb3356ef0>,),{}) - 0.00010347366333007812 - returned <coroutine object initialize at 0xffffb2cf4200>
+INFO - 2024-07-12 07:22:14,188 - 7622030a - Initialization done
