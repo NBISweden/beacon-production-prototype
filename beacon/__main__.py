@@ -4,18 +4,38 @@ from beacon.conf.conf import level
 from beacon.info.info import info_response
 import asyncio
 import aiohttp.web as web
-import uuid
+from aiohttp.web_request import Request
+from beacon.utils.txid import generate_txid
 
-def generate_txid():
-    uniqueid = uuid.uuid1()
-    uniqueid = str(uniqueid)[0:8]
-    return uniqueid
-
-class EndpointView(web.View):
-    id = generate_txid()
     
-class ControlView(EndpointView):    
-    @log_with_args(level, EndpointView.id)
+class ControlView(web.View):
+    def __init__(self, request: Request):
+        self._request= request
+        self._id = generate_txid()
+    
+    @log_with_args(level)
+    def calculate(self, request, nombre):
+        try:
+            status = nombre/2
+        except Exception:
+            raise
+        return status
+    
+    @log_with_args(level)
+    async def control(self, request):
+        self.calculate(self, 4)
+        response_obj = {'resp': 'hello world'}
+        return web.Response(text=json.dumps(response_obj), status=200, content_type='application/json')
+
+    async def get(self):
+        return await self.control(self.request)
+
+    async def post(self):
+        return await self.control(self.request)
+    
+class InfoView(web.View):
+    id = generate_txid()    
+    @log_with_args(level)
     def calculate(request, nombre):
         try:
             status = nombre/2
@@ -23,7 +43,7 @@ class ControlView(EndpointView):
             raise
         return status
     
-    @log_with_args(level, EndpointView.id)
+    @log_with_args(level)
     async def control(self, request):
         self.calculate(4)
         response_obj = {'resp': 'hello world'}
@@ -34,6 +54,7 @@ class ControlView(EndpointView):
 
     async def post(self):
         return await self.control(self.request)
+
 
 
 async def initialize(app):
@@ -54,7 +75,7 @@ async def create_api():
     app.on_startup.append(initialize)
     app.on_cleanup.append(destroy)
     app.add_routes([web.view('/control', ControlView)])
-    app.add_routes([web.get('/info', info)])
+    app.add_routes([web.view('/info', InfoView)])
 
     runner = web.AppRunner(app)
     await runner.setup()
