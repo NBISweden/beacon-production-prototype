@@ -3,14 +3,13 @@ import requests
 import json
 from jsonschema import validate, RefResolver, Draft202012Validator
 import os
-from beacon.logs.logs import log_with_args
+from beacon.logs.logs import LOG
 from beacon.conf.conf import level
 from aiohttp import web
 
 #Crear json from url. Fer funció i test.
 #Escriure dos tests, un que va i un que no va.
 
-@log_with_args(level=level)
 def load_json_from_url(url: str):
     try:
         f = requests.get(url)
@@ -22,7 +21,6 @@ def load_json_from_url(url: str):
         return e
     return total_response
 
-@log_with_args(level=level)
 def validate_endpoint(path: str, json_from_url):
     try:
         with open(path, 'r') as f:
@@ -35,10 +33,10 @@ def validate_endpoint(path: str, json_from_url):
         return e
     return response
 
-@log_with_args(level=level)
 def info_check(url: str):
     try:
         total_response = load_json_from_url(url)
+        LOG.debug(total_response)
         info_path = 'beacon/validator/ref_schemas/framework/json/responses/beaconInfoResponse.json'
         response = validate_endpoint(info_path, total_response)
     except Exception as e:
