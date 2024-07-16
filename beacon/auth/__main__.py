@@ -6,6 +6,9 @@ from aiohttp import web
 import os
 from dotenv import load_dotenv
 from beacon.logs.logs import log_with_args
+'''
+
+
 
 @log_with_args(level=logging.DEBUG)
 def validate_access_token(access_token, idp_issuer, jwks_url, algorithm, aud):
@@ -112,41 +115,22 @@ async def fetch_user_info(access_token, user_info, idp_issuer, list_visa_dataset
 @log_with_args(level=logging.DEBUG)
 async def authentication(access_token):
     list_visa_datasets=[]
-    idp_issuer, user_info, idp_client_id, idp_client_secret, idp_introspection, idp_jwks_url, algorithm, aud = fetch_idp(access_token)
     try:
+        idp_issuer, user_info, idp_client_id, idp_client_secret, idp_introspection, idp_jwks_url, algorithm, aud = fetch_idp(access_token)
         access_token_validation = validate_access_token(access_token, idp_issuer, idp_jwks_url, algorithm, aud)
+        if access_token_validation == True:
+            user, list_visa_datasets = await fetch_user_info(access_token, user_info, idp_issuer, list_visa_datasets)
+            return user, list_visa_datasets
     except Exception:
-        access_token_validation = await introspection(idp_introspection, idp_client_id, idp_client_secret, access_token, list_visa_datasets)
-    if access_token_validation == True:
-        user, list_visa_datasets = await fetch_user_info(access_token, user_info, idp_issuer, list_visa_datasets)
-        return user, list_visa_datasets
-    else:
-        raise web.HTTPUnauthorized()
-
-
-@log_with_args(level=logging.DEBUG)
-def bearer_required(func):
-    async def authentication(request):
-        auth = request.headers.get('Authorization')
-        if not auth or not auth.lower().startswith('bearer '):
-            raise web.HTTPUnauthorized()
+        #access_token_validation = await introspection(idp_introspection, idp_client_id, idp_client_secret, access_token, list_visa_datasets)
+        user = 'public'
         list_visa_datasets=[]
-        access_token = auth[7:].strip() # 7 = len('Bearer ')
-        # We make a round-trip to the userinfo. We might not have a JWT token.
-        try:
-            user, list_visa_datasets = await authentication(access_token)
-        except Exception:
-            user = 'public'
-        if user is None:
-            raise web.HTTPUnauthorized()
-        elif user == 'public':
-            username = 'public'
-        else:
-            username = user.get('preferred_username')
-        return await func(request, username, list_visa_datasets)
-    return authentication
+        return user, list_visa_datasets
 
-'''
+
+
+
 if __name__ == '__main__':
     asyncio.run(authentication('ey...'))
+
 '''

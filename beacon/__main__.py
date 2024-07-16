@@ -1,49 +1,59 @@
 import json
 from beacon.logs.logs import log_with_args
 from beacon.conf.conf import level
-from beacon.permissions.__main__ import permission
 from beacon.info.info import info_response
 import asyncio
 import aiohttp.web as web
+import uuid
 
-def calculate(nombre):
-    try:
-        status = nombre/2
-    except Exception:
-        raise
-    return status
+def generate_txid():
+    uniqueid = uuid.uuid1()
+    uniqueid = str(uniqueid)[0:8]
+    return uniqueid
 
-@log_with_args(level=level)
+class EndpointView(web.View):
+    id = generate_txid()
+    
+class ControlView(EndpointView):    
+    @log_with_args(level, EndpointView.id)
+    def calculate(request, nombre):
+        try:
+            status = nombre/2
+        except Exception:
+            raise
+        return status
+    
+    @log_with_args(level, EndpointView.id)
+    async def control(self, request):
+        self.calculate(4)
+        response_obj = {'resp': 'hello world'}
+        return web.Response(text=json.dumps(response_obj), status=200, content_type='application/json')
+
+    async def get(self):
+        return await self.control(self.request)
+
+    async def post(self):
+        return await self.control(self.request)
+
+
 async def initialize(app):
     pass
 
-@log_with_args(level=level)
 async def destroy(app):
     pass
 
 #passar permissions com a decorator
 
-@log_with_args(level=level)
 async def info(request):
     return web.Response(text=json.dumps(info_response), status=200, content_type='application/json')
 
 
-@log_with_args(level=level)
-async def control(request):
-    try:
-        permissions_dict = await permission(request)
-    except Exception:
-        user = 'public'
-        visa_datasets = []
-    status = calculate(4)
-    response_obj = {'status': int(status)}
-    return web.Response(text=json.dumps(response_obj), status=200, content_type='application/json')
 
 async def create_api():
     app = web.Application()
     app.on_startup.append(initialize)
     app.on_cleanup.append(destroy)
-    app.add_routes([web.get('/control', control)])
+    app.add_routes([web.view('/control', ControlView)])
     app.add_routes([web.get('/info', info)])
 
     runner = web.AppRunner(app)

@@ -398,3 +398,1045 @@ DEBUG - 2024-07-12 11:02:27,258 - 39bc793a - control((<Request GET /control >,),
 DEBUG - 2024-07-12 11:02:27,258 - 39bc9f28 - authentication((<Request GET /control >,),{}) - initial call
 DEBUG - 2024-07-12 11:02:27,259 - 39bc9f28 - authentication((<Request GET /control >,),{}) - 0.0003235340118408203 - returned <coroutine object bearer_required.<locals>.authentication at 0xffffb29446d0>
 DEBUG - 2024-07-12 11:02:27,260 - 39bc324a - load_json_from_url(('http://localhost:5070/control',),{}) - 0.004253387451171875 - returned {'status': 2}
+DEBUG - 2024-07-13 17:20:48,704 - 3f441c56 - bearer_required((<function permission_required at 0xffff9b7911b0>,),{}) - initial call
+DEBUG - 2024-07-13 17:20:48,705 - 3f441c56 - bearer_required((<function permission_required at 0xffff9b7911b0>,),{}) - 0.0005350112915039062 - returned <function bearer_required.<locals>.authentication at 0xffff9a721bd0>
+DEBUG - 2024-07-13 17:21:33,160 - 59c3812a - bearer_required((<function permission_required at 0xffff9fa851b0>,),{}) - initial call
+DEBUG - 2024-07-13 17:21:33,160 - 59c3812a - bearer_required((<function permission_required at 0xffff9fa851b0>,),{}) - 0.0003509521484375 - returned <function bearer_required.<locals>.authentication at 0xffff9ea09bd0>
+DEBUG - 2024-07-13 17:21:33,161 - 59c3a718 - authentication((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9ea0a290>,),{}) - initial call
+DEBUG - 2024-07-13 17:21:33,161 - 59c3a718 - authentication((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9ea0a290>,),{}) - 0.00016951560974121094 - returned <coroutine object bearer_required.<locals>.authentication at 0xffff9f067f40>
+DEBUG - 2024-07-13 17:22:34,185 - 7e2323f4 - permission_required((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff7e44a200>,),{}) - initial call
+DEBUG - 2024-07-13 17:22:34,185 - 7e2337a4 - bearer_required((<function permission_required.<locals>.permission at 0xffff7e449d80>,),{}) - initial call
+DEBUG - 2024-07-13 17:22:34,185 - 7e2337a4 - bearer_required((<function permission_required.<locals>.permission at 0xffff7e449d80>,),{}) - 0.00021195411682128906 - returned <function bearer_required.<locals>.authentication at 0xffff7e44a290>
+DEBUG - 2024-07-13 17:22:34,185 - 7e2323f4 - permission_required((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff7e44a200>,),{}) - 0.0009441375732421875 - returned <function bearer_required.<locals>.authentication at 0xffff7e44a290>
+DEBUG - 2024-07-13 17:22:34,186 - 7e235f90 - initialize((<Application 0xffff7eab49a0>,),{}) - initial call
+DEBUG - 2024-07-13 17:22:34,186 - 7e235f90 - initialize((<Application 0xffff7eab49a0>,),{}) - 0.00017786026000976562 - returned <coroutine object initialize at 0xffff7e450270>
+INFO - 2024-07-13 17:22:34,186 - 7e235f90 - Initialization done
+DEBUG - 2024-07-13 17:33:14,089 - fb8ccce0 - permission_required((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8abb2200>,),{}) - initial call
+DEBUG - 2024-07-13 17:33:14,089 - fb8cde88 - bearer_required((<function permission_required.<locals>.permission at 0xffff8abb1d80>,),{}) - initial call
+DEBUG - 2024-07-13 17:33:14,090 - fb8cde88 - bearer_required((<function permission_required.<locals>.permission at 0xffff8abb1d80>,),{}) - 0.00023365020751953125 - returned <function bearer_required.<locals>.authentication at 0xffff8abb2290>
+DEBUG - 2024-07-13 17:33:14,090 - fb8ccce0 - permission_required((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8abb2200>,),{}) - 0.0008640289306640625 - returned <function bearer_required.<locals>.authentication at 0xffff8abb2290>
+DEBUG - 2024-07-13 17:33:14,090 - fb8d0458 - initialize((<Application 0xffff8b21cbb0>,),{}) - initial call
+DEBUG - 2024-07-13 17:33:14,091 - fb8d0458 - initialize((<Application 0xffff8b21cbb0>,),{}) - 0.0002779960632324219 - returned <coroutine object initialize at 0xffff8abb8270>
+INFO - 2024-07-13 17:33:14,091 - fb8d0458 - Initialization done
+DEBUG - 2024-07-13 17:33:56,590 - 14e1e95a - permission_required((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa27a6200>,),{}) - initial call
+DEBUG - 2024-07-13 17:33:56,592 - 14e23cf2 - bearer_required((<function permission_required.<locals>.permission at 0xffffa27a5d80>,),{}) - initial call
+DEBUG - 2024-07-13 17:33:56,592 - 14e23cf2 - bearer_required((<function permission_required.<locals>.permission at 0xffffa27a5d80>,),{}) - 0.0004494190216064453 - returned <function bearer_required.<locals>.authentication at 0xffffa27a6290>
+DEBUG - 2024-07-13 17:33:56,593 - 14e1e95a - permission_required((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa27a6200>,),{}) - 0.0028362274169921875 - returned <function bearer_required.<locals>.authentication at 0xffffa27a6290>
+DEBUG - 2024-07-13 17:33:56,594 - 14e29968 - initialize((<Application 0xffffa2e10b80>,),{}) - initial call
+DEBUG - 2024-07-13 17:33:56,595 - 14e29968 - initialize((<Application 0xffffa2e10b80>,),{}) - 0.000354766845703125 - returned <coroutine object initialize at 0xffffa27ac270>
+INFO - 2024-07-13 17:33:56,595 - 14e29968 - Initialization done
+DEBUG - 2024-07-13 17:36:21,271 - 6b1e8706 - permission_required((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff7e7ce200>,),{}) - initial call
+DEBUG - 2024-07-13 17:36:21,272 - 6b1ea51a - bearer_required((<function permission_required.<locals>.permission at 0xffff7e7ce290>,),{}) - initial call
+DEBUG - 2024-07-13 17:36:21,272 - 6b1ea51a - bearer_required((<function permission_required.<locals>.permission at 0xffff7e7ce290>,),{}) - 0.0002682209014892578 - returned <function bearer_required.<locals>.authentication at 0xffff7e7ce320>
+DEBUG - 2024-07-13 17:36:21,272 - 6b1e8706 - permission_required((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff7e7ce200>,),{}) - 0.0013840198516845703 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff7e7ce3b0>
+DEBUG - 2024-07-13 17:36:21,273 - 6b1eda12 - initialize((<Application 0xffff7ee38c40>,),{}) - initial call
+DEBUG - 2024-07-13 17:36:21,273 - 6b1eda12 - initialize((<Application 0xffff7ee38c40>,),{}) - 0.00021791458129882812 - returned <coroutine object initialize at 0xffff7e7d4270>
+INFO - 2024-07-13 17:36:21,274 - 6b1eda12 - Initialization done
+DEBUG - 2024-07-13 17:36:34,753 - 7327b738 - authentication((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 17:36:34,754 - 7327b738 - authentication((<Request GET /control >,),{}) - 0.0006949901580810547 - returned <coroutine object bearer_required.<locals>.authentication at 0xffff7e7d4510>
+DEBUG - 2024-07-13 17:41:53,758 - 314bf6a2 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8183e200>,),{}) - initial call
+DEBUG - 2024-07-13 17:41:53,774 - 314e6d88 - bearer_required((<function dataset_permissions.<locals>.permission at 0xffff8183e290>,),{}) - initial call
+DEBUG - 2024-07-13 17:41:53,785 - 314e6d88 - bearer_required((<function dataset_permissions.<locals>.permission at 0xffff8183e290>,),{}) - 0.01092529296875 - returned <function bearer_required.<locals>.authentication at 0xffff8183e320>
+DEBUG - 2024-07-13 17:41:53,789 - 314bf6a2 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8183e200>,),{}) - 0.03160667419433594 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8183e3b0>
+DEBUG - 2024-07-13 17:41:53,797 - 3151ec60 - initialize((<Application 0xffff81ea8c40>,),{}) - initial call
+DEBUG - 2024-07-13 17:41:53,806 - 3151ec60 - initialize((<Application 0xffff81ea8c40>,),{}) - 0.009003400802612305 - returned <coroutine object initialize at 0xffff81844270>
+INFO - 2024-07-13 17:41:53,807 - 3151ec60 - Initialization done
+DEBUG - 2024-07-13 17:41:56,795 - 331b5f40 - authentication((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 17:41:56,795 - 331b5f40 - authentication((<Request GET /control >,),{}) - 0.0006601810455322266 - returned <coroutine object bearer_required.<locals>.authentication at 0xffff81844510>
+DEBUG - 2024-07-13 17:56:30,567 - 3bea6b28 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffba54a170>,),{}) - initial call
+DEBUG - 2024-07-13 17:56:30,567 - 3bea6b28 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffba54a170>,),{}) - 0.0005662441253662109 - returned <function dataset_permissions.<locals>.permission at 0xffffba549cf0>
+DEBUG - 2024-07-13 17:56:30,568 - 3bea9ddc - initialize((<Application 0xffffba537e50>,),{}) - initial call
+DEBUG - 2024-07-13 17:56:30,568 - 3bea9ddc - initialize((<Application 0xffffba537e50>,),{}) - 0.0001919269561767578 - returned <coroutine object initialize at 0xffffba550270>
+INFO - 2024-07-13 17:56:30,568 - 3bea9ddc - Initialization done
+DEBUG - 2024-07-13 17:57:58,217 - 7028bf98 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff898c2170>,),{}) - initial call
+DEBUG - 2024-07-13 17:57:58,218 - 7028bf98 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff898c2170>,),{}) - 0.0006444454193115234 - returned <function dataset_permissions.<locals>.permission at 0xffff898c1cf0>
+DEBUG - 2024-07-13 17:57:58,222 - 70298b44 - initialize((<Application 0xffff898affd0>,),{}) - initial call
+DEBUG - 2024-07-13 17:57:58,222 - 70298b44 - initialize((<Application 0xffff898affd0>,),{}) - 0.0003955364227294922 - returned <coroutine object initialize at 0xffff898c8270>
+INFO - 2024-07-13 17:57:58,223 - 70298b44 - Initialization done
+DEBUG - 2024-07-13 17:58:45,997 - 8ca37596 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb9662170>,),{}) - initial call
+DEBUG - 2024-07-13 17:58:45,998 - 8ca37596 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb9662170>,),{}) - 0.0012378692626953125 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb9662290>
+DEBUG - 2024-07-13 17:58:45,999 - 8ca3be48 - initialize((<Application 0xffffb964ffa0>,),{}) - initial call
+DEBUG - 2024-07-13 17:58:45,999 - 8ca3be48 - initialize((<Application 0xffffb964ffa0>,),{}) - 0.0001862049102783203 - returned <coroutine object initialize at 0xffffb9668270>
+INFO - 2024-07-13 17:58:46,000 - 8ca3be48 - Initialization done
+DEBUG - 2024-07-13 17:58:49,756 - 8ee0f6f8 - permission((<Request GET /control >,),{}) - initial call
+ERROR - 2024-07-13 17:58:49,756 - 8ee0f6f8 - There was an exception in  permission
+DEBUG - 2024-07-13 18:03:42,820 - 3d8f0172 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffafc92170>,),{}) - initial call
+DEBUG - 2024-07-13 18:03:42,820 - 3d8f0172 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffafc92170>,),{}) - 0.00042057037353515625 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffafc92290>
+DEBUG - 2024-07-13 18:03:42,821 - 3d8f2c7e - initialize((<Application 0xffffafc83fd0>,),{}) - initial call
+DEBUG - 2024-07-13 18:03:42,821 - 3d8f2c7e - initialize((<Application 0xffffafc83fd0>,),{}) - 0.00019621849060058594 - returned <coroutine object initialize at 0xffffafc98270>
+INFO - 2024-07-13 18:03:42,821 - 3d8f2c7e - Initialization done
+DEBUG - 2024-07-13 18:03:50,709 - 4242d676 - permission((<Request GET /control >,),{}) - initial call
+ERROR - 2024-07-13 18:03:50,710 - 4242d676 - There was an exception in  permission
+DEBUG - 2024-07-13 18:04:37,927 - 5e679cec - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff94e0a170>,),{}) - initial call
+DEBUG - 2024-07-13 18:04:37,927 - 5e679cec - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff94e0a170>,),{}) - 0.0004119873046875 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff94e0a290>
+DEBUG - 2024-07-13 18:04:37,928 - 5e67c78a - initialize((<Application 0xffff94df7f40>,),{}) - initial call
+DEBUG - 2024-07-13 18:04:37,928 - 5e67c78a - initialize((<Application 0xffff94df7f40>,),{}) - 0.0001811981201171875 - returned <coroutine object initialize at 0xffff94e10270>
+INFO - 2024-07-13 18:04:37,928 - 5e67c78a - Initialization done
+DEBUG - 2024-07-13 18:04:41,433 - 607ea61a - permission((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 18:04:41,434 - 607ea61a - permission((<Request GET /control >,),{}) - 0.0006504058837890625 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffff94e10510>
+DEBUG - 2024-07-13 18:04:41,434 - 607ed068 - authorization((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 18:04:41,434 - 607ed068 - authorization((<Request GET /control >,),{}) - 0.0003478527069091797 - returned <coroutine object authorization at 0xffff94e10580>
+DEBUG - 2024-07-13 18:05:22,169 - 78c66b90 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff81f56170>,),{}) - initial call
+DEBUG - 2024-07-13 18:05:22,231 - 78c66b90 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff81f56170>,),{}) - 0.0622408390045166 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff81f56290>
+DEBUG - 2024-07-13 18:05:22,232 - 78d0264e - initialize((<Application 0xffff81f47f70>,),{}) - initial call
+DEBUG - 2024-07-13 18:05:22,233 - 78d0264e - initialize((<Application 0xffff81f47f70>,),{}) - 0.000408172607421875 - returned <coroutine object initialize at 0xffff81f5c2e0>
+INFO - 2024-07-13 18:05:22,233 - 78d0264e - Initialization done
+DEBUG - 2024-07-13 18:05:24,495 - 7a295542 - permission((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 18:05:24,496 - 7a295542 - permission((<Request GET /control >,),{}) - 0.0015819072723388672 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffff81f5c580>
+DEBUG - 2024-07-13 18:05:24,497 - 7a29ad6c - authorization((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 18:05:24,497 - 7a29ad6c - authorization((<Request GET /control >,),{}) - 0.00042724609375 - returned <coroutine object authorization at 0xffff81f5c5f0>
+DEBUG - 2024-07-13 18:09:13,604 - 02b89ab2 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff894ae170>,),{}) - initial call
+DEBUG - 2024-07-13 18:09:13,641 - 02b89ab2 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff894ae170>,),{}) - 0.03742718696594238 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff894ae290>
+DEBUG - 2024-07-13 18:09:13,677 - 02c3d21a - initialize((<Application 0xffff8949bfd0>,),{}) - initial call
+DEBUG - 2024-07-13 18:09:13,678 - 02c3d21a - initialize((<Application 0xffff8949bfd0>,),{}) - 0.0006902217864990234 - returned <coroutine object initialize at 0xffff894b4270>
+INFO - 2024-07-13 18:09:13,679 - 02c3d21a - Initialization done
+DEBUG - 2024-07-13 18:09:29,082 - 0bf26b80 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa6082170>,),{}) - initial call
+DEBUG - 2024-07-13 18:09:29,082 - 0bf26b80 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa6082170>,),{}) - 0.00036454200744628906 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa6082290>
+DEBUG - 2024-07-13 18:09:29,083 - 0bf29376 - initialize((<Application 0xffffa6073fd0>,),{}) - initial call
+DEBUG - 2024-07-13 18:09:29,083 - 0bf29376 - initialize((<Application 0xffffa6073fd0>,),{}) - 0.00018668174743652344 - returned <coroutine object initialize at 0xffffa6088270>
+INFO - 2024-07-13 18:09:29,083 - 0bf29376 - Initialization done
+DEBUG - 2024-07-13 18:09:32,805 - 0e2a7abe - permission((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 18:09:32,806 - 0e2a7abe - permission((<Request GET /control >,),{}) - 0.0007455348968505859 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffffa6088510>
+DEBUG - 2024-07-13 18:09:32,806 - 0e2aaf66 - authorization((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 18:09:32,807 - 0e2aaf66 - authorization((<Request GET /control >,),{}) - 0.0005462169647216797 - returned <coroutine object authorization at 0xffffa6088580>
+DEBUG - 2024-07-13 18:10:02,959 - 20239e4e - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9764a200>,),{}) - initial call
+DEBUG - 2024-07-13 18:10:02,959 - 20239e4e - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9764a200>,),{}) - 0.0003898143768310547 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9764a320>
+DEBUG - 2024-07-13 18:10:02,960 - 2023c7b6 - initialize((<Application 0xffff9763bf70>,),{}) - initial call
+DEBUG - 2024-07-13 18:10:02,960 - 2023c7b6 - initialize((<Application 0xffff9763bf70>,),{}) - 0.0002028942108154297 - returned <coroutine object initialize at 0xffff97650270>
+INFO - 2024-07-13 18:10:02,960 - 2023c7b6 - Initialization done
+DEBUG - 2024-07-13 18:10:06,194 - 2211483c - permission((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 18:10:06,197 - 2211483c - permission((<Request GET /control >,),{}) - 0.0023267269134521484 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffff97650510>
+DEBUG - 2024-07-13 18:10:06,197 - 2211bbb4 - authorization((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 18:10:06,198 - 2211bbb4 - authorization((<Request GET /control >,),{}) - 0.0004868507385253906 - returned <coroutine object authorization at 0xffff97650580>
+DEBUG - 2024-07-13 18:10:06,198 - public
+DEBUG - 2024-07-13 18:10:33,587 - 32651434 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff7d78a200>,),{}) - initial call
+DEBUG - 2024-07-13 18:10:33,590 - 32651434 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff7d78a200>,),{}) - 0.002942800521850586 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff7d78a320>
+DEBUG - 2024-07-13 18:10:33,592 - 3265ce42 - initialize((<Application 0xffff7d77bfa0>,),{}) - initial call
+DEBUG - 2024-07-13 18:10:33,592 - 3265ce42 - initialize((<Application 0xffff7d77bfa0>,),{}) - 0.00044345855712890625 - returned <coroutine object initialize at 0xffff7d790270>
+INFO - 2024-07-13 18:10:33,592 - 3265ce42 - Initialization done
+DEBUG - 2024-07-13 18:10:36,141 - 33eace2a - permission((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 18:10:36,142 - 33eace2a - permission((<Request GET /control >,),{}) - 0.0006158351898193359 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffff7d790510>
+DEBUG - 2024-07-13 18:10:36,142 - 33eaf6a2 - authorization((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 18:10:36,142 - 33eaf6a2 - authorization((<Request GET /control >,),{}) - 0.0003323554992675781 - returned <coroutine object authorization at 0xffff7d790580>
+DEBUG - 2024-07-13 18:10:36,143 - public
+DEBUG - 2024-07-13 18:11:04,284 - 44b123ee - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8d2fa170>,),{}) - initial call
+DEBUG - 2024-07-13 18:11:04,285 - 44b123ee - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8d2fa170>,),{}) - 0.0003898143768310547 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8d2fa290>
+DEBUG - 2024-07-13 18:11:04,285 - 44b14d6a - initialize((<Application 0xffff8d2e7e20>,),{}) - initial call
+DEBUG - 2024-07-13 18:11:04,286 - 44b14d6a - initialize((<Application 0xffff8d2e7e20>,),{}) - 0.00019788742065429688 - returned <coroutine object initialize at 0xffff8d300270>
+INFO - 2024-07-13 18:11:04,286 - 44b14d6a - Initialization done
+DEBUG - 2024-07-13 18:12:29,807 - 77aae92e - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffba86e200>,),{}) - initial call
+DEBUG - 2024-07-13 18:12:29,824 - 77aae92e - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffba86e200>,),{}) - 0.01666545867919922 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffba86e320>
+DEBUG - 2024-07-13 18:12:29,840 - 77aff310 - initialize((<Application 0xffffba85be20>,),{}) - initial call
+DEBUG - 2024-07-13 18:12:29,875 - 77aff310 - initialize((<Application 0xffffba85be20>,),{}) - 0.03490877151489258 - returned <coroutine object initialize at 0xffffba874270>
+INFO - 2024-07-13 18:12:29,890 - 77aff310 - Initialization done
+DEBUG - 2024-07-13 18:12:32,600 - 7954f166 - permission((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 18:12:32,600 - 7954f166 - permission((<Request GET /control >,),{}) - 0.0005674362182617188 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffffba874510>
+DEBUG - 2024-07-13 18:12:32,600 - 795515e2 - authorization((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 18:12:32,601 - 795515e2 - authorization((<Request GET /control >,),{}) - 0.00029206275939941406 - returned <coroutine object authorization at 0xffffba874580>
+DEBUG - 2024-07-13 18:12:32,601 - public
+DEBUG - 2024-07-13 18:12:32,603 - 795569de - control((<Request GET /control >, {'username': 'public', 'datasets': ['CINECA_dataset', 'CINECA_synthetic_cohort_EUROPE_UK1', 'coadread_tcga_pan_can_atlas_2018', 'rd-connect_dataset', 'AV_Dataset']}),{}) - initial call
+DEBUG - 2024-07-13 18:12:32,603 - 795569de - control((<Request GET /control >, {'username': 'public', 'datasets': ['CINECA_dataset', 'CINECA_synthetic_cohort_EUROPE_UK1', 'coadread_tcga_pan_can_atlas_2018', 'rd-connect_dataset', 'AV_Dataset']}),{}) - 0.00037097930908203125 - returned <coroutine object control at 0xffffba874580>
+DEBUG - 2024-07-13 21:27:37,030 - b9b74838 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa6de2200>,),{}) - initial call
+DEBUG - 2024-07-13 21:27:37,030 - b9b74838 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa6de2200>,),{}) - 0.0002770423889160156 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa6de2320>
+DEBUG - 2024-07-13 21:27:37,031 - b9b76782 - initialize((<Application 0xffffa6dd3e20>,),{}) - initial call
+DEBUG - 2024-07-13 21:27:37,031 - b9b76782 - initialize((<Application 0xffffa6dd3e20>,),{}) - 0.00017952919006347656 - returned <coroutine object initialize at 0xffffa6de8270>
+INFO - 2024-07-13 21:27:37,031 - b9b76782 - Initialization done
+DEBUG - 2024-07-13 21:27:54,508 - c422374c - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9e66e0e0>,),{}) - initial call
+DEBUG - 2024-07-13 21:27:54,508 - c422374c - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9e66e0e0>,),{}) - 0.00035691261291503906 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9e66e200>
+DEBUG - 2024-07-13 21:27:54,582 - c42d94f2 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 21:27:54,582 - c42d94f2 - test_verify_public_datasets((),{}) - 0.00020384788513183594 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffff9dfe5a10>
+DEBUG - 2024-07-13 21:27:54,584 - c42dcb34 - permission((<ClientResponse(http://127.0.0.1:33391/control) [405 Method Not Allowed]>
+<CIMultiDictProxy('Content-Type': 'text/plain; charset=utf-8', 'Allow': 'GET,HEAD', 'Content-Length': '23', 'Date': 'Sat, 13 Jul 2024 21:27:54 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>
+,),{}) - initial call
+DEBUG - 2024-07-13 21:27:54,584 - c42dcb34 - permission((<ClientResponse(http://127.0.0.1:33391/control) [405 Method Not Allowed]>
+<CIMultiDictProxy('Content-Type': 'text/plain; charset=utf-8', 'Allow': 'GET,HEAD', 'Content-Length': '23', 'Date': 'Sat, 13 Jul 2024 21:27:54 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>
+,),{}) - 0.00016307830810546875 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffff9dfe5a80>
+DEBUG - 2024-07-13 21:27:54,584 - c42dd89a - dataset_permissions((<coroutine object dataset_permissions.<locals>.permission at 0xffff9dfe5a80>,),{}) - initial call
+DEBUG - 2024-07-13 21:27:54,584 - c42dd89a - dataset_permissions((<coroutine object dataset_permissions.<locals>.permission at 0xffff9dfe5a80>,),{}) - 0.00017213821411132812 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9dfdcb80>
+DEBUG - 2024-07-13 21:28:20,254 - d37acaec - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffab166200>,),{}) - initial call
+DEBUG - 2024-07-13 21:28:20,255 - d37acaec - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffab166200>,),{}) - 0.0004317760467529297 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffab166320>
+DEBUG - 2024-07-13 21:28:20,255 - d37af986 - initialize((<Application 0xffffab153e20>,),{}) - initial call
+DEBUG - 2024-07-13 21:28:20,255 - d37af986 - initialize((<Application 0xffffab153e20>,),{}) - 0.00018930435180664062 - returned <coroutine object initialize at 0xffffab16c270>
+INFO - 2024-07-13 21:28:20,256 - d37af986 - Initialization done
+DEBUG - 2024-07-13 21:28:21,753 - d45f8a1a - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffaa1ca0e0>,),{}) - initial call
+DEBUG - 2024-07-13 21:28:21,754 - d45f8a1a - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffaa1ca0e0>,),{}) - 0.000335693359375 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffaa1ca200>
+DEBUG - 2024-07-13 21:28:21,805 - d4677e1e - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 21:28:21,806 - d4677e1e - test_verify_public_datasets((),{}) - 0.0002143383026123047 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffffa9b31af0>
+DEBUG - 2024-07-13 21:28:21,807 - d467b442 - permission((<ClientResponse(http://127.0.0.1:38757/control) [405 Method Not Allowed]>
+<CIMultiDictProxy('Content-Type': 'text/plain; charset=utf-8', 'Allow': 'GET,HEAD', 'Content-Length': '23', 'Date': 'Sat, 13 Jul 2024 21:28:21 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>
+,),{}) - initial call
+DEBUG - 2024-07-13 21:28:21,807 - d467b442 - permission((<ClientResponse(http://127.0.0.1:38757/control) [405 Method Not Allowed]>
+<CIMultiDictProxy('Content-Type': 'text/plain; charset=utf-8', 'Allow': 'GET,HEAD', 'Content-Length': '23', 'Date': 'Sat, 13 Jul 2024 21:28:21 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>
+,),{}) - 0.00022292137145996094 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffffa9b31b60>
+DEBUG - 2024-07-13 21:28:21,807 - d467c482 - dataset_permissions((<coroutine object dataset_permissions.<locals>.permission at 0xffffa9b31b60>,),{}) - initial call
+DEBUG - 2024-07-13 21:28:21,807 - d467c482 - dataset_permissions((<coroutine object dataset_permissions.<locals>.permission at 0xffffa9b31b60>,),{}) - 0.00015473365783691406 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa9d28b80>
+DEBUG - 2024-07-13 21:29:13,829 - f369996e - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffaae86200>,),{}) - initial call
+DEBUG - 2024-07-13 21:29:13,829 - f369996e - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffaae86200>,),{}) - 0.00037550926208496094 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffaae86320>
+DEBUG - 2024-07-13 21:29:13,830 - f369c178 - initialize((<Application 0xffffaae77fd0>,),{}) - initial call
+DEBUG - 2024-07-13 21:29:13,830 - f369c178 - initialize((<Application 0xffffaae77fd0>,),{}) - 0.0001919269561767578 - returned <coroutine object initialize at 0xffffaae8c270>
+INFO - 2024-07-13 21:29:13,830 - f369c178 - Initialization done
+DEBUG - 2024-07-13 21:29:15,227 - f43ef9b0 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffac84e0e0>,),{}) - initial call
+DEBUG - 2024-07-13 21:29:15,227 - f43ef9b0 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffac84e0e0>,),{}) - 0.00035262107849121094 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffac84e200>
+DEBUG - 2024-07-13 21:29:15,277 - f4468d4c - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 21:29:15,277 - f4468d4c - test_verify_public_datasets((),{}) - 0.000244140625 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffffac1bdaf0>
+DEBUG - 2024-07-13 21:29:15,278 - f446bb3c - permission((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 21:29:15,278 - f446bb3c - permission((<Request GET /control >,),{}) - 0.0001823902130126953 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffffac1bdfc0>
+DEBUG - 2024-07-13 21:29:15,278 - f446cbcc - authorization((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 21:29:15,278 - f446cbcc - authorization((<Request GET /control >,),{}) - 0.00017690658569335938 - returned <coroutine object authorization at 0xffffac1be110>
+DEBUG - 2024-07-13 21:29:15,279 - public
+DEBUG - 2024-07-13 21:29:15,279 - f446f30e - control((<Request GET /control >, {'username': 'public', 'datasets': ['rd-connect_dataset', 'AV_Dataset', 'CINECA_dataset', 'coadread_tcga_pan_can_atlas_2018', 'CINECA_synthetic_cohort_EUROPE_UK1']}),{}) - initial call
+DEBUG - 2024-07-13 21:29:15,279 - f446f30e - control((<Request GET /control >, {'username': 'public', 'datasets': ['rd-connect_dataset', 'AV_Dataset', 'CINECA_dataset', 'coadread_tcga_pan_can_atlas_2018', 'CINECA_synthetic_cohort_EUROPE_UK1']}),{}) - 0.00015306472778320312 - returned <coroutine object control at 0xffffac1be110>
+DEBUG - 2024-07-13 21:29:15,280 - f4470bc8 - permission((<ClientResponse(http://127.0.0.1:41623/control) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '176', 'Date': 'Sat, 13 Jul 2024 21:29:15 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>
+,),{}) - initial call
+DEBUG - 2024-07-13 21:29:15,280 - f4470bc8 - permission((<ClientResponse(http://127.0.0.1:41623/control) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '176', 'Date': 'Sat, 13 Jul 2024 21:29:15 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>
+,),{}) - 0.00016260147094726562 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffffac1bdb60>
+DEBUG - 2024-07-13 21:29:15,280 - f4471da2 - dataset_permissions((<coroutine object dataset_permissions.<locals>.permission at 0xffffac1bdb60>,),{}) - initial call
+DEBUG - 2024-07-13 21:29:15,280 - f4471da2 - dataset_permissions((<coroutine object dataset_permissions.<locals>.permission at 0xffffac1bdb60>,),{}) - 0.00016188621520996094 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffac1b4b80>
+DEBUG - 2024-07-13 21:30:24,661 - 1da1b770 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffba7fe200>,),{}) - initial call
+DEBUG - 2024-07-13 21:30:24,674 - 1da1b770 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffba7fe200>,),{}) - 0.013594865798950195 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffba7fe320>
+DEBUG - 2024-07-13 21:30:24,687 - 1da5ad80 - initialize((<Application 0xffffba7ebe20>,),{}) - initial call
+DEBUG - 2024-07-13 21:30:24,687 - 1da5ad80 - initialize((<Application 0xffffba7ebe20>,),{}) - 0.0006690025329589844 - returned <coroutine object initialize at 0xffffba804270>
+INFO - 2024-07-13 21:30:24,690 - 1da5ad80 - Initialization done
+DEBUG - 2024-07-13 21:30:26,168 - 1e87c396 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9f6560e0>,),{}) - initial call
+DEBUG - 2024-07-13 21:30:26,169 - 1e87c396 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9f6560e0>,),{}) - 0.000331878662109375 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9f656200>
+DEBUG - 2024-07-13 21:30:26,220 - 1e8fb542 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 21:30:26,221 - 1e8fb542 - test_verify_public_datasets((),{}) - 0.0002472400665283203 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffff9efbda80>
+DEBUG - 2024-07-13 21:30:26,221 - 1e8fe332 - permission((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 21:30:26,222 - 1e8fe332 - permission((<Request GET /control >,),{}) - 0.0001919269561767578 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffff9efbe0a0>
+DEBUG - 2024-07-13 21:30:26,222 - 1e8ff2fa - authorization((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 21:30:26,222 - 1e8ff2fa - authorization((<Request GET /control >,),{}) - 0.00017380714416503906 - returned <coroutine object authorization at 0xffff9efbe110>
+DEBUG - 2024-07-13 21:30:26,222 - public
+DEBUG - 2024-07-13 21:30:26,223 - 1e9018d4 - control((<Request GET /control >, {'username': 'public', 'datasets': ['AV_Dataset', 'CINECA_synthetic_cohort_EUROPE_UK1', 'rd-connect_dataset', 'coadread_tcga_pan_can_atlas_2018', 'CINECA_dataset']}),{}) - initial call
+DEBUG - 2024-07-13 21:30:26,223 - 1e9018d4 - control((<Request GET /control >, {'username': 'public', 'datasets': ['AV_Dataset', 'CINECA_synthetic_cohort_EUROPE_UK1', 'rd-connect_dataset', 'coadread_tcga_pan_can_atlas_2018', 'CINECA_dataset']}),{}) - 0.00014781951904296875 - returned <coroutine object control at 0xffff9efbe110>
+DEBUG - 2024-07-13 21:30:26,223 - 1e902fea - permission((<ClientResponse(http://127.0.0.1:35839/control) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '176', 'Date': 'Sat, 13 Jul 2024 21:30:26 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>
+,),{}) - initial call
+DEBUG - 2024-07-13 21:30:26,224 - 1e902fea - permission((<ClientResponse(http://127.0.0.1:35839/control) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '176', 'Date': 'Sat, 13 Jul 2024 21:30:26 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>
+,),{}) - 0.0001659393310546875 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffff9efbdaf0>
+DEBUG - 2024-07-13 21:30:26,224 - 1e9042dc - dataset_permissions((<coroutine object dataset_permissions.<locals>.permission at 0xffff9efbdaf0>,),{}) - initial call
+DEBUG - 2024-07-13 21:30:26,224 - 1e9042dc - dataset_permissions((<coroutine object dataset_permissions.<locals>.permission at 0xffff9efbdaf0>,),{}) - 0.0001811981201171875 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9f1b4b80>
+DEBUG - 2024-07-13 21:35:09,439 - c75f5fb0 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff88dae200>,),{}) - initial call
+DEBUG - 2024-07-13 21:35:09,439 - c75f5fb0 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff88dae200>,),{}) - 0.00038695335388183594 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff88dae320>
+DEBUG - 2024-07-13 21:35:09,439 - c75f859e - initialize((<Application 0xffff88d9be20>,),{}) - initial call
+DEBUG - 2024-07-13 21:35:09,440 - c75f859e - initialize((<Application 0xffff88d9be20>,),{}) - 0.00017547607421875 - returned <coroutine object initialize at 0xffff88db4270>
+INFO - 2024-07-13 21:35:09,440 - c75f859e - Initialization done
+DEBUG - 2024-07-13 21:35:11,841 - c8ce06bc - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffbba2a0e0>,),{}) - initial call
+DEBUG - 2024-07-13 21:35:11,842 - c8ce06bc - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffbba2a0e0>,),{}) - 0.0003368854522705078 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffbba2a200>
+DEBUG - 2024-07-13 21:35:11,891 - c8d58a72 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 21:35:11,891 - c8d58a72 - test_verify_public_datasets((),{}) - 0.0002586841583251953 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffffbb391a10>
+DEBUG - 2024-07-13 21:35:11,892 - c8d5b7b8 - permission((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 21:35:11,892 - c8d5b7b8 - permission((<Request GET /control >,),{}) - 0.00019621849060058594 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffffbb392030>
+DEBUG - 2024-07-13 21:35:11,892 - c8d5c866 - authorization((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 21:35:11,892 - c8d5c866 - authorization((<Request GET /control >,),{}) - 0.00019693374633789062 - returned <coroutine object authorization at 0xffffbb3920a0>
+DEBUG - 2024-07-13 21:35:11,893 - public
+DEBUG - 2024-07-13 21:35:11,893 - c8d5eef4 - control((<Request GET /control >, {'username': 'public', 'datasets': ['coadread_tcga_pan_can_atlas_2018', 'CINECA_dataset', 'CINECA_synthetic_cohort_EUROPE_UK1', 'rd-connect_dataset', 'AV_Dataset']}),{}) - initial call
+DEBUG - 2024-07-13 21:35:11,893 - c8d5eef4 - control((<Request GET /control >, {'username': 'public', 'datasets': ['coadread_tcga_pan_can_atlas_2018', 'CINECA_dataset', 'CINECA_synthetic_cohort_EUROPE_UK1', 'rd-connect_dataset', 'AV_Dataset']}),{}) - 0.00016736984252929688 - returned <coroutine object control at 0xffffbb3920a0>
+DEBUG - 2024-07-13 21:35:11,894 - c8d60614 - permission((<ClientResponse(http://127.0.0.1:42567/control) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '176', 'Date': 'Sat, 13 Jul 2024 21:35:11 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>
+,),{}) - initial call
+DEBUG - 2024-07-13 21:35:11,894 - c8d60614 - permission((<ClientResponse(http://127.0.0.1:42567/control) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '176', 'Date': 'Sat, 13 Jul 2024 21:35:11 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>
+,),{}) - 0.00018143653869628906 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffffbb391a80>
+DEBUG - 2024-07-13 21:35:11,894 - c8d614b0 - dataset_permissions((<coroutine object dataset_permissions.<locals>.permission at 0xffffbb391a80>,),{}) - initial call
+DEBUG - 2024-07-13 21:35:11,894 - c8d614b0 - dataset_permissions((<coroutine object dataset_permissions.<locals>.permission at 0xffffbb391a80>,),{}) - 0.00028634071350097656 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffbb588b80>
+DEBUG - 2024-07-13 21:35:11,895 - c8d62fb8 - permission((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 21:35:11,895 - c8d62fb8 - permission((<Request GET /control >,),{}) - 0.00014710426330566406 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffffbb3922d0>
+DEBUG - 2024-07-13 21:35:11,895 - c8d63e72 - authorization((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 21:35:11,895 - c8d63e72 - authorization((<Request GET /control >,),{}) - 0.00020456314086914062 - returned <coroutine object authorization at 0xffffbb392340>
+DEBUG - 2024-07-13 21:35:11,896 - public
+DEBUG - 2024-07-13 21:35:11,896 - c8d660be - control((<Request GET /control >, {'username': 'public', 'datasets': ['coadread_tcga_pan_can_atlas_2018', 'CINECA_dataset', 'CINECA_synthetic_cohort_EUROPE_UK1', 'rd-connect_dataset', 'AV_Dataset']}),{}) - initial call
+DEBUG - 2024-07-13 21:35:11,896 - c8d660be - control((<Request GET /control >, {'username': 'public', 'datasets': ['coadread_tcga_pan_can_atlas_2018', 'CINECA_dataset', 'CINECA_synthetic_cohort_EUROPE_UK1', 'rd-connect_dataset', 'AV_Dataset']}),{}) - 0.00014591217041015625 - returned <coroutine object control at 0xffffbb392340>
+DEBUG - 2024-07-13 21:35:11,897 - c8d67464 - permission((<ClientResponse(http://127.0.0.1:42567/control) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '176', 'Date': 'Sat, 13 Jul 2024 21:35:11 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>
+, []),{}) - initial call
+ERROR - 2024-07-13 21:35:11,897 - c8d67464 - There was an exception in  permission
+DEBUG - 2024-07-13 21:36:14,738 - ee4b4ee0 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8ec0a200>,),{}) - initial call
+DEBUG - 2024-07-13 21:36:14,739 - ee4b4ee0 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8ec0a200>,),{}) - 0.00043892860412597656 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8ec0a320>
+DEBUG - 2024-07-13 21:36:14,739 - ee4b76f4 - initialize((<Application 0xffff8ebfbfd0>,),{}) - initial call
+DEBUG - 2024-07-13 21:36:14,739 - ee4b76f4 - initialize((<Application 0xffff8ebfbfd0>,),{}) - 0.00017786026000976562 - returned <coroutine object initialize at 0xffff8ec10270>
+INFO - 2024-07-13 21:36:14,740 - ee4b76f4 - Initialization done
+DEBUG - 2024-07-13 21:36:16,838 - ef8bc1cc - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb051a0e0>,),{}) - initial call
+DEBUG - 2024-07-13 21:36:16,839 - ef8bc1cc - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb051a0e0>,),{}) - 0.00033283233642578125 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb051a200>
+DEBUG - 2024-07-13 21:36:16,888 - ef9359e6 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 21:36:16,888 - ef9359e6 - test_verify_public_datasets((),{}) - 0.0002593994140625 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffffafe91a80>
+DEBUG - 2024-07-13 21:36:16,889 - ef9386c8 - permission((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 21:36:16,889 - ef9386c8 - permission((<Request GET /control >,),{}) - 0.00017786026000976562 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffffafe920a0>
+DEBUG - 2024-07-13 21:36:16,890 - ef93965e - authorization((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 21:36:16,890 - ef93965e - authorization((<Request GET /control >,),{}) - 0.00016951560974121094 - returned <coroutine object authorization at 0xffffafe92110>
+DEBUG - 2024-07-13 21:36:16,890 - public
+DEBUG - 2024-07-13 21:36:16,891 - ef93bc7e - control((<Request GET /control >, {'username': 'public', 'datasets': ['rd-connect_dataset', 'CINECA_synthetic_cohort_EUROPE_UK1', 'AV_Dataset', 'CINECA_dataset', 'coadread_tcga_pan_can_atlas_2018']}),{}) - initial call
+DEBUG - 2024-07-13 21:36:16,891 - ef93bc7e - control((<Request GET /control >, {'username': 'public', 'datasets': ['rd-connect_dataset', 'CINECA_synthetic_cohort_EUROPE_UK1', 'AV_Dataset', 'CINECA_dataset', 'coadread_tcga_pan_can_atlas_2018']}),{}) - 0.00018286705017089844 - returned <coroutine object control at 0xffffafe92110>
+DEBUG - 2024-07-13 21:36:16,891 - ef93d51a - permission((<ClientResponse(http://127.0.0.1:42339/control) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '176', 'Date': 'Sat, 13 Jul 2024 21:36:16 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>
+,),{}) - initial call
+DEBUG - 2024-07-13 21:36:16,891 - ef93d51a - permission((<ClientResponse(http://127.0.0.1:42339/control) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '176', 'Date': 'Sat, 13 Jul 2024 21:36:16 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>
+,),{}) - 0.0001704692840576172 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffffafe91af0>
+DEBUG - 2024-07-13 21:36:16,891 - ef93e32a - dataset_permissions((<coroutine object dataset_permissions.<locals>.permission at 0xffffafe91af0>,),{}) - initial call
+DEBUG - 2024-07-13 21:36:16,892 - ef93e32a - dataset_permissions((<coroutine object dataset_permissions.<locals>.permission at 0xffffafe91af0>,),{}) - 0.000156402587890625 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffafe88b80>
+DEBUG - 2024-07-13 21:36:16,892 - ef93f0c2 - permission((<ClientResponse(http://127.0.0.1:42339/control) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '176', 'Date': 'Sat, 13 Jul 2024 21:36:16 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>
+, []),{}) - initial call
+ERROR - 2024-07-13 21:36:16,892 - ef93f0c2 - There was an exception in  permission
+DEBUG - 2024-07-13 21:37:35,136 - 1e370b1c - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9d522200>,),{}) - initial call
+DEBUG - 2024-07-13 21:37:35,136 - 1e370b1c - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9d522200>,),{}) - 0.00037598609924316406 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9d522320>
+DEBUG - 2024-07-13 21:37:35,137 - 1e37331c - initialize((<Application 0xffff9d513fa0>,),{}) - initial call
+DEBUG - 2024-07-13 21:37:35,137 - 1e37331c - initialize((<Application 0xffff9d513fa0>,),{}) - 0.00015687942504882812 - returned <coroutine object initialize at 0xffff9d528270>
+INFO - 2024-07-13 21:37:35,137 - 1e37331c - Initialization done
+DEBUG - 2024-07-13 21:37:37,341 - 1f87805a - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff979820e0>,),{}) - initial call
+DEBUG - 2024-07-13 21:37:37,341 - 1f87805a - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff979820e0>,),{}) - 0.00031495094299316406 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff97982200>
+DEBUG - 2024-07-13 21:37:37,401 - 1f90a964 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 21:37:37,401 - 1f90a964 - test_verify_public_datasets((),{}) - 0.00024819374084472656 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffff972f9a80>
+DEBUG - 2024-07-13 21:37:37,402 - 1f90d830 - permission((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 21:37:37,402 - 1f90d830 - permission((<Request GET /control >,),{}) - 0.00020122528076171875 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffff972fa0a0>
+DEBUG - 2024-07-13 21:37:37,403 - 1f90ea1e - authorization((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 21:37:37,403 - 1f90ea1e - authorization((<Request GET /control >,),{}) - 0.00029659271240234375 - returned <coroutine object authorization at 0xffff972fa110>
+DEBUG - 2024-07-13 21:37:37,403 - public
+DEBUG - 2024-07-13 21:37:37,404 - 1f91152a - control((<Request GET /control >, {'username': 'public', 'datasets': ['CINECA_dataset', 'coadread_tcga_pan_can_atlas_2018', 'CINECA_synthetic_cohort_EUROPE_UK1', 'rd-connect_dataset', 'AV_Dataset']}),{}) - initial call
+DEBUG - 2024-07-13 21:37:37,404 - 1f91152a - control((<Request GET /control >, {'username': 'public', 'datasets': ['CINECA_dataset', 'coadread_tcga_pan_can_atlas_2018', 'CINECA_synthetic_cohort_EUROPE_UK1', 'rd-connect_dataset', 'AV_Dataset']}),{}) - 0.00016570091247558594 - returned <coroutine object control at 0xffff972fa110>
+DEBUG - 2024-07-13 21:37:37,404 - 1f912e7a - permission((<ClientResponse(http://127.0.0.1:36225/control) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '176', 'Date': 'Sat, 13 Jul 2024 21:37:37 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>
+,),{}) - initial call
+DEBUG - 2024-07-13 21:37:37,405 - 1f912e7a - permission((<ClientResponse(http://127.0.0.1:36225/control) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '176', 'Date': 'Sat, 13 Jul 2024 21:37:37 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>
+,),{}) - 0.00018906593322753906 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffff972f9af0>
+DEBUG - 2024-07-13 21:37:37,405 - 1f913eb0 - dataset_permissions((<coroutine object dataset_permissions.<locals>.permission at 0xffff972f9af0>,),{}) - initial call
+DEBUG - 2024-07-13 21:37:37,405 - 1f913eb0 - dataset_permissions((<coroutine object dataset_permissions.<locals>.permission at 0xffff972f9af0>,),{}) - 0.00015974044799804688 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff972f0b80>
+DEBUG - 2024-07-13 21:37:37,405 - <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff972f0b80>
+DEBUG - 2024-07-13 21:37:37,405 - 1f91586e - permission((<ClientResponse(http://127.0.0.1:36225/control) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '176', 'Date': 'Sat, 13 Jul 2024 21:37:37 GMT', 'Server': 'Python/3.10 aiohttp/3.8.1')>
+, []),{}) - initial call
+ERROR - 2024-07-13 21:37:37,406 - 1f91586e - There was an exception in  permission
+DEBUG - 2024-07-13 21:48:10,760 - 991399e4 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa1562200>,),{}) - initial call
+DEBUG - 2024-07-13 21:48:10,773 - 991399e4 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa1562200>,),{}) - 0.012901067733764648 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa1562320>
+DEBUG - 2024-07-13 21:48:10,795 - 9918ef02 - initialize((<Application 0xffffa154fe20>,),{}) - initial call
+DEBUG - 2024-07-13 21:48:10,802 - 9918ef02 - initialize((<Application 0xffffa154fe20>,),{}) - 0.0072743892669677734 - returned <coroutine object initialize at 0xffffa1568270>
+INFO - 2024-07-13 21:48:10,808 - 9918ef02 - Initialization done
+DEBUG - 2024-07-13 21:48:31,615 - a581c7dc - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9c4b6200>,),{}) - initial call
+DEBUG - 2024-07-13 21:48:31,615 - a581c7dc - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9c4b6200>,),{}) - 0.0003504753112792969 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9c4b6320>
+DEBUG - 2024-07-13 21:48:31,616 - a581ec58 - initialize((<Application 0xffff9c4a7e20>,),{}) - initial call
+DEBUG - 2024-07-13 21:48:31,616 - a581ec58 - initialize((<Application 0xffff9c4a7e20>,),{}) - 0.00017786026000976562 - returned <coroutine object initialize at 0xffff9c4bc270>
+INFO - 2024-07-13 21:48:31,616 - a581ec58 - Initialization done
+DEBUG - 2024-07-13 21:48:35,999 - a81eb716 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa3a860e0>,),{}) - initial call
+DEBUG - 2024-07-13 21:48:35,999 - a81eb716 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa3a860e0>,),{}) - 0.0004277229309082031 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa3a86200>
+DEBUG - 2024-07-13 21:48:36,047 - a825ff44 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa3598940>,),{}) - initial call
+DEBUG - 2024-07-13 21:48:36,047 - a825ff44 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa3598940>,),{}) - 0.0003032684326171875 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa3598a60>
+DEBUG - 2024-07-13 21:48:36,049 - a8266326 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa33f4c10>,),{}) - initial call
+DEBUG - 2024-07-13 21:48:36,049 - a8266326 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa33f4c10>,),{}) - 0.00020647048950195312 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa33f4d30>
+DEBUG - 2024-07-13 21:48:36,050 - a8267514 - permission((),{}) - initial call
+ERROR - 2024-07-13 21:48:36,050 - a8267514 - There was an exception in  permission
+DEBUG - 2024-07-13 21:48:57,332 - b4d5ea06 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa89ae200>,),{}) - initial call
+DEBUG - 2024-07-13 21:48:57,333 - b4d5ea06 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa89ae200>,),{}) - 0.0004019737243652344 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa89ae320>
+DEBUG - 2024-07-13 21:48:57,333 - b4d6124c - initialize((<Application 0xffffa899ff40>,),{}) - initial call
+DEBUG - 2024-07-13 21:48:57,333 - b4d6124c - initialize((<Application 0xffffa899ff40>,),{}) - 0.00020456314086914062 - returned <coroutine object initialize at 0xffffa89b4270>
+INFO - 2024-07-13 21:48:57,334 - b4d6124c - Initialization done
+DEBUG - 2024-07-13 21:48:59,441 - b617b7fa - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa893e0e0>,),{}) - initial call
+DEBUG - 2024-07-13 21:48:59,441 - b617b7fa - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa893e0e0>,),{}) - 0.0003330707550048828 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa893e200>
+DEBUG - 2024-07-13 21:48:59,491 - b61f4aa6 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa8448940>,),{}) - initial call
+DEBUG - 2024-07-13 21:48:59,491 - b61f4aa6 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa8448940>,),{}) - 0.00027871131896972656 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa8448a60>
+DEBUG - 2024-07-13 21:48:59,493 - b61fb216 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 21:48:59,494 - b61fb216 - test_verify_public_datasets((),{}) - 0.00016617774963378906 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffffa82ada80>
+DEBUG - 2024-07-13 21:48:59,494 - b61fde6c - permission((<Request GET /public >,),{}) - initial call
+DEBUG - 2024-07-13 21:48:59,495 - b61fde6c - permission((<Request GET /public >,),{}) - 0.00014090538024902344 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffffa82ae0a0>
+DEBUG - 2024-07-13 21:48:59,495 - b61febe6 - authorization((<Request GET /public >,),{}) - initial call
+DEBUG - 2024-07-13 21:48:59,495 - b61febe6 - authorization((<Request GET /public >,),{}) - 0.00013256072998046875 - returned <coroutine object authorization at 0xffffa82ae110>
+DEBUG - 2024-07-13 21:48:59,495 - public
+DEBUG - 2024-07-13 21:48:59,496 - b620103a - verify_public_datasets((<Request GET /public >, {'username': 'public', 'datasets': ['CINECA_synthetic_cohort_EUROPE_UK1', 'coadread_tcga_pan_can_atlas_2018', 'AV_Dataset', 'rd-connect_dataset', 'CINECA_dataset']}),{}) - initial call
+DEBUG - 2024-07-13 21:48:59,496 - b620103a - verify_public_datasets((<Request GET /public >, {'username': 'public', 'datasets': ['CINECA_synthetic_cohort_EUROPE_UK1', 'coadread_tcga_pan_can_atlas_2018', 'AV_Dataset', 'rd-connect_dataset', 'CINECA_dataset']}),{}) - 0.000179290771484375 - returned {'username': 'public', 'datasets': ['CINECA_synthetic_cohort_EUROPE_UK1', 'coadread_tcga_pan_can_atlas_2018', 'AV_Dataset', 'rd-connect_dataset', 'CINECA_dataset']}
+DEBUG - 2024-07-13 21:49:40,182 - ce604a3e - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff7f3fa200>,),{}) - initial call
+DEBUG - 2024-07-13 21:49:40,183 - ce604a3e - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff7f3fa200>,),{}) - 0.0012049674987792969 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff7f3fa320>
+DEBUG - 2024-07-13 21:49:40,184 - ce60a89e - initialize((<Application 0xffff7f3ebee0>,),{}) - initial call
+DEBUG - 2024-07-13 21:49:40,185 - ce60a89e - initialize((<Application 0xffff7f3ebee0>,),{}) - 0.0004336833953857422 - returned <coroutine object initialize at 0xffff7f400270>
+INFO - 2024-07-13 21:49:40,186 - ce60a89e - Initialization done
+DEBUG - 2024-07-13 21:49:42,043 - cf7c42c4 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa958e0e0>,),{}) - initial call
+DEBUG - 2024-07-13 21:49:42,043 - cf7c42c4 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa958e0e0>,),{}) - 0.00034117698669433594 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa958e200>
+DEBUG - 2024-07-13 21:49:42,091 - cf8388ae - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa9094940>,),{}) - initial call
+DEBUG - 2024-07-13 21:49:42,091 - cf8388ae - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa9094940>,),{}) - 0.0003268718719482422 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa9094a60>
+DEBUG - 2024-07-13 21:49:42,093 - cf83e844 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 21:49:42,093 - cf83e844 - test_verify_public_datasets((),{}) - 0.00020837783813476562 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffffa8ef5a80>
+DEBUG - 2024-07-13 21:49:42,094 - cf8412a6 - permission((<Request GET /public >,),{}) - initial call
+DEBUG - 2024-07-13 21:49:42,094 - cf8412a6 - permission((<Request GET /public >,),{}) - 0.0001811981201171875 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffffa8ef60a0>
+DEBUG - 2024-07-13 21:49:42,095 - cf842188 - authorization((<Request GET /public >,),{}) - initial call
+DEBUG - 2024-07-13 21:49:42,095 - cf842188 - authorization((<Request GET /public >,),{}) - 0.00021791458129882812 - returned <coroutine object authorization at 0xffffa8ef6110>
+DEBUG - 2024-07-13 21:49:42,095 - public
+DEBUG - 2024-07-13 21:49:42,096 - cf8446ae - verify_public_datasets((<Request GET /public >, {'username': 'public', 'datasets': ['AV_Dataset', 'CINECA_dataset', 'rd-connect_dataset', 'CINECA_synthetic_cohort_EUROPE_UK1', 'coadread_tcga_pan_can_atlas_2018']}),{}) - initial call
+DEBUG - 2024-07-13 21:49:42,096 - cf8446ae - verify_public_datasets((<Request GET /public >, {'username': 'public', 'datasets': ['AV_Dataset', 'CINECA_dataset', 'rd-connect_dataset', 'CINECA_synthetic_cohort_EUROPE_UK1', 'coadread_tcga_pan_can_atlas_2018']}),{}) - 0.00015592575073242188 - returned {'username': 'public', 'datasets': ['AV_Dataset', 'CINECA_dataset', 'rd-connect_dataset', 'CINECA_synthetic_cohort_EUROPE_UK1', 'coadread_tcga_pan_can_atlas_2018']}
+DEBUG - 2024-07-13 21:50:43,572 - f428e078 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9085a200>,),{}) - initial call
+DEBUG - 2024-07-13 21:50:43,583 - f428e078 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9085a200>,),{}) - 0.010955572128295898 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9085a320>
+DEBUG - 2024-07-13 21:50:43,604 - f42da432 - initialize((<Application 0xffff9084bf70>,),{}) - initial call
+DEBUG - 2024-07-13 21:50:43,609 - f42da432 - initialize((<Application 0xffff9084bf70>,),{}) - 0.005168914794921875 - returned <coroutine object initialize at 0xffff90860270>
+INFO - 2024-07-13 21:50:43,610 - f42da432 - Initialization done
+DEBUG - 2024-07-13 21:50:45,518 - f551b31c - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb84a60e0>,),{}) - initial call
+DEBUG - 2024-07-13 21:50:45,518 - f551b31c - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb84a60e0>,),{}) - 0.0003399848937988281 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb84a6200>
+DEBUG - 2024-07-13 21:50:45,568 - f5595a7c - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb7fb0940>,),{}) - initial call
+DEBUG - 2024-07-13 21:50:45,568 - f5595a7c - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb7fb0940>,),{}) - 0.00030040740966796875 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb7fb0a60>
+DEBUG - 2024-07-13 21:50:45,571 - f559c976 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 21:50:45,571 - f559c976 - test_verify_public_datasets((),{}) - 0.00020384788513183594 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffffb7e15a80>
+DEBUG - 2024-07-13 21:50:45,572 - f559f75c - permission((<Request GET /public >,),{}) - initial call
+DEBUG - 2024-07-13 21:50:45,572 - f559f75c - permission((<Request GET /public >,),{}) - 0.0001938343048095703 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffffb7e160a0>
+DEBUG - 2024-07-13 21:50:45,572 - f55a0724 - authorization((<Request GET /public >,),{}) - initial call
+DEBUG - 2024-07-13 21:50:45,572 - f55a0724 - authorization((<Request GET /public >,),{}) - 0.0001900196075439453 - returned <coroutine object authorization at 0xffffb7e16110>
+DEBUG - 2024-07-13 21:50:45,573 - public
+DEBUG - 2024-07-13 21:50:45,573 - f55a310e - verify_public_datasets((<Request GET /public >, {'username': 'public', 'datasets': ['AV_Dataset', 'rd-connect_dataset', 'CINECA_dataset', 'coadread_tcga_pan_can_atlas_2018', 'CINECA_synthetic_cohort_EUROPE_UK1']}),{}) - initial call
+DEBUG - 2024-07-13 21:50:45,573 - f55a310e - verify_public_datasets((<Request GET /public >, {'username': 'public', 'datasets': ['AV_Dataset', 'rd-connect_dataset', 'CINECA_dataset', 'coadread_tcga_pan_can_atlas_2018', 'CINECA_synthetic_cohort_EUROPE_UK1']}),{}) - 0.00012922286987304688 - returned {'username': 'public', 'datasets': ['AV_Dataset', 'rd-connect_dataset', 'CINECA_dataset', 'coadread_tcga_pan_can_atlas_2018', 'CINECA_synthetic_cohort_EUROPE_UK1']}
+DEBUG - 2024-07-13 21:50:45,574 - 500 Internal Server Error
+
+Server got itself in trouble
+DEBUG - 2024-07-13 21:51:30,247 - 0ffae6fc - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb6f5a200>,),{}) - initial call
+DEBUG - 2024-07-13 21:51:30,248 - 0ffae6fc - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb6f5a200>,),{}) - 0.0003578662872314453 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb6f5a320>
+DEBUG - 2024-07-13 21:51:30,248 - 0ffb0f2e - initialize((<Application 0xffffb6f4bf40>,),{}) - initial call
+DEBUG - 2024-07-13 21:51:30,248 - 0ffb0f2e - initialize((<Application 0xffffb6f4bf40>,),{}) - 0.00018072128295898438 - returned <coroutine object initialize at 0xffffb6f60270>
+INFO - 2024-07-13 21:51:30,249 - 0ffb0f2e - Initialization done
+DEBUG - 2024-07-13 21:51:53,290 - 1db6face - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8cae2200>,),{}) - initial call
+DEBUG - 2024-07-13 21:51:53,291 - 1db6face - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8cae2200>,),{}) - 0.00039696693420410156 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8cae2320>
+DEBUG - 2024-07-13 21:51:53,291 - 1db72396 - initialize((<Application 0xffff8cacfe20>,),{}) - initial call
+DEBUG - 2024-07-13 21:51:53,291 - 1db72396 - initialize((<Application 0xffff8cacfe20>,),{}) - 0.00017642974853515625 - returned <coroutine object initialize at 0xffff8cae8270>
+INFO - 2024-07-13 21:51:53,292 - 1db72396 - Initialization done
+DEBUG - 2024-07-13 21:51:54,984 - 1eb96ab0 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb2faa0e0>,),{}) - initial call
+DEBUG - 2024-07-13 21:51:54,984 - 1eb96ab0 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb2faa0e0>,),{}) - 0.0003666877746582031 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb2faa200>
+DEBUG - 2024-07-13 21:51:55,032 - 1ec0cbc0 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb2ab4940>,),{}) - initial call
+DEBUG - 2024-07-13 21:51:55,032 - 1ec0cbc0 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb2ab4940>,),{}) - 0.00030159950256347656 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb2ab4a60>
+DEBUG - 2024-07-13 21:51:55,035 - 1ec12d36 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 21:51:55,035 - 1ec12d36 - test_verify_public_datasets((),{}) - 0.0001990795135498047 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffffb2919a80>
+DEBUG - 2024-07-13 21:51:55,036 - 1ec15a2c - permission((<Request GET /public >,),{}) - initial call
+DEBUG - 2024-07-13 21:51:55,036 - 1ec15a2c - permission((<Request GET /public >,),{}) - 0.0002186298370361328 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffffb2919f50>
+DEBUG - 2024-07-13 21:51:55,036 - 1ec16b0c - authorization((<Request GET /public >,),{}) - initial call
+DEBUG - 2024-07-13 21:51:55,036 - 1ec16b0c - authorization((<Request GET /public >,),{}) - 0.00017309188842773438 - returned <coroutine object authorization at 0xffffb291a0a0>
+DEBUG - 2024-07-13 21:51:55,037 - public
+DEBUG - 2024-07-13 21:51:55,037 - 1ec19230 - verify_public_datasets((<Request GET /public >, {'username': 'public', 'datasets': ['rd-connect_dataset', 'AV_Dataset', 'coadread_tcga_pan_can_atlas_2018', 'CINECA_synthetic_cohort_EUROPE_UK1', 'CINECA_dataset']}),{}) - initial call
+DEBUG - 2024-07-13 21:51:55,037 - 1ec19230 - verify_public_datasets((<Request GET /public >, {'username': 'public', 'datasets': ['rd-connect_dataset', 'AV_Dataset', 'coadread_tcga_pan_can_atlas_2018', 'CINECA_synthetic_cohort_EUROPE_UK1', 'CINECA_dataset']}),{}) - 0.0001633167266845703 - returned <coroutine object verify_public_datasets at 0xffffb291a0a0>
+DEBUG - 2024-07-13 21:52:11,957 - 28d74f1c - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa27fa3b0>,),{}) - initial call
+DEBUG - 2024-07-13 21:52:11,957 - 28d74f1c - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa27fa3b0>,),{}) - 0.0003936290740966797 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa27fa4d0>
+DEBUG - 2024-07-13 21:52:11,999 - 28ddc900 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa230cca0>,),{}) - initial call
+DEBUG - 2024-07-13 21:52:12,000 - 28ddc900 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa230cca0>,),{}) - 0.0003204345703125 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa230cdc0>
+DEBUG - 2024-07-13 21:52:12,002 - 28de2d6e - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 21:52:12,002 - 28de2d6e - test_verify_public_datasets((),{}) - 0.00019240379333496094 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffffa2169930>
+DEBUG - 2024-07-13 21:52:12,003 - 28de5a28 - permission((<Request GET /public >,),{}) - initial call
+DEBUG - 2024-07-13 21:52:12,003 - 28de5a28 - permission((<Request GET /public >,),{}) - 0.00019097328186035156 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffffa2169f50>
+DEBUG - 2024-07-13 21:52:12,004 - 28de6a4a - authorization((<Request GET /public >,),{}) - initial call
+DEBUG - 2024-07-13 21:52:12,004 - 28de6a4a - authorization((<Request GET /public >,),{}) - 0.00016808509826660156 - returned <coroutine object authorization at 0xffffa2169fc0>
+DEBUG - 2024-07-13 21:52:12,004 - public
+DEBUG - 2024-07-13 21:52:12,004 - 28de8fb6 - verify_public_datasets((<Request GET /public >, {'username': 'public', 'datasets': ['AV_Dataset', 'CINECA_dataset', 'rd-connect_dataset', 'coadread_tcga_pan_can_atlas_2018', 'CINECA_synthetic_cohort_EUROPE_UK1']}),{}) - initial call
+DEBUG - 2024-07-13 21:52:12,005 - 28de8fb6 - verify_public_datasets((<Request GET /public >, {'username': 'public', 'datasets': ['AV_Dataset', 'CINECA_dataset', 'rd-connect_dataset', 'coadread_tcga_pan_can_atlas_2018', 'CINECA_synthetic_cohort_EUROPE_UK1']}),{}) - 0.00016117095947265625 - returned <coroutine object verify_public_datasets at 0xffffa2169fc0>
+DEBUG - 2024-07-13 21:52:41,169 - 3a40bf04 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffab2ce200>,),{}) - initial call
+DEBUG - 2024-07-13 21:52:41,189 - 3a40bf04 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffab2ce200>,),{}) - 0.019605159759521484 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffab2ce320>
+DEBUG - 2024-07-13 21:52:41,192 - 3a4428ba - initialize((<Application 0xffffab2bff40>,),{}) - initial call
+DEBUG - 2024-07-13 21:52:41,192 - 3a4428ba - initialize((<Application 0xffffab2bff40>,),{}) - 0.0006487369537353516 - returned <coroutine object initialize at 0xffffab2d4270>
+INFO - 2024-07-13 21:52:41,193 - 3a4428ba - Initialization done
+DEBUG - 2024-07-13 21:52:44,502 - 3c3d3d28 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9fe120e0>,),{}) - initial call
+DEBUG - 2024-07-13 21:52:44,502 - 3c3d3d28 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9fe120e0>,),{}) - 0.0003781318664550781 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9fe12200>
+DEBUG - 2024-07-13 21:52:44,552 - 3c44e898 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9f924940>,),{}) - initial call
+DEBUG - 2024-07-13 21:52:44,552 - 3c44e898 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9f924940>,),{}) - 0.0003287792205810547 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9f924a60>
+DEBUG - 2024-07-13 21:52:44,554 - 3c4548ba - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 21:52:44,555 - 3c4548ba - test_verify_public_datasets((),{}) - 0.000194549560546875 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffff9f789a80>
+DEBUG - 2024-07-13 21:53:13,595 - 4d949954 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa5bba200>,),{}) - initial call
+DEBUG - 2024-07-13 21:53:13,596 - 4d949954 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa5bba200>,),{}) - 0.0003523826599121094 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa5bba320>
+DEBUG - 2024-07-13 21:53:13,596 - 4d94c0e6 - initialize((<Application 0xffffa5ba7e20>,),{}) - initial call
+DEBUG - 2024-07-13 21:53:13,597 - 4d94c0e6 - initialize((<Application 0xffffa5ba7e20>,),{}) - 0.0002751350402832031 - returned <coroutine object initialize at 0xffffa5bc0270>
+INFO - 2024-07-13 21:53:13,597 - 4d94c0e6 - Initialization done
+DEBUG - 2024-07-13 21:53:15,066 - 4e74ebf8 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa223a0e0>,),{}) - initial call
+DEBUG - 2024-07-13 21:53:15,066 - 4e74ebf8 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa223a0e0>,),{}) - 0.0002968311309814453 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa223a200>
+DEBUG - 2024-07-13 21:53:15,113 - 4e7c1aa4 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa1d50940>,),{}) - initial call
+DEBUG - 2024-07-13 21:53:15,113 - 4e7c1aa4 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa1d50940>,),{}) - 0.0002655982971191406 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa1d50a60>
+DEBUG - 2024-07-13 21:53:15,115 - 4e7c794a - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 21:53:15,115 - 4e7c794a - test_verify_public_datasets((),{}) - 0.00013637542724609375 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffffa1bb1a80>
+DEBUG - 2024-07-13 21:53:15,115 - <aiohttp.client._RequestContextManager object at 0xffffa1d58250>
+DEBUG - 2024-07-13 21:54:20,579 - 75816aa0 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffbbebe200>,),{}) - initial call
+DEBUG - 2024-07-13 21:54:20,579 - 75816aa0 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffbbebe200>,),{}) - 0.00039386749267578125 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffbbebe320>
+DEBUG - 2024-07-13 21:54:20,580 - 75819372 - initialize((<Application 0xffffbbeafe20>,),{}) - initial call
+DEBUG - 2024-07-13 21:54:20,580 - 75819372 - initialize((<Application 0xffffbbeafe20>,),{}) - 0.00017499923706054688 - returned <coroutine object initialize at 0xffffbbec4270>
+INFO - 2024-07-13 21:54:20,580 - 75819372 - Initialization done
+DEBUG - 2024-07-13 21:54:21,743 - 76331ffc - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff84e3a0e0>,),{}) - initial call
+DEBUG - 2024-07-13 21:54:21,744 - 76331ffc - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff84e3a0e0>,),{}) - 0.0003337860107421875 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff84e3a200>
+DEBUG - 2024-07-13 21:54:21,791 - 763a6578 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff84944940>,),{}) - initial call
+DEBUG - 2024-07-13 21:54:21,791 - 763a6578 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff84944940>,),{}) - 0.0003025531768798828 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff84944a60>
+DEBUG - 2024-07-13 21:54:21,793 - 763ac112 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 21:54:21,793 - 763ac112 - test_verify_public_datasets((),{}) - 0.0001919269561767578 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffff847a9a80>
+DEBUG - 2024-07-13 21:54:21,794 - 763aebb0 - permission((<Request GET /public >,),{}) - initial call
+DEBUG - 2024-07-13 21:54:21,794 - 763aebb0 - permission((<Request GET /public >,),{}) - 0.0001735687255859375 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffff847aa0a0>
+DEBUG - 2024-07-13 21:54:21,795 - 763afb32 - authorization((<Request GET /public >,),{}) - initial call
+DEBUG - 2024-07-13 21:54:21,795 - 763afb32 - authorization((<Request GET /public >,),{}) - 0.00020575523376464844 - returned <coroutine object authorization at 0xffff847aa110>
+DEBUG - 2024-07-13 21:54:21,795 - public
+DEBUG - 2024-07-13 21:54:21,796 - 763b25e4 - verify_public_datasets((<Request GET /public >, {'username': 'public', 'datasets': ['AV_Dataset', 'CINECA_dataset', 'rd-connect_dataset', 'CINECA_synthetic_cohort_EUROPE_UK1', 'coadread_tcga_pan_can_atlas_2018']}),{}) - initial call
+DEBUG - 2024-07-13 21:54:21,796 - 763b25e4 - verify_public_datasets((<Request GET /public >, {'username': 'public', 'datasets': ['AV_Dataset', 'CINECA_dataset', 'rd-connect_dataset', 'CINECA_synthetic_cohort_EUROPE_UK1', 'coadread_tcga_pan_can_atlas_2018']}),{}) - 0.00014972686767578125 - returned <coroutine object verify_public_datasets at 0xffff847aa110>
+DEBUG - 2024-07-13 21:57:44,267 - eee9c5e0 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb8276200>,),{}) - initial call
+DEBUG - 2024-07-13 21:57:44,267 - eee9c5e0 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb8276200>,),{}) - 0.00037026405334472656 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb8276320>
+DEBUG - 2024-07-13 21:57:44,268 - eee9ed36 - initialize((<Application 0xffffb8267f70>,),{}) - initial call
+DEBUG - 2024-07-13 21:57:44,268 - eee9ed36 - initialize((<Application 0xffffb8267f70>,),{}) - 0.00017380714416503906 - returned <coroutine object initialize at 0xffffb827c270>
+INFO - 2024-07-13 21:57:44,268 - eee9ed36 - Initialization done
+DEBUG - 2024-07-13 21:57:45,769 - efceeb84 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9045e0e0>,),{}) - initial call
+DEBUG - 2024-07-13 21:57:45,769 - efceeb84 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9045e0e0>,),{}) - 0.00037026405334472656 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9045e200>
+DEBUG - 2024-07-13 21:57:45,818 - efd66850 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 21:57:45,818 - efd66850 - test_verify_public_datasets((),{}) - 0.00022745132446289062 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffff8fdc5a80>
+DEBUG - 2024-07-13 21:57:45,819 - efd692f8 - permission((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 21:57:45,819 - efd692f8 - permission((<Request GET /control >,),{}) - 0.0001647472381591797 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffff8fdc60a0>
+DEBUG - 2024-07-13 21:57:45,819 - efd6a202 - authorization((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 21:57:45,819 - efd6a202 - authorization((<Request GET /control >,),{}) - 0.00018715858459472656 - returned <coroutine object authorization at 0xffff8fdc6110>
+DEBUG - 2024-07-13 21:57:45,819 - public
+DEBUG - 2024-07-13 21:57:45,820 - efd6c67e - control((<Request GET /control >, {'username': 'public', 'datasets': ['AV_Dataset', 'CINECA_dataset', 'rd-connect_dataset', 'CINECA_synthetic_cohort_EUROPE_UK1', 'coadread_tcga_pan_can_atlas_2018']}),{}) - initial call
+DEBUG - 2024-07-13 21:57:45,820 - efd6c67e - control((<Request GET /control >, {'username': 'public', 'datasets': ['AV_Dataset', 'CINECA_dataset', 'rd-connect_dataset', 'CINECA_synthetic_cohort_EUROPE_UK1', 'coadread_tcga_pan_can_atlas_2018']}),{}) - 0.00015473365783691406 - returned <coroutine object control at 0xffff8fdc6110>
+DEBUG - 2024-07-13 21:58:21,834 - 054e137c - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb79ce200>,),{}) - initial call
+DEBUG - 2024-07-13 21:58:21,834 - 054e137c - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb79ce200>,),{}) - 0.0003001689910888672 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb79ce320>
+DEBUG - 2024-07-13 21:58:21,835 - 054e3438 - initialize((<Application 0xffffb79bfe20>,),{}) - initial call
+DEBUG - 2024-07-13 21:58:21,835 - 054e3438 - initialize((<Application 0xffffb79bfe20>,),{}) - 0.00015926361083984375 - returned <coroutine object initialize at 0xffffb79d4270>
+INFO - 2024-07-13 21:58:21,835 - 054e3438 - Initialization done
+DEBUG - 2024-07-13 21:58:26,969 - 085da9ec - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff7ce960e0>,),{}) - initial call
+DEBUG - 2024-07-13 21:58:26,970 - 085da9ec - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff7ce960e0>,),{}) - 0.00034236907958984375 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff7ce96200>
+DEBUG - 2024-07-13 21:58:27,021 - 08657e1a - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 21:58:27,021 - 08657e1a - test_verify_public_datasets((),{}) - 0.00024700164794921875 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffff7c7fda80>
+DEBUG - 2024-07-13 21:58:27,022 - 0865ae26 - permission((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 21:58:27,022 - 0865ae26 - permission((<Request GET /control >,),{}) - 0.0001971721649169922 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffff7c7fe0a0>
+DEBUG - 2024-07-13 21:58:27,022 - 0865bf06 - authorization((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 21:58:27,023 - 0865bf06 - authorization((<Request GET /control >,),{}) - 0.00017380714416503906 - returned <coroutine object authorization at 0xffff7c7fe110>
+DEBUG - 2024-07-13 21:58:27,023 - public
+DEBUG - 2024-07-13 21:58:27,023 - 0865e77e - control((<Request GET /control >, {'username': 'public', 'datasets': ['rd-connect_dataset', 'AV_Dataset', 'coadread_tcga_pan_can_atlas_2018', 'CINECA_dataset', 'CINECA_synthetic_cohort_EUROPE_UK1']}),{}) - initial call
+DEBUG - 2024-07-13 21:58:27,024 - 0865e77e - control((<Request GET /control >, {'username': 'public', 'datasets': ['rd-connect_dataset', 'AV_Dataset', 'coadread_tcga_pan_can_atlas_2018', 'CINECA_dataset', 'CINECA_synthetic_cohort_EUROPE_UK1']}),{}) - 0.00018358230590820312 - returned <coroutine object control at 0xffff7c7fe110>
+DEBUG - 2024-07-13 21:59:03,453 - 1e1c8a82 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8871a200>,),{}) - initial call
+DEBUG - 2024-07-13 21:59:03,453 - 1e1c8a82 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8871a200>,),{}) - 0.000431060791015625 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8871a320>
+DEBUG - 2024-07-13 21:59:03,454 - 1e1cb55c - initialize((<Application 0xffff88707e20>,),{}) - initial call
+DEBUG - 2024-07-13 21:59:03,454 - 1e1cb55c - initialize((<Application 0xffff88707e20>,),{}) - 0.0001888275146484375 - returned <coroutine object initialize at 0xffff88720270>
+INFO - 2024-07-13 21:59:03,454 - 1e1cb55c - Initialization done
+DEBUG - 2024-07-13 21:59:05,774 - 1f7ec9f8 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff834b20e0>,),{}) - initial call
+DEBUG - 2024-07-13 21:59:05,774 - 1f7ec9f8 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff834b20e0>,),{}) - 0.0003695487976074219 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff834b2200>
+DEBUG - 2024-07-13 21:59:05,825 - 1f8682a6 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 21:59:05,825 - 1f8682a6 - test_verify_public_datasets((),{}) - 0.00022912025451660156 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffff82e21af0>
+DEBUG - 2024-07-13 21:59:05,826 - 1f86afd8 - permission((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 21:59:05,826 - 1f86afd8 - permission((<Request GET /control >,),{}) - 0.00019311904907226562 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffff82e21fc0>
+DEBUG - 2024-07-13 21:59:05,826 - 1f86bf00 - authorization((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 21:59:05,826 - 1f86bf00 - authorization((<Request GET /control >,),{}) - 0.00027823448181152344 - returned <coroutine object authorization at 0xffff82e22110>
+DEBUG - 2024-07-13 21:59:05,827 - public
+DEBUG - 2024-07-13 21:59:05,827 - 1f86e70a - control((<Request GET /control >, {'username': 'public', 'datasets': ['CINECA_synthetic_cohort_EUROPE_UK1', 'coadread_tcga_pan_can_atlas_2018', 'AV_Dataset', 'rd-connect_dataset', 'CINECA_dataset']}),{}) - initial call
+DEBUG - 2024-07-13 21:59:05,827 - 1f86e70a - control((<Request GET /control >, {'username': 'public', 'datasets': ['CINECA_synthetic_cohort_EUROPE_UK1', 'coadread_tcga_pan_can_atlas_2018', 'AV_Dataset', 'rd-connect_dataset', 'CINECA_dataset']}),{}) - 0.0001513957977294922 - returned <coroutine object control at 0xffff82e22110>
+DEBUG - 2024-07-13 21:59:40,588 - 343ef8c2 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa82c6200>,),{}) - initial call
+DEBUG - 2024-07-13 21:59:40,588 - 343ef8c2 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa82c6200>,),{}) - 0.00046825408935546875 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa82c6320>
+DEBUG - 2024-07-13 21:59:40,589 - 343f24dc - initialize((<Application 0xffffa82b3e20>,),{}) - initial call
+DEBUG - 2024-07-13 21:59:40,589 - 343f24dc - initialize((<Application 0xffffa82b3e20>,),{}) - 0.0001800060272216797 - returned <coroutine object initialize at 0xffffa82cc270>
+INFO - 2024-07-13 21:59:40,589 - 343f24dc - Initialization done
+DEBUG - 2024-07-13 21:59:42,039 - 351c591a - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9c54a0e0>,),{}) - initial call
+DEBUG - 2024-07-13 21:59:42,039 - 351c591a - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9c54a0e0>,),{}) - 0.0003533363342285156 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9c54a200>
+DEBUG - 2024-07-13 21:59:42,088 - 3523e28e - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 21:59:42,088 - 3523e28e - test_verify_public_datasets((),{}) - 0.0002892017364501953 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffff9bec1af0>
+DEBUG - 2024-07-13 21:59:42,090 - 35241ae2 - permission((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 21:59:42,090 - 35241ae2 - permission((<Request GET /control >,),{}) - 0.00022721290588378906 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffff9bec20a0>
+DEBUG - 2024-07-13 21:59:42,090 - 35242ca8 - authorization((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 21:59:42,090 - 35242ca8 - authorization((<Request GET /control >,),{}) - 0.00020503997802734375 - returned <coroutine object authorization at 0xffff9bec2110>
+DEBUG - 2024-07-13 21:59:42,091 - public
+DEBUG - 2024-07-13 21:59:42,091 - 3524553e - control((<Request GET /control >, {'username': 'public', 'datasets': ['coadread_tcga_pan_can_atlas_2018', 'CINECA_dataset', 'CINECA_synthetic_cohort_EUROPE_UK1', 'AV_Dataset', 'rd-connect_dataset']}),{}) - initial call
+DEBUG - 2024-07-13 21:59:42,091 - 3524553e - control((<Request GET /control >, {'username': 'public', 'datasets': ['coadread_tcga_pan_can_atlas_2018', 'CINECA_dataset', 'CINECA_synthetic_cohort_EUROPE_UK1', 'AV_Dataset', 'rd-connect_dataset']}),{}) - 0.0001652240753173828 - returned <coroutine object control at 0xffff9bec2110>
+DEBUG - 2024-07-13 21:59:42,092 - {"status": {"username": "public", "datasets": ["coadread_tcga_pan_can_atlas_2018", "CINECA_dataset", "CINECA_synthetic_cohort_EUROPE_UK1", "AV_Dataset", "rd-connect_dataset"]}}
+DEBUG - 2024-07-13 22:00:32,586 - 533d3edc - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffba59e200>,),{}) - initial call
+DEBUG - 2024-07-13 22:00:32,586 - 533d3edc - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffba59e200>,),{}) - 0.0004394054412841797 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffba59e320>
+DEBUG - 2024-07-13 22:00:32,587 - 533d72a8 - initialize((<Application 0xffffba58ffa0>,),{}) - initial call
+DEBUG - 2024-07-13 22:00:32,588 - 533d72a8 - initialize((<Application 0xffffba58ffa0>,),{}) - 0.0001957416534423828 - returned <coroutine object initialize at 0xffffba5a4270>
+INFO - 2024-07-13 22:00:32,588 - 533d72a8 - Initialization done
+DEBUG - 2024-07-13 22:00:34,664 - 547a4d4e - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8f9320e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:00:34,664 - 547a4d4e - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8f9320e0>,),{}) - 0.000308990478515625 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8f932200>
+DEBUG - 2024-07-13 22:00:34,715 - 548222a8 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:00:34,715 - 548222a8 - test_verify_public_datasets((),{}) - 0.00022721290588378906 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffff8f2a9a80>
+DEBUG - 2024-07-13 22:00:34,716 - 54824eae - permission((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 22:00:34,717 - 54824eae - permission((<Request GET /control >,),{}) - 0.00019669532775878906 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffff8f2a9f50>
+DEBUG - 2024-07-13 22:00:34,717 - 54825dcc - authorization((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 22:00:34,717 - 54825dcc - authorization((<Request GET /control >,),{}) - 0.0002224445343017578 - returned <coroutine object authorization at 0xffff8f2aa0a0>
+DEBUG - 2024-07-13 22:00:34,717 - public
+DEBUG - 2024-07-13 22:00:34,718 - 548284b4 - control((<Request GET /control >, {'username': 'public', 'datasets': ['coadread_tcga_pan_can_atlas_2018', 'AV_Dataset', 'rd-connect_dataset', 'CINECA_dataset', 'CINECA_synthetic_cohort_EUROPE_UK1']}),{}) - initial call
+DEBUG - 2024-07-13 22:00:34,718 - 548284b4 - control((<Request GET /control >, {'username': 'public', 'datasets': ['coadread_tcga_pan_can_atlas_2018', 'AV_Dataset', 'rd-connect_dataset', 'CINECA_dataset', 'CINECA_synthetic_cohort_EUROPE_UK1']}),{}) - 0.00014519691467285156 - returned <coroutine object control at 0xffff8f2aa0a0>
+DEBUG - 2024-07-13 22:00:34,718 - "{\"status\": {\"username\": \"public\", \"datasets\": [\"coadread_tcga_pan_can_atlas_2018\", \"AV_Dataset\", \"rd-connect_dataset\", \"CINECA_dataset\", \"CINECA_synthetic_cohort_EUROPE_UK1\"]}}"
+DEBUG - 2024-07-13 22:00:34,719 - <class 'str'>
+DEBUG - 2024-07-13 22:00:59,634 - 635c5cda - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffbac3e200>,),{}) - initial call
+DEBUG - 2024-07-13 22:00:59,634 - 635c5cda - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffbac3e200>,),{}) - 0.0005354881286621094 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffbac3e320>
+DEBUG - 2024-07-13 22:00:59,635 - 635c899e - initialize((<Application 0xffffbac2be20>,),{}) - initial call
+DEBUG - 2024-07-13 22:00:59,635 - 635c899e - initialize((<Application 0xffffbac2be20>,),{}) - 0.00017714500427246094 - returned <coroutine object initialize at 0xffffbac44270>
+INFO - 2024-07-13 22:00:59,635 - 635c899e - Initialization done
+DEBUG - 2024-07-13 22:01:00,887 - 641b8d12 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa9fea0e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:01:00,887 - 641b8d12 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa9fea0e0>,),{}) - 0.00032448768615722656 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa9fea200>
+DEBUG - 2024-07-13 22:01:00,938 - 64236550 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:01:00,938 - 64236550 - test_verify_public_datasets((),{}) - 0.000293731689453125 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffffa9961a80>
+DEBUG - 2024-07-13 22:01:00,939 - 642395de - permission((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 22:01:00,939 - 642395de - permission((<Request GET /control >,),{}) - 0.00019788742065429688 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffffa9961f50>
+DEBUG - 2024-07-13 22:01:00,940 - 6423a812 - authorization((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-13 22:01:00,940 - 6423a812 - authorization((<Request GET /control >,),{}) - 0.00014829635620117188 - returned <coroutine object authorization at 0xffffa99620a0>
+DEBUG - 2024-07-13 22:01:00,940 - public
+DEBUG - 2024-07-13 22:01:00,941 - 6423ce00 - control((<Request GET /control >, {'username': 'public', 'datasets': ['CINECA_dataset', 'coadread_tcga_pan_can_atlas_2018', 'AV_Dataset', 'CINECA_synthetic_cohort_EUROPE_UK1', 'rd-connect_dataset']}),{}) - initial call
+DEBUG - 2024-07-13 22:01:00,941 - 6423ce00 - control((<Request GET /control >, {'username': 'public', 'datasets': ['CINECA_dataset', 'coadread_tcga_pan_can_atlas_2018', 'AV_Dataset', 'CINECA_synthetic_cohort_EUROPE_UK1', 'rd-connect_dataset']}),{}) - 0.0001652240753173828 - returned <coroutine object control at 0xffffa99620a0>
+DEBUG - 2024-07-13 22:01:00,941 - {"status": {"username": "public", "datasets": ["CINECA_dataset", "coadread_tcga_pan_can_atlas_2018", "AV_Dataset", "CINECA_synthetic_cohort_EUROPE_UK1", "rd-connect_dataset"]}}
+DEBUG - 2024-07-13 22:01:00,941 - <class 'str'>
+DEBUG - 2024-07-13 22:03:04,684 - ade579a8 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff7f9b6200>,),{}) - initial call
+DEBUG - 2024-07-13 22:03:04,697 - ade579a8 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff7f9b6200>,),{}) - 0.013017416000366211 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff7f9b6320>
+DEBUG - 2024-07-13 22:03:04,701 - ade81c58 - initialize((<Application 0xffff7f9a7f10>,),{}) - initial call
+DEBUG - 2024-07-13 22:03:04,719 - ade81c58 - initialize((<Application 0xffff7f9a7f10>,),{}) - 0.018358230590820312 - returned <coroutine object initialize at 0xffff7f9bc270>
+INFO - 2024-07-13 22:03:04,724 - ade81c58 - Initialization done
+DEBUG - 2024-07-13 22:03:07,192 - af644a8e - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff84ea20e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:03:07,193 - af644a8e - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff84ea20e0>,),{}) - 0.00032973289489746094 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff84ea2200>
+DEBUG - 2024-07-13 22:03:39,752 - c2cc7c0e - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb6766200>,),{}) - initial call
+DEBUG - 2024-07-13 22:03:39,752 - c2cc7c0e - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb6766200>,),{}) - 0.00034046173095703125 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb6766320>
+DEBUG - 2024-07-13 22:03:39,753 - c2cca35a - initialize((<Application 0xffffb6757f70>,),{}) - initial call
+DEBUG - 2024-07-13 22:03:39,753 - c2cca35a - initialize((<Application 0xffffb6757f70>,),{}) - 0.00018334388732910156 - returned <coroutine object initialize at 0xffffb676c270>
+INFO - 2024-07-13 22:03:39,753 - c2cca35a - Initialization done
+DEBUG - 2024-07-13 22:03:41,131 - c39ef0bc - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9ab260e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:03:41,131 - c39ef0bc - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9ab260e0>,),{}) - 0.00033593177795410156 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9ab26200>
+DEBUG - 2024-07-13 22:03:41,181 - c3a69286 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:03:41,181 - c3a69286 - test_verify_public_datasets((),{}) - 0.00023174285888671875 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffff9a484d60>
+DEBUG - 2024-07-13 22:03:41,183 - 500 Internal Server Error
+
+Server got itself in trouble
+DEBUG - 2024-07-13 22:03:41,183 - <class 'str'>
+DEBUG - 2024-07-13 22:04:32,215 - e211b5de - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8995a200>,),{}) - initial call
+DEBUG - 2024-07-13 22:04:32,215 - e211b5de - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8995a200>,),{}) - 0.00036454200744628906 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8995a320>
+DEBUG - 2024-07-13 22:04:32,216 - e211dba4 - initialize((<Application 0xffff89947f40>,),{}) - initial call
+DEBUG - 2024-07-13 22:04:32,216 - e211dba4 - initialize((<Application 0xffff89947f40>,),{}) - 0.0001926422119140625 - returned <coroutine object initialize at 0xffff89960270>
+INFO - 2024-07-13 22:04:32,216 - e211dba4 - Initialization done
+DEBUG - 2024-07-13 22:04:33,492 - e2d48000 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb0e420e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:04:33,492 - e2d48000 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb0e420e0>,),{}) - 0.0003559589385986328 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb0e42200>
+DEBUG - 2024-07-13 22:04:33,541 - e2dc10a4 - dataset_permissions((<function verify_public at 0xffffb31f1b40>,),{}) - initial call
+DEBUG - 2024-07-13 22:04:33,541 - e2dc10a4 - dataset_permissions((<function verify_public at 0xffffb31f1b40>,),{}) - 0.00027060508728027344 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb09549d0>
+DEBUG - 2024-07-13 22:04:33,544 - e2dc71fc - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:04:33,544 - e2dc71fc - test_verify_public_datasets((),{}) - 0.00014853477478027344 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffffb07b9a80>
+DEBUG - 2024-07-13 22:04:33,545 - e2dc9ca4 - permission((<Request GET /public >,),{}) - initial call
+DEBUG - 2024-07-13 22:04:33,545 - e2dc9ca4 - permission((<Request GET /public >,),{}) - 0.0001652240753173828 - returned <coroutine object dataset_permissions.<locals>.permission at 0xffffb07ba0a0>
+DEBUG - 2024-07-13 22:04:33,545 - e2dca9d8 - authorization((<Request GET /public >,),{}) - initial call
+DEBUG - 2024-07-13 22:04:33,545 - e2dca9d8 - authorization((<Request GET /public >,),{}) - 0.0002353191375732422 - returned <coroutine object authorization at 0xffffb07ba110>
+DEBUG - 2024-07-13 22:04:33,545 - public
+DEBUG - 2024-07-13 22:11:26,556 - d9092e3a - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff97c7e200>,),{}) - initial call
+DEBUG - 2024-07-13 22:11:26,557 - d9092e3a - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff97c7e200>,),{}) - 0.00035381317138671875 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff97c7e320>
+DEBUG - 2024-07-13 22:11:26,557 - d9095266 - initialize((<Application 0xffff97c6be20>,),{}) - initial call
+DEBUG - 2024-07-13 22:11:26,557 - d9095266 - initialize((<Application 0xffff97c6be20>,),{}) - 0.00017571449279785156 - returned <coroutine object initialize at 0xffff97c84270>
+INFO - 2024-07-13 22:11:26,558 - d9095266 - Initialization done
+DEBUG - 2024-07-13 22:11:28,558 - da3a8d3a - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb121a0e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:11:28,558 - da3a8d3a - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb121a0e0>,),{}) - 0.0003509521484375 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb121a200>
+DEBUG - 2024-07-13 22:11:53,481 - e915a33a - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb21de200>,),{}) - initial call
+DEBUG - 2024-07-13 22:11:53,482 - e915a33a - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb21de200>,),{}) - 0.0003514289855957031 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb21de320>
+DEBUG - 2024-07-13 22:11:53,482 - e915c982 - initialize((<Application 0xffffb21cbfd0>,),{}) - initial call
+DEBUG - 2024-07-13 22:11:53,483 - e915c982 - initialize((<Application 0xffffb21cbfd0>,),{}) - 0.00039505958557128906 - returned <coroutine object initialize at 0xffffb21e4270>
+INFO - 2024-07-13 22:11:53,483 - e915c982 - Initialization done
+DEBUG - 2024-07-13 22:11:54,731 - e9d45d8e - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8092e0e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:11:54,732 - e9d45d8e - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8092e0e0>,),{}) - 0.0003478527069091797 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8092e200>
+DEBUG - 2024-07-13 22:11:54,783 - e9dc4fbc - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:11:54,784 - e9dc4fbc - test_verify_public_datasets((),{}) - 0.00023984909057617188 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffff80299bd0>
+DEBUG - 2024-07-13 22:11:54,785 - e9dc7f50 - test_permission((<Request GET /public >,),{}) - initial call
+DEBUG - 2024-07-13 22:11:54,785 - e9dc7f50 - test_permission((<Request GET /public >,),{}) - 0.0001995563507080078 - returned <coroutine object test_dataset_permissions.<locals>.test_permission at 0xffff8029a1f0>
+DEBUG - 2024-07-13 22:14:01,336 - 354aafde - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff88ec6200>,),{}) - initial call
+DEBUG - 2024-07-13 22:14:01,352 - 354aafde - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff88ec6200>,),{}) - 0.015600919723510742 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff88ec6320>
+DEBUG - 2024-07-13 22:14:01,369 - 354fbce0 - initialize((<Application 0xffff88eb7f40>,),{}) - initial call
+DEBUG - 2024-07-13 22:14:01,372 - 354fbce0 - initialize((<Application 0xffff88eb7f40>,),{}) - 0.0028738975524902344 - returned <coroutine object initialize at 0xffff88ecc270>
+INFO - 2024-07-13 22:14:01,385 - 354fbce0 - Initialization done
+DEBUG - 2024-07-13 22:14:03,444 - 368c5942 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8ec220e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:14:03,444 - 368c5942 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8ec220e0>,),{}) - 0.0003230571746826172 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8ec22200>
+DEBUG - 2024-07-13 22:14:03,496 - 3694364e - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:14:03,496 - 3694364e - test_verify_public_datasets((),{}) - 0.00019860267639160156 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffff8e580e40>
+DEBUG - 2024-07-13 22:14:03,497 - 3694648e - test_permission((<Request GET /public >,),{}) - initial call
+DEBUG - 2024-07-13 22:14:03,497 - 3694648e - test_permission((<Request GET /public >,),{}) - 0.00016927719116210938 - returned <coroutine object test_dataset_permissions.<locals>.test_permission at 0xffff8e581460>
+DEBUG - 2024-07-13 22:15:14,576 - 60f2407a - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb9fb2200>,),{}) - initial call
+DEBUG - 2024-07-13 22:15:14,576 - 60f2407a - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb9fb2200>,),{}) - 0.0003669261932373047 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb9fb2320>
+DEBUG - 2024-07-13 22:15:14,577 - 60f26a3c - initialize((<Application 0xffffb9fa3eb0>,),{}) - initial call
+DEBUG - 2024-07-13 22:15:14,577 - 60f26a3c - initialize((<Application 0xffffb9fa3eb0>,),{}) - 0.00017642974853515625 - returned <coroutine object initialize at 0xffffb9fb8270>
+INFO - 2024-07-13 22:15:14,578 - 60f26a3c - Initialization done
+DEBUG - 2024-07-13 22:15:16,723 - 6239d2ae - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffbae6a0e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:15:16,723 - 6239d2ae - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffbae6a0e0>,),{}) - 0.0003781318664550781 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffbae6a200>
+DEBUG - 2024-07-13 22:15:16,775 - 6241b38e - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:15:16,775 - 6241b38e - test_verify_public_datasets((),{}) - 0.00023627281188964844 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffffba7e5af0>
+DEBUG - 2024-07-13 22:15:16,776 - 6241df80 - test_permission((<Request GET /public >,),{}) - initial call
+DEBUG - 2024-07-13 22:15:16,776 - 6241df80 - test_permission((<Request GET /public >,),{}) - 0.00017189979553222656 - returned <coroutine object test_permission at 0xffffba7e6110>
+DEBUG - 2024-07-13 22:15:48,776 - 7554c70e - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa5e5e200>,),{}) - initial call
+DEBUG - 2024-07-13 22:15:48,777 - 7554c70e - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa5e5e200>,),{}) - 0.00039768218994140625 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa5e5e320>
+DEBUG - 2024-07-13 22:15:48,777 - 7554f06c - initialize((<Application 0xffffa5e4be20>,),{}) - initial call
+DEBUG - 2024-07-13 22:15:48,778 - 7554f06c - initialize((<Application 0xffffa5e4be20>,),{}) - 0.00020194053649902344 - returned <coroutine object initialize at 0xffffa5e64270>
+INFO - 2024-07-13 22:15:48,778 - 7554f06c - Initialization done
+DEBUG - 2024-07-13 22:15:52,992 - 77d809e6 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff94e520e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:15:52,992 - 77d809e6 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff94e520e0>,),{}) - 0.000370025634765625 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff94e52200>
+DEBUG - 2024-07-13 22:15:53,042 - 77dfa4c6 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:15:53,042 - 77dfa4c6 - test_verify_public_datasets((),{}) - 0.0002758502960205078 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffff947b8dd0>
+DEBUG - 2024-07-13 22:19:44,583 - 01e1f516 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff97cfa200>,),{}) - initial call
+DEBUG - 2024-07-13 22:19:44,583 - 01e1f516 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff97cfa200>,),{}) - 0.00040435791015625 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff97cfa320>
+DEBUG - 2024-07-13 22:19:44,584 - 01e21c44 - initialize((<Application 0xffff97cebf10>,),{}) - initial call
+DEBUG - 2024-07-13 22:19:44,584 - 01e21c44 - initialize((<Application 0xffff97cebf10>,),{}) - 0.00017642974853515625 - returned <coroutine object initialize at 0xffff97d00270>
+INFO - 2024-07-13 22:19:44,584 - 01e21c44 - Initialization done
+DEBUG - 2024-07-13 22:19:45,975 - 02b675de - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffab8e60e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:19:45,976 - 02b675de - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffab8e60e0>,),{}) - 0.0004105567932128906 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffab8e6200>
+DEBUG - 2024-07-13 22:19:46,023 - 02bdcc94 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:19:46,024 - 02bdcc94 - test_verify_public_datasets((),{}) - 0.00025463104248046875 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffffab244e40>
+DEBUG - 2024-07-13 22:20:59,579 - 2e957ba0 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff95a76200>,),{}) - initial call
+DEBUG - 2024-07-13 22:20:59,579 - 2e957ba0 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff95a76200>,),{}) - 0.00037384033203125 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff95a76320>
+DEBUG - 2024-07-13 22:20:59,580 - 2e95a1ca - initialize((<Application 0xffff95a63e20>,),{}) - initial call
+DEBUG - 2024-07-13 22:20:59,580 - 2e95a1ca - initialize((<Application 0xffff95a63e20>,),{}) - 0.00017952919006347656 - returned <coroutine object initialize at 0xffff95a7c270>
+INFO - 2024-07-13 22:20:59,580 - 2e95a1ca - Initialization done
+DEBUG - 2024-07-13 22:21:13,655 - 36f967b6 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9156e200>,),{}) - initial call
+DEBUG - 2024-07-13 22:21:13,670 - 36f967b6 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9156e200>,),{}) - 0.015039920806884766 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9156e320>
+DEBUG - 2024-07-13 22:21:13,674 - 36fc33ba - initialize((<Application 0xffff9155bfd0>,),{}) - initial call
+DEBUG - 2024-07-13 22:21:13,677 - 36fc33ba - initialize((<Application 0xffff9155bfd0>,),{}) - 0.0031888484954833984 - returned <coroutine object initialize at 0xffff91574270>
+INFO - 2024-07-13 22:21:13,684 - 36fc33ba - Initialization done
+DEBUG - 2024-07-13 22:21:15,887 - 384deb32 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff7f9220e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:21:15,887 - 384deb32 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff7f9220e0>,),{}) - 0.0003399848937988281 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff7f922200>
+DEBUG - 2024-07-13 22:21:15,938 - 38559fc6 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:21:15,938 - 38559fc6 - test_verify_public_datasets((),{}) - 0.0002465248107910156 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffff7f295af0>
+DEBUG - 2024-07-13 22:22:27,544 - 6303e0fc - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffacdc2200>,),{}) - initial call
+DEBUG - 2024-07-13 22:22:27,544 - 6303e0fc - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffacdc2200>,),{}) - 0.00042629241943359375 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffacdc2320>
+DEBUG - 2024-07-13 22:22:27,545 - 63040c6c - initialize((<Application 0xffffacdb3e20>,),{}) - initial call
+DEBUG - 2024-07-13 22:22:27,545 - 63040c6c - initialize((<Application 0xffffacdb3e20>,),{}) - 0.0001723766326904297 - returned <coroutine object initialize at 0xffffacdc8270>
+INFO - 2024-07-13 22:22:27,545 - 63040c6c - Initialization done
+DEBUG - 2024-07-13 22:22:32,117 - 65bdbebc - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8d96e0e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:22:32,118 - 65bdbebc - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8d96e0e0>,),{}) - 0.00034809112548828125 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8d96e200>
+DEBUG - 2024-07-13 22:22:32,166 - 65c53750 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:22:32,167 - 65c53750 - test_verify_public_datasets((),{}) - 0.0002524852752685547 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffff8d2e9b60>
+DEBUG - 2024-07-13 22:25:24,454 - cc7626bc - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8df86200>,),{}) - initial call
+DEBUG - 2024-07-13 22:25:24,454 - cc7626bc - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8df86200>,),{}) - 0.000339508056640625 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8df86320>
+DEBUG - 2024-07-13 22:25:24,454 - cc7649a8 - initialize((<Application 0xffff8df77fd0>,),{}) - initial call
+DEBUG - 2024-07-13 22:25:24,455 - cc7649a8 - initialize((<Application 0xffff8df77fd0>,),{}) - 0.0001678466796875 - returned <coroutine object initialize at 0xffff8df8c270>
+INFO - 2024-07-13 22:25:24,455 - cc7649a8 - Initialization done
+DEBUG - 2024-07-13 22:25:25,660 - cd2e4468 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff82f820e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:25:25,660 - cd2e4468 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff82f820e0>,),{}) - 0.00035190582275390625 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff82f82200>
+DEBUG - 2024-07-13 22:25:25,709 - cd35c3a0 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:25:25,710 - cd35c3a0 - test_verify_public_datasets((),{}) - 0.00028443336486816406 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffff828f5af0>
+DEBUG - 2024-07-13 22:25:47,071 - d9f15834 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8c3fa200>,),{}) - initial call
+DEBUG - 2024-07-13 22:25:47,072 - d9f15834 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8c3fa200>,),{}) - 0.0003535747528076172 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8c3fa320>
+DEBUG - 2024-07-13 22:25:47,072 - d9f17da0 - initialize((<Application 0xffff8c3ebf70>,),{}) - initial call
+DEBUG - 2024-07-13 22:25:47,072 - d9f17da0 - initialize((<Application 0xffff8c3ebf70>,),{}) - 0.00021147727966308594 - returned <coroutine object initialize at 0xffff8c400270>
+INFO - 2024-07-13 22:25:47,073 - d9f17da0 - Initialization done
+DEBUG - 2024-07-13 22:25:48,186 - da9b5dca - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff98dba0e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:25:48,186 - da9b5dca - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff98dba0e0>,),{}) - 0.00035643577575683594 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff98dba200>
+DEBUG - 2024-07-13 22:25:48,234 - daa2c27c - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:25:48,234 - daa2c27c - test_verify_public_datasets((),{}) - 0.00023174285888671875 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffff98735af0>
+DEBUG - 2024-07-13 22:27:38,240 - 1c345ade - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb2d5e200>,),{}) - initial call
+DEBUG - 2024-07-13 22:27:38,240 - 1c345ade - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb2d5e200>,),{}) - 0.00039124488830566406 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb2d5e320>
+DEBUG - 2024-07-13 22:27:38,241 - 1c34836a - initialize((<Application 0xffffb2d4ff40>,),{}) - initial call
+DEBUG - 2024-07-13 22:27:38,241 - 1c34836a - initialize((<Application 0xffffb2d4ff40>,),{}) - 0.00019669532775878906 - returned <coroutine object initialize at 0xffffb2d64270>
+INFO - 2024-07-13 22:27:38,241 - 1c34836a - Initialization done
+DEBUG - 2024-07-13 22:27:39,622 - 1d072914 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffae0aa0e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:27:39,622 - 1d072914 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffae0aa0e0>,),{}) - 0.00030994415283203125 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffae0aa200>
+DEBUG - 2024-07-13 22:27:39,672 - 1d0ee8e8 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:27:39,673 - 1d0ee8e8 - test_verify_public_datasets((),{}) - 0.00017762184143066406 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffffada1daf0>
+DEBUG - 2024-07-13 22:28:30,616 - 3b6c5d0c - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9a88a200>,),{}) - initial call
+DEBUG - 2024-07-13 22:28:30,624 - 3b6c5d0c - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9a88a200>,),{}) - 0.007475852966308594 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9a88a320>
+DEBUG - 2024-07-13 22:28:30,627 - 3b6de71c - initialize((<Application 0xffff9a87bfa0>,),{}) - initial call
+DEBUG - 2024-07-13 22:28:30,635 - 3b6de71c - initialize((<Application 0xffff9a87bfa0>,),{}) - 0.008420467376708984 - returned <coroutine object initialize at 0xffff9a890270>
+INFO - 2024-07-13 22:28:30,645 - 3b6de71c - Initialization done
+DEBUG - 2024-07-13 22:28:35,417 - 3e48d802 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff90e5e0e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:28:35,417 - 3e48d802 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff90e5e0e0>,),{}) - 0.0003857612609863281 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff90e5e200>
+DEBUG - 2024-07-13 22:28:35,474 - 3e51a20c - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:28:35,475 - 3e51a20c - test_verify_public_datasets((),{}) - 0.00024437904357910156 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffff907d9af0>
+DEBUG - 2024-07-13 22:30:56,623 - 927339ea - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb2d7a200>,),{}) - initial call
+DEBUG - 2024-07-13 22:30:56,624 - 927339ea - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb2d7a200>,),{}) - 0.00031447410583496094 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb2d7a320>
+DEBUG - 2024-07-13 22:30:56,624 - 92736032 - initialize((<Application 0xffffb2d6bfa0>,),{}) - initial call
+DEBUG - 2024-07-13 22:30:56,624 - 92736032 - initialize((<Application 0xffffb2d6bfa0>,),{}) - 0.00016117095947265625 - returned <coroutine object initialize at 0xffffb2d80270>
+INFO - 2024-07-13 22:30:56,624 - 92736032 - Initialization done
+DEBUG - 2024-07-13 22:30:57,953 - 933e2fba - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8b32e0e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:30:57,954 - 933e2fba - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8b32e0e0>,),{}) - 0.0003380775451660156 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8b32e200>
+DEBUG - 2024-07-13 22:30:58,004 - 9345f83a - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:30:58,005 - 9345f83a - test_verify_public_datasets((),{}) - 0.00025153160095214844 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffff8aca1b60>
+DEBUG - 2024-07-13 22:32:39,562 - cfce793a - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8673e200>,),{}) - initial call
+DEBUG - 2024-07-13 22:32:39,563 - cfce793a - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8673e200>,),{}) - 0.0004420280456542969 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8673e320>
+DEBUG - 2024-07-13 22:32:39,563 - cfcea252 - initialize((<Application 0xffff8672ffd0>,),{}) - initial call
+DEBUG - 2024-07-13 22:32:39,563 - cfcea252 - initialize((<Application 0xffff8672ffd0>,),{}) - 0.00017189979553222656 - returned <coroutine object initialize at 0xffff86744270>
+INFO - 2024-07-13 22:32:39,564 - cfcea252 - Initialization done
+DEBUG - 2024-07-13 22:32:40,799 - d08b209e - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffaa28e0e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:32:40,799 - d08b209e - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffaa28e0e0>,),{}) - 0.0003190040588378906 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffaa28e200>
+DEBUG - 2024-07-13 22:32:40,851 - d0932898 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:32:40,851 - d0932898 - test_verify_public_datasets((),{}) - 0.00022029876708984375 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffffa9bf9b60>
+DEBUG - 2024-07-13 22:34:05,222 - 02dd2f24 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9811a200>,),{}) - initial call
+DEBUG - 2024-07-13 22:34:05,223 - 02dd2f24 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9811a200>,),{}) - 0.0003509521484375 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9811a320>
+DEBUG - 2024-07-13 22:34:05,223 - 02dd53fa - initialize((<Application 0xffff98107e20>,),{}) - initial call
+DEBUG - 2024-07-13 22:34:05,224 - 02dd53fa - initialize((<Application 0xffff98107e20>,),{}) - 0.00016832351684570312 - returned <coroutine object initialize at 0xffff98120270>
+INFO - 2024-07-13 22:34:05,224 - 02dd53fa - Initialization done
+DEBUG - 2024-07-13 22:34:18,851 - 0afcbe54 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff84b1a200>,),{}) - initial call
+DEBUG - 2024-07-13 22:34:18,851 - 0afcbe54 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff84b1a200>,),{}) - 0.00034737586975097656 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff84b1a320>
+DEBUG - 2024-07-13 22:34:18,852 - 0afce5b4 - initialize((<Application 0xffff84b0be20>,),{}) - initial call
+DEBUG - 2024-07-13 22:34:18,852 - 0afce5b4 - initialize((<Application 0xffff84b0be20>,),{}) - 0.00017452239990234375 - returned <coroutine object initialize at 0xffff84b20270>
+INFO - 2024-07-13 22:34:18,852 - 0afce5b4 - Initialization done
+DEBUG - 2024-07-13 22:34:20,182 - 0bc7c3ba - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8faf60e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:34:20,182 - 0bc7c3ba - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8faf60e0>,),{}) - 0.00030112266540527344 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8faf6200>
+DEBUG - 2024-07-13 22:34:20,233 - 0bcf9342 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:34:20,233 - 0bcf9342 - test_verify_public_datasets((),{}) - 0.00019407272338867188 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffff8f469b60>
+DEBUG - 2024-07-13 22:34:52,983 - 1f54dc9c - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff988fe200>,),{}) - initial call
+DEBUG - 2024-07-13 22:34:52,983 - 1f54dc9c - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff988fe200>,),{}) - 0.00036978721618652344 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff988fe320>
+DEBUG - 2024-07-13 22:34:52,984 - 1f550708 - initialize((<Application 0xffff988efe20>,),{}) - initial call
+DEBUG - 2024-07-13 22:34:52,984 - 1f550708 - initialize((<Application 0xffff988efe20>,),{}) - 0.0001742839813232422 - returned <coroutine object initialize at 0xffff98904270>
+INFO - 2024-07-13 22:34:52,984 - 1f550708 - Initialization done
+DEBUG - 2024-07-13 22:34:56,867 - 21a59360 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9ab620e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:34:56,868 - 21a59360 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9ab620e0>,),{}) - 0.0003376007080078125 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9ab62200>
+DEBUG - 2024-07-13 22:34:56,929 - 21aef61c - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:34:56,929 - 21aef61c - test_verify_public_datasets((),{}) - 0.00024819374084472656 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffff9a4d5af0>
+DEBUG - 2024-07-13 22:36:01,871 - 48644d98 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff87eee200>,),{}) - initial call
+DEBUG - 2024-07-13 22:36:01,885 - 48644d98 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff87eee200>,),{}) - 0.013914346694946289 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff87eee320>
+DEBUG - 2024-07-13 22:36:01,915 - 486b14ac - initialize((<Application 0xffff87edbe20>,),{}) - initial call
+DEBUG - 2024-07-13 22:36:01,936 - 486b14ac - initialize((<Application 0xffff87edbe20>,),{}) - 0.020282506942749023 - returned <coroutine object initialize at 0xffff87ef4270>
+INFO - 2024-07-13 22:36:01,940 - 486b14ac - Initialization done
+DEBUG - 2024-07-13 22:36:03,228 - 49336fa6 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb5ba20e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:36:03,229 - 49336fa6 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb5ba20e0>,),{}) - 0.00031375885009765625 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb5ba2200>
+DEBUG - 2024-07-13 22:36:03,279 - 493b3416 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:36:03,279 - 493b3416 - test_verify_public_datasets((),{}) - 0.00023937225341796875 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffffb5515af0>
+DEBUG - 2024-07-13 22:36:42,618 - 60adb7c2 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff7ccee200>,),{}) - initial call
+DEBUG - 2024-07-13 22:36:42,618 - 60adb7c2 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff7ccee200>,),{}) - 0.0007774829864501953 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff7ccee320>
+DEBUG - 2024-07-13 22:36:42,619 - 60adf89a - initialize((<Application 0xffff7ccdffd0>,),{}) - initial call
+DEBUG - 2024-07-13 22:36:42,619 - 60adf89a - initialize((<Application 0xffff7ccdffd0>,),{}) - 0.00020933151245117188 - returned <coroutine object initialize at 0xffff7ccf4270>
+INFO - 2024-07-13 22:36:42,619 - 60adf89a - Initialization done
+DEBUG - 2024-07-13 22:37:04,416 - 6dabe5d4 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff82f0e0e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:37:04,416 - 6dabe5d4 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff82f0e0e0>,),{}) - 0.0004031658172607422 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff82f0e200>
+DEBUG - 2024-07-13 22:37:04,466 - 6db38384 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:37:04,466 - 6db38384 - test_verify_public_datasets((),{}) - 0.0003275871276855469 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffff82871b60>
+DEBUG - 2024-07-13 22:38:22,702 - 9c556e0a - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff7e7fa200>,),{}) - initial call
+DEBUG - 2024-07-13 22:38:22,703 - 9c556e0a - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff7e7fa200>,),{}) - 0.0006704330444335938 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff7e7fa320>
+DEBUG - 2024-07-13 22:38:22,704 - 9c55c62a - initialize((<Application 0xffff7e7ebee0>,),{}) - initial call
+DEBUG - 2024-07-13 22:38:22,708 - 9c55c62a - initialize((<Application 0xffff7e7ebee0>,),{}) - 0.0035085678100585938 - returned <coroutine object initialize at 0xffff7e800270>
+INFO - 2024-07-13 22:38:22,708 - 9c55c62a - Initialization done
+DEBUG - 2024-07-13 22:38:23,655 - 9ce6e128 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff991ee0e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:38:23,655 - 9ce6e128 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff991ee0e0>,),{}) - 0.0003352165222167969 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff991ee200>
+DEBUG - 2024-07-13 22:38:23,705 - 9cee9120 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:38:23,706 - 9cee9120 - test_verify_public_datasets((),{}) - 0.00024962425231933594 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffff98b65b60>
+DEBUG - 2024-07-13 22:38:59,569 - b24ee5d8 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8a86a200>,),{}) - initial call
+DEBUG - 2024-07-13 22:38:59,569 - b24ee5d8 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8a86a200>,),{}) - 0.0003733634948730469 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8a86a320>
+DEBUG - 2024-07-13 22:38:59,570 - b24f0b58 - initialize((<Application 0xffff8a857e20>,),{}) - initial call
+DEBUG - 2024-07-13 22:38:59,570 - b24f0b58 - initialize((<Application 0xffff8a857e20>,),{}) - 0.00017547607421875 - returned <coroutine object initialize at 0xffff8a870270>
+INFO - 2024-07-13 22:38:59,570 - b24f0b58 - Initialization done
+DEBUG - 2024-07-13 22:39:01,746 - b39b05e8 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff999e20e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:39:01,746 - b39b05e8 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff999e20e0>,),{}) - 0.0003757476806640625 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff999e2200>
+DEBUG - 2024-07-13 22:39:01,795 - b3a296a0 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:39:01,795 - b3a296a0 - test_verify_public_datasets((),{}) - 0.0002715587615966797 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffff99359b60>
+DEBUG - 2024-07-13 22:39:01,797 - ['CINECA_synthetic_cohort_EUROPE_UK1', 'rd-connect_dataset', 'AV_Dataset', 'coadread_tcga_pan_can_atlas_2018', 'CINECA_dataset']
+DEBUG - 2024-07-13 22:39:39,076 - c9db204a - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb107a200>,),{}) - initial call
+DEBUG - 2024-07-13 22:39:39,077 - c9db204a - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb107a200>,),{}) - 0.0009829998016357422 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb107a320>
+DEBUG - 2024-07-13 22:39:39,079 - c9db95fc - initialize((<Application 0xffffb106bf70>,),{}) - initial call
+DEBUG - 2024-07-13 22:39:39,079 - c9db95fc - initialize((<Application 0xffffb106bf70>,),{}) - 0.00046062469482421875 - returned <coroutine object initialize at 0xffffb1080270>
+INFO - 2024-07-13 22:39:39,080 - c9db95fc - Initialization done
+DEBUG - 2024-07-13 22:39:47,361 - cecb618c - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa53c60e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:39:47,361 - cecb618c - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa53c60e0>,),{}) - 0.00032639503479003906 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa53c6200>
+DEBUG - 2024-07-13 22:39:47,411 - ced310b2 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:39:47,412 - ced310b2 - test_verify_public_datasets((),{}) - 0.00023436546325683594 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffffa4d31bd0>
+DEBUG - 2024-07-13 22:39:47,413 - ['CINECA_dataset', 'coadread_tcga_pan_can_atlas_2018', 'CINECA_synthetic_cohort_EUROPE_UK1', 'AV_Dataset', 'rd-connect_dataset']
+DEBUG - 2024-07-13 22:40:16,499 - e02989b8 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8bc5e200>,),{}) - initial call
+DEBUG - 2024-07-13 22:40:16,500 - e02989b8 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8bc5e200>,),{}) - 0.00038170814514160156 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8bc5e320>
+DEBUG - 2024-07-13 22:40:16,500 - e029af56 - initialize((<Application 0xffff8bc4fe20>,),{}) - initial call
+DEBUG - 2024-07-13 22:40:16,500 - e029af56 - initialize((<Application 0xffff8bc4fe20>,),{}) - 0.0002028942108154297 - returned <coroutine object initialize at 0xffff8bc64270>
+INFO - 2024-07-13 22:40:16,501 - e029af56 - Initialization done
+DEBUG - 2024-07-13 22:40:17,382 - e0b033f0 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa180e0e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:40:17,382 - e0b033f0 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa180e0e0>,),{}) - 0.00034308433532714844 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa180e200>
+DEBUG - 2024-07-13 22:40:17,431 - e0b7c87c - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:40:17,432 - e0b7c87c - test_verify_public_datasets((),{}) - 0.0002646446228027344 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffffa1179b60>
+DEBUG - 2024-07-13 22:40:17,433 - ['AV_Dataset', 'rd-connect_dataset', 'coadread_tcga_pan_can_atlas_2018', 'CINECA_synthetic_cohort_EUROPE_UK1', 'CINECA_dataset']
+DEBUG - 2024-07-13 22:40:45,295 - f1535606 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb17ea200>,),{}) - initial call
+DEBUG - 2024-07-13 22:40:45,295 - f1535606 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb17ea200>,),{}) - 0.0008168220520019531 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb17ea320>
+DEBUG - 2024-07-13 22:40:45,297 - f153b7b8 - initialize((<Application 0xffffb17dbf40>,),{}) - initial call
+DEBUG - 2024-07-13 22:40:45,297 - f153b7b8 - initialize((<Application 0xffffb17dbf40>,),{}) - 0.0005171298980712891 - returned <coroutine object initialize at 0xffffb17f0270>
+INFO - 2024-07-13 22:40:45,298 - f153b7b8 - Initialization done
+DEBUG - 2024-07-13 22:40:47,286 - f2832fa6 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8e67e0e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:40:47,286 - f2832fa6 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8e67e0e0>,),{}) - 0.0003612041473388672 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8e67e200>
+DEBUG - 2024-07-13 22:40:47,336 - f28adc7e - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:40:47,336 - f28adc7e - test_verify_public_datasets((),{}) - 0.0003528594970703125 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffff8dfe1b60>
+DEBUG - 2024-07-13 22:40:47,338 - ['rd-connect_dataset', 'CINECA_synthetic_cohort_EUROPE_UK1', 'AV_Dataset', 'CINECA_dataset', 'coadread_tcga_pan_can_atlas_2018']
+DEBUG - 2024-07-13 22:40:47,338 - <class 'list'>
+DEBUG - 2024-07-13 22:41:31,840 - 0d11a97e - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff97236200>,),{}) - initial call
+DEBUG - 2024-07-13 22:41:31,841 - 0d11a97e - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff97236200>,),{}) - 0.0010066032409667969 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff97236320>
+DEBUG - 2024-07-13 22:41:31,842 - 0d11ff00 - initialize((<Application 0xffff97227fa0>,),{}) - initial call
+DEBUG - 2024-07-13 22:41:31,843 - 0d11ff00 - initialize((<Application 0xffff97227fa0>,),{}) - 0.0009522438049316406 - returned <coroutine object initialize at 0xffff9723c270>
+INFO - 2024-07-13 22:41:31,844 - 0d11ff00 - Initialization done
+DEBUG - 2024-07-13 22:41:32,713 - 0d96c9ba - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9baf60e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:41:32,713 - 0d96c9ba - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9baf60e0>,),{}) - 0.000370025634765625 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9baf6200>
+DEBUG - 2024-07-13 22:41:32,761 - 0d9e2b56 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:41:32,761 - 0d9e2b56 - test_verify_public_datasets((),{}) - 0.0002372264862060547 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffff9b469bd0>
+DEBUG - 2024-07-13 22:41:32,763 - ['CINECA_synthetic_cohort_EUROPE_UK1', 'rd-connect_dataset', 'coadread_tcga_pan_can_atlas_2018', 'AV_Dataset', 'CINECA_dataset']
+DEBUG - 2024-07-13 22:41:32,763 - <class 'list'>
+DEBUG - 2024-07-13 22:42:57,972 - 406853f4 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb591a3b0>,),{}) - initial call
+DEBUG - 2024-07-13 22:42:57,973 - 406853f4 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb591a3b0>,),{}) - 0.0011508464813232422 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffb591a4d0>
+DEBUG - 2024-07-13 22:42:58,020 - 406fb82e - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:42:58,021 - 406fb82e - test_verify_public_datasets((),{}) - 0.0002689361572265625 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffffb5285a80>
+DEBUG - 2024-07-13 22:42:58,022 - ['CINECA_synthetic_cohort_EUROPE_UK1', 'CINECA_dataset', 'coadread_tcga_pan_can_atlas_2018', 'AV_Dataset', 'rd-connect_dataset']
+DEBUG - 2024-07-13 22:42:58,022 - <class 'list'>
+DEBUG - 2024-07-13 22:43:27,196 - 51d38af0 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff83692200>,),{}) - initial call
+DEBUG - 2024-07-13 22:43:27,199 - 51d38af0 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff83692200>,),{}) - 0.003129243850708008 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff83692320>
+DEBUG - 2024-07-13 22:43:27,227 - 51d835dc - initialize((<Application 0xffff83683fd0>,),{}) - initial call
+DEBUG - 2024-07-13 22:43:27,228 - 51d835dc - initialize((<Application 0xffff83683fd0>,),{}) - 0.00162506103515625 - returned <coroutine object initialize at 0xffff83698270>
+INFO - 2024-07-13 22:43:27,230 - 51d835dc - Initialization done
+DEBUG - 2024-07-13 22:43:28,351 - 5283cd84 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa5e360e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:43:28,352 - 5283cd84 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa5e360e0>,),{}) - 0.0004200935363769531 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa5e36200>
+DEBUG - 2024-07-13 22:43:28,401 - 528b6c24 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:43:28,401 - 528b6c24 - test_verify_public_datasets((),{}) - 0.0002734661102294922 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffffa57a1b60>
+DEBUG - 2024-07-13 22:43:28,403 - ['CINECA_synthetic_cohort_EUROPE_UK1', 'coadread_tcga_pan_can_atlas_2018', 'AV_Dataset', 'CINECA_dataset', 'rd-connect_dataset']
+DEBUG - 2024-07-13 22:43:28,403 - <class 'list'>
+DEBUG - 2024-07-13 22:46:56,439 - ce8b7cec - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa578a200>,),{}) - initial call
+DEBUG - 2024-07-13 22:46:56,439 - ce8b7cec - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa578a200>,),{}) - 0.0003173351287841797 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa578a320>
+DEBUG - 2024-07-13 22:46:56,440 - ce8ba05a - initialize((<Application 0xffffa577bee0>,),{}) - initial call
+DEBUG - 2024-07-13 22:46:56,440 - ce8ba05a - initialize((<Application 0xffffa577bee0>,),{}) - 0.00016641616821289062 - returned <coroutine object initialize at 0xffffa5790270>
+INFO - 2024-07-13 22:46:56,440 - ce8ba05a - Initialization done
+DEBUG - 2024-07-13 22:46:58,034 - cf7eee22 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8c60a0e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:46:58,035 - cf7eee22 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8c60a0e0>,),{}) - 0.0003685951232910156 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8c60a200>
+DEBUG - 2024-07-13 22:46:58,086 - cf86e186 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:46:58,087 - cf86e186 - test_verify_public_datasets((),{}) - 0.00022530555725097656 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffff8bf79b60>
+DEBUG - 2024-07-13 22:47:52,404 - efe711da - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff7e06a200>,),{}) - initial call
+DEBUG - 2024-07-13 22:47:52,404 - efe711da - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff7e06a200>,),{}) - 0.00037169456481933594 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff7e06a320>
+DEBUG - 2024-07-13 22:47:52,405 - efe73868 - initialize((<Application 0xffff7e05bf70>,),{}) - initial call
+DEBUG - 2024-07-13 22:47:52,405 - efe73868 - initialize((<Application 0xffff7e05bf70>,),{}) - 0.000202178955078125 - returned <coroutine object initialize at 0xffff7e070270>
+INFO - 2024-07-13 22:47:52,405 - efe73868 - Initialization done
+DEBUG - 2024-07-13 22:47:53,501 - f08e635e - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8f0ee0e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:47:53,501 - f08e635e - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8f0ee0e0>,),{}) - 0.0003521442413330078 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8f0ee200>
+DEBUG - 2024-07-13 22:47:53,552 - f0963f20 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:47:53,552 - f0963f20 - test_verify_public_datasets((),{}) - 0.00029468536376953125 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffff8ea5db60>
+DEBUG - 2024-07-13 22:49:23,445 - 262ada9c - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8399a200>,),{}) - initial call
+DEBUG - 2024-07-13 22:49:23,446 - 262ada9c - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8399a200>,),{}) - 0.0008120536804199219 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff8399a320>
+DEBUG - 2024-07-13 22:49:23,447 - 262b13cc - initialize((<Application 0xffff8398bf70>,),{}) - initial call
+DEBUG - 2024-07-13 22:49:23,447 - 262b13cc - initialize((<Application 0xffff8398bf70>,),{}) - 0.00018310546875 - returned <coroutine object initialize at 0xffff839a0270>
+INFO - 2024-07-13 22:49:23,447 - 262b13cc - Initialization done
+DEBUG - 2024-07-13 22:49:24,385 - 26ba3bd8 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa66ae0e0>,),{}) - initial call
+DEBUG - 2024-07-13 22:49:24,385 - 26ba3bd8 - dataset_permissions((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa66ae0e0>,),{}) - 0.0003311634063720703 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffffa66ae200>
+DEBUG - 2024-07-13 22:49:24,437 - 26c225a0 - test_verify_public_datasets((),{}) - initial call
+DEBUG - 2024-07-13 22:49:24,437 - 26c225a0 - test_verify_public_datasets((),{}) - 0.0002446174621582031 - returned <coroutine object TestApp.test_auth_verify_public_datasets.<locals>.test_verify_public_datasets at 0xffffa6015b60>
+DEBUG - 2024-07-15 10:10:09,225 - 6a8ff248 - initialize((<Application 0xffffb1dbfdf0>,),{}) - initial call
+DEBUG - 2024-07-15 10:10:09,225 - 6a8ff248 - initialize((<Application 0xffffb1dbfdf0>,),{}) - 0.0002865791320800781 - returned <coroutine object initialize at 0xffffb1dd4270>
+INFO - 2024-07-15 10:10:09,225 - 6a8ff248 - Initialization done
+DEBUG - 2024-07-15 10:10:30,890 - 7779cd94 - test_check_control_endpoint_is_working((),{}) - initial call
+DEBUG - 2024-07-15 10:10:30,890 - 7779cd94 - test_check_control_endpoint_is_working((),{}) - 0.000247955322265625 - returned <coroutine object TestApp.test_main_check_control_endpoint_is_working.<locals>.test_check_control_endpoint_is_working at 0xffff951e1a80>
+DEBUG - 2024-07-15 10:10:30,891 - 7779fa62 - control((<Request GET /control >,),{}) - initial call
+ERROR - 2024-07-15 10:10:30,891 - 7779fa62 - There was an exception in  control
+DEBUG - 2024-07-15 10:10:30,894 - 777a60ba - test_catching_errors_load_json_from_url((),{}) - initial call
+DEBUG - 2024-07-15 10:10:30,894 - 777a60ba - test_catching_errors_load_json_from_url((),{}) - 0.00014495849609375 - returned <coroutine object TestValidator.test_validator_catching_errors_load_json_from_url.<locals>.test_catching_errors_load_json_from_url at 0xffff9525bca0>
+DEBUG - 2024-07-15 10:10:30,894 - 777a6d8a - load_json_from_url(('http://localhost:5070/contro',),{}) - initial call
+DEBUG - 2024-07-15 10:10:30,897 - 777a6d8a - load_json_from_url(('http://localhost:5070/contro',),{}) - 0.0029926300048828125 - returned Not Found
+DEBUG - 2024-07-15 10:10:30,911 - 777cf64a - test_load_json_from_url((),{}) - initial call
+DEBUG - 2024-07-15 10:10:30,911 - 777cf64a - test_load_json_from_url((),{}) - 0.00024008750915527344 - returned <coroutine object TestValidator.test_validator_load_json_from_url.<locals>.test_load_json_from_url at 0xffff95346500>
+DEBUG - 2024-07-15 10:10:30,911 - 777d0a18 - load_json_from_url(('http://localhost:5070/control',),{}) - initial call
+DEBUG - 2024-07-15 10:10:30,913 - 777d3f10 - control((<Request GET /control >,),{}) - initial call
+ERROR - 2024-07-15 10:10:30,913 - 777d3f10 - There was an exception in  control
+DEBUG - 2024-07-15 10:10:30,914 - 777d0a18 - load_json_from_url(('http://localhost:5070/control',),{}) - 0.0025129318237304688 - returned Not Found
+DEBUG - 2024-07-15 10:11:10,905 - 8f5390a8 - test_check_control_endpoint_is_working((),{}) - initial call
+DEBUG - 2024-07-15 10:11:10,905 - 8f5390a8 - test_check_control_endpoint_is_working((),{}) - 0.0003077983856201172 - returned <coroutine object TestApp.test_main_check_control_endpoint_is_working.<locals>.test_check_control_endpoint_is_working at 0xffff86c05930>
+DEBUG - 2024-07-15 10:11:10,906 - 8f53c55a - control((<Request GET /control >,),{}) - initial call
+ERROR - 2024-07-15 10:11:10,906 - 8f53c55a - There was an exception in  control
+DEBUG - 2024-07-15 10:11:10,908 - 8f540542 - test_catching_errors_load_json_from_url((),{}) - initial call
+DEBUG - 2024-07-15 10:11:10,908 - 8f540542 - test_catching_errors_load_json_from_url((),{}) - 0.00016880035400390625 - returned <coroutine object TestValidator.test_validator_catching_errors_load_json_from_url.<locals>.test_catching_errors_load_json_from_url at 0xffff86c7fb50>
+DEBUG - 2024-07-15 10:11:10,908 - 8f54144c - load_json_from_url(('http://localhost:5070/contro',),{}) - initial call
+DEBUG - 2024-07-15 10:11:10,910 - 8f54144c - load_json_from_url(('http://localhost:5070/contro',),{}) - 0.0016682147979736328 - returned Not Found
+DEBUG - 2024-07-15 10:11:10,919 - 8f55af8c - test_load_json_from_url((),{}) - initial call
+DEBUG - 2024-07-15 10:11:10,919 - 8f55af8c - test_load_json_from_url((),{}) - 0.00023984909057617188 - returned <coroutine object TestValidator.test_validator_load_json_from_url.<locals>.test_load_json_from_url at 0xffff86d6e8f0>
+DEBUG - 2024-07-15 10:11:10,919 - 8f55c1c0 - load_json_from_url(('http://localhost:5070/control',),{}) - initial call
+DEBUG - 2024-07-15 10:11:10,920 - 8f55f776 - control((<Request GET /control >,),{}) - initial call
+ERROR - 2024-07-15 10:11:10,921 - 8f55f776 - There was an exception in  control
+DEBUG - 2024-07-15 10:11:10,921 - 8f55c1c0 - load_json_from_url(('http://localhost:5070/control',),{}) - 0.002453327178955078 - returned Not Found
+DEBUG - 2024-07-15 10:11:25,911 - 9845616e - initialize((<Application 0xffffba56fee0>,),{}) - initial call
+DEBUG - 2024-07-15 10:11:25,912 - 9845616e - initialize((<Application 0xffffba56fee0>,),{}) - 0.0003688335418701172 - returned <coroutine object initialize at 0xffffba588270>
+INFO - 2024-07-15 10:11:25,912 - 9845616e - Initialization done
+DEBUG - 2024-07-15 10:11:28,045 - 998ae7f6 - test_check_control_endpoint_is_working((),{}) - initial call
+DEBUG - 2024-07-15 10:11:28,045 - 998ae7f6 - test_check_control_endpoint_is_working((),{}) - 0.0003228187561035156 - returned <coroutine object TestApp.test_main_check_control_endpoint_is_working.<locals>.test_check_control_endpoint_is_working at 0xffff930159a0>
+DEBUG - 2024-07-15 10:11:28,046 - 998b1c8a - control((<Request GET /control >,),{}) - initial call
+ERROR - 2024-07-15 10:11:28,046 - 998b1c8a - There was an exception in  control
+DEBUG - 2024-07-15 10:12:51,875 - cb826414 - initialize((<Application 0xffffa748fe50>,),{}) - initial call
+DEBUG - 2024-07-15 10:12:51,876 - cb826414 - initialize((<Application 0xffffa748fe50>,),{}) - 0.0008127689361572266 - returned <coroutine object initialize at 0xffffa74a8270>
+INFO - 2024-07-15 10:12:51,877 - cb826414 - Initialization done
+DEBUG - 2024-07-15 10:12:55,987 - cdf5e838 - test_check_control_endpoint_is_working((),{}) - initial call
+DEBUG - 2024-07-15 10:12:55,988 - cdf5e838 - test_check_control_endpoint_is_working((),{}) - 0.00030303001403808594 - returned <coroutine object TestApp.test_main_check_control_endpoint_is_working.<locals>.test_check_control_endpoint_is_working at 0xffff90b699a0>
+DEBUG - 2024-07-15 10:12:55,989 - cdf617ae - control((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-15 10:12:55,989 - cdf617ae - control((<Request GET /control >,),{}) - 0.00019550323486328125 - returned <coroutine object control at 0xffff90b69fc0>
+DEBUG - 2024-07-15 10:28:52,124 - assign_transaction_id((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9c83e320>,),{}) - initial call
+DEBUG - 2024-07-15 10:28:52,126 - assign_transaction_id((<function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9c83e320>,),{}) - 0.0012047290802001953 - returned <function log_with_args.<locals>.add_logging.<locals>.wrapper at 0xffff9c83e440>
+DEBUG - 2024-07-15 10:28:52,128 - initialize((<Application 0xffff9c82f010>,),{}) - initial call
+DEBUG - 2024-07-15 10:28:52,129 - initialize((<Application 0xffff9c82f010>,),{}) - 0.0005981922149658203 - returned <coroutine object initialize at 0xffff9c8442e0>
+INFO - 2024-07-15 10:28:52,129 - Initialization done
+DEBUG - 2024-07-15 10:30:08,146 - generate_txid((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-15 10:30:08,147 - generate_txid((<Request GET /control >,),{}) - 0.0011074542999267578 - returned <coroutine object assign_transaction_id.<locals>.generate_txid at 0xffff9c8446d0>
+DEBUG - 2024-07-15 10:30:08,149 - control((<Request GET /control >, '352d4706'),{}) - initial call
+DEBUG - 2024-07-15 10:30:08,150 - control((<Request GET /control >, '352d4706'),{}) - 0.00066375732421875 - returned <coroutine object control at 0xffff9c844740>
+DEBUG - 2024-07-15 10:37:17,733 - control(('353aa760',),{}) - initial call
+ERROR - 2024-07-15 10:37:17,734 - There was an exception in  control
+DEBUG - 2024-07-15 10:38:47,426 - initialize((<Application 0xffff81357580>,),{}) - initial call
+DEBUG - 2024-07-15 10:38:47,426 - initialize((<Application 0xffff81357580>,),{}) - 0.0005977153778076172 - returned <coroutine object initialize at 0xffff8136c2e0>
+INFO - 2024-07-15 10:38:47,427 - Initialization done
+DEBUG - 2024-07-15 10:39:03,510 - control((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-15 10:39:03,512 - control((<Request GET /control >,),{}) - 0.0020422935485839844 - returned <coroutine object control at 0xffff8136c660>
+DEBUG - 2024-07-15 10:42:47,839 - typing.Optional - initialize((<Application 0xffffb625b640>,),{}) - initial call
+DEBUG - 2024-07-15 10:42:47,839 - typing.Optional - initialize((<Application 0xffffb625b640>,),{}) - 0.0003895759582519531 - returned <coroutine object initialize at 0xffffb62702e0>
+INFO - 2024-07-15 10:42:47,840 - typing.Optional - Initialization done
+DEBUG - 2024-07-15 10:42:53,609 - f9fcb854 - control((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-15 10:42:53,610 - f9fcb854 - control((<Request GET /control >,),{}) - 0.00122833251953125 - returned <coroutine object control at 0xffffb6270580>
+DEBUG - 2024-07-15 10:49:41,429 - typing.Optional - initialize((<Application 0xffffb018b6d0>,),{}) - initial call
+DEBUG - 2024-07-15 10:49:41,430 - typing.Optional - initialize((<Application 0xffffb018b6d0>,),{}) - 0.0014083385467529297 - returned <coroutine object initialize at 0xffffb01a42e0>
+INFO - 2024-07-15 10:49:41,431 - typing.Optional - Initialization done
+DEBUG - 2024-07-15 10:49:50,422 - f081839e - control((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-15 10:49:50,422 - f081839e - control((<Request GET /control >,),{}) - 0.0007801055908203125 - returned <coroutine object control at 0xffffb01a4580>
+DEBUG - 2024-07-15 10:49:50,425 - typing.Optional - calculate((4,),{}) - initial call
+DEBUG - 2024-07-15 10:49:50,426 - typing.Optional - calculate((4,),{}) - 0.0009369850158691406 - returned 2.0
+DEBUG - 2024-07-15 10:58:29,863 - typing.Optional - initialize((<Application 0xffffa56d36d0>,),{}) - initial call
+DEBUG - 2024-07-15 10:58:29,863 - typing.Optional - initialize((<Application 0xffffa56d36d0>,),{}) - 0.00037550926208496094 - returned <coroutine object initialize at 0xffffa56ec2e0>
+INFO - 2024-07-15 10:58:29,863 - typing.Optional - Initialization done
+DEBUG - 2024-07-15 10:58:36,692 - typing.Optional - test_check_control_endpoint_is_working((),{}) - initial call
+DEBUG - 2024-07-15 10:58:36,692 - typing.Optional - test_check_control_endpoint_is_working((),{}) - 0.00033354759216308594 - returned <coroutine object TestApp.test_main_check_control_endpoint_is_working.<locals>.test_check_control_endpoint_is_working at 0xffffa0f25a80>
+DEBUG - 2024-07-15 10:58:36,693 - 2f84d414 - control((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-15 10:58:36,694 - 2f84d414 - control((<Request GET /control >,),{}) - 0.00020432472229003906 - returned <coroutine object control at 0xffffa0f260a0>
+DEBUG - 2024-07-15 10:58:36,701 - typing.Optional - test_validate_info((),{}) - initial call
+DEBUG - 2024-07-15 10:58:36,702 - typing.Optional - test_validate_info((),{}) - 0.00022554397583007812 - returned <coroutine object TestInfo.test_info_validate_info_schema.<locals>.test_validate_info at 0xffffa0e8e3b0>
+DEBUG - 2024-07-15 10:58:36,702 - typing.Optional - info_check(('http://localhost:5070/info',),{}) - initial call
+DEBUG - 2024-07-15 10:58:36,702 - typing.Optional - load_json_from_url(('http://localhost:5070/info',),{}) - initial call
+DEBUG - 2024-07-15 10:58:36,704 - typing.Optional - info((<Request GET /info >,),{}) - initial call
+DEBUG - 2024-07-15 10:58:36,704 - typing.Optional - info((<Request GET /info >,),{}) - 0.0002224445343017578 - returned <coroutine object info at 0xffffa56ec510>
+DEBUG - 2024-07-15 10:58:36,705 - typing.Optional - load_json_from_url(('http://localhost:5070/info',),{}) - 0.0023136138916015625 - returned {'meta': {'beaconId': 'org.ega-archive.ega-beacon', 'apiVersion': 'v2.0-b8fa53a', 'returnedGranularity': 'record', 'receivedRequestSummary': {'apiVersion': 'v2.0-b8fa53a', 'requestedSchemas': [], 'filters': [], 'requestParameters': {}, 'includeResultsetResponses': 'HIT', 'pagination': {'skip': 0, 'limit': 10}, 'requestedGranularity': 'record', 'testMode': False}, 'returnedSchemas': []}, 'response': {'id': 'org.ega-archive.ega-beacon', 'name': 'EGA Beacon', 'apiVersion': 'v2.0-b8fa53a', 'environment': 'test', 'organization': {'id': 'EGA', 'name': 'European Genome-Phenome Archive (EGA)', 'description': 'The European Genome-phenome Archive (EGA) is a service for permanent archiving and sharing of all types of personally identifiable genetic and phenotypic data resulting from biomedical research projects.', 'address': 'C/ Dr. Aiguader, 88PRBB Building08003 Barcelona, Spain', 'welcomeUrl': 'https://ega-archive.org/', 'contactUrl': 'mailto:beacon.ega@crg.eu', 'logoUrl': 'https://legacy.ega-archive.org/images/logo.png'}, 'description': 'This beacon is based on the European Genome-Phenome Archive datasets. Now it only contains a public dataset coming from tcga coadread, with samples for patients with colorectal adenocarcinoma disease.', 'version': 'v2.0', 'welcomeUrl': 'https://beacon.ega-archive.org/', 'alternativeUrl': 'https://beacon.ega-archive.org/api', 'createDateTime': '2021-11-29T12:00:00.000000', 'updateDateTime': '2024-07-04T08:58:01.228066', 'datasets': []}}
+DEBUG - 2024-07-15 10:58:36,705 - typing.Optional - validate_endpoint(('beacon/validator/ref_schemas/framework/json/responses/beaconInfoResponse.json', {'meta': {'beaconId': 'org.ega-archive.ega-beacon', 'apiVersion': 'v2.0-b8fa53a', 'returnedGranularity': 'record', 'receivedRequestSummary': {'apiVersion': 'v2.0-b8fa53a', 'requestedSchemas': [], 'filters': [], 'requestParameters': {}, 'includeResultsetResponses': 'HIT', 'pagination': {'skip': 0, 'limit': 10}, 'requestedGranularity': 'record', 'testMode': False}, 'returnedSchemas': []}, 'response': {'id': 'org.ega-archive.ega-beacon', 'name': 'EGA Beacon', 'apiVersion': 'v2.0-b8fa53a', 'environment': 'test', 'organization': {'id': 'EGA', 'name': 'European Genome-Phenome Archive (EGA)', 'description': 'The European Genome-phenome Archive (EGA) is a service for permanent archiving and sharing of all types of personally identifiable genetic and phenotypic data resulting from biomedical research projects.', 'address': 'C/ Dr. Aiguader, 88PRBB Building08003 Barcelona, Spain', 'welcomeUrl': 'https://ega-archive.org/', 'contactUrl': 'mailto:beacon.ega@crg.eu', 'logoUrl': 'https://legacy.ega-archive.org/images/logo.png'}, 'description': 'This beacon is based on the European Genome-Phenome Archive datasets. Now it only contains a public dataset coming from tcga coadread, with samples for patients with colorectal adenocarcinoma disease.', 'version': 'v2.0', 'welcomeUrl': 'https://beacon.ega-archive.org/', 'alternativeUrl': 'https://beacon.ega-archive.org/api', 'createDateTime': '2021-11-29T12:00:00.000000', 'updateDateTime': '2024-07-04T08:58:01.228066', 'datasets': []}}),{}) - initial call
+DEBUG - 2024-07-15 10:58:36,709 - typing.Optional - validate_endpoint(('beacon/validator/ref_schemas/framework/json/responses/beaconInfoResponse.json', {'meta': {'beaconId': 'org.ega-archive.ega-beacon', 'apiVersion': 'v2.0-b8fa53a', 'returnedGranularity': 'record', 'receivedRequestSummary': {'apiVersion': 'v2.0-b8fa53a', 'requestedSchemas': [], 'filters': [], 'requestParameters': {}, 'includeResultsetResponses': 'HIT', 'pagination': {'skip': 0, 'limit': 10}, 'requestedGranularity': 'record', 'testMode': False}, 'returnedSchemas': []}, 'response': {'id': 'org.ega-archive.ega-beacon', 'name': 'EGA Beacon', 'apiVersion': 'v2.0-b8fa53a', 'environment': 'test', 'organization': {'id': 'EGA', 'name': 'European Genome-Phenome Archive (EGA)', 'description': 'The European Genome-phenome Archive (EGA) is a service for permanent archiving and sharing of all types of personally identifiable genetic and phenotypic data resulting from biomedical research projects.', 'address': 'C/ Dr. Aiguader, 88PRBB Building08003 Barcelona, Spain', 'welcomeUrl': 'https://ega-archive.org/', 'contactUrl': 'mailto:beacon.ega@crg.eu', 'logoUrl': 'https://legacy.ega-archive.org/images/logo.png'}, 'description': 'This beacon is based on the European Genome-Phenome Archive datasets. Now it only contains a public dataset coming from tcga coadread, with samples for patients with colorectal adenocarcinoma disease.', 'version': 'v2.0', 'welcomeUrl': 'https://beacon.ega-archive.org/', 'alternativeUrl': 'https://beacon.ega-archive.org/api', 'createDateTime': '2021-11-29T12:00:00.000000', 'updateDateTime': '2024-07-04T08:58:01.228066', 'datasets': []}}),{}) - 0.0042035579681396484 - returned []
+DEBUG - 2024-07-15 10:58:36,709 - typing.Optional - info_check(('http://localhost:5070/info',),{}) - 0.007191896438598633 - returned []
+DEBUG - 2024-07-15 13:42:36,681 - 1 - initialize((<Application 0xffffb220f5e0>,),{}) - initial call
+DEBUG - 2024-07-15 13:42:36,682 - 1 - initialize((<Application 0xffffb220f5e0>,),{}) - 0.0004165172576904297 - returned <coroutine object initialize at 0xffffb2224270>
+INFO - 2024-07-15 13:42:36,682 - 1 - Initialization done
+DEBUG - 2024-07-15 13:42:54,920 - 1 - control((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-15 13:42:54,921 - 1 - control((<Request GET /control >,),{}) - 0.0007145404815673828 - returned <coroutine object control at 0xffffb22245f0>
+DEBUG - 2024-07-15 13:43:35,743 - 1 - initialize((<Application 0xffffa81975e0>,),{}) - initial call
+DEBUG - 2024-07-15 13:43:35,743 - 1 - initialize((<Application 0xffffa81975e0>,),{}) - 0.00039649009704589844 - returned <coroutine object initialize at 0xffffa81ac270>
+INFO - 2024-07-15 13:43:35,744 - 1 - Initialization done
+DEBUG - 2024-07-15 13:43:43,255 - 1 - control((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-15 13:43:43,256 - 1 - control((<Request GET /control >,),{}) - 0.0015859603881835938 - returned <coroutine object control at 0xffffa81ac510>
+DEBUG - 2024-07-15 13:43:43,257 - 1 - calculate((4,),{}) - initial call
+DEBUG - 2024-07-15 13:43:43,260 - 1 - calculate((4,),{}) - 0.0025734901428222656 - returned 2.0
+DEBUG - 2024-07-15 15:05:39,943 - 1 - initialize((<Application 0xffff940535e0>,),{}) - initial call
+DEBUG - 2024-07-15 15:05:39,943 - 1 - initialize((<Application 0xffff940535e0>,),{}) - 0.0003695487976074219 - returned <coroutine object initialize at 0xffff94068270>
+INFO - 2024-07-15 15:05:39,943 - 1 - Initialization done
+DEBUG - 2024-07-15 15:13:12,648 - 1 - initialize((<Application 0xffffb2e7f5e0>,),{}) - initial call
+DEBUG - 2024-07-15 15:13:12,648 - 1 - initialize((<Application 0xffffb2e7f5e0>,),{}) - 0.00035691261291503906 - returned <coroutine object initialize at 0xffffb2e942e0>
+INFO - 2024-07-15 15:13:12,649 - 1 - Initialization done
+DEBUG - 2024-07-15 15:22:46,856 - 1 - initialize((<Application 0xffff985ab5e0>,),{}) - initial call
+DEBUG - 2024-07-15 15:22:46,857 - 1 - initialize((<Application 0xffff985ab5e0>,),{}) - 0.00039315223693847656 - returned <coroutine object initialize at 0xffff985c02e0>
+INFO - 2024-07-15 15:22:46,857 - 1 - Initialization done
+DEBUG - 2024-07-15 15:22:58,797 - 1 - control((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-15 15:22:58,798 - 1 - control((<Request GET /control >,),{}) - 0.0008544921875 - returned <coroutine object control at 0xffff985c0580>
+DEBUG - 2024-07-15 15:22:58,798 - 1 - calculate((4,),{}) - initial call
+DEBUG - 2024-07-15 15:22:58,799 - 1 - calculate((4,),{}) - 0.00023555755615234375 - returned 2.0
+DEBUG - 2024-07-15 15:24:53,987 - 1 - initialize((<Application 0xffff86d5f640>,),{}) - initial call
+DEBUG - 2024-07-15 15:24:53,987 - 1 - initialize((<Application 0xffff86d5f640>,),{}) - 0.00041103363037109375 - returned <coroutine object initialize at 0xffff86d70350>
+INFO - 2024-07-15 15:24:53,987 - 1 - Initialization done
+DEBUG - 2024-07-15 15:24:57,561 - 1 - control((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-15 15:24:57,562 - 1 - control((<Request GET /control >,),{}) - 0.00070953369140625 - returned <coroutine object control at 0xffff86d706d0>
+DEBUG - 2024-07-15 15:24:57,562 - 1 - calculate((4,),{}) - initial call
+DEBUG - 2024-07-15 15:24:57,562 - 1 - calculate((4,),{}) - 0.0003635883331298828 - returned 2.0
+DEBUG - 2024-07-15 15:34:04,390 - a62e47dc - get((<__main__.ControlView object at 0xffff85e235b0>,),{}) - initial call
+DEBUG - 2024-07-15 15:34:04,391 - a62e47dc - get((<__main__.ControlView object at 0xffff85e235b0>,),{}) - 0.0007338523864746094 - returned <coroutine object ControlView.get at 0xffff85e2d1c0>
+DEBUG - 2024-07-15 15:34:50,555 - c4b17d28 - get((<__main__.ControlView object at 0xffffa54cf4f0>,),{}) - initial call
+DEBUG - 2024-07-15 15:34:50,556 - c4b17d28 - get((<__main__.ControlView object at 0xffffa54cf4f0>,),{}) - 0.0008168220520019531 - returned <coroutine object ControlView.get at 0xffffa54dd0e0>
+DEBUG - 2024-07-15 15:35:54,673 - e9033e6e - ControlView((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-15 15:35:54,674 - e9033e6e - ControlView((<Request GET /control >,),{}) - 0.0008113384246826172 - returned <__main__.ControlView object at 0xffffbbec3280>
+DEBUG - 2024-07-15 15:35:55,702 - e9033e6e - ControlView((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-15 15:35:55,703 - e9033e6e - ControlView((<Request GET /control >,),{}) - 0.0006015300750732422 - returned <__main__.ControlView object at 0xffffbbec27a0>
+DEBUG - 2024-07-15 15:35:55,705 - e9033e6e - ControlView((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-15 15:35:55,705 - e9033e6e - ControlView((<Request GET /control >,),{}) - 0.0005292892456054688 - returned <__main__.ControlView object at 0xffffbbec2230>
+DEBUG - 2024-07-15 15:35:55,708 - e9033e6e - ControlView((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-15 15:35:55,708 - e9033e6e - ControlView((<Request GET /control >,),{}) - 0.0005507469177246094 - returned <__main__.ControlView object at 0xffffbbec3c10>
+DEBUG - 2024-07-15 15:36:00,724 - e9033e6e - ControlView((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-15 15:36:00,725 - e9033e6e - ControlView((<Request GET /control >,),{}) - 0.0012562274932861328 - returned <__main__.ControlView object at 0xffffbbf08250>
+DEBUG - 2024-07-15 15:36:30,742 - e9033e6e - ControlView((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-15 15:36:30,744 - e9033e6e - ControlView((<Request GET /control >,),{}) - 0.002071380615234375 - returned <__main__.ControlView object at 0xffffbbf08850>
+DEBUG - 2024-07-15 15:36:30,748 - e9033e6e - ControlView((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-15 15:36:30,750 - e9033e6e - ControlView((<Request GET /control >,),{}) - 0.002012014389038086 - returned <__main__.ControlView object at 0xffffbbf08ee0>
+DEBUG - 2024-07-15 15:36:30,757 - e9033e6e - ControlView((<Request GET /control >,),{}) - initial call
+DEBUG - 2024-07-15 15:36:30,758 - e9033e6e - ControlView((<Request GET /control >,),{}) - 0.0009071826934814453 - returned <__main__.ControlView object at 0xffffbbf09570>
+DEBUG - 2024-07-15 15:53:36,684 - 5daff976 - calculate((<__main__.ControlView object at 0xffff88e17400>, 4),{}) - initial call
+DEBUG - 2024-07-15 15:53:36,684 - 5daff976 - calculate((<__main__.ControlView object at 0xffff88e17400>, 4),{}) - 0.0008285045623779297 - returned 2.0
+DEBUG - 2024-07-15 15:54:54,887 - 8d4b74c6 - control((<__main__.ControlView object at 0xffff9b313e20>, <Request GET /control >),{}) - initial call
+DEBUG - 2024-07-15 15:54:54,888 - 8d4b74c6 - control((<__main__.ControlView object at 0xffff9b313e20>, <Request GET /control >),{}) - 0.0016891956329345703 - returned <coroutine object ControlView.control at 0xffff9b321230>
+DEBUG - 2024-07-15 15:54:54,889 - 8d4b74c6 - calculate((<__main__.ControlView object at 0xffff9b313e20>, 4),{}) - initial call
+DEBUG - 2024-07-15 15:54:54,890 - 8d4b74c6 - calculate((<__main__.ControlView object at 0xffff9b313e20>, 4),{}) - 0.0011758804321289062 - returned 2.0
+DEBUG - 2024-07-15 19:36:45,855 - <built-in function id> - control((<__main__.ControlView object at 0xffffa00c3490>, <Request GET /control >),{}) - initial call
+DEBUG - 2024-07-15 19:36:45,856 - <built-in function id> - control((<__main__.ControlView object at 0xffffa00c3490>, <Request GET /control >),{}) - 0.0010631084442138672 - returned <coroutine object ControlView.control at 0xffffa00cd150>
+DEBUG - 2024-07-15 19:36:45,857 - 8190f380 - calculate((<__main__.ControlView object at 0xffffa00c3490>, 4),{}) - initial call
+DEBUG - 2024-07-15 19:36:45,858 - 8190f380 - calculate((<__main__.ControlView object at 0xffffa00c3490>, 4),{}) - 0.0006082057952880859 - returned 2.0
+DEBUG - 2024-07-15 19:37:27,819 - a982a6b8 - control((<__main__.ControlView object at 0xffff9bc333a0>, <Request GET /control >),{}) - initial call
+DEBUG - 2024-07-15 19:37:27,820 - a982a6b8 - control((<__main__.ControlView object at 0xffff9bc333a0>, <Request GET /control >),{}) - 0.0006241798400878906 - returned <coroutine object ControlView.control at 0xffff9bc3d1c0>
+DEBUG - 2024-07-15 19:37:27,820 - a982a6b8 - calculate((<__main__.ControlView object at 0xffff9bc333a0>, 4),{}) - initial call
+DEBUG - 2024-07-15 19:37:27,822 - a982a6b8 - calculate((<__main__.ControlView object at 0xffff9bc333a0>, 4),{}) - 0.0013418197631835938 - returned 2.0
+DEBUG - 2024-07-16 10:51:13,435 - 4a9e5ba8 - control((<__main__.ControlView object at 0xffff95837850>, <Request GET /control >),{}) - initial call
+DEBUG - 2024-07-16 10:51:13,443 - 4a9e5ba8 - control((<__main__.ControlView object at 0xffff95837850>, <Request GET /control >),{}) - 0.008223295211791992 - returned <coroutine object ControlView.control at 0xffff95845230>
+DEBUG - 2024-07-16 10:51:13,443 - 4a9e5ba8 - calculate((<__main__.ControlView object at 0xffff95837850>, 4),{}) - initial call
+DEBUG - 2024-07-16 10:51:13,444 - 4a9e5ba8 - calculate((<__main__.ControlView object at 0xffff95837850>, 4),{}) - 0.0005931854248046875 - returned 2.0

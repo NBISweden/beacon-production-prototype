@@ -1,25 +1,6 @@
-import os
-from jsonschema import validate, RefResolver, Draft202012Validator
-import json
+from jsonschema import Draft202012Validator
 from loguru import logger
-'''
-with open('beacon-verifier-v2/beacon-verifier-v2/server/ref_schemas/models/json/beacon-v2-default-model/individuals/defaultSchema.json', 'r') as f:
-    individuals = json.load(f)
 
-instance = {
-        "id": "hola",
-        "sex": {
-            "label": 23
-        }
-    }
-schema = individuals
-
-# this is a directory name (root) where the 'grandpa' is located
-schema_path = 'file:///{0}/'.format(
-        os.path.dirname('beacon-verifier-v2/beacon-verifier-v2/server/ref_schemas/models/json/beacon-v2-default-model/individuals/defaultSchema.json').replace("\\", "/"))
-resolver = RefResolver(schema_path, schema)
-#validate(instance, schema, resolver=resolver)
-'''
 class JSONSchemaValidator:
     @classmethod
     def validate(cls, json_data: dict, schema: dict, resolver):
