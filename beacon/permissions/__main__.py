@@ -8,7 +8,7 @@ from beacon.logs.logs import LOG
 from beacon.auth.__main__ import authentication
 from beacon.logs.logs import log_with_args
 from beacon.conf.conf import level
-
+from beacon.utils.requests import check_request_content_type
 
 async def authorization(self, request):
     try:
@@ -30,42 +30,10 @@ async def authorization(self, request):
         return username, list_visa_datasets
     return username, list_visa_datasets
 
-async def permission(self, request: Request):
-    if request.headers.get('Content-Type') == 'application/json':
-        post_data = await request.json()
-    else:
-        post_data = await request.post()
-
-    v = post_data.get('datasets')
-    if v is None:
-        requested_datasets = []
-    elif isinstance(v, list):
-        requested_datasets = v
-    elif isinstance(v, FileField):
-        requested_datasets = []
-    else:
-        requested_datasets = v.split(sep=',')
-    
-    username, list_visa_datasets = await authorization(self, request)
-    LOG.debug(username)
-        
-    datasets = await PermissionsProxy.get(self=PermissionsProxy, username=username, requested_datasets=requested_datasets)
-    dict_returned={}
-    dict_returned['username']=username
-    datasets=list(datasets)
-    for visa_dataset in list_visa_datasets:
-        datasets.append(visa_dataset)
-    dict_returned['datasets']=list(datasets)
-
-    return await dict_returned
-
 @log_with_args(level)
 async def dataset_permissions(self, request):
     try:
-        if request.headers.get('Content-Type') == 'application/json':
-            post_data = await request.json()
-        else:
-            post_data = await request.post()
+        post_data = await check_request_content_type(self, request)
 
         v = post_data.get('datasets')
         if v is None:

@@ -7,9 +7,6 @@ import os
 from dotenv import load_dotenv
 from beacon.logs.logs import log_with_args
 
-
-
-
 def validate_access_token(self, access_token, idp_issuer, jwks_url, algorithm, aud):
     if not jwt.algorithms.has_crypto:
         raise web.HTTPUnauthorized()

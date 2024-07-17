@@ -26,8 +26,8 @@ class ControlView(EndpointView):
     
     @log_with_args(level)
     async def control(self, request):
-        #datasets_permissions = await self._permissions
-        #LOG.debug(datasets_permissions)
+        datasets_permissions = await self._permissions
+        LOG.debug(datasets_permissions)
         self.calculate(self, 4)
         response_obj = {'resp': 'hello world'}
         return web.Response(text=json.dumps(response_obj), status=200, content_type='application/json')
@@ -39,7 +39,6 @@ class ControlView(EndpointView):
         return await self.control(self.request)
     
 class InfoView(EndpointView):
-
     @log_with_args(level)
     async def info(self, request):
         response_obj = info_response
