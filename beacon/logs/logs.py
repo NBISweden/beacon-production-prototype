@@ -16,7 +16,6 @@ def log_with_args(level):
     def add_logging(func):
         def wrapper(self, *args, **kwargs):
             try:
-                # Si no hi ha transaction, com a txid indicar algun string que faci entendre que el log no correspon a cap transaction.
                 start = time.time()
                 logging.basicConfig(format=fmt, level=level)
                 LOG.debug(f"{self._id} - {func.__name__}({args},{kwargs}) - initial call")
