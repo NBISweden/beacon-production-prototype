@@ -6,14 +6,16 @@ import asyncio
 import aiohttp.web as web
 from aiohttp.web_request import Request
 from beacon.utils.txid import generate_txid
-from beacon.info.info import info_response
+from beacon.logs.logs import LOG
+from beacon.permissions.__main__ import dataset_permissions
 
 class EndpointView(web.View):
     def __init__(self, request: Request):
         self._request= request
         self._id = generate_txid()
-    
-class ControlView(EndpointView):
+        self._permissions = dataset_permissions(self, request)
+
+class ControlView(EndpointView):    
     @log_with_args(level)
     def calculate(self, request, nombre):
         try:
@@ -24,6 +26,8 @@ class ControlView(EndpointView):
     
     @log_with_args(level)
     async def control(self, request):
+        #datasets_permissions = await self._permissions
+        #LOG.debug(datasets_permissions)
         self.calculate(self, 4)
         response_obj = {'resp': 'hello world'}
         return web.Response(text=json.dumps(response_obj), status=200, content_type='application/json')
@@ -34,7 +38,8 @@ class ControlView(EndpointView):
     async def post(self):
         return await self.control(self.request)
     
-class InfoView(EndpointView):    
+class InfoView(EndpointView):
+
     @log_with_args(level)
     async def info(self, request):
         response_obj = info_response
