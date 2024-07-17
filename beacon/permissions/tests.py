@@ -48,8 +48,8 @@ def create_test_app():
     app.add_routes([web.get('/control', ControlView)])
     return app
 
-class TestApp(unittest.TestCase):
-    def test_auth_verify_public_datasets(self):
+class TestAuthZ(unittest.TestCase):
+    def test_authZ_verify_public_datasets(self):
         with loop_context() as loop:
             app = create_test_app()
             client = TestClient(TestServer(app), loop=loop)
@@ -60,6 +60,19 @@ class TestApp(unittest.TestCase):
                 tc = unittest.TestCase()
                 tc.assertSetEqual(set(['CINECA_synthetic_cohort_EUROPE_UK1', 'CINECA_dataset', 'coadread_tcga_pan_can_atlas_2018', 'AV_Dataset', 'rd-connect_dataset']),set(datasets))
             loop.run_until_complete(test_verify_public_datasets())
+            loop.run_until_complete(client.close())
+    def test_authZ_bearer_required(self):
+        with loop_context() as loop:
+            app = create_test_app()
+            client = TestClient(TestServer(app), loop=loop)
+            loop.run_until_complete(client.start_server())
+            async def test_bearer_required():
+                req = make_mocked_request('GET', '/', headers={'Authorization': 'Bearer '})
+                auth = req.headers.get('Authorization')
+                if not auth or not auth.lower().startswith('bearer '):
+                    raise web.HTTPUnauthorized()
+                assert auth[0:7] == 'Bearer '
+            loop.run_until_complete(test_bearer_required())
             loop.run_until_complete(client.close())
 
 if __name__ == '__main__':
