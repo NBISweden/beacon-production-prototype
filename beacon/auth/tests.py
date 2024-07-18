@@ -5,12 +5,12 @@ import glob
 import os
 import jwt
 from aiohttp import web
-from beacon.auth.__main__ import fetch_idp
+from beacon.auth.__main__ import fetch_idp, validate_access_token
 from aiohttp.test_utils import make_mocked_request
 from dotenv import load_dotenv
 
 
-mock_access_token = 'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJreS1tUXNxZ0ZYeHdSUVRfRUhuQlJJUGpmbVhfRXZuUTVEbzZWUTJCazdZIn0.eyJleHAiOjE3MjEyOTUzNjcsImlhdCI6MTcyMTI5NTA2NywianRpIjoiOGE2OTA1YjItNzcyZi00MTQxLWE1NDMtNGFiZDM3OGYyNzk5IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDg1L2F1dGgvcmVhbG1zL0JlYWNvbiIsImF1ZCI6ImJlYWNvbiIsInN1YiI6IjQ3ZWZmMWIxLTc2MjEtNDU3MC1hMGJiLTAxYTcxOWZiYTBhMiIsInR5cCI6IkJlYXJlciIsImF6cCI6ImJlYWNvbiIsInNlc3Npb25fc3RhdGUiOiIzNmRhNWRlZi1kYzMzLTRlZGItYWM2Yi1kOWI3YWJiNjEwYzciLCJhY3IiOiIxIiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCBtaWNyb3Byb2ZpbGUtand0Iiwic2lkIjoiMzZkYTVkZWYtZGMzMy00ZWRiLWFjNmItZDliN2FiYjYxMGM3IiwidXBuIjoiamFuZSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6IkphbmUgU21pdGgiLCJncm91cHMiOlsib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXSwicHJlZmVycmVkX3VzZXJuYW1lIjoiamFuZSIsImdpdmVuX25hbWUiOiJKYW5lIiwiZmFtaWx5X25hbWUiOiJTbWl0aCIsImVtYWlsIjoiamFuZS5zbWl0aEBiZWFjb24uZ2E0Z2gifQ.O2ZlForYB_s_1xotLp4_5uAJjMzJc0nbeahSjYE9aMlpy0Cc_F5lkdoOYUKeFVZXmeafPPXhOFxGjcASzG8AJ-0JjIt278kn45a2oyCnucM9kVE7dmTnMOZv8so74Kw0WzrZ6GgWXKyLb7JcN9X7pP3vLCqAPxupielMU5IWGwaoxOxfsvu6hd8Q7uMdc_CVxZxkCcsxYaSZ2KT6Fqwp7qtio2BQFP6o_6FMlAgumO4vHaFamXPA_kNvOtA9P7vf81aF2HTg0cCf42cmvAgFtNl-D8D8l_pLN3BkCx9rmvQG8HoxEUqYOVWXDspxRssgupe1Q9cRjrNhGuq7xDKrAA'
+mock_access_token = ''
 #dummy test anonymous
 #dummy test login
 #add test coverage
@@ -33,8 +33,45 @@ class TestAuthN(unittest.TestCase):
             loop.run_until_complete(client.start_server())
             async def test_fetch_idp():
                 idp_issuer, user_info, idp_client_id, idp_client_secret, idp_introspection, idp_jwks_url, algorithm, aud = fetch_idp(self, mock_access_token)
-                assert 'http://localhost:8085/auth/realms/Beacon' == idp_issuer
+                load_dotenv("beacon/auth/idp_providers/test.env", override=True)
+                IDP_ISSUER = os.getenv('ISSUER')
+                IDP_CLIENT_ID = os.getenv('CLIENT_ID')
+                IDP_CLIENT_SECRET = os.getenv('CLIENT_SECRET')
+                IDP_USER_INFO = os.getenv('USER_INFO')
+                IDP_INTROSPECTION = os.getenv('INTROSPECTION')
+                IDP_JWKS_URL = os.getenv('JWKS_URL')
+                assert IDP_ISSUER == idp_issuer
+                assert IDP_CLIENT_ID == idp_client_id
+                assert IDP_CLIENT_SECRET == idp_client_secret
+                assert IDP_USER_INFO == user_info
+                assert IDP_INTROSPECTION == idp_introspection
+                assert IDP_JWKS_URL == idp_jwks_url
             loop.run_until_complete(test_fetch_idp())
+            loop.run_until_complete(client.close())
+    def test_auth_validate_access_token(self):
+        with loop_context() as loop:
+            app = create_test_app()
+            client = TestClient(TestServer(app), loop=loop)
+            loop.run_until_complete(client.start_server())
+            async def test_validate_access_token():
+                load_dotenv("beacon/auth/idp_providers/test.env", override=True)
+                IDP_ISSUER = os.getenv('ISSUER')
+                IDP_CLIENT_ID = os.getenv('CLIENT_ID')
+                IDP_CLIENT_SECRET = os.getenv('CLIENT_SECRET')
+                IDP_USER_INFO = os.getenv('USER_INFO')
+                IDP_INTROSPECTION = os.getenv('INTROSPECTION')
+                IDP_JWKS_URL = os.getenv('JWKS_URL')
+                try:
+                    header = jwt.get_unverified_header(mock_access_token)
+                    algorithm=header["alg"]
+                    decoded = jwt.decode(mock_access_token, options={"verify_signature": False})
+                    issuer = decoded['iss']
+                    aud = decoded['aud']
+                except Exception:
+                    raise web.HTTPUnauthorized()
+                access_token_validation = validate_access_token(self, mock_access_token, IDP_ISSUER, IDP_JWKS_URL, algorithm, aud)
+                assert access_token_validation == True
+            loop.run_until_complete(test_validate_access_token())
             loop.run_until_complete(client.close())
 
 if __name__ == '__main__':

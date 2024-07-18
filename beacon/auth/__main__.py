@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 from beacon.logs.logs import LOG, log_with_args
 from beacon.conf.conf import level
 
+@log_with_args(level)
 def validate_access_token(self, access_token, idp_issuer, jwks_url, algorithm, aud):
     if not jwt.algorithms.has_crypto:
         raise web.HTTPUnauthorized()
@@ -31,7 +32,7 @@ def validate_access_token(self, access_token, idp_issuer, jwks_url, algorithm, a
         )
         return True
     except jwt.exceptions.PyJWTError as err:
-        raise web.HTTPUnauthorized()
+        LOG.debug(err)
 
 @log_with_args(level)
 def fetch_idp(self, access_token):
