@@ -6,6 +6,7 @@ import json
 import unittest
 from beacon.permissions.tests import TestAuthZ
 from beacon.validator.tests import TestValidator
+from beacon.auth.tests import TestAuthN
 
 def create_app():
     app = web.Application()
@@ -13,6 +14,8 @@ def create_app():
     app.add_routes([web.get('/control', ControlView)])
     app.add_routes([web.get('/info', InfoView)])
     return app
+
+TestAuthN
 
 TestAuthZ
 
@@ -31,7 +34,6 @@ class TestMain(unittest.TestCase):
                 assert json.dumps({'resp': 'hello world'}) == text
             loop.run_until_complete(test_check_control_endpoint_is_working())
             loop.run_until_complete(client.close())
-
 
 if __name__ == '__main__':
     unittest.main()

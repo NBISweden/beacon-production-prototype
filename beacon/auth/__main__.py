@@ -5,7 +5,8 @@ from aiohttp import ClientSession, BasicAuth, FormData
 from aiohttp import web
 import os
 from dotenv import load_dotenv
-from beacon.logs.logs import log_with_args
+from beacon.logs.logs import LOG, log_with_args
+from beacon.conf.conf import level
 
 def validate_access_token(self, access_token, idp_issuer, jwks_url, algorithm, aud):
     if not jwt.algorithms.has_crypto:
@@ -32,6 +33,7 @@ def validate_access_token(self, access_token, idp_issuer, jwks_url, algorithm, a
     except jwt.exceptions.PyJWTError as err:
         raise web.HTTPUnauthorized()
 
+@log_with_args(level)
 def fetch_idp(self, access_token):
     try:
         header = jwt.get_unverified_header(access_token)
@@ -44,8 +46,9 @@ def fetch_idp(self, access_token):
     user_info=''
     idp_issuer=None
     for env_filename in glob.glob("beacon/auth/idp_providers/*.env"):
-        load_dotenv(env_filename)
+        load_dotenv(env_filename, override=True)
         IDP_ISSUER = os.getenv('ISSUER')
+        LOG.debug(IDP_ISSUER)
         if issuer == IDP_ISSUER:
             IDP_CLIENT_ID = os.getenv('CLIENT_ID')
             IDP_CLIENT_SECRET = os.getenv('CLIENT_SECRET')
