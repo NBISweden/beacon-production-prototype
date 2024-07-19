@@ -1,13 +1,9 @@
-
 from aiohttp.test_utils import TestClient, TestServer, loop_context
 from aiohttp import web
 from beacon.__main__ import ControlView, InfoView
 import json
 import unittest
-from beacon.permissions.tests import TestAuthZ
-from beacon.validator.tests import TestValidator
-from beacon.auth.tests import TestAuthN
-from beacon.request.tests import TestRequest
+
 
 def create_app():
     app = web.Application()
@@ -16,29 +12,19 @@ def create_app():
     app.add_routes([web.get('/info', InfoView)])
     return app
 
-TestAuthN
-
-TestAuthZ
-
-TestValidator
-
-TestRequest
-
-class TestMain(unittest.TestCase):
-    def test_main_check_control_endpoint_is_working(self):
+class TestRequest(unittest.TestCase):
+    def test_request_parameters(self):
         with loop_context() as loop:
             app = create_app()
             client = TestClient(TestServer(app), loop=loop)
             loop.run_until_complete(client.start_server())
-            async def test_check_control_endpoint_is_working():
-                resp = await client.get("/control")
+            async def test_parameters():
+                resp = await client.get("/control?start=1")
                 assert resp.status == 200
                 text = await resp.text()
                 assert json.dumps({'resp': 'hello world'}) == text
-            loop.run_until_complete(test_check_control_endpoint_is_working())
+            loop.run_until_complete(test_parameters())
             loop.run_until_complete(client.close())
 
 if __name__ == '__main__':
     unittest.main()
-
-
