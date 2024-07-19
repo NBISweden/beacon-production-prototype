@@ -69,6 +69,7 @@ def fetch_idp(self, access_token):
         raise web.HTTPUnauthorized()
     return idp_issuer, user_info, idp_client_id, idp_client_secret, idp_introspection, idp_jwks_url, algorithm, aud
 
+@log_with_args(level)
 async def introspection(self, idp_introspection, idp_client_id, idp_client_secret, access_token, list_visa_datasets):
     async with ClientSession() as session:
         async with session.post(idp_introspection,
@@ -81,7 +82,7 @@ async def introspection(self, idp_introspection, idp_client_id, idp_client_secre
             else:
                 return False
 
-
+@log_with_args(level)
 async def fetch_user_info(self, access_token, user_info, idp_issuer, list_visa_datasets):
     async with ClientSession(trust_env=True) as session:
         headers = { 'Accept': 'application/json', 'Authorization': 'Bearer ' + access_token }
@@ -110,18 +111,20 @@ async def fetch_user_info(self, access_token, user_info, idp_issuer, list_visa_d
             else:
                 raise web.HTTPUnauthorized()
 
-
+@log_with_args(level)
 async def authentication(self, access_token):
     list_visa_datasets=[]
     try:
-        idp_issuer, user_info, idp_client_id, idp_client_secret, idp_introspection, idp_jwks_url, algorithm, aud = fetch_idp(access_token)
+        idp_issuer, user_info, idp_client_id, idp_client_secret, idp_introspection, idp_jwks_url, algorithm, aud = fetch_idp(self, access_token)
         access_token_validation = validate_access_token(self, access_token, idp_issuer, idp_jwks_url, algorithm, aud)
         if access_token_validation == True:
             user, list_visa_datasets = await fetch_user_info(self, access_token, user_info, idp_issuer, list_visa_datasets)
             return user, list_visa_datasets
-    except Exception:
+    except Exception as e:
+        LOG.debug(e)
         #access_token_validation = await introspection(idp_introspection, idp_client_id, idp_client_secret, access_token, list_visa_datasets)
         user = 'public'
+        LOG.debug(user)
         list_visa_datasets=[]
         return user, list_visa_datasets
 

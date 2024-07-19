@@ -5,12 +5,13 @@ import glob
 import os
 import jwt
 from aiohttp import web
-from beacon.auth.__main__ import fetch_idp, validate_access_token
+from beacon.auth.__main__ import fetch_idp, validate_access_token, authentication, introspection, fetch_user_info
 from aiohttp.test_utils import make_mocked_request
 from dotenv import load_dotenv
 
 
 mock_access_token = ''
+mock_access_token_false = 'public'
 #dummy test anonymous
 #dummy test login
 #add test coverage
@@ -72,6 +73,94 @@ class TestAuthN(unittest.TestCase):
                 access_token_validation = validate_access_token(self, mock_access_token, IDP_ISSUER, IDP_JWKS_URL, algorithm, aud)
                 assert access_token_validation == True
             loop.run_until_complete(test_validate_access_token())
+            loop.run_until_complete(client.close())
+    def test_auth_introspection(self):
+        with loop_context() as loop:
+            app = create_test_app()
+            client = TestClient(TestServer(app), loop=loop)
+            loop.run_until_complete(client.start_server())
+            async def test_introspection():
+                load_dotenv("beacon/auth/idp_providers/test.env", override=True)
+                IDP_ISSUER = os.getenv('ISSUER')
+                IDP_CLIENT_ID = os.getenv('CLIENT_ID')
+                IDP_CLIENT_SECRET = os.getenv('CLIENT_SECRET')
+                IDP_USER_INFO = os.getenv('USER_INFO')
+                IDP_INTROSPECTION = os.getenv('INTROSPECTION')
+                IDP_JWKS_URL = os.getenv('JWKS_URL')
+                list_visa_datasets=[]
+                output_introspection = await introspection(self, IDP_INTROSPECTION, IDP_CLIENT_ID, IDP_CLIENT_SECRET, mock_access_token, list_visa_datasets)
+                assert output_introspection == True
+            loop.run_until_complete(test_introspection())
+            loop.run_until_complete(client.close())
+    def test_auth_fetch_user_info(self):
+        with loop_context() as loop:
+            app = create_test_app()
+            client = TestClient(TestServer(app), loop=loop)
+            loop.run_until_complete(client.start_server())
+            async def test_fetch_user_info():
+                load_dotenv("beacon/auth/idp_providers/test.env", override=True)
+                IDP_ISSUER = os.getenv('ISSUER')
+                IDP_CLIENT_ID = os.getenv('CLIENT_ID')
+                IDP_CLIENT_SECRET = os.getenv('CLIENT_SECRET')
+                IDP_USER_INFO = os.getenv('USER_INFO')
+                IDP_INTROSPECTION = os.getenv('INTROSPECTION')
+                IDP_JWKS_URL = os.getenv('JWKS_URL')
+                list_visa_datasets=[]
+                user, list_visa_datasets = await fetch_user_info(self, mock_access_token, IDP_USER_INFO, IDP_ISSUER, list_visa_datasets)
+                assert user.get('preferred_username') == 'jane'
+            loop.run_until_complete(test_fetch_user_info())
+            loop.run_until_complete(client.close())
+    def test_auth_authentication(self):
+        with loop_context() as loop:
+            app = create_test_app()
+            client = TestClient(TestServer(app), loop=loop)
+            loop.run_until_complete(client.start_server())
+            async def test_authentication():
+                user, list_visa_datasets = await authentication(self, mock_access_token)
+                assert user.get('preferred_username') == 'jane'
+            loop.run_until_complete(test_authentication())
+            loop.run_until_complete(client.close())
+    def test_auth_authentication_false(self):
+        with loop_context() as loop:
+            app = create_test_app()
+            client = TestClient(TestServer(app), loop=loop)
+            loop.run_until_complete(client.start_server())
+            async def test_authentication_false():
+                user, list_visa_datasets = await authentication(self, mock_access_token_false)
+                assert user == 'public'
+            loop.run_until_complete(test_authentication_false())
+            loop.run_until_complete(client.close())
+    def test_auth_check_visa_passports(self):
+        with loop_context() as loop:
+            app = create_test_app()
+            client = TestClient(TestServer(app), loop=loop)
+            loop.run_until_complete(client.start_server())
+            async def test_check_visa_passports():
+                user={}
+                user['ga4gh_passport_v1']=['visa']
+                visa_datasets = user['ga4gh_passport_v1']
+                list_visa_datasets=[]
+                if visa_datasets is not None:
+                    for visa_dataset in visa_datasets:
+                        try:
+                            visa = {}
+                            load_dotenv("beacon/auth/idp_providers/test.env", override=True)
+                            IDP_ISSUER = os.getenv('ISSUER')
+                            visa['iss']=IDP_ISSUER
+                            visa["ga4gh_visa_v1"]={}
+                            visa["ga4gh_visa_v1"]["value"]='visa/dataset'
+                            if visa['iss']==IDP_ISSUER:
+                                pass
+                            else:
+                                raise web.HTTPUnauthorized('invalid visa token')
+                            dataset_url = visa["ga4gh_visa_v1"]["value"]
+                            dataset_url_splitted = dataset_url.split('/')
+                            visa_dataset = dataset_url_splitted[-1]
+                            list_visa_datasets.append(visa_dataset)
+                        except Exception:
+                            visa_dataset = None
+                assert list_visa_datasets == ['dataset']
+            loop.run_until_complete(test_check_visa_passports())
             loop.run_until_complete(client.close())
 
 if __name__ == '__main__':
