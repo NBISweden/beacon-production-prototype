@@ -8,6 +8,7 @@ from aiohttp.web_request import Request
 from beacon.utils.txid import generate_txid
 from beacon.logs.logs import LOG
 from beacon.permissions.__main__ import dataset_permissions
+from beacon.request.parameters import RequestParams
 
 class EndpointView(web.View):
     def __init__(self, request: Request):
@@ -28,6 +29,9 @@ class ControlView(EndpointView):
     async def control(self, request):
         datasets_permissions = await self._permissions
         LOG.debug(datasets_permissions)
+        json_body = await request.json() if request.method == "POST" and request.has_body and request.can_read_body else {}
+        qparams = RequestParams(**json_body).from_request(request)
+        LOG.debug(qparams)
         self.calculate(self, 4)
         response_obj = {'resp': 'hello world'}
         return web.Response(text=json.dumps(response_obj), status=200, content_type='application/json')
