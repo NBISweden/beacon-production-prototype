@@ -80,13 +80,49 @@ class RequestQuery(CamelModel):
     requested_granularity: Granularity = Granularity(default_beacon_granularity)
     scope: str = None
 
+class SequenceQuery(BaseModel):
+    referenceName: str
+    start: int
+    alternateBases:str
+    referenceBases: str
+
+class RangeQuery(BaseModel):
+    referenceName: str
+    start: int
+    end: int
+    variantType: Optional[str]
+    alternateBases: Optional[str]
+    aminoacidChange: Optional[str]
+    variantMinLength: Optional[int]
+    variantMaxLength: Optional[int]
+
+class GeneIdQuery(BaseModel):
+    geneId: str
+    variantType: Optional[str]
+    alternateBases: Optional[str]
+    aminoacidChange: Optional[str]
+    variantMinLength: Optional[int]
+    variantMaxLength: Optional[int]
+
+class BracketQuery(BaseModel):
+    referenceName: str
+    start: str
+    end: str
+    variantType: Optional[str]
+
+class GenomicAlleleQuery(BaseModel):
+    genomicAlleleShortForm: str
+
+class AminoacidChangeQuery(BaseModel):
+    aminoacidChange: str
 
 class RequestParams(CamelModel):
     meta: RequestMeta = RequestMeta()
     query: RequestQuery = RequestQuery()
 
     def from_request(self, request: Request) -> Self:
-        if request.method != "POST" or not request.has_body or not request.can_read_body:
+        request_params={}
+        if request.method != "POST" or not request.has_body or not request.can_read_body:            
             for k, v in request.query.items():
                 if k == "requestedSchema":
                     self.meta.requested_schemas = [html.escape(v)]
@@ -96,10 +132,45 @@ class RequestParams(CamelModel):
                     self.query.pagination.limit = int(html.escape(v))
                 elif k == "includeResultsetResponses":
                     self.query.include_resultset_responses = IncludeResultsetResponses(html.escape(v))
-                elif k == 'filters' or k in ["start", "end", "assemblyId", "referenceName", "referenceBases", "alternateBases", "variantType","variantMinLength","variantMaxLength","geneId","genomicAlleleShortForm","aminoacidChange","clinicalRelevance", "mateName"]:
+                elif k == 'filters':
+                    self.query.request_parameters[k] = html.escape(v)
+                elif k in ["start", "end", "assemblyId", "referenceName", "referenceBases", "alternateBases", "variantType","variantMinLength","variantMaxLength","geneId","genomicAlleleShortForm","aminoacidChange","clinicalRelevance", "mateName"]:
+                    request_params[k]=v
                     self.query.request_parameters[k] = html.escape(v)
                 else:
                     raise web.HTTPBadRequest(text='request parameter introduced is not allowed')
+        if request_params != {}:
+            try:
+                RangeQuery(**request_params)
+                return self
+            except Exception:
+                pass
+            try:
+                SequenceQuery(**request_params)
+                return self
+            except Exception:
+                pass
+            try:
+                BracketQuery(**request_params)
+                return self
+            except Exception:
+                pass
+            try:
+                GeneIdQuery(**request_params)
+                return self
+            except Exception:
+                pass
+            try:
+                AminoacidChangeQuery(**request_params)
+                return self
+            except Exception:
+                pass
+            try:
+                GenomicAlleleQuery(**request_params)
+                return self
+            except Exception:
+                pass
+            raise web.HTTPBadRequest(text='set of parameters not allowed')
         return self
 
     def summary(self):
