@@ -4,17 +4,18 @@ from beacon.conf.conf import level
 from beacon.info.info import info_response
 import asyncio
 import aiohttp.web as web
+from bson.json_util import dumps
 from aiohttp.web_request import Request
 from beacon.utils.txid import generate_txid
 from beacon.logs.logs import LOG
 from beacon.permissions.__main__ import dataset_permissions
 from beacon.request.parameters import RequestParams
+from beacon.response.builder import builder
 
 class EndpointView(web.View):
     def __init__(self, request: Request):
         self._request= request
         self._id = generate_txid()
-        self._permissions = dataset_permissions(self, request)
 
 class ControlView(EndpointView):    
     @log_with_args(level)
@@ -54,6 +55,19 @@ class InfoView(EndpointView):
     async def post(self):
         return await self.info(self.request)
 
+class GenomicVariations(EndpointView):
+    @log_with_args(level)
+    async def genomicVariations(self, request):
+        permissions = await dataset_permissions(self, request)
+        response_obj = await builder(request, permissions)
+        return web.Response(text=dumps(response_obj), status=200, content_type='application/json')
+
+    async def get(self):
+        return await self.genomicVariations(self.request)
+
+    async def post(self):
+        return await self.genomicVariations(self.request)
+
 
 async def initialize(app):
     pass
@@ -68,6 +82,7 @@ async def create_api():
     app.on_cleanup.append(destroy)
     app.add_routes([web.view('/control', ControlView)])
     app.add_routes([web.view('/info', InfoView)])
+    app.add_routes([web.view('/g_variants', GenomicVariations)])
 
     runner = web.AppRunner(app)
     await runner.setup()
