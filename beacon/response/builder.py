@@ -115,6 +115,7 @@ async def builder(request: Request, authorized_datasets):
     include = qparams.query.include_resultset_responses
     skip = qparams.query.pagination.skip
     limit = qparams.query.pagination.limit
+    # Datasets han de venir d'AuthZ
     specific_datasets_unauthorized = []
     search_and_authorized_datasets = []
     try:

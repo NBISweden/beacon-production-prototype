@@ -1,6 +1,11 @@
-import logging
 from typing_extensions import Self
-from pydantic import BaseModel
+from pydantic import (
+    BaseModel,
+    ValidationError,
+    field_validator,
+    Field,
+    PrivateAttr
+)
 from strenum import StrEnum
 from typing import List, Optional, Union
 from beacon.conf.conf import api_version, default_beacon_granularity
@@ -44,7 +49,7 @@ class Granularity(StrEnum):
 
 class OntologyFilter(CamelModel):
     id: str
-    scope: Optional[str] = None
+    scope: Optional[str] =None
     include_descendant_terms: bool = False
     similarity: Similarity = Similarity.EXACT
 
@@ -52,13 +57,13 @@ class OntologyFilter(CamelModel):
 class AlphanumericFilter(CamelModel):
     id: str
     value: Union[str, List[int]]
-    scope: Optional[str] = None
+    scope: Optional[str] =None
     operator: Operator = Operator.EQUAL
 
 
 class CustomFilter(CamelModel):
     id: str
-    scope: Optional[str] = None
+    scope: Optional[str] =None
 
 
 class Pagination(CamelModel):
@@ -90,31 +95,48 @@ class RangeQuery(BaseModel):
     referenceName: str
     start: int
     end: int
-    variantType: Optional[str]
-    alternateBases: Optional[str]
-    aminoacidChange: Optional[str]
-    variantMinLength: Optional[int]
-    variantMaxLength: Optional[int]
+    variantType: Optional[str] =None
+    alternateBases: Optional[str] =None
+    aminoacidChange: Optional[str] =None
+    variantMinLength: Optional[int] =None
+    variantMaxLength: Optional[int] =None
 
 class GeneIdQuery(BaseModel):
     geneId: str
-    variantType: Optional[str]
-    alternateBases: Optional[str]
-    aminoacidChange: Optional[str]
-    variantMinLength: Optional[int]
-    variantMaxLength: Optional[int]
+    variantType: Optional[str] =None
+    alternateBases: Optional[str] =None
+    aminoacidChange: Optional[str] =None
+    variantMinLength: Optional[int] =None
+    variantMaxLength: Optional[int] =None
 
 class BracketQuery(BaseModel):
     referenceName: str
-    start: str
-    end: str
-    variantType: Optional[str]
+    start: list
+    end: list
+    variantType: Optional[str] =None
+    @field_validator('start')
+    @classmethod
+    def start_must_be_array_of_integers(cls, v: list) -> list:
+        for num in v:
+            if isinstance(num, int):
+                pass
+            else:
+                raise ValueError
+    @field_validator('end')
+    @classmethod
+    def end_must_be_array_of_integers(cls, v: list) -> list:
+        for num in v:
+            if isinstance(num, int):
+                pass
+            else:
+                raise ValueError
 
 class GenomicAlleleQuery(BaseModel):
     genomicAlleleShortForm: str
 
 class AminoacidChangeQuery(BaseModel):
     aminoacidChange: str
+    geneId: str
 
 class RequestParams(CamelModel):
     meta: RequestMeta = RequestMeta()
@@ -125,7 +147,7 @@ class RequestParams(CamelModel):
         if request.method != "POST" or not request.has_body or not request.can_read_body:            
             for k, v in request.query.items():
                 if k == "requestedSchema":
-                    self.meta.requested_schemas = [html.escape(v)]
+                    self.meta.requested_schemas = [html.escape(v)] # comprovar si és la sanitització recomanada
                 elif k == "skip":
                     self.query.pagination.skip = int(html.escape(v))
                 elif k == "limit":
@@ -135,7 +157,14 @@ class RequestParams(CamelModel):
                 elif k == 'filters':
                     self.query.request_parameters[k] = html.escape(v)
                 elif k in ["start", "end", "assemblyId", "referenceName", "referenceBases", "alternateBases", "variantType","variantMinLength","variantMaxLength","geneId","genomicAlleleShortForm","aminoacidChange","clinicalRelevance", "mateName"]:
-                    request_params[k]=v
+                    try:
+                        if ',' in v:
+                            v_splitted = v.split(',')
+                            request_params[k]=[int(v) for v in v_splitted]
+                        else:
+                            request_params[k]=int(v)
+                    except Exception as e:
+                        request_params[k]=v
                     self.query.request_parameters[k] = html.escape(v)
                 else:
                     raise web.HTTPBadRequest(text='request parameter introduced is not allowed')
@@ -143,32 +172,32 @@ class RequestParams(CamelModel):
             try:
                 RangeQuery(**request_params)
                 return self
-            except Exception:
+            except Exception as e:
                 pass
             try:
                 SequenceQuery(**request_params)
                 return self
-            except Exception:
+            except Exception as e:
                 pass
             try:
                 BracketQuery(**request_params)
                 return self
-            except Exception:
+            except Exception as e:
                 pass
             try:
                 GeneIdQuery(**request_params)
                 return self
-            except Exception:
+            except Exception as e:
                 pass
             try:
                 AminoacidChangeQuery(**request_params)
                 return self
-            except Exception:
+            except Exception as e:
                 pass
             try:
                 GenomicAlleleQuery(**request_params)
                 return self
-            except Exception:
+            except Exception as e:
                 pass
             raise web.HTTPBadRequest(text='set of parameters not allowed')
         return self

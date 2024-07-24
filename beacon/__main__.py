@@ -56,10 +56,10 @@ class InfoView(EndpointView):
         return await self.info(self.request)
 
 class GenomicVariations(EndpointView):
+    @dataset_permissions
     @log_with_args(level)
-    async def genomicVariations(self, request):
-        permissions = await dataset_permissions(self, request)
-        response_obj = await builder(request, permissions)
+    async def genomicVariations(self, request, datasets):
+        response_obj = await builder(request, datasets)
         return web.Response(text=dumps(response_obj), status=200, content_type='application/json')
 
     async def get(self):
@@ -67,7 +67,6 @@ class GenomicVariations(EndpointView):
 
     async def post(self):
         return await self.genomicVariations(self.request)
-
 
 async def initialize(app):
     pass
