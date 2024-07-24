@@ -58,8 +58,8 @@ class InfoView(EndpointView):
 class GenomicVariations(EndpointView):
     @dataset_permissions
     @log_with_args(level)
-    async def genomicVariations(self, request, datasets):
-        response_obj = await builder(request, datasets)
+    async def genomicVariations(self, request, datasets, qparams):
+        response_obj = await builder(request, datasets, qparams)
         return web.Response(text=dumps(response_obj), status=200, content_type='application/json')
 
     async def get(self):
