@@ -32,7 +32,7 @@ COPY --from=BUILD /usr/local/bin      /usr/local/bin
 COPY --from=BUILD /usr/local/lib      /usr/local/lib
 
 RUN apt-get update && \
-#    apt-get upgrade -y && \
+    apt update && apt install -y openssh-client sshpass && \
     apt-get install -y --no-install-recommends \
     nginx \
     && \

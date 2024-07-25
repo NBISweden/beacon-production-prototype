@@ -6,7 +6,6 @@ from bson.json_util import dumps
 from typing import Optional
 from beacon.connections.mongo.utils import get_docs_by_response_type
 
-
 def get_variants(entry_id: Optional[str], qparams: RequestParams, dataset: str):
     collection = 'g_variants'
     mongo_collection = client.beacon.genomicVariations

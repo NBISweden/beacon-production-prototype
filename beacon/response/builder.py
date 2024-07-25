@@ -2,7 +2,7 @@ from aiohttp.web_request import Request
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
 from beacon.response.granularity import build_beacon_boolean_response_by_dataset
-from beacon.connections.mongo.g_variants import get_variants
+from beacon.connections.beaconCLI.g_variants import get_variants
 
 async def builder(request: Request, datasets, qparams):
     include = qparams.query.include_resultset_responses
