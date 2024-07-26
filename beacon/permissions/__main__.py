@@ -36,32 +36,32 @@ async def authorization(self, request):
 @log_with_args(level)
 async def get_datasets_list(self, request: Request, authorized_datasets):
     try:
-            json_body = await request.json() if request.method == "POST" and request.has_body and request.can_read_body else {}
-            qparams = RequestParams(**json_body).from_request(request)
-            specific_datasets_unauthorized = []
-            search_and_authorized_datasets = []
-            try:
-                specific_datasets = qparams.query.request_parameters['datasets']
-            except Exception:
-                specific_datasets = []
-            # Get response
-            if specific_datasets != []:
-                for element in authorized_datasets:
-                    if element in specific_datasets:
-                        search_and_authorized_datasets.append(element)
-                for elemento in specific_datasets:
-                    if elemento not in search_and_authorized_datasets:
-                        specific_datasets_unauthorized.append(elemento)
-                beacon_datasets = get_list_of_datasets()
-                response_datasets = [ r['id'] for r in beacon_datasets if r['id'] in search_and_authorized_datasets]
+        json_body = await request.json() if request.method == "POST" and request.has_body and request.can_read_body else {}
+        qparams = RequestParams(**json_body).from_request(request)
+        specific_datasets_unauthorized = []
+        search_and_authorized_datasets = []
+        try:
+            specific_datasets = qparams.query.request_parameters['datasets']
+        except Exception:
+            specific_datasets = []
+        # Get response
+        if specific_datasets != []:
+            for element in authorized_datasets:
+                if element in specific_datasets:
+                    search_and_authorized_datasets.append(element)
+            for elemento in specific_datasets:
+                if elemento not in search_and_authorized_datasets:
+                    specific_datasets_unauthorized.append(elemento)
+            beacon_datasets = get_list_of_datasets()
+            response_datasets = [ r['id'] for r in beacon_datasets if r['id'] in search_and_authorized_datasets]
 
-            else:
-                beacon_datasets = get_list_of_datasets()
-                LOG.debug(beacon_datasets)
-                LOG.debug(type(beacon_datasets))
-                specific_datasets = [ r['id'] for r in beacon_datasets if r['id'] not in authorized_datasets]
-                response_datasets = [ r['id'] for r in beacon_datasets if r['id'] in authorized_datasets]
-                specific_datasets_unauthorized.append(specific_datasets)
+        else:
+            beacon_datasets = get_list_of_datasets()
+            LOG.debug(beacon_datasets)
+            LOG.debug(type(beacon_datasets))
+            specific_datasets = [ r['id'] for r in beacon_datasets if r['id'] not in authorized_datasets]
+            response_datasets = [ r['id'] for r in beacon_datasets if r['id'] in authorized_datasets]
+            specific_datasets_unauthorized.append(specific_datasets)
     except Exception as e:
         LOG.debug(e)
     return response_datasets, qparams
