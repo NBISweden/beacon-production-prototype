@@ -15,7 +15,6 @@ def get_variants(entry_id: Optional[str], qparams: RequestParams, dataset: str):
         LOG.debug(output)
     bash_list = bash.split(b'\n')
 
-    new_bash_list=[]
     for item in bash_list:
         item = item.decode("utf-8") 
         item = item.replace('[', '')
@@ -26,10 +25,10 @@ def get_variants(entry_id: Optional[str], qparams: RequestParams, dataset: str):
         item = item.replace("'", '')
         item = item.replace('"', '')
         item_list = item.split(',')
-        boolean = item_list[0]
+        #boolean = item_list[0]
         count = int(item_list[1])
         dataset_count=count
-        end = len(item_list)
+        #end = len(item_list)
         #datasets_list = item_list[2:end]
 
         break

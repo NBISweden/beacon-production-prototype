@@ -8,7 +8,7 @@ from beacon.logs.logs import LOG
 from beacon.auth.__main__ import authentication
 from beacon.logs.logs import log_with_args
 from beacon.conf.conf import level
-from beacon.utils.requests import check_request_content_type
+from beacon.utils.requests import check_request_content_type, get_qparams
 from beacon.request.parameters import RequestParams
 from beacon.connections.mongo.datasets import get_list_of_datasets
 
@@ -36,8 +36,7 @@ async def authorization(self, request):
 @log_with_args(level)
 async def get_datasets_list(self, request: Request, authorized_datasets):
     try:
-        json_body = await request.json() if request.method == "POST" and request.has_body and request.can_read_body else {}
-        qparams = RequestParams(**json_body).from_request(request)
+        qparams = await get_qparams(self, request)
         specific_datasets_unauthorized = []
         search_and_authorized_datasets = []
         try:

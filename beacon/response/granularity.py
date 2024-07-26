@@ -18,10 +18,6 @@ def build_response_summary_by_dataset(exists, num_total_results, data):
         }
 
 def build_meta(qparams: RequestParams, entity_schema: Optional[DefaultSchemas], returned_granularity: Granularity):
-    """"Builds the `meta` part of the response
-
-    We assume that receivedRequest is the evaluated request (qparams) sent by the user.
-    """
     try:
         meta = {
             'beaconId': conf.beacon_id,
@@ -41,7 +37,6 @@ def build_meta(qparams: RequestParams, entity_schema: Optional[DefaultSchemas], 
     return meta
 
 def build_response_by_dataset(data, dict_counts, qparams):
-    """"Fills the `response` part with the correct format in `results`"""
     list_of_responses=[]
     for k,v in data.items():
 
@@ -57,10 +52,7 @@ def build_response_by_dataset(data, dict_counts, qparams):
             }
             
             list_of_responses.append(response)
-            #LOG.debug(list_of_responses)
-            
 
-    #LOG.debug(list_of_responses)
     return list_of_responses
 
 def build_beacon_boolean_response_by_dataset(data,
