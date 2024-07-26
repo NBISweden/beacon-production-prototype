@@ -12,6 +12,34 @@ formatter = logging.Formatter(fmt)
 fh.setFormatter(formatter)
 LOG.addHandler(fh)
 
+# Provar els unit tests
+# Formular l'exception bubbling --> mirar qui controla el tall de connexions per netejar que no quedi cap connexió ni procés obert
+# Crear graceful shutdown amb missatge de LOG body + status dins de l'exception bubbling a cada capa
+# Explorar LOGS de third parties amb el nostre txid
+
+def log_with_args_initial(level):
+    def add_logging(func):
+        def wrapper(self, *args, **kwargs):
+            try:
+                start = time.time()
+                logging.basicConfig(format=fmt, level=level)
+                result = func(self, *args, **kwargs)
+                LOG.debug(f"{result} - {func.__name__}({args},{kwargs}) - initial call")
+                finish = time.time()
+                LOG.debug(f"{result} - {func.__name__}({args},{kwargs}) - {finish-start} - returned {result}")
+                if f"{func.__name__}" == 'initialize':
+                    LOG.info(f"{result} - Initialization done")
+                elif f"{func.__name__}" == 'destroy':
+                    LOG.info(f"{result} - Shutting down")
+                return result
+            except:
+                err = "There was an exception in  "
+                err += func.__name__
+                LOG.error(f"{result} - {err}")
+                raise
+        return wrapper
+    return add_logging
+
 def log_with_args(level):
     def add_logging(func):
         def wrapper(self, *args, **kwargs):

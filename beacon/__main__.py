@@ -14,7 +14,7 @@ from beacon.response.builder import builder
 class EndpointView(web.View):
     def __init__(self, request: Request):
         self._request= request
-        self._id = generate_txid()
+        self._id = generate_txid(self)
 
 class ControlView(EndpointView):    
     @log_with_args(level)
