@@ -1,14 +1,13 @@
 from beacon.request.parameters import RequestParams
 from beacon.response.schemas import DefaultSchemas
-from beacon.connections.beaconCLI import conf
 from typing import Optional
-from beacon.connections.beaconCLI.__init__ import create_ssh
+from beacon.connections.beaconCLI.__init__ import client
 import subprocess
 from beacon.logs.logs import LOG
 
 def get_variants(entry_id: Optional[str], qparams: RequestParams, dataset: str):
 
-    stdin, stdout, stderr = create_ssh(host=conf.host, username=conf.username, password=conf.password).exec_command('cd /CLItest && python3 main.py -rg 37 -c 1 -p 1 --range 1000000000 --public')
+    stdin, stdout, stderr = client.exec_command('cd /CLItest && python3 main.py -rg 37 -c 1 -p 1 --range 1000000000 --public')
     try:
         bash = stdout.read()
     except subprocess.CalledProcessError as e:

@@ -33,30 +33,9 @@ async def authorization(self, request):
         return username, list_visa_datasets
     return username, list_visa_datasets
 
-def dataset_permissions(func):
-    @log_with_args(level)
-    async def permission(self, request: Request):
-        try:
-            post_data = await check_request_content_type(self, request)
-
-            v = post_data.get('datasets')
-            if v is None:
-                requested_datasets = []
-            elif isinstance(v, list):
-                requested_datasets = v
-            elif isinstance(v, FileField):
-                requested_datasets = []
-            else:
-                requested_datasets = v.split(sep=',')
-            
-            username, list_visa_datasets = await authorization(self, request)
-                
-            datasets = await PermissionsProxy.get(self=PermissionsProxy, username=username, requested_datasets=requested_datasets)
-            dict_returned={}
-            dict_returned['username']=username
-            authorized_datasets=list(datasets)
-            for visa_dataset in list_visa_datasets:
-                authorized_datasets.append(visa_dataset)
+@log_with_args(level)
+async def get_datasets_list(self, request: Request, authorized_datasets):
+    try:
             json_body = await request.json() if request.method == "POST" and request.has_body and request.can_read_body else {}
             qparams = RequestParams(**json_body).from_request(request)
             specific_datasets_unauthorized = []
@@ -83,6 +62,35 @@ def dataset_permissions(func):
                 specific_datasets = [ r['id'] for r in beacon_datasets if r['id'] not in authorized_datasets]
                 response_datasets = [ r['id'] for r in beacon_datasets if r['id'] in authorized_datasets]
                 specific_datasets_unauthorized.append(specific_datasets)
+    except Exception as e:
+        LOG.debug(e)
+    return response_datasets, qparams
+
+def dataset_permissions(func):
+    @log_with_args(level)
+    async def permission(self, request: Request):
+        try:
+            post_data = await check_request_content_type(self, request)
+
+            v = post_data.get('datasets')
+            if v is None:
+                requested_datasets = []
+            elif isinstance(v, list):
+                requested_datasets = v
+            elif isinstance(v, FileField):
+                requested_datasets = []
+            else:
+                requested_datasets = v.split(sep=',')
+            
+            username, list_visa_datasets = await authorization(self, request)
+                
+            datasets = await PermissionsProxy.get(self=PermissionsProxy, username=username, requested_datasets=requested_datasets)
+            dict_returned={}
+            dict_returned['username']=username
+            authorized_datasets=list(datasets)
+            for visa_dataset in list_visa_datasets:
+                authorized_datasets.append(visa_dataset)
+            response_datasets, qparams = await get_datasets_list(self, request, authorized_datasets)
 
         except Exception as e:
             LOG.debug(e)
