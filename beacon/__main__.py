@@ -25,7 +25,6 @@ class ControlView(EndpointView):
             raise
         return status
     
-    @dataset_permissions
     @log_with_args(level)
     async def control(self, request):
         qparams = get_qparams(self, request)
@@ -55,7 +54,7 @@ class GenomicVariations(EndpointView):
     @dataset_permissions
     @log_with_args(level)
     async def genomicVariations(self, request, datasets, qparams):
-        response_obj = await builder(request, datasets, qparams)
+        response_obj = await builder(self, request, datasets, qparams)
         return web.Response(text=dumps(response_obj), status=200, content_type='application/json')
 
     async def get(self):

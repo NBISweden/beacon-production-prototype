@@ -32,7 +32,8 @@ def validate_access_token(self, access_token, idp_issuer, jwks_url, algorithm, a
         )
         return True
     except jwt.exceptions.PyJWTError as err:
-        LOG.debug(err)
+        #LOG.debug(err)
+        pass
 
 @log_with_args(level)
 def fetch_idp(self, access_token):
@@ -49,7 +50,6 @@ def fetch_idp(self, access_token):
     for env_filename in glob.glob("beacon/auth/idp_providers/*.env"):
         load_dotenv(env_filename, override=True)
         IDP_ISSUER = os.getenv('ISSUER')
-        LOG.debug(IDP_ISSUER)
         if issuer == IDP_ISSUER:
             IDP_CLIENT_ID = os.getenv('CLIENT_ID')
             IDP_CLIENT_SECRET = os.getenv('CLIENT_SECRET')
@@ -121,10 +121,9 @@ async def authentication(self, access_token):
             user, list_visa_datasets = await fetch_user_info(self, access_token, user_info, idp_issuer, list_visa_datasets)
             return user, list_visa_datasets
     except Exception as e:
-        LOG.debug(e)
+        #LOG.debug(e)
         #access_token_validation = await introspection(idp_introspection, idp_client_id, idp_client_secret, access_token, list_visa_datasets)
         user = 'public'
-        LOG.debug(user)
         list_visa_datasets=[]
         return user, list_visa_datasets
 

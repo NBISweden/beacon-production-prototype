@@ -6,7 +6,6 @@ import subprocess
 from beacon.logs.logs import LOG
 
 def get_variants(entry_id: Optional[str], qparams: RequestParams, dataset: str):
-
     stdin, stdout, stderr = client.exec_command('cd /CLItest && python3 main.py -rg 37 -c 1 -p 1 --range 1000000000 --public')
     try:
         bash = stdout.read()

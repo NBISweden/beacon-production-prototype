@@ -36,7 +36,6 @@ def validate_endpoint(path: str, json_from_url):
 def info_check(url: str):
     try:
         total_response = load_json_from_url(url)
-        LOG.debug(total_response)
         info_path = 'beacon/validator/ref_schemas/framework/json/responses/beaconInfoResponse.json'
         response = validate_endpoint(info_path, total_response)
     except Exception as e:
