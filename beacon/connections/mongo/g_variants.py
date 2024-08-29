@@ -9,7 +9,7 @@ from beacon.logs.logs import log_with_args
 from beacon.conf.conf import level
 
 @log_with_args(level)
-def get_variants(entry_id: Optional[str], qparams: RequestParams, dataset: str):
+def get_variants(self, entry_id: Optional[str], qparams: RequestParams, dataset: str):
     collection = 'g_variants'
     mongo_collection = client.beacon.genomicVariations
     include = 'ALL'
@@ -20,6 +20,6 @@ def get_variants(entry_id: Optional[str], qparams: RequestParams, dataset: str):
         datasets_dict = yaml.safe_load(datasets_file)
     schema = DefaultSchemas.GENOMICVARIATIONS
     idq="caseLevelData.biosampleId"
-    count, dataset_count, docs = get_docs_by_response_type(include, query, datasets_dict, dataset, limit, skip, mongo_collection, idq)
+    count, dataset_count, docs = get_docs_by_response_type(self, include, query, datasets_dict, dataset, limit, skip, mongo_collection, idq)
     docs = dumps(docs)
     return schema, count, dataset_count, docs, dataset

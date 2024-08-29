@@ -1,11 +1,15 @@
 from pymongo.cursor import Cursor
 from beacon.connections.mongo.__init__ import client
 from pymongo.collection import Collection
+from beacon.logs.logs import log_with_args
+from beacon.conf.conf import level
 
-def get_documents(collection: Collection, query: dict, skip: int, limit: int) -> Cursor:
+@log_with_args(level)
+def get_documents(self, collection: Collection, query: dict, skip: int, limit: int) -> Cursor:
     return collection.find(query).skip(skip).limit(limit).max_time_ms(100 * 1000)
 
-def get_count(collection: Collection, query: dict) -> int:
+@log_with_args(level)
+def get_count(self, collection: Collection, query: dict) -> int:
     if not query:
         return collection.estimated_document_count()
     else:
@@ -41,11 +45,13 @@ def get_count(collection: Collection, query: dict) -> int:
                 total_counts=15
         return total_counts
 
-def get_docs_by_response_type(include: str, query: dict, datasets_dict: dict, dataset: str, limit: int, skip: int, mongo_collection, idq: str):
+@log_with_args(level)
+def get_docs_by_response_type(self, include: str, query: dict, datasets_dict: dict, dataset: str, limit: int, skip: int, mongo_collection, idq: str):
     if include == 'NONE':
         count = get_count(mongo_collection, query)
         dataset_count=0
         docs = get_documents(
+        self,
         mongo_collection,
         query,
         skip*limit,
@@ -70,8 +76,9 @@ def get_docs_by_response_type(include: str, query: dict, datasets_dict: dict, da
                         query_count["$or"].append(queryid)
                         i=1
                 if query_count["$or"]!=[]:
-                    dataset_count = get_count(mongo_collection, query_count)
+                    dataset_count = get_count(self, mongo_collection, query_count)
                     docs = get_documents(
+                        self,
                         mongo_collection,
                         query_count,
                         skip*limit,

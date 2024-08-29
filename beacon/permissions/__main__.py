@@ -51,11 +51,11 @@ async def get_datasets_list(self, request: Request, authorized_datasets):
             for elemento in specific_datasets:
                 if elemento not in search_and_authorized_datasets:
                     specific_datasets_unauthorized.append(elemento)
-            beacon_datasets = get_list_of_datasets()
+            beacon_datasets = get_list_of_datasets(self)
             response_datasets = [ r['id'] for r in beacon_datasets if r['id'] in search_and_authorized_datasets]
 
         else:
-            beacon_datasets = get_list_of_datasets()
+            beacon_datasets = get_list_of_datasets(self)
             LOG.debug(beacon_datasets)
             LOG.debug(type(beacon_datasets))
             specific_datasets = [ r['id'] for r in beacon_datasets if r['id'] not in authorized_datasets]
