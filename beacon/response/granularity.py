@@ -3,9 +3,11 @@ from beacon.request.parameters import RequestParams
 from beacon.request.parameters import Granularity
 from beacon.conf import conf
 from typing import Optional
+from beacon.logs.logs import log_with_args
+from beacon.conf.conf import level
 
-
-def build_response_summary_by_dataset(exists, num_total_results, data):
+@log_with_args(level)
+def build_response_summary_by_dataset(self, exists, num_total_results, data):
     count=num_total_results
     if count == 0:
         return {
@@ -17,7 +19,8 @@ def build_response_summary_by_dataset(exists, num_total_results, data):
             'numTotalResults': count
         }
 
-def build_meta(qparams: RequestParams, entity_schema: Optional[DefaultSchemas], returned_granularity: Granularity):
+@log_with_args(level)
+def build_meta(self, qparams: RequestParams, entity_schema: Optional[DefaultSchemas], returned_granularity: Granularity):
     try:
         meta = {
             'beaconId': conf.beacon_id,
@@ -36,7 +39,8 @@ def build_meta(qparams: RequestParams, entity_schema: Optional[DefaultSchemas], 
         }
     return meta
 
-def build_response_by_dataset(data, dict_counts, qparams):
+@log_with_args(level)
+def build_response_by_dataset(self, data, dict_counts, qparams):
     list_of_responses=[]
     for k,v in data.items():
 
@@ -55,17 +59,18 @@ def build_response_by_dataset(data, dict_counts, qparams):
 
     return list_of_responses
 
-def build_beacon_boolean_response_by_dataset(data,
+@log_with_args(level)
+def build_beacon_boolean_response_by_dataset(self, data,
                                     dict_counts,
                                     num_total_results,
                                     qparams: RequestParams,
                                     entity_schema: DefaultSchemas):
 
     beacon_response = {
-        'meta': build_meta(qparams, entity_schema, Granularity.BOOLEAN),
-        'responseSummary': build_response_summary_by_dataset(num_total_results > 0, num_total_results, data),
+        'meta': build_meta(self, qparams, entity_schema, Granularity.BOOLEAN),
+        'responseSummary': build_response_summary_by_dataset(self, num_total_results > 0, num_total_results, data),
         'response': {
-            'resultSets': build_response_by_dataset(data, dict_counts, qparams)
+            'resultSets': build_response_by_dataset(self, data, dict_counts, qparams)
         },
         'beaconHandovers': 'beacon_handovers()',
     }

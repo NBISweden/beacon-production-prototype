@@ -3,6 +3,8 @@ from asyncpg import Pool
 from typing import Dict, Optional
 import yaml
 from beacon.utils.json import json_decoder, json_encoder
+from beacon.logs.logs import log_with_args
+from beacon.conf.conf import level
 
 class Permissions():
     """Base class, just to agree on the interface."""
@@ -38,7 +40,8 @@ class DummyPermissions(Permissions):
 
     async def initialize(self):
         pass
-
+    
+    @log_with_args(level)
     async def get(self, username, requested_datasets=None):
         if username == 'public':
             try:

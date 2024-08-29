@@ -3,7 +3,7 @@ import requests
 import json
 from jsonschema import validate, RefResolver, Draft202012Validator
 import os
-from beacon.logs.logs import LOG
+from beacon.logs.logs import log_with_args
 from beacon.conf.conf import level
 from aiohttp import web
 

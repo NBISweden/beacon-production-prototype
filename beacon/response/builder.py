@@ -20,7 +20,7 @@ async def builder(self, request: Request, datasets, qparams):
     loop = asyncio.get_running_loop()
     datasets=['hola']
     with ThreadPoolExecutor() as pool:
-        done, pending = await asyncio.wait(fs=[loop.run_in_executor(pool, get_variants, entry_id, qparams, dataset) for dataset in datasets],
+        done, pending = await asyncio.wait(fs=[loop.run_in_executor(pool, get_variants, self, entry_id, qparams, dataset) for dataset in datasets],
         return_when=asyncio.ALL_COMPLETED
         )
     for task in done:
@@ -38,7 +38,7 @@ async def builder(self, request: Request, datasets, qparams):
         else:
             count = limit
     
-    response = build_beacon_boolean_response_by_dataset(datasets_docs, datasets_count, count, qparams, entity_schema)
+    response = build_beacon_boolean_response_by_dataset(self, datasets_docs, datasets_count, count, qparams, entity_schema)
     
             
     return response

@@ -3,9 +3,11 @@ from beacon.response.schemas import DefaultSchemas
 from typing import Optional
 from beacon.connections.beaconCLI.__init__ import client
 import subprocess
-from beacon.logs.logs import LOG
+from beacon.logs.logs import log_with_args, LOG
+from beacon.conf.conf import level
 
-def get_variants(entry_id: Optional[str], qparams: RequestParams, dataset: str):
+@log_with_args(level)
+def get_variants(self, entry_id: Optional[str], qparams: RequestParams, dataset: str):
     stdin, stdout, stderr = client.exec_command('cd /CLItest && python3 main.py -rg 37 -c 1 -p 1 --range 1000000000 --public')
     try:
         bash = stdout.read()

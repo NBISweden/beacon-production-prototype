@@ -83,14 +83,14 @@ def dataset_permissions(func):
             
             username, list_visa_datasets = await authorization(self, request)
                 
-            datasets = await PermissionsProxy.get(self=PermissionsProxy, username=username, requested_datasets=requested_datasets)
+            datasets = await PermissionsProxy.get(self, username=username, requested_datasets=requested_datasets)
             dict_returned={}
             dict_returned['username']=username
             authorized_datasets=list(datasets)
             for visa_dataset in list_visa_datasets:
                 authorized_datasets.append(visa_dataset)
             response_datasets, qparams = await get_datasets_list(self, request, authorized_datasets)
-
+            LOG.debug(response_datasets)
         except Exception as e:
             LOG.debug(e)
         return await func(self, request, response_datasets, qparams)
