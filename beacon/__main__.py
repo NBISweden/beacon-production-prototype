@@ -1,5 +1,5 @@
 import json
-from beacon.logs.logs import log_with_args
+from beacon.logs.logs import log_with_args, LOG
 from beacon.conf.conf import level
 from beacon.info.info import info_response
 import asyncio
@@ -10,6 +10,7 @@ from beacon.utils.txid import generate_txid
 from beacon.utils.requests import get_qparams
 from beacon.permissions.__main__ import dataset_permissions
 from beacon.response.builder import builder
+from bson import json_util
 
 class EndpointView(web.View):
     def __init__(self, request: Request):
@@ -55,7 +56,7 @@ class GenomicVariations(EndpointView):
     @log_with_args(level)
     async def genomicVariations(self, request, datasets, qparams):
         response_obj = await builder(self, request, datasets, qparams)
-        return web.Response(text=dumps(response_obj), status=200, content_type='application/json')
+        return web.Response(text=json_util.dumps(response_obj), status=200, content_type='application/json')
 
     async def get(self):
         return await self.genomicVariations(self.request)

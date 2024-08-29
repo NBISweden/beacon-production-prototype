@@ -62,4 +62,27 @@ def log_with_args(level):
                 raise
         return wrapper
     return add_logging
+
+def log_with_args_mongo(level):
+    def add_logging(func):
+        def wrapper(self, *args, **kwargs):
+            try:
+                start = time.time()
+                logging.basicConfig(format=fmt, level=level)
+                LOG.debug(f"{self._id} - {func.__name__} - initial call")
+                result = func(self, *args, **kwargs)
+                finish = time.time()
+                LOG.debug(f"{self._id} - {func.__name__} - {finish-start} - returned {result}")
+                if f"{func.__name__}" == 'initialize':
+                    LOG.info(f"{self._id} - Initialization done")
+                elif f"{func.__name__}" == 'destroy':
+                    LOG.info(f"{self._id} - Shutting down")
+                return result
+            except:
+                err = "There was an exception in  "
+                err += func.__name__
+                LOG.error(f"{self._id} - {err}")
+                raise
+        return wrapper
+    return add_logging
     

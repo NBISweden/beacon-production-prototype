@@ -1,14 +1,14 @@
 from pymongo.cursor import Cursor
 from beacon.connections.mongo.__init__ import client
 from pymongo.collection import Collection
-from beacon.logs.logs import log_with_args
+from beacon.logs.logs import log_with_args_mongo
 from beacon.conf.conf import level
 
-@log_with_args(level)
+@log_with_args_mongo(level)
 def get_documents(self, collection: Collection, query: dict, skip: int, limit: int) -> Cursor:
     return collection.find(query).skip(skip).limit(limit).max_time_ms(100 * 1000)
 
-@log_with_args(level)
+@log_with_args_mongo(level)
 def get_count(self, collection: Collection, query: dict) -> int:
     if not query:
         return collection.estimated_document_count()
@@ -45,7 +45,7 @@ def get_count(self, collection: Collection, query: dict) -> int:
                 total_counts=15
         return total_counts
 
-@log_with_args(level)
+@log_with_args_mongo(level)
 def get_docs_by_response_type(self, include: str, query: dict, datasets_dict: dict, dataset: str, limit: int, skip: int, mongo_collection, idq: str):
     if include == 'NONE':
         count = get_count(mongo_collection, query)

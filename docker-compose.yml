@@ -81,3 +81,4 @@ services:
       - ./beacon/connections/mongo/mongo-init/:/docker-entrypoint-initdb.d/:ro
     networks:
       - pub
+    #command: --verbose

@@ -21,5 +21,4 @@ def get_variants(self, entry_id: Optional[str], qparams: RequestParams, dataset:
     schema = DefaultSchemas.GENOMICVARIATIONS
     idq="caseLevelData.biosampleId"
     count, dataset_count, docs = get_docs_by_response_type(self, include, query, datasets_dict, dataset, limit, skip, mongo_collection, idq)
-    docs = dumps(docs)
     return schema, count, dataset_count, docs, dataset
