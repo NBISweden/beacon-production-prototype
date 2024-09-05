@@ -12,7 +12,6 @@ from beacon.permissions.__main__ import dataset_permissions
 from beacon.response.builder import builder
 from bson import json_util
 from beacon.response.granularity import build_beacon_error_response
-import traceback
 from beacon.request.classes import ErrorClass
 
 class EndpointView(web.View):
@@ -60,12 +59,8 @@ class GenomicVariations(EndpointView):
     @dataset_permissions
     @log_with_args(level)
     async def genomicVariations(self, request, datasets, qparams):
-        if isinstance(datasets, list):
-            response_obj = await builder(self, request, datasets, qparams)
-            return web.Response(text=json_util.dumps(response_obj), status=200, content_type='application/json')
-        else:
-            response_obj = build_beacon_error_response(404, 'prova', "hola")
-            return web.Response(text=json_util.dumps(response_obj), status=404, content_type='application/json')
+        response_obj = await builder(self, request, datasets, qparams)
+        return web.Response(text=json_util.dumps(response_obj), status=200, content_type='application/json')
 
 
     async def get(self):

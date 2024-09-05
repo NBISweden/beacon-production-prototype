@@ -7,6 +7,18 @@ from beacon.logs.logs import log_with_args
 from beacon.conf.conf import level
 
 @log_with_args(level)
+def build_response_summary(self, exists, num_total_results):
+    if num_total_results is None:
+        return {
+            'exists': exists
+        }
+    else:
+        return {
+            'exists': exists,
+            'numTotalResults': num_total_results
+        }
+
+@log_with_args(level)
 def build_response_summary_by_dataset(self, exists, num_total_results, data):
     count=num_total_results
     if count == 0:
@@ -72,6 +84,40 @@ def build_beacon_boolean_response_by_dataset(self, data,
         'response': {
             'resultSets': build_response_by_dataset(self, data, dict_counts, qparams)
         },
+        'beaconHandovers': 'beacon_handovers()',
+    }
+    return beacon_response
+
+@log_with_args(level)
+def build_beacon_boolean_response(self, data,
+                                    num_total_results,
+                                    qparams: RequestParams,
+                                    entity_schema: DefaultSchemas):
+    """"
+    Transform data into the Beacon response format.
+    """
+
+    beacon_response = {
+        'meta': build_meta(self, qparams, entity_schema, Granularity.BOOLEAN),
+        'responseSummary': build_response_summary(self, num_total_results > 0, None),
+        # TODO: 'extendedInfo': build_extended_info(),
+        'beaconHandovers': 'beacon_handovers()',
+    }
+    return beacon_response
+
+@log_with_args(level)
+def build_beacon_count_response(self, data,
+                                    num_total_results,
+                                    qparams: RequestParams,
+                                    entity_schema: DefaultSchemas):
+    """"
+    Transform data into the Beacon response format.
+    """
+
+    beacon_response = {
+        'meta': build_meta(self, qparams, entity_schema, Granularity.COUNT),
+        'responseSummary': build_response_summary(self, num_total_results > 0, num_total_results),
+        # TODO: 'extendedInfo': build_extended_info(),
         'beaconHandovers': 'beacon_handovers()',
     }
     return beacon_response

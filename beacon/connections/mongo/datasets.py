@@ -1,6 +1,7 @@
 from beacon.connections.mongo.__init__ import client
 from beacon.logs.logs import log_with_args
 from beacon.conf.conf import level
+from beacon.exceptions.exceptions import raise_exception
 
 @log_with_args(level)
 def get_datasets(self):
@@ -11,6 +12,11 @@ def get_datasets(self):
 
 @log_with_args(level)
 def get_list_of_datasets(self):
-    datasets = get_datasets(self)
-    beacon_datasets = [ r for r in datasets ]
-    return beacon_datasets
+    try:
+        datasets = get_datasets(self)
+        beacon_datasets = [ r for r in datasets ]
+        return beacon_datasets
+    except Exception as e:
+        err = str(e)
+        errcode=500
+        raise_exception(err, errcode)

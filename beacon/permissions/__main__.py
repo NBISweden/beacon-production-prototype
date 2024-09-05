@@ -9,11 +9,7 @@ from beacon.auth.__main__ import authentication
 from beacon.logs.logs import log_with_args
 from beacon.conf.conf import level
 from beacon.utils.requests import check_request_content_type, get_qparams
-from beacon.request.parameters import RequestParams
 from beacon.connections.mongo.datasets import get_list_of_datasets
-from bson import json_util
-from beacon.response.granularity import build_beacon_error_response
-import traceback
 
 @log_with_args(level)
 async def authorization(self, request):
