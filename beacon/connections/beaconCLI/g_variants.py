@@ -12,14 +12,14 @@ def get_variants(self, entry_id: Optional[str], qparams: RequestParams, dataset:
     try:
         stdin, stdout, stderr = client.exec_command('cd /CLItest && python3 main.py -rg 37 -c 1 -p 1 --range 1000000000 --public')
     except Exception as e:
-        err = str(e)
+        err = 'beaconCLI:' + str(e)
         errcode=500
         raise_exception(err, errcode)
     try:
         bash = stdout.read()
     except subprocess.CalledProcessError as e:
         output = e.output
-        err = str(output)
+        err = 'beaconCLI:' + str(output)
         errcode=500
         raise_exception(err, errcode)
     bash_list = bash.split(b'\n')

@@ -11,7 +11,6 @@ def raise_exception(beacon_response, errorCode):
         raise web.HTTPBadRequest(text=json.dumps(beacon_response), content_type='application/json')
     elif errorCode == 500:
         if ErrorClass.error_response == None:
-            LOG.debug('whaaaat')
             ErrorClass.error_response = beacon_response
             ErrorClass.error_code = errorCode
         raise web.HTTPInternalServerError(text=json.dumps(beacon_response), content_type='application/json')

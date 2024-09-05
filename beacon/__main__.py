@@ -59,8 +59,11 @@ class GenomicVariations(EndpointView):
     @dataset_permissions
     @log_with_args(level)
     async def genomicVariations(self, request, datasets, qparams):
-        response_obj = await builder(self, request, datasets, qparams)
-        return web.Response(text=json_util.dumps(response_obj), status=200, content_type='application/json')
+        try:
+            response_obj = await builder(self, request, datasets, qparams)
+            return web.Response(text=json_util.dumps(response_obj), status=200, content_type='application/json')
+        except Exception:
+            raise
 
 
     async def get(self):
@@ -71,7 +74,11 @@ class GenomicVariations(EndpointView):
             return web.Response(text=json_util.dumps(response_obj), status=ErrorClass.error_code, content_type='application/json')
 
     async def post(self):
-        return await self.genomicVariations(self.request)
+        try:
+            return await self.genomicVariations(self.request)
+        except Exception as e:
+            response_obj = build_beacon_error_response(self, ErrorClass.error_code, 'prova', ErrorClass.error_response)
+            return web.Response(text=json_util.dumps(response_obj), status=ErrorClass.error_code, content_type='application/json')
 
 async def initialize(app):
     pass
