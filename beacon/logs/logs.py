@@ -12,10 +12,11 @@ formatter = logging.Formatter(fmt)
 fh.setFormatter(formatter)
 LOG.addHandler(fh)
 
-# Provar els unit tests
+# Acabar de fer els unit tests
 # Formular l'exception bubbling --> mirar qui controla el tall de connexions per netejar que no quedi cap connexió ni procés obert
 # Crear graceful shutdown amb missatge de LOG body + status dins de l'exception bubbling a cada capa
-# Explorar LOGS de third parties amb el nostre txid
+# Auditing -> registre de accions que s'han fet i que es guardin
+# DTO entre classe i classe quan es retorna un objecte 
 
 def log_with_args_initial(level):
     def add_logging(func):

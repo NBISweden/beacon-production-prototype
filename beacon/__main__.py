@@ -11,11 +11,16 @@ from beacon.utils.requests import get_qparams
 from beacon.permissions.__main__ import dataset_permissions
 from beacon.response.builder import builder
 from bson import json_util
+from beacon.response.granularity import build_beacon_error_response
+import traceback
+from beacon.request.classes import ErrorClass
 
 class EndpointView(web.View):
     def __init__(self, request: Request):
         self._request= request
         self._id = generate_txid(self)
+        ErrorClass.error_code = None
+        ErrorClass.error_response = None
 
 class ControlView(EndpointView):    
     @log_with_args(level)
@@ -55,11 +60,20 @@ class GenomicVariations(EndpointView):
     @dataset_permissions
     @log_with_args(level)
     async def genomicVariations(self, request, datasets, qparams):
-        response_obj = await builder(self, request, datasets, qparams)
-        return web.Response(text=json_util.dumps(response_obj), status=200, content_type='application/json')
+        if isinstance(datasets, list):
+            response_obj = await builder(self, request, datasets, qparams)
+            return web.Response(text=json_util.dumps(response_obj), status=200, content_type='application/json')
+        else:
+            response_obj = build_beacon_error_response(404, 'prova', "hola")
+            return web.Response(text=json_util.dumps(response_obj), status=404, content_type='application/json')
+
 
     async def get(self):
-        return await self.genomicVariations(self.request)
+        try:
+            return await self.genomicVariations(self.request)
+        except Exception as e:
+            response_obj = build_beacon_error_response(self, ErrorClass.error_code, 'prova', ErrorClass.error_response)
+            return web.Response(text=json_util.dumps(response_obj), status=ErrorClass.error_code, content_type='application/json')
 
     async def post(self):
         return await self.genomicVariations(self.request)

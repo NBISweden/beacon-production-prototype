@@ -11,6 +11,9 @@ from beacon.conf.conf import level
 from beacon.utils.requests import check_request_content_type, get_qparams
 from beacon.request.parameters import RequestParams
 from beacon.connections.mongo.datasets import get_list_of_datasets
+from bson import json_util
+from beacon.response.granularity import build_beacon_error_response
+import traceback
 
 @log_with_args(level)
 async def authorization(self, request):
@@ -61,8 +64,8 @@ async def get_datasets_list(self, request: Request, authorized_datasets):
             specific_datasets = [ r['id'] for r in beacon_datasets if r['id'] not in authorized_datasets]
             response_datasets = [ r['id'] for r in beacon_datasets if r['id'] in authorized_datasets]
             specific_datasets_unauthorized.append(specific_datasets)
-    except Exception as e:
-        LOG.debug(e)
+    except Exception:
+        raise
     return response_datasets, qparams
 
 def dataset_permissions(func):
@@ -90,9 +93,8 @@ def dataset_permissions(func):
             for visa_dataset in list_visa_datasets:
                 authorized_datasets.append(visa_dataset)
             response_datasets, qparams = await get_datasets_list(self, request, authorized_datasets)
-            LOG.debug(response_datasets)
-        except Exception as e:
-            LOG.debug(e)
-        return await func(self, request, response_datasets, qparams)
+            return await func(self, request, response_datasets, qparams)
+        except Exception:
+            raise
     return permission
 

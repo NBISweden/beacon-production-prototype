@@ -2,7 +2,7 @@ from aiohttp.web_request import Request
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
 from beacon.response.granularity import build_beacon_boolean_response_by_dataset
-from beacon.connections.mongo.g_variants import get_variants
+from beacon.connections.beaconCLI.g_variants import get_variants
 from beacon.logs.logs import log_with_args
 from beacon.conf.conf import level
 
@@ -18,7 +18,7 @@ async def builder(self, request: Request, datasets, qparams):
     datasets_count={}
     new_count=0
     loop = asyncio.get_running_loop()
-    #datasets=['hola']
+    datasets=['hola']
     with ThreadPoolExecutor() as pool:
         done, pending = await asyncio.wait(fs=[loop.run_in_executor(pool, get_variants, self, entry_id, qparams, dataset) for dataset in datasets],
         return_when=asyncio.ALL_COMPLETED

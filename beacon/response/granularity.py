@@ -1,6 +1,6 @@
 from beacon.response.schemas import DefaultSchemas
 from beacon.request.parameters import RequestParams
-from beacon.request.parameters import Granularity
+from beacon.request.classes import Granularity
 from beacon.conf import conf
 from typing import Optional
 from beacon.logs.logs import log_with_args
@@ -74,4 +74,17 @@ def build_beacon_boolean_response_by_dataset(self, data,
         },
         'beaconHandovers': 'beacon_handovers()',
     }
+    return beacon_response
+
+@log_with_args(level)
+def build_beacon_error_response(self, errorCode, qparams, errorMessage):
+
+    beacon_response = {
+        'meta': build_meta(self, qparams, None, Granularity.RECORD),
+        'error': {
+            'errorCode': str(errorCode),
+            'errorMessage': str(errorMessage)
+        }
+    }
+
     return beacon_response
