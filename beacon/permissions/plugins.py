@@ -1,10 +1,5 @@
-import asyncpg
-from asyncpg import Pool
-from typing import Dict, Optional
+from typing import Dict
 import yaml
-from beacon.utils.json import json_decoder, json_encoder
-from beacon.logs.logs import log_with_args
-from beacon.conf.conf import level
 
 class Permissions():
     """Base class, just to agree on the interface."""
@@ -30,57 +25,39 @@ class DummyPermissions(Permissions):
     We hard-code the dataset permissions.
     """
 
-    db: Dict = {}
-
-    def __init__(self, *args, **kwargs):
-        # Dummy permission database
-        with open("/beacon/permissions/datasets/controlled_datasets.yml", 'r') as stream:
-            out = yaml.safe_load(stream)
-        self.db = out
-
     async def initialize(self):
         pass
     
-    @log_with_args(level)
     async def get(self, username, requested_datasets=None):
         if username == 'public':
-            try:
-                with open("/beacon/permissions/datasets/public_datasets.yml", 'r') as pfile:
-                    public_datasets = yaml.safe_load(pfile)
-                pfile.close()
-                list_public_datasets = public_datasets['public_datasets']
-                datasets = []
-                for pdataset in list_public_datasets:
-                    datasets.append(pdataset)
-                datasets = set(datasets)
-            except Exception:
-                datasets = set(self.db.get(username))            
+            with open("/beacon/permissions/datasets/public_datasets.yml", 'r') as pfile:
+                public_datasets = yaml.safe_load(pfile)
+            pfile.close()
+            list_public_datasets = public_datasets['public_datasets']
+            datasets = []
+            for pdataset in list_public_datasets:
+                datasets.append(pdataset)
+            datasets = set(datasets)       
         else:
-            try:
-                with open("/beacon/permissions/datasets/registered_datasets.yml", 'r') as file:
-                    registered_datasets = yaml.safe_load(file)
-                file.close()
-                with open("/beacon/permissions/datasets/public_datasets.yml", 'r') as pfile:
-                    public_datasets = yaml.safe_load(pfile)
-                pfile.close()
-                list_registered_datasets = registered_datasets['registered_datasets']
-                list_public_datasets = public_datasets['public_datasets']
-                datasets = []
-                for pdataset in list_public_datasets:
-                    datasets.append(pdataset)
-                for rdataset in list_registered_datasets:
-                    datasets.append(rdataset)
-                for cdataset in self.db.get(username):
-                    datasets.append(cdataset)
-                datasets = set(datasets)
-            except Exception:
-                with open("/beacon/permissions/datasets/controlled_datasets.yml", 'r') as stream:
-                    permissions_dict = yaml.safe_load(stream)
-                permissions_dict[username]=[]
-                with open("/beacon/permissions/datasets/controlled_datasets.yml", 'w') as file:
-                    yaml.dump(permissions_dict, file)
-                    self.db = permissions_dict
-                datasets = set(self.db.get(username))
+            with open("/beacon/permissions/datasets/registered_datasets.yml", 'r') as file:
+                registered_datasets = yaml.safe_load(file)
+            file.close()
+            with open("/beacon/permissions/datasets/public_datasets.yml", 'r') as pfile:
+                public_datasets = yaml.safe_load(pfile)
+            with open("/beacon/permissions/datasets/controlled_datasets.yml", 'r') as cfile:
+                controlled_datasets = yaml.safe_load(cfile)
+            pfile.close()
+            list_registered_datasets = registered_datasets['registered_datasets']
+            list_public_datasets = public_datasets['public_datasets']
+            list_controlled_datasets = controlled_datasets[username]
+            datasets = []
+            for pdataset in list_public_datasets:
+                datasets.append(pdataset)
+            for rdataset in list_registered_datasets:
+                datasets.append(rdataset)
+            for cdataset in list_controlled_datasets:
+                datasets.append(cdataset)
+            datasets = set(datasets)
             
         if requested_datasets:
             return set(requested_datasets).intersection(datasets)
@@ -89,42 +66,3 @@ class DummyPermissions(Permissions):
 
     async def close(self):
         pass
-
-
-class PostgresPermissions(Permissions):
-    """
-    Postgres permissions plugin
-    
-    """
-    db: Optional[Pool] = None
-    args = []
-    kwargs = {}
-
-    def __init__(self, *args, **kwargs):
-        self.args = args
-        self.kwargs = kwargs
-
-    async def initialize(self):
-        import asyncpg
-        # Connection pool handles reconnections and keeps some expensive connections open for reuse
-        self.db = await asyncpg.create_pool(*self.args, **self.kwargs)
-
-
-    async def get(self, username, requested_datasets=None):
-        try:
-            assert(self.db is not None)
-            async with self.db.acquire() as conn:
-                await conn.set_type_codec('jsonb', encoder=json_encoder, decoder=json_decoder, schema='pg_catalog')            
-                query = "SELECT dataset FROM datasets where username = $1 and datasets IN $2;"
-                response = await conn.fetch(query, username, requested_datasets)
-                return [r['dataset'] async for r in response]
-        except (asyncpg.exceptions._base.InterfaceError,
-                asyncpg.exceptions._base.PostgresError,
-                asyncpg.exceptions.UndefinedFunctionError) as e:
-            return None
-
-    async def close(self):
-        """Close DB Connection."""
-        if self.db:
-            self.db.terminate()
-        self.db = None
