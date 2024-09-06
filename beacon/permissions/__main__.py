@@ -40,7 +40,7 @@ async def get_datasets_list(self, request: Request, authorized_datasets):
         search_and_authorized_datasets = []
         try:
             specific_datasets = qparams.query.request_parameters['datasets']
-        except Exception:
+        except Exception as e:
             specific_datasets = []
         # Get response
         if specific_datasets != []:
@@ -55,8 +55,6 @@ async def get_datasets_list(self, request: Request, authorized_datasets):
 
         else:
             beacon_datasets = get_list_of_datasets(self)
-            LOG.debug(beacon_datasets)
-            LOG.debug(type(beacon_datasets))
             specific_datasets = [ r['id'] for r in beacon_datasets if r['id'] not in authorized_datasets]
             response_datasets = [ r['id'] for r in beacon_datasets if r['id'] in authorized_datasets]
             specific_datasets_unauthorized.append(specific_datasets)

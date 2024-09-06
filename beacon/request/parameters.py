@@ -107,6 +107,9 @@ class RangeQuery(BaseModel):
     mateName: Optional[str] =None
     assemblyId: Optional[str] =None
 
+class DatasetsRequested(BaseModel):
+    datasets: list
+
 class GeneIdQuery(BaseModel):
     geneId: str
     variantType: Optional[str] =None
@@ -166,6 +169,8 @@ class RequestParams(CamelModel):
                     self.query.pagination.limit = int(html.escape(v))
                 elif k == "includeResultsetResponses":
                     self.query.include_resultset_responses = IncludeResultsetResponses(html.escape(v))
+                elif k == 'datasets':
+                    self.query.request_parameters[k] = html.escape(v)
                 elif k == 'filters':
                     self.query.request_parameters[k] = html.escape(v)
                 elif k in ["start", "end", "assemblyId", "referenceName", "referenceBases", "alternateBases", "variantType","variantMinLength","variantMaxLength","geneId","genomicAlleleShortForm","aminoacidChange","clinicalRelevance", "mateName"]:
@@ -213,6 +218,11 @@ class RequestParams(CamelModel):
                 pass
             try:
                 GenomicAlleleQuery(**request_params)
+                return self
+            except Exception as e:
+                pass
+            try:
+                DatasetsRequested(**request_params)
                 return self
             except Exception as e:
                 pass

@@ -13,6 +13,10 @@ from beacon.response.builder import builder
 from bson import json_util
 from beacon.response.granularity import build_beacon_error_response
 from beacon.request.classes import ErrorClass
+import time
+import os
+import signal
+from threading import Thread
 
 class EndpointView(web.View):
     def __init__(self, request: Request):
@@ -83,14 +87,38 @@ class GenomicVariations(EndpointView):
 async def initialize(app):
     pass
 
-async def destroy(app):
-    pass
+def _on_shutdown(pid):
+    time.sleep(6)
+
+    #  Sending SIGINT to close server
+    os.kill(pid, signal.SIGINT)
+
+
+async def _graceful_shutdown_ctx(app):
+    def graceful_shutdown_sigterm_handler():
+        nonlocal thread
+        thread = Thread(target=_on_shutdown, args=(os.getpid(),))
+        thread.start()
+
+    thread = None
+
+    loop = asyncio.get_event_loop()
+    loop.add_signal_handler(
+        signal.SIGTERM, graceful_shutdown_sigterm_handler,
+    )
+
+    yield
+
+    loop.remove_signal_handler(signal.SIGTERM)
+
+    if thread is not None:
+        thread.join()
 
 
 async def create_api():
     app = web.Application()
     app.on_startup.append(initialize)
-    app.on_cleanup.append(destroy)
+    app.cleanup_ctx.append(_graceful_shutdown_ctx)
     app.add_routes([web.view('/control', ControlView)])
     app.add_routes([web.view('/info', InfoView)])
     app.add_routes([web.view('/g_variants', GenomicVariations)])

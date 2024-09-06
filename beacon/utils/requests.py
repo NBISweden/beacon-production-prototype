@@ -4,7 +4,6 @@ from aiohttp import web
 from beacon.request.parameters import RequestParams
 from beacon.logs.logs import log_with_args, LOG
 from beacon.conf.conf import level
-import traceback
 
 @log_with_args(level)
 async def check_request_content_type(self, request: Request):
