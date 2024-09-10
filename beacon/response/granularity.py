@@ -52,6 +52,26 @@ def build_meta(self, qparams: RequestParams, entity_schema: Optional[DefaultSche
     return meta
 
 @log_with_args(level)
+def build_info_meta(self, entity_schema: Optional[DefaultSchemas]):
+    """"Builds the `meta` part of the response
+
+    We assume that receivedRequest is the evaluated request (qparams) sent by the user.
+    """
+    try:
+        meta = {
+            'beaconId': conf.beacon_id,
+            'apiVersion': conf.api_version,
+            'returnedSchemas': [entity_schema.value] if entity_schema is not None else []
+        }
+    except Exception:
+        meta = {
+            'beaconId': conf.beacon_id,
+            'apiVersion': conf.api_version,
+            'returnedSchemas': [entity_schema.value] if entity_schema is not None else []
+        }
+    return meta
+
+@log_with_args(level)
 def build_response_by_dataset(self, data, dict_counts, qparams):
     list_of_responses=[]
     for k,v in data.items():
@@ -146,4 +166,33 @@ def build_beacon_collection_response(self, data, num_total_results, qparams: Req
             'collections': data
         }
     }
+    return beacon_response
+
+@log_with_args(level)
+def build_beacon_info_response(self):
+    beacon_response = {
+        'meta': build_info_meta(self, None),
+        'response': {
+            'id': conf.beacon_id,
+            'name': conf.beacon_name,
+            'apiVersion': conf.api_version,
+            'environment': conf.environment,
+            'organization': {
+                'id': conf.org_id,
+                'name': conf.org_name,
+                'description': conf.org_description,
+                'address': conf.org_adress,
+                'welcomeUrl': conf.org_welcome_url,
+                'contactUrl': conf.org_contact_url,
+                'logoUrl': conf.org_logo_url,
+            },
+            'description': conf.description,
+            'version': conf.version,
+            'welcomeUrl': conf.welcome_url,
+            'alternativeUrl': conf.alternative_url,
+            'createDateTime': conf.create_datetime,
+            'updateDateTime': conf.update_datetime
+        }
+    }
+
     return beacon_response

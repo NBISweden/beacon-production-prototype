@@ -1,11 +1,12 @@
 from aiohttp.web_request import Request
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
-from beacon.response.granularity import build_beacon_boolean_response_by_dataset, build_beacon_count_response, build_beacon_collection_response
+from beacon.response.granularity import build_beacon_boolean_response_by_dataset, build_beacon_count_response, build_beacon_collection_response, build_beacon_info_response
 from beacon.connections.mongo.g_variants import get_variants
 from beacon.connections.mongo.datasets import get_full_datasets
 from beacon.logs.logs import log_with_args
 from beacon.conf.conf import level
+from beacon.utils.requests import get_qparams
 
 @log_with_args(level)
 async def builder(self, request: Request, datasets, qparams, entry_type):
@@ -60,8 +61,9 @@ async def builder(self, request: Request, datasets, qparams, entry_type):
         raise
 
 @log_with_args(level)
-async def collection_builder(self, request: Request, datasets, qparams, entry_type):
+async def collection_builder(self, request: Request, entry_type):
     try:
+        qparams = await get_qparams(self, request)
         entry_id = request.match_info.get('id', None)
         records, count, entity_schema = get_full_datasets(self, entry_id)
         response_converted = (
@@ -69,6 +71,16 @@ async def collection_builder(self, request: Request, datasets, qparams, entry_ty
                 )
         response = build_beacon_collection_response(
                     self, response_converted, count, qparams, entity_schema
+                )
+        return response
+    except Exception:
+        raise
+
+@log_with_args(level)
+async def info_builder(self):
+    try:
+        response = build_beacon_info_response(
+                    self
                 )
         return response
     except Exception:

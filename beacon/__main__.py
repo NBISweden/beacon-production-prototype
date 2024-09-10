@@ -5,7 +5,7 @@ import aiohttp.web as web
 from aiohttp.web_request import Request
 from beacon.utils.txid import generate_txid
 from beacon.permissions.__main__ import dataset_permissions
-from beacon.response.builder import builder, collection_builder
+from beacon.response.builder import builder, collection_builder, info_builder
 from bson import json_util
 from beacon.response.granularity import build_beacon_error_response
 from beacon.request.classes import ErrorClass
@@ -21,13 +21,35 @@ class EndpointView(web.View):
         ErrorClass.error_code = None
         ErrorClass.error_response = None
 
-class Datasets(EndpointView):
-    @dataset_permissions
+class Info(EndpointView):
     @log_with_args(level)
-    async def datasets(self, request, datasets, qparams):
+    async def info(self, request):
         try:
-            entry_type='genomicVariations'
-            response_obj = await collection_builder(self, request, datasets, qparams, entry_type)
+            response_obj = await info_builder(self)
+            return web.Response(text=json_util.dumps(response_obj), status=200, content_type='application/json')
+        except Exception:
+            raise
+
+    async def get(self):
+        try:
+            return await self.info(self.request)
+        except Exception as e:
+            response_obj = build_beacon_error_response(self, ErrorClass.error_code, 'prova', ErrorClass.error_response)
+            return web.Response(text=json_util.dumps(response_obj), status=ErrorClass.error_code, content_type='application/json')
+
+    async def post(self):
+        try:
+            return await self.info(self.request)
+        except Exception as e:
+            response_obj = build_beacon_error_response(self, ErrorClass.error_code, 'prova', ErrorClass.error_response)
+            return web.Response(text=json_util.dumps(response_obj), status=ErrorClass.error_code, content_type='application/json')
+
+class Datasets(EndpointView):
+    @log_with_args(level)
+    async def datasets(self, request):
+        try:
+            entry_type='datasets'
+            response_obj = await collection_builder(self, request, entry_type)
             return web.Response(text=json_util.dumps(response_obj), status=200, content_type='application/json')
         except Exception:
             raise
@@ -106,6 +128,8 @@ async def create_api():
     app = web.Application()
     app.on_startup.append(initialize)
     app.cleanup_ctx.append(_graceful_shutdown_ctx)
+    app.add_routes([web.view('/api', Info)])
+    app.add_routes([web.view('/api/info', Info)])
     app.add_routes([web.view('/api/datasets', Datasets)])
     app.add_routes([web.view('/api/g_variants', GenomicVariations)])
 
