@@ -5,6 +5,7 @@ from beacon.conf import conf
 from typing import Optional
 from beacon.logs.logs import log_with_args
 from beacon.conf.conf import level
+from beacon.source.generator import get_entry_types
 
 @log_with_args(level)
 def build_response_summary(self, exists, num_total_results):
@@ -196,3 +197,32 @@ def build_beacon_info_response(self):
     }
 
     return beacon_response
+
+@log_with_args(level)
+def build_configuration(self):
+    meta = {
+        '$schema': 'https://raw.githubusercontent.com/ga4gh-beacon/beacon-framework-v2/main/responses/sections/beaconInformationalResponseMeta.json',
+        'beaconId': conf.beacon_id,
+        'apiVersion': conf.api_version,
+        'returnedSchemas': []
+    }
+
+    response = {
+        '$schema': 'https://raw.githubusercontent.com/ga4gh-beacon/beacon-framework-v2/main/configuration/beaconConfigurationSchema.json',
+        'maturityAttributes': {
+            'productionStatus': conf.environment.upper()
+        },
+        'securityAttributes': {
+            'defaultGranularity': conf.default_beacon_granularity,
+            'securityLevels': conf.security_levels
+        },
+        'entryTypes': get_entry_types(self)
+    }
+
+    configuration_json = {
+        '$schema': 'https://raw.githubusercontent.com/ga4gh-beacon/beacon-framework-v2/main/responses/beaconConfigurationResponse.json',
+        'meta': meta,
+        'response': response
+    }
+
+    return configuration_json
