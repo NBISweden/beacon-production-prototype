@@ -3,6 +3,7 @@ from beacon.connections.mongo.__init__ import client
 from pymongo.collection import Collection
 from beacon.logs.logs import log_with_args_mongo
 from beacon.conf.conf import level
+from beacon.exceptions.exceptions import raise_exception
 
 @log_with_args_mongo(level)
 def get_documents(self, collection: Collection, query: dict, skip: int, limit: int) -> Cursor:
@@ -33,16 +34,10 @@ def get_count(self, collection: Collection, query: dict) -> int:
                 insert_total=client.beacon.counts.insert_one(insert_dict)
             else:
                 total_counts=counts[0]["num_results"]
-        except Exception:
-            try:
-                total_counts=client.beacon.counts.count_documents(query)
-                insert_dict={}
-                insert_dict['id']=str(query)
-                insert_dict['num_results']=total_counts
-                insert_dict['collection']=str(collection)
-                insert_total=client.beacon.counts.insert_one(insert_dict)
-            except Exception:
-                total_counts=15
+        except Exception as e:
+            err = str(e)
+            errcode=500
+            raise_exception(err, errcode)
         return total_counts
 
 @log_with_args_mongo(level)

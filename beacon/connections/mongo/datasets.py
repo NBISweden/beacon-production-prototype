@@ -20,8 +20,8 @@ def get_full_datasets(self, entry_id: Optional[str]):
         query = {}
     else:
         query = {'id': entry_id}
+    count = get_count(self, client.beacon.datasets, query)
     query = collection.find(query)
-    count = get_count(client.beacon.datasets, query)
     entity_schema = DefaultSchemas.DATASETS
     return query, count, entity_schema
 
