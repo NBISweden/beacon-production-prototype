@@ -2,11 +2,10 @@ from beacon.logs.logs import log_with_args
 from beacon.conf.conf import level
 import asyncio
 import aiohttp.web as web
-from bson.json_util import dumps
 from aiohttp.web_request import Request
 from beacon.utils.txid import generate_txid
 from beacon.permissions.__main__ import dataset_permissions
-from beacon.response.builder import builder
+from beacon.response.builder import builder, collection_builder
 from bson import json_util
 from beacon.response.granularity import build_beacon_error_response
 from beacon.request.classes import ErrorClass
@@ -27,7 +26,8 @@ class Datasets(EndpointView):
     @log_with_args(level)
     async def datasets(self, request, datasets, qparams):
         try:
-            response_obj = await builder(self, request, datasets, qparams)
+            entry_type='genomicVariations'
+            response_obj = await collection_builder(self, request, datasets, qparams, entry_type)
             return web.Response(text=json_util.dumps(response_obj), status=200, content_type='application/json')
         except Exception:
             raise
@@ -106,12 +106,12 @@ async def create_api():
     app = web.Application()
     app.on_startup.append(initialize)
     app.cleanup_ctx.append(_graceful_shutdown_ctx)
-    app.add_routes([web.view('/datasets', Datasets)])
-    app.add_routes([web.view('/g_variants', GenomicVariations)])
+    app.add_routes([web.view('/api/datasets', Datasets)])
+    app.add_routes([web.view('/api/g_variants', GenomicVariations)])
 
     runner = web.AppRunner(app)
     await runner.setup()
-    site = web.TCPSite(runner, '0.0.0.0', 5070)
+    site = web.TCPSite(runner, '0.0.0.0', 5050)
     await site.start()
 
     while True:

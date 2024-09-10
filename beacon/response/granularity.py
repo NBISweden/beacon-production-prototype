@@ -134,3 +134,16 @@ def build_beacon_error_response(self, errorCode, qparams, errorMessage):
     }
 
     return beacon_response
+
+@log_with_args(level)
+def build_beacon_collection_response(self, data, num_total_results, qparams: RequestParams, entity_schema: DefaultSchemas):
+    beacon_response = {
+        'meta': build_meta(self, qparams, entity_schema, Granularity.RECORD),
+        'responseSummary': build_response_summary(self, num_total_results > 0, num_total_results),
+        # TODO: 'info': build_extended_info(),
+        'beaconHandovers': "beacon_handovers()",
+        'response': {
+            'collections': data
+        }
+    }
+    return beacon_response

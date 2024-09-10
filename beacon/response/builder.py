@@ -1,8 +1,8 @@
 from aiohttp.web_request import Request
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
-from beacon.response.granularity import build_beacon_boolean_response_by_dataset, build_beacon_count_response
-from beacon.connections.beaconCLI.g_variants import get_variants
+from beacon.response.granularity import build_beacon_boolean_response_by_dataset, build_beacon_count_response, build_beacon_collection_response
+from beacon.connections.mongo.g_variants import get_variants
 from beacon.connections.mongo.datasets import get_full_datasets
 from beacon.logs.logs import log_with_args
 from beacon.conf.conf import level
@@ -64,5 +64,12 @@ async def collection_builder(self, request: Request, datasets, qparams, entry_ty
     try:
         entry_id = request.match_info.get('id', None)
         records, count, entity_schema = get_full_datasets(self, entry_id)
+        response_converted = (
+                    [r for r in records] if records else []
+                )
+        response = build_beacon_collection_response(
+                    self, response_converted, count, qparams, entity_schema
+                )
+        return response
     except Exception:
         raise
