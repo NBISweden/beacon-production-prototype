@@ -4,6 +4,10 @@ analyses={
         'count': False,
         'record': False
     },
+    'singleEntryUrl': False,
+    'endpoints': {
+        'genomicVariant': False
+    },
     'testMode': False
 }
 biosamples={
@@ -11,6 +15,12 @@ biosamples={
         'boolean': False,
         'count': False,
         'record': False
+    },
+    'singleEntryUrl': False,
+    'endpoints': {
+        'analysis': False,
+        'genomicVariant': False,
+        'run': False
     },
     'testMode': False
 }
@@ -20,6 +30,12 @@ cohorts={
         'count': False,
         'record': False
     },
+    'singleEntryUrl': False,
+    'endpoints': {
+        'analysis': False,
+        'individual': False,
+        'run': False
+    },
     'testMode': False
 }
 datasets={
@@ -27,6 +43,14 @@ datasets={
         'boolean': True,
         'count': True,
         'record': True
+    },
+    'singleEntryUrl': False,
+    'endpoints': {
+        'analysis': False,
+        'biosample': False,
+        'genomicVariant': False,
+        'individual': False,
+        'run': False
     },
     'testMode': False
 }
@@ -36,6 +60,13 @@ g_variants={
         'count': True,
         'record': True
     },
+    'singleEntryUrl': False,
+    'endpoints': {
+        'analysis': False,
+        'biosample': False,
+        'individual': False,
+        'run': False
+    },
     'testMode': False
 }
 individuals={
@@ -44,6 +75,13 @@ individuals={
         'count': False,
         'record': False
     },
+    'singleEntryUrl': False,
+    'endpoints': {
+        'analysis': False,
+        'biosample': False,
+        'genomicVariant': False,
+        'run': False
+    },
     'testMode': False
 }
 runs={
@@ -51,6 +89,11 @@ runs={
         'boolean': False,
         'count': False,
         'record': False
+    },
+    'singleEntryUrl': False,
+    'endpoints': {
+        'analysis': False,
+        'genomicVariant': False
     },
     'testMode': False
 }
