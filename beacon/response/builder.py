@@ -1,7 +1,7 @@
 from aiohttp.web_request import Request
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
-from beacon.response.catalog import build_beacon_boolean_response_by_dataset, build_beacon_count_response, build_beacon_collection_response, build_beacon_info_response, build_map, build_configuration
+from beacon.response.catalog import build_beacon_boolean_response_by_dataset, build_beacon_count_response, build_beacon_collection_response, build_beacon_info_response, build_map, build_configuration, build_entry_types
 from beacon.connections.mongo.g_variants import get_variants
 from beacon.connections.mongo.datasets import get_full_datasets
 from beacon.logs.logs import log_with_args
@@ -100,6 +100,16 @@ async def configuration_builder(self):
 async def map_builder(self):
     try:
         response = build_map(
+                    self
+                )
+        return response
+    except Exception:
+        raise
+
+@log_with_args(level)
+async def entry_types_builder(self):
+    try:
+        response = build_entry_types(
                     self
                 )
         return response

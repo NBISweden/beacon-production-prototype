@@ -245,3 +245,20 @@ def build_map(self):
     }
 
     return beacon_map_json
+
+@log_with_args(level)
+def build_entry_types(self):
+    meta = {
+        'beaconId': conf.beacon_id,
+        'apiVersion': conf.api_version,
+        'returnedSchemas': []
+    }
+
+    response = get_entry_types(self)
+
+    entry_types_json = {
+        'meta': meta,
+        'response': response
+    }
+
+    return entry_types_json
