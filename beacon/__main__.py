@@ -5,7 +5,7 @@ import aiohttp.web as web
 from aiohttp.web_request import Request
 from beacon.utils.txid import generate_txid
 from beacon.permissions.__main__ import dataset_permissions
-from beacon.response.builder import builder, collection_builder, info_builder, configuration_builder, map_builder,  entry_types_builder
+from beacon.response.builder import builder, collection_builder, info_builder, configuration_builder, map_builder, entry_types_builder, service_info_builder
 from bson import json_util
 from beacon.response.catalog import build_beacon_error_response
 from beacon.request.classes import ErrorClass
@@ -20,6 +20,29 @@ class EndpointView(web.View):
         self._id = generate_txid(self)
         ErrorClass.error_code = None
         ErrorClass.error_response = None
+
+class ServiceInfo(EndpointView):
+    @log_with_args(level)
+    async def service_info(self, request):
+        try:
+            response_obj = await service_info_builder(self)
+            return web.Response(text=json_util.dumps(response_obj), status=200, content_type='application/json')
+        except Exception:
+            raise
+
+    async def get(self):
+        try:
+            return await self.service_info(self.request)
+        except Exception as e:
+            response_obj = build_beacon_error_response(self, ErrorClass.error_code, 'prova', ErrorClass.error_response)
+            return web.Response(text=json_util.dumps(response_obj), status=ErrorClass.error_code, content_type='application/json')
+
+    async def post(self):
+        try:
+            return await self.service_info(self.request)
+        except Exception as e:
+            response_obj = build_beacon_error_response(self, ErrorClass.error_code, 'prova', ErrorClass.error_response)
+            return web.Response(text=json_util.dumps(response_obj), status=ErrorClass.error_code, content_type='application/json')
 
 class EntryTypes(EndpointView):
     @log_with_args(level)
@@ -200,6 +223,7 @@ async def create_api():
     app.add_routes([web.view('/api', Info)])
     app.add_routes([web.view('/api/info', Info)])
     app.add_routes([web.view('/api/entry_types', EntryTypes)])
+    app.add_routes([web.view('/api/service-info', ServiceInfo)])
     app.add_routes([web.view('/api/configuration', Configuration)])
     app.add_routes([web.view('/api/map', Map)])
     app.add_routes([web.view('/api/datasets', Datasets)])

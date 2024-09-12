@@ -20,6 +20,12 @@ create_datetime = '2021-11-29T12:00:00.000000'
 update_datetime = ''
 default_beacon_granularity = "record"
 security_levels = ['PUBLIC', 'REGISTERED', 'CONTROLLED']
+documentation_url = 'https://b2ri-documentation-demo.ega-archive.org/'
+
+# Service Info
+ga4gh_service_type_group = 'org.ga4gh'
+ga4gh_service_type_artifact = 'beacon'
+ga4gh_service_type_version = '1.0'
 
 # Organization info
 org_id = 'EGA'  # Id of the organization

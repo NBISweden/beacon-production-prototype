@@ -6,6 +6,7 @@ from typing import Optional
 from beacon.logs.logs import log_with_args
 from beacon.conf.conf import level
 from beacon.source.generator import get_entry_types, get_entry_types_map
+from beacon.filtering_terms.resources import resources
 
 @log_with_args(level)
 def build_response_summary(self, exists, num_total_results):
@@ -262,3 +263,48 @@ def build_entry_types(self):
     }
 
     return entry_types_json
+
+@log_with_args(level)
+def build_beacon_service_info_response(self):
+    beacon_response = {
+        'id': conf.beacon_id,
+        'name': conf.beacon_name,
+        'type': {
+            'group': conf.ga4gh_service_type_group,
+            'artifact': conf.ga4gh_service_type_artifact,
+            'version': conf.ga4gh_service_type_version
+        },
+        'description': conf.description,
+        'organization': {
+            'name': conf.org_name,
+            'url': conf.org_welcome_url
+        },
+        'contactUrl': conf.org_contact_url,
+        'documentationUrl': conf.documentation_url,
+        'createdAt': conf.create_datetime,
+        'updatedAt': conf.update_datetime,
+        'environment': conf.environment,
+        'version': conf.version,
+    }
+
+    return beacon_response
+
+def build_filtering_terms_response(self, data,
+                                    num_total_results,
+                                    qparams: RequestParams,
+                                    entity_schema: DefaultSchemas):
+    """"
+    Transform data into the Beacon response format.
+    """
+
+    beacon_response = {
+        'meta': build_meta(self, qparams, entity_schema, Granularity.RECORD),
+        'responseSummary': build_response_summary(self, num_total_results > 0, num_total_results),
+        # TODO: 'extendedInfo': build_extended_info(),
+        'response': {
+            'filteringTerms': data,
+            'resources': resources
+        },
+        'beaconHandovers': "beacon_handovers()",
+    }
+    return beacon_response
