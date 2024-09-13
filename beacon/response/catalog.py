@@ -289,6 +289,7 @@ def build_beacon_service_info_response(self):
 
     return beacon_response
 
+@log_with_args(level)
 def build_filtering_terms_response(self, data,
                                     num_total_results,
                                     qparams: RequestParams,

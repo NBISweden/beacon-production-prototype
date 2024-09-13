@@ -82,3 +82,8 @@ def get_docs_by_response_type(self, include: str, query: dict, datasets_dict: di
                 else:
                     dataset_count=0
     return count, dataset_count, docs
+
+@log_with_args_mongo(level)
+def get_filtering_documents(self, collection: Collection, query: dict, remove_id: dict,skip: int, limit: int) -> Cursor:
+    ##LOG.debug("FINAL QUERY: {}".format(query))
+    return collection.find(query,remove_id).skip(skip).limit(limit).max_time_ms(100 * 1000)

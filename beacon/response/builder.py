@@ -1,8 +1,9 @@
 from aiohttp.web_request import Request
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
-from beacon.response.catalog import build_beacon_boolean_response_by_dataset, build_beacon_count_response, build_beacon_collection_response, build_beacon_info_response, build_map, build_configuration, build_entry_types, build_beacon_service_info_response
+from beacon.response.catalog import build_beacon_boolean_response_by_dataset, build_beacon_count_response, build_beacon_collection_response, build_beacon_info_response, build_map, build_configuration, build_entry_types, build_beacon_service_info_response, build_filtering_terms_response
 from beacon.connections.mongo.g_variants import get_variants
+from beacon.connections.mongo.filtering_terms import get_filtering_terms
 from beacon.connections.mongo.datasets import get_full_datasets
 from beacon.logs.logs import log_with_args
 from beacon.conf.conf import level
@@ -121,6 +122,18 @@ async def service_info_builder(self):
     try:
         response = build_beacon_service_info_response(
                     self
+                )
+        return response
+    except Exception:
+        raise
+
+@log_with_args(level)
+async def filtering_terms_builder(self, request: Request, datasets, qparams, entry_type):
+    try:
+        entry_id = request.match_info.get('id', None)
+        entity_schema, count, records = get_filtering_terms(self, entry_id, qparams)
+        response = build_filtering_terms_response(
+                    self, records, count, qparams, entity_schema
                 )
         return response
     except Exception:
