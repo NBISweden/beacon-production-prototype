@@ -232,18 +232,23 @@ class RequestParams(CamelModel):
         return self
 
     def summary(self):
-        list_of_filters=[]
-        for item in self.query.filters:
-            for k,v in item.items():
-                if v not in list_of_filters:
-                    list_of_filters.append(html.escape(v))
-        return {
-            "apiVersion": self.meta.api_version,
-            "requestedSchemas": self.meta.requested_schemas,
-            "filters": list_of_filters,
-            "requestParameters": self.query.request_parameters,
-            "includeResultsetResponses": self.query.include_resultset_responses,
-            "pagination": self.query.pagination.dict(),
-            "requestedGranularity": self.query.requested_granularity,
-            "testMode": self.query.test_mode
-        }
+        try:
+            list_of_filters=[]
+            for item in self.query.filters:
+                for k,v in item.items():
+                    if v not in list_of_filters:
+                        list_of_filters.append(html.escape(v))
+            return {
+                "apiVersion": self.meta.api_version,
+                "requestedSchemas": self.meta.requested_schemas,
+                "filters": list_of_filters,
+                "requestParameters": self.query.request_parameters,
+                "includeResultsetResponses": self.query.include_resultset_responses,
+                "pagination": self.query.pagination.dict(),
+                "requestedGranularity": self.query.requested_granularity,
+                "testMode": self.query.test_mode
+            }
+        except Exception as e:
+            err = str(e)
+            errcode=500
+            raise_exception(err, errcode)

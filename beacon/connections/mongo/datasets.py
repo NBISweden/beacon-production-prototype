@@ -8,22 +8,32 @@ from beacon.response.schemas import DefaultSchemas
 
 @log_with_args_mongo(level)
 def get_datasets(self):
-    collection = client.beacon.datasets
-    query = {}
-    query = collection.find(query)
-    return query
+    try:
+        collection = client.beacon.datasets
+        query = {}
+        query = collection.find(query)
+        return query
+    except Exception as e:
+        err = str(e)
+        errcode=500
+        raise_exception(err, errcode)
 
 @log_with_args_mongo(level)
 def get_full_datasets(self, entry_id: Optional[str]):
-    collection = client.beacon.datasets
-    if entry_id == None:
-        query = {}
-    else:
-        query = {'id': entry_id}
-    count = get_count(self, client.beacon.datasets, query)
-    query = collection.find(query)
-    entity_schema = DefaultSchemas.DATASETS
-    return query, count, entity_schema
+    try:
+        collection = client.beacon.datasets
+        if entry_id == None:
+            query = {}
+        else:
+            query = {'id': entry_id}
+        count = get_count(self, client.beacon.datasets, query)
+        query = collection.find(query)
+        entity_schema = DefaultSchemas.DATASETS
+        return query, count, entity_schema
+    except Exception as e:
+        err = str(e)
+        errcode=500
+        raise_exception(err, errcode)
 
 @log_with_args_mongo(level)
 def get_list_of_datasets(self):
