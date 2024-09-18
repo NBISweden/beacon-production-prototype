@@ -1,8 +1,14 @@
 import logging
 import yaml
+from beacon.exceptions.exceptions import raise_exception
 
-with open("beacon/conf/api_version.yml") as api_version_file:
-    api_version_yaml = yaml.safe_load(api_version_file)
+try:
+    with open("beacon/conf/api_version.yml") as api_version_file:
+        api_version_yaml = yaml.safe_load(api_version_file)
+except Exception as e:
+    err = str(e)
+    errcode=500
+    raise_exception(err, errcode)
 
 level=logging.DEBUG
 api_version='2.0.0'
