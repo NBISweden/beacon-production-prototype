@@ -78,8 +78,9 @@ async def collection_builder(self, request: Request, entry_type):
         raise
 
 @log_with_args(level)
-async def info_builder(self):
+async def info_builder(self, request: Request):
     try:
+        qparams = await get_qparams(self, request)
         response = build_beacon_info_response(
                     self
                 )
@@ -88,8 +89,9 @@ async def info_builder(self):
         raise
 
 @log_with_args(level)
-async def configuration_builder(self):
+async def configuration_builder(self, request: Request):
     try:
+        qparams = await get_qparams(self, request)
         response = build_configuration(
                     self
                 )
@@ -98,8 +100,9 @@ async def configuration_builder(self):
         raise
 
 @log_with_args(level)
-async def map_builder(self):
+async def map_builder(self, request: Request):
     try:
+        qparams = await get_qparams(self, request)
         response = build_map(
                     self
                 )
@@ -108,8 +111,9 @@ async def map_builder(self):
         raise
 
 @log_with_args(level)
-async def entry_types_builder(self):
+async def entry_types_builder(self, request: Request):
     try:
+        qparams = await get_qparams(self, request)
         response = build_entry_types(
                     self
                 )
@@ -118,8 +122,9 @@ async def entry_types_builder(self):
         raise
 
 @log_with_args(level)
-async def service_info_builder(self):
+async def service_info_builder(self, request: Request):
     try:
+        qparams = await get_qparams(self, request)
         response = build_beacon_service_info_response(
                     self
                 )
@@ -130,6 +135,7 @@ async def service_info_builder(self):
 @log_with_args(level)
 async def filtering_terms_builder(self, request: Request, datasets, qparams, entry_type):
     try:
+        qparams = await get_qparams(self, request)
         entry_id = request.match_info.get('id', None)
         entity_schema, count, records = get_filtering_terms(self, entry_id, qparams)
         response = build_filtering_terms_response(

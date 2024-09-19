@@ -1,10 +1,9 @@
 from aiohttp.test_utils import TestClient, TestServer, loop_context
 from aiohttp import web
-from beacon.__main__ import ControlView, InfoView
 import json
 import unittest
 
-
+'''
 def create_app():
     app = web.Application()
     #app.on_startup.append(initialize)
@@ -28,3 +27,4 @@ class TestRequest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+'''

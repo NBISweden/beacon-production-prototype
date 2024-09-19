@@ -1,5 +1,4 @@
 from aiohttp.test_utils import TestClient, TestServer, loop_context
-from beacon.__main__ import ControlView
 import unittest
 import os
 import jwt
@@ -18,7 +17,6 @@ mock_access_token_false = 'public'
 def create_test_app():
     app = web.Application()
     #app.on_startup.append(initialize)
-    app.add_routes([web.get('/control', ControlView)])
     return app
 
 class TestAuthN(unittest.TestCase):

@@ -1,5 +1,4 @@
 from aiohttp.test_utils import TestClient, TestServer, loop_context
-from beacon.__main__ import ControlView
 import unittest
 from aiohttp import web
 from aiohttp.web import FileField
@@ -18,7 +17,6 @@ from unittest.mock import MagicMock
 def create_test_app():
     app = web.Application()
     #app.on_startup.append(initialize)
-    app.add_routes([web.get('/control', ControlView)])
     return app
 
 class TestAuthZ(unittest.TestCase):
