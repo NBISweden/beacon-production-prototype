@@ -79,7 +79,7 @@ def log_with_args_mongo(level):
                 elif f"{func.__name__}" == 'destroy':
                     LOG.info(f"{self._id} - Shutting down")
                 return result
-            except:
+            except Exception:
                 err = "There was an exception in  "
                 err += func.__name__
                 LOG.error(f"{self._id} - {err}")

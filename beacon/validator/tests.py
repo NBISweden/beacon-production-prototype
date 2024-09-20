@@ -17,7 +17,7 @@ class TestValidator(unittest.TestCase):
             client = TestClient(TestServer(app), loop=loop)
             loop.run_until_complete(client.start_server())
             async def test_catching_errors_load_json_from_url():
-                resp = load_json_from_url('http://localhost:5070/contro')
+                resp = load_json_from_url('http://localhost:5050/contro')
                 assert resp.status == 404
             loop.run_until_complete(test_catching_errors_load_json_from_url())
             loop.run_until_complete(client.close())

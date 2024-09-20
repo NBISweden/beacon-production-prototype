@@ -5,7 +5,7 @@ from beacon.exceptions.exceptions import raise_exception
 try:
     with open("beacon/conf/api_version.yml") as api_version_file:
         api_version_yaml = yaml.safe_load(api_version_file)
-except Exception as e:
+except Exception as e:# pragma: no cover
     err = str(e)
     errcode=500
     raise_exception(err, errcode)

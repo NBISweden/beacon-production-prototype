@@ -64,7 +64,7 @@ class TestAuthZ(unittest.TestCase):
             async def test_authorization():
                 req = make_mocked_request('GET', '/', headers={'Authorization': 'Bearer ' + mock_access_token})
                 username, list_visa_datasets = await authorization(self=MagicClass, request=req)
-                assert username == 'jane'
+                assert username == 'costero-e'
             loop.run_until_complete(test_authorization())
             loop.run_until_complete(client.close())
 

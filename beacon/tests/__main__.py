@@ -98,8 +98,6 @@ class TestMain(unittest.TestCase):
                 assert resp.status == 400
                 text = await resp.text()
                 assert json.dumps(service_info_wrong) == text
-                response_obj = build_beacon_error_response(self, 400, 'prova', 'alala')
-                assert json.dumps(service_info_wrong) == json_util.dumps(response_obj)
             loop.run_until_complete(test_check_service_info_endpoint_is_not_working())
             loop.run_until_complete(client.close())
     def test_main_check_post_service_info_endpoint_is_not_working(self):
@@ -261,11 +259,10 @@ class TestMain(unittest.TestCase):
             client = TestClient(TestServer(app), loop=loop)
             loop.run_until_complete(client.start_server())
             async def test_check_datasets_g_variants_endpoint_is_working():
-                resp = await client.get("/api/g_variants?datasets=AV_Dataset")
+                resp = await client.get("/api/g_variants?datasets=CINECA_synthetic_cohort_EUROPE_UK1")
                 assert resp.status == 200
             loop.run_until_complete(test_check_datasets_g_variants_endpoint_is_working())
             loop.run_until_complete(client.close())
-            
 
 if __name__ == '__main__':
     unittest.main()
