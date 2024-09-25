@@ -1,7 +1,7 @@
 from aiohttp.web_request import Request
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
-from beacon.response.catalog import build_beacon_boolean_response_by_dataset, build_beacon_count_response, build_beacon_collection_response, build_beacon_info_response, build_map, build_configuration, build_entry_types, build_beacon_service_info_response, build_filtering_terms_response
+from beacon.response.catalog import build_beacon_boolean_response_by_dataset, build_beacon_count_response, build_beacon_collection_response, build_beacon_info_response, build_map, build_configuration, build_entry_types, build_beacon_service_info_response, build_filtering_terms_response, build_beacon_boolean_response
 from beacon.connections.mongo.g_variants import get_variants
 from beacon.connections.mongo.filtering_terms import get_filtering_terms
 from beacon.connections.mongo.datasets import get_full_datasets
@@ -24,7 +24,7 @@ async def builder(self, request: Request, datasets, qparams, entry_type):
             function=get_variants
         loop = asyncio.get_running_loop()
 
-        if datasets != []:
+        if datasets != [] and include != 'NONE':
             with ThreadPoolExecutor() as pool:
                 done, pending = await asyncio.wait(fs=[loop.run_in_executor(pool, function, self, entry_id, qparams, dataset) for dataset in datasets],
                 return_when=asyncio.ALL_COMPLETED
@@ -46,7 +46,17 @@ async def builder(self, request: Request, datasets, qparams, entry_type):
             
             response = build_beacon_boolean_response_by_dataset(self, datasets_docs, datasets_count, count, qparams, entity_schema)
             return response
-
+        elif include == 'NONE':
+            with ThreadPoolExecutor() as pool:
+                done, pending = await asyncio.wait(fs=[loop.run_in_executor(pool, get_variants, self, entry_id, qparams, None)],
+                return_when=asyncio.ALL_COMPLETED
+                )
+            for task in done:
+                entity_schema, count, dataset_count, records, dataset = task.result()
+            
+            response = build_beacon_boolean_response(self, records, count, qparams, entity_schema)
+        
+            return response
         else:
             with ThreadPoolExecutor() as pool:
                 done, pending = await asyncio.wait(fs=[loop.run_in_executor(pool, get_variants, self, entry_id, qparams, None)],

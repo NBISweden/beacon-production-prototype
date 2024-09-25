@@ -12,7 +12,9 @@ from beacon.conf.conf import level
 def get_variants(self, entry_id: Optional[str], qparams: RequestParams, dataset: str):
     collection = 'g_variants'
     mongo_collection = client.beacon.genomicVariations
-    include = 'ALL'
+    include = qparams.query.include_resultset_responses
+    if include not in ['ALL', 'NONE']:
+        include = 'ALL'
     limit = qparams.query.pagination.limit
     skip = qparams.query.pagination.skip
     query={}

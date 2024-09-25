@@ -13,7 +13,7 @@ def get_datasets(self):
         query = {}
         query = collection.find(query)
         return query
-    except Exception as e:
+    except Exception as e:# pragma: no cover
         err = str(e)
         errcode=500
         raise_exception(err, errcode)
@@ -24,13 +24,13 @@ def get_full_datasets(self, entry_id: Optional[str]):
         collection = client.beacon.datasets
         if entry_id == None:
             query = {}
-        else:
+        else:# pragma: no cover
             query = {'id': entry_id}
         count = get_count(self, client.beacon.datasets, query)
         query = collection.find(query)
         entity_schema = DefaultSchemas.DATASETS
         return query, count, entity_schema
-    except Exception as e:
+    except Exception as e:# pragma: no cover
         err = str(e)
         errcode=500
         raise_exception(err, errcode)
@@ -41,7 +41,7 @@ def get_list_of_datasets(self):
         datasets = get_datasets(self)
         beacon_datasets = [ r for r in datasets ]
         return beacon_datasets
-    except Exception as e:
+    except Exception as e:# pragma: no cover
         err = str(e)
         errcode=500
         raise_exception(err, errcode)

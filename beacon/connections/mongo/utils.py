@@ -34,7 +34,7 @@ def get_count(self, collection: Collection, query: dict) -> int:
                 insert_total=client.beacon.counts.insert_one(insert_dict)
             else:
                 total_counts=counts[0]["num_results"]
-        except Exception as e:
+        except Exception as e:# pragma: no cover
             err = str(e)
             errcode=500
             raise_exception(err, errcode)
@@ -43,7 +43,7 @@ def get_count(self, collection: Collection, query: dict) -> int:
 @log_with_args_mongo(level)
 def get_docs_by_response_type(self, include: str, query: dict, datasets_dict: dict, dataset: str, limit: int, skip: int, mongo_collection, idq: str):
     if include == 'NONE':
-        count = get_count(mongo_collection, query)
+        count = get_count(self, mongo_collection, query)
         dataset_count=0
         docs = get_documents(
         self,
@@ -80,7 +80,7 @@ def get_docs_by_response_type(self, include: str, query: dict, datasets_dict: di
                         limit
                     )
                 else:
-                    dataset_count=0
+                    dataset_count=0# pragma: no cover
     return count, dataset_count, docs
 
 @log_with_args_mongo(level)

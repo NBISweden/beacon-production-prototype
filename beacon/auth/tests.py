@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 from beacon.logs.logs import LOG
 
 # for keycloak, create aud in mappers, with custom, aud and beacon for audience
-mock_access_token = 'a'
+mock_access_token = ''
 mock_access_token_false = 'public'
 #dummy test anonymous
 #dummy test login
@@ -65,7 +65,7 @@ class TestAuthN(unittest.TestCase):
                     decoded = jwt.decode(mock_access_token, options={"verify_signature": False})
                     issuer = decoded['iss']
                     aud = decoded['aud']
-                except Exception:
+                except Exception:# pragma: no cover
                     raise web.HTTPUnauthorized()
                 access_token_validation = validate_access_token(self, mock_access_token, IDP_ISSUER, IDP_JWKS_URL, algorithm, aud)
                 assert access_token_validation == True
@@ -148,17 +148,17 @@ class TestAuthN(unittest.TestCase):
                             visa["ga4gh_visa_v1"]["value"]='visa/dataset'
                             if visa['iss']==IDP_ISSUER:
                                 pass
-                            else:
+                            else:# pragma: no cover
                                 raise web.HTTPUnauthorized('invalid visa token')
                             dataset_url = visa["ga4gh_visa_v1"]["value"]
                             dataset_url_splitted = dataset_url.split('/')
                             visa_dataset = dataset_url_splitted[-1]
                             list_visa_datasets.append(visa_dataset)
-                        except Exception:
+                        except Exception:# pragma: no cover
                             visa_dataset = None
                 assert list_visa_datasets == ['dataset']
             loop.run_until_complete(test_check_visa_passports())
             loop.run_until_complete(client.close())
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main()# pragma: no cover

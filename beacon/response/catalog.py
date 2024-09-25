@@ -9,6 +9,45 @@ from beacon.source.generator import get_entry_types, get_entry_types_map
 from beacon.filtering_terms.resources import resources
 from beacon.exceptions.exceptions import raise_exception
 
+def build_response(self, data, num_total_results, qparams):
+    """"Fills the `response` part with the correct format in `results`"""
+    limit = qparams.query.pagination.limit
+    include = qparams.query.include_resultset_responses
+    if include == 'NONE':
+            response = {
+            'id': '', # TODO: Set the name of the dataset/cohort
+            'setType': '', # TODO: Set the type of collection
+            'exists': num_total_results > 0,
+            'resultsCount': num_total_results,
+            'results': data,
+            # 'info': None,
+            'resultsHandover': 'beacon_handovers()',  # build_results_handover
+        }
+    elif limit != 0 and limit < num_total_results:
+        response = {
+            'id': '', # TODO: Set the name of the dataset/cohort
+            'setType': '', # TODO: Set the type of collection
+            'exists': num_total_results > 0,
+            'resultsCount': limit,
+            'results': data,
+            # 'info': None,
+            'resultsHandover': 'beacon_handovers()',  # build_results_handover
+        }
+    else:
+        response = {
+            'id': '', # TODO: Set the name of the dataset/cohort
+            'setType': '', # TODO: Set the type of collection
+            'exists': num_total_results > 0,
+            'resultsCount': num_total_results,
+            'results': data,
+            # 'info': None,
+            'resultsHandover': 'beacon_handovers()',  # build_results_handover
+        }
+
+    return response
+
+
+
 @log_with_args(level)
 def build_response_summary(self, exists, num_total_results):
     try:
@@ -159,6 +198,24 @@ def build_beacon_count_response(self, data,
             'meta': build_meta(self, qparams, entity_schema, Granularity.COUNT),
             'responseSummary': build_response_summary(self, num_total_results > 0, num_total_results),
             # TODO: 'extendedInfo': build_extended_info(),
+            'beaconHandovers': 'beacon_handovers()',
+        }
+        return beacon_response
+    except Exception:
+        raise
+
+@log_with_args(level)
+def build_beacon_boolean_response(self, data,
+                                    num_total_results,
+                                    qparams: RequestParams,
+                                    entity_schema: DefaultSchemas):
+    try:
+        beacon_response = {
+            'meta': build_meta(self, qparams, entity_schema, Granularity.BOOLEAN),
+            'responseSummary': build_response_summary_by_dataset(self, num_total_results > 0, num_total_results, data),
+            'response': {
+                'resultSets': [build_response(self, data, num_total_results, qparams)]
+            },
             'beaconHandovers': 'beacon_handovers()',
         }
         return beacon_response

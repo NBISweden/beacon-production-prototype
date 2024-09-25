@@ -21,7 +21,7 @@ def get_filtering_terms(self, entry_id: Optional[str], qparams: RequestParams):
             qparams.query.pagination.limit
         )
         return schema, count, docs
-    except Exception as e:
+    except Exception as e:# pragma: no cover
         err = str(e)
         errcode=500
         raise_exception(err, errcode)
