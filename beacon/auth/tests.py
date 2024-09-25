@@ -5,7 +5,6 @@ import jwt
 from aiohttp import web
 from beacon.auth.__main__ import fetch_idp, validate_access_token, authentication, introspection, fetch_user_info
 from dotenv import load_dotenv
-from beacon.logs.logs import LOG
 
 # for keycloak, create aud in mappers, with custom, aud and beacon for audience
 mock_access_token = ''

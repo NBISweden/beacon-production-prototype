@@ -6,6 +6,12 @@ from beacon.conf.conf import level
 from beacon.exceptions.exceptions import raise_exception
 
 @log_with_args_mongo(level)
+def join_query(self, collection: Collection,query: dict, original_id):
+    #LOG.debug(query)
+    excluding_fields={"_id": 0, original_id: 1}
+    return collection.find(query, excluding_fields).max_time_ms(100 * 1000)
+
+@log_with_args_mongo(level)
 def get_documents(self, collection: Collection, query: dict, skip: int, limit: int) -> Cursor:
     return collection.find(query).skip(skip).limit(limit).max_time_ms(100 * 1000)
 
@@ -35,9 +41,7 @@ def get_count(self, collection: Collection, query: dict) -> int:
             else:
                 total_counts=counts[0]["num_results"]
         except Exception as e:# pragma: no cover
-            err = str(e)
-            errcode=500
-            raise_exception(err, errcode)
+            total_counts=0
         return total_counts
 
 @log_with_args_mongo(level)

@@ -252,6 +252,26 @@ class TestMain(unittest.TestCase):
                 assert resp.status == 200
             loop.run_until_complete(test_check_post_g_variants_endpoint_NONE_resultSetResponse_is_working())
             loop.run_until_complete(client.close())
+    def test_main_check_g_variants_endpoint_with_parameters_is_working(self):
+        with loop_context() as loop:
+            app = create_app()
+            client = TestClient(TestServer(app), loop=loop)
+            loop.run_until_complete(client.start_server())
+            async def test_check_g_variants_endpoint_with_parameters_is_working():
+                resp = await client.get("/api/g_variants?start=16050074&end=16050075&alternateBases=A&referenceBases=G&referenceName=22")
+                assert resp.status == 200
+            loop.run_until_complete(test_check_g_variants_endpoint_with_parameters_is_working())
+            loop.run_until_complete(client.close())
+    def test_main_check_post_g_variants_endpoint_with_parameters_is_working(self):
+        with loop_context() as loop:
+            app = create_app()
+            client = TestClient(TestServer(app), loop=loop)
+            loop.run_until_complete(client.start_server())
+            async def test_check_post_g_variants_endpoint_with_parameters_is_working():
+                resp = await client.post("/api/g_variants?start=16050074&end=16050075&alternateBases=A&referenceBases=G&referenceName=22")
+                assert resp.status == 200
+            loop.run_until_complete(test_check_post_g_variants_endpoint_with_parameters_is_working())
+            loop.run_until_complete(client.close())
     def test_main_check_request_parameters_fail(self):
         with loop_context() as loop:
             app = create_app()
