@@ -135,11 +135,15 @@ class Info(EndpointView):
             response_obj = build_beacon_error_response(self, ErrorClass.error_code, 'prova', ErrorClass.error_response)
             return web.Response(text=json_util.dumps(response_obj), status=ErrorClass.error_code, content_type='application/json')
 
-class Datasets(EndpointView):
+class Collection(EndpointView):
     @log_with_args(level)
-    async def datasets(self, request):
+    async def collection(self, request):
         try:
-            entry_type='datasets'
+            path_list = request.path.split('/')
+            if len(path_list) > 4:
+                entry_type=path_list[2]+'_'+path_list[4]
+            else:
+                entry_type=path_list[2]
             response_obj = await collection_builder(self, request, entry_type)
             return web.Response(text=json_util.dumps(response_obj), status=200, content_type='application/json')
         except Exception:# pragma: no cover
@@ -147,38 +151,14 @@ class Datasets(EndpointView):
 
     async def get(self):
         try:
-            return await self.datasets(self.request)
+            return await self.collection(self.request)
         except Exception as e:# pragma: no cover
             response_obj = build_beacon_error_response(self, ErrorClass.error_code, 'prova', ErrorClass.error_response)
             return web.Response(text=json_util.dumps(response_obj), status=ErrorClass.error_code, content_type='application/json')
 
     async def post(self):
         try:
-            return await self.datasets(self.request)
-        except Exception as e:# pragma: no cover
-            response_obj = build_beacon_error_response(self, ErrorClass.error_code, 'prova', ErrorClass.error_response)
-            return web.Response(text=json_util.dumps(response_obj), status=ErrorClass.error_code, content_type='application/json')
-        
-class Cohorts(EndpointView):
-    @log_with_args(level)
-    async def cohorts(self, request):
-        try:
-            entry_type='cohorts'
-            response_obj = await collection_builder(self, request, entry_type)
-            return web.Response(text=json_util.dumps(response_obj), status=200, content_type='application/json')
-        except Exception:# pragma: no cover
-            raise
-
-    async def get(self):
-        try:
-            return await self.cohorts(self.request)
-        except Exception as e:# pragma: no cover
-            response_obj = build_beacon_error_response(self, ErrorClass.error_code, 'prova', ErrorClass.error_response)
-            return web.Response(text=json_util.dumps(response_obj), status=ErrorClass.error_code, content_type='application/json')
-
-    async def post(self):
-        try:
-            return await self.cohorts(self.request)
+            return await self.collection(self.request)
         except Exception as e:# pragma: no cover
             response_obj = build_beacon_error_response(self, ErrorClass.error_code, 'prova', ErrorClass.error_response)
             return web.Response(text=json_util.dumps(response_obj), status=ErrorClass.error_code, content_type='application/json')
@@ -208,12 +188,16 @@ class FilteringTerms(EndpointView):
             response_obj = build_beacon_error_response(self, ErrorClass.error_code, 'prova', ErrorClass.error_response)
             return web.Response(text=json_util.dumps(response_obj), status=ErrorClass.error_code, content_type='application/json')
 
-class GenomicVariations(EndpointView):
+class Resultset(EndpointView):
     @dataset_permissions
     @log_with_args(level)
-    async def genomicVariations(self, request, datasets, qparams):
+    async def resultset(self, request, datasets, qparams):
         try:
-            entry_type='genomicVariations'
+            path_list = request.path.split('/')
+            if len(path_list) > 4:
+                entry_type=path_list[2]+'_'+path_list[4]
+            else:
+                entry_type=path_list[2]
             response_obj = await builder(self, request, datasets, qparams, entry_type)
             return web.Response(text=json_util.dumps(response_obj), status=200, content_type='application/json')
         except Exception:# pragma: no cover
@@ -221,114 +205,14 @@ class GenomicVariations(EndpointView):
 
     async def get(self):
         try:
-            return await self.genomicVariations(self.request)
+            return await self.resultset(self.request)
         except Exception as e:# pragma: no cover
             response_obj = build_beacon_error_response(self, ErrorClass.error_code, 'prova', ErrorClass.error_response)
             return web.Response(text=json_util.dumps(response_obj), status=ErrorClass.error_code, content_type='application/json')
 
     async def post(self):
         try:
-            return await self.genomicVariations(self.request)
-        except Exception as e:# pragma: no cover
-            response_obj = build_beacon_error_response(self, ErrorClass.error_code, 'prova', ErrorClass.error_response)
-            return web.Response(text=json_util.dumps(response_obj), status=ErrorClass.error_code, content_type='application/json')
-        
-class Individuals(EndpointView):
-    @dataset_permissions
-    @log_with_args(level)
-    async def individuals(self, request, datasets, qparams):
-        try:
-            entry_type='individuals'
-            response_obj = await builder(self, request, datasets, qparams, entry_type)
-            return web.Response(text=json_util.dumps(response_obj), status=200, content_type='application/json')
-        except Exception:# pragma: no cover
-            raise
-
-    async def get(self):
-        try:
-            return await self.individuals(self.request)
-        except Exception as e:# pragma: no cover
-            response_obj = build_beacon_error_response(self, ErrorClass.error_code, 'prova', ErrorClass.error_response)
-            return web.Response(text=json_util.dumps(response_obj), status=ErrorClass.error_code, content_type='application/json')
-
-    async def post(self):
-        try:
-            return await self.individuals(self.request)
-        except Exception as e:# pragma: no cover
-            response_obj = build_beacon_error_response(self, ErrorClass.error_code, 'prova', ErrorClass.error_response)
-            return web.Response(text=json_util.dumps(response_obj), status=ErrorClass.error_code, content_type='application/json')
-        
-class Analyses(EndpointView):
-    @dataset_permissions
-    @log_with_args(level)
-    async def analyses(self, request, datasets, qparams):
-        try:
-            entry_type='analyses'
-            response_obj = await builder(self, request, datasets, qparams, entry_type)
-            return web.Response(text=json_util.dumps(response_obj), status=200, content_type='application/json')
-        except Exception:# pragma: no cover
-            raise
-
-    async def get(self):
-        try:
-            return await self.analyses(self.request)
-        except Exception as e:# pragma: no cover
-            response_obj = build_beacon_error_response(self, ErrorClass.error_code, 'prova', ErrorClass.error_response)
-            return web.Response(text=json_util.dumps(response_obj), status=ErrorClass.error_code, content_type='application/json')
-
-    async def post(self):
-        try:
-            return await self.analyses(self.request)
-        except Exception as e:# pragma: no cover
-            response_obj = build_beacon_error_response(self, ErrorClass.error_code, 'prova', ErrorClass.error_response)
-            return web.Response(text=json_util.dumps(response_obj), status=ErrorClass.error_code, content_type='application/json')
-
-class Biosamples(EndpointView):
-    @dataset_permissions
-    @log_with_args(level)
-    async def biosamples(self, request, datasets, qparams):
-        try:
-            entry_type='biosamples'
-            response_obj = await builder(self, request, datasets, qparams, entry_type)
-            return web.Response(text=json_util.dumps(response_obj), status=200, content_type='application/json')
-        except Exception:# pragma: no cover
-            raise
-
-    async def get(self):
-        try:
-            return await self.biosamples(self.request)
-        except Exception as e:# pragma: no cover
-            response_obj = build_beacon_error_response(self, ErrorClass.error_code, 'prova', ErrorClass.error_response)
-            return web.Response(text=json_util.dumps(response_obj), status=ErrorClass.error_code, content_type='application/json')
-
-    async def post(self):
-        try:
-            return await self.biosamples(self.request)
-        except Exception as e:# pragma: no cover
-            response_obj = build_beacon_error_response(self, ErrorClass.error_code, 'prova', ErrorClass.error_response)
-            return web.Response(text=json_util.dumps(response_obj), status=ErrorClass.error_code, content_type='application/json')
-
-class Runs(EndpointView):
-    @dataset_permissions
-    @log_with_args(level)
-    async def runs(self, request, datasets, qparams):
-        try:
-            entry_type='runs'
-            response_obj = await builder(self, request, datasets, qparams, entry_type)
-            return web.Response(text=json_util.dumps(response_obj), status=200, content_type='application/json')
-        except Exception:# pragma: no cover
-            raise
-
-    async def get(self):
-        try:
-            return await self.runs(self.request)
-        except Exception as e:# pragma: no cover
-            response_obj = build_beacon_error_response(self, ErrorClass.error_code, 'prova', ErrorClass.error_response)
-            return web.Response(text=json_util.dumps(response_obj), status=ErrorClass.error_code, content_type='application/json')
-
-    async def post(self):
-        try:
-            return await self.runs(self.request)
+            return await self.resultset(self.request)
         except Exception as e:# pragma: no cover
             response_obj = build_beacon_error_response(self, ErrorClass.error_code, 'prova', ErrorClass.error_response)
             return web.Response(text=json_util.dumps(response_obj), status=ErrorClass.error_code, content_type='application/json')
@@ -375,13 +259,42 @@ async def create_api():# pragma: no cover
     app.add_routes([web.view('/api/configuration', Configuration)])
     app.add_routes([web.view('/api/map', Map)])
     app.add_routes([web.view('/api/filtering_terms', FilteringTerms)])
-    app.add_routes([web.view('/api/datasets', Datasets)])
-    app.add_routes([web.view('/api/g_variants', GenomicVariations)])
-    app.add_routes([web.view('/api/individuals', Individuals)])
-    app.add_routes([web.view('/api/analyses', Analyses)])
-    app.add_routes([web.view('/api/biosamples', Biosamples)])
-    app.add_routes([web.view('/api/runs', Runs)])
-    app.add_routes([web.view('/api/cohorts', Cohorts)])
+    app.add_routes([web.view('/api/datasets', Collection)])
+    app.add_routes([web.view('/api/datasets/{id}', Collection)])
+    app.add_routes([web.view('/api/datasets/{id}/g_variants', Resultset)])
+    app.add_routes([web.view('/api/datasets/{id}/biosamples', Resultset)])
+    app.add_routes([web.view('/api/datasets/{id}/analyses', Resultset)])
+    app.add_routes([web.view('/api/datasets/{id}/runs', Resultset)])
+    app.add_routes([web.view('/api/datasets/{id}/individuals', Resultset)])
+    app.add_routes([web.view('/api/cohorts', Collection)])
+    app.add_routes([web.view('/api/cohorts/{id}', Collection)])
+    app.add_routes([web.view('/api/cohorts/{id}/individuals', Resultset)])
+    app.add_routes([web.view('/api/cohorts/{id}/g_variants', Resultset)])
+    app.add_routes([web.view('/api/cohorts/{id}/biosamples', Resultset)])
+    app.add_routes([web.view('/api/cohorts/{id}/analyses', Resultset)])
+    app.add_routes([web.view('/api/cohorts/{id}/runs', Resultset)])
+    app.add_routes([web.view('/api/g_variants', Resultset)])
+    app.add_routes([web.view('/api/g_variants/{id}', Resultset)])
+    app.add_routes([web.view('/api/g_variants/{id}/analyses', Resultset)])
+    app.add_routes([web.view('/api/g_variants/{id}/biosamples', Resultset)])
+    app.add_routes([web.view('/api/g_variants/{id}/individuals', Resultset)])
+    app.add_routes([web.view('/api/g_variants/{id}/runs', Resultset)])
+    app.add_routes([web.view('/api/individuals', Resultset)])
+    app.add_routes([web.view('/api/individuals/{id}', Resultset)])
+    app.add_routes([web.view('/api/individuals/{id}/g_variants', Resultset)])
+    app.add_routes([web.view('/api/individuals/{id}/biosamples', Resultset)])
+    app.add_routes([web.view('/api/analyses', Resultset)])
+    app.add_routes([web.view('/api/analyses/{id}', Resultset)])
+    app.add_routes([web.view('/api/analyses/{id}/g_variants', Resultset)])
+    app.add_routes([web.view('/api/biosamples', Resultset)])
+    app.add_routes([web.view('/api/biosamples/{id}', Resultset)])
+    app.add_routes([web.view('/api/biosamples/{id}/g_variants', Resultset)])
+    app.add_routes([web.view('/api/biosamples/{id}/analyses', Resultset)])
+    app.add_routes([web.view('/api/biosamples/{id}/runs', Resultset)])
+    app.add_routes([web.view('/api/runs', Resultset)])
+    app.add_routes([web.view('/api/runs/{id}', Resultset)])
+    app.add_routes([web.view('/api/runs/{id}/analyses', Resultset)])
+    app.add_routes([web.view('/api/runs/{id}/g_variants', Resultset)])
 
     runner = web.AppRunner(app)
     await runner.setup()

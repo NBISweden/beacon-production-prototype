@@ -1,8 +1,8 @@
 from aiohttp.web_request import Request
 from beacon.response.catalog import build_beacon_boolean_response_by_dataset, build_beacon_count_response, build_beacon_collection_response, build_beacon_info_response, build_map, build_configuration, build_entry_types, build_beacon_service_info_response, build_filtering_terms_response, build_beacon_boolean_response
 from beacon.connections.mongo.filtering_terms import get_filtering_terms
-from beacon.connections.mongo.datasets import get_full_datasets
-from beacon.connections.mongo.cohorts import get_cohorts
+from beacon.connections.mongo.datasets import get_full_datasets, get_dataset_with_id
+from beacon.connections.mongo.cohorts import get_cohorts, get_cohort_with_id
 from beacon.logs.logs import log_with_args
 from beacon.conf.conf import level
 from beacon.utils.requests import get_qparams
@@ -35,14 +35,17 @@ async def collection_builder(self, request: Request, entry_type):
     try:
         qparams = await get_qparams(self, request)
         entry_id = request.match_info.get('id', None)
-        if entry_type == 'datasets':
-            function=get_full_datasets
-        elif entry_type == 'cohorts':
-            function=get_cohorts
-        records, count, entity_schema = function(self, entry_id, qparams)
-        response_converted = (
-                    [r for r in records] if records else []
-                )
+        if entry_id == None:
+            if entry_type == 'datasets':
+                function=get_full_datasets
+            elif entry_type == 'cohorts':
+                function=get_cohorts
+        else:
+            if entry_type == 'datasets':
+                function=get_dataset_with_id
+            elif entry_type == 'cohorts':
+                function=get_cohort_with_id
+        response_converted, count, entity_schema = function(self, entry_id, qparams)
         response = build_beacon_collection_response(
                     self, response_converted, count, qparams, entity_schema
                 )

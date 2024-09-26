@@ -3,7 +3,37 @@ from beacon.connections.mongo.__init__ import client
 from pymongo.collection import Collection
 from beacon.logs.logs import log_with_args_mongo
 from beacon.conf.conf import level
-from beacon.exceptions.exceptions import raise_exception
+
+@log_with_args_mongo(level)
+def get_cross_query(self, ids: dict, cross_type: str, collection_id: str):
+    id_list=[]
+    dict_in={}
+    id_dict={}
+    if cross_type == 'biosampleId' or cross_type=='id':
+        list_item=ids
+        id_list.append(str(list_item))
+        dict_in["$in"]=id_list
+        id_dict[collection_id]=dict_in
+        query = id_dict
+    elif cross_type == 'individualIds' or cross_type=='biosampleIds':
+        list_individualIds=ids
+        dict_in["$in"]=list_individualIds
+        id_dict[collection_id]=dict_in
+        query = id_dict
+    else:
+        for k, v in ids.items():
+            for item in v:
+                id_list.append(item[cross_type])
+        dict_in["$in"]=id_list
+        id_dict[collection_id]=dict_in
+        query = id_dict
+
+    return query
+
+@log_with_args_mongo(level)
+def query_id(self, query: dict, document_id) -> dict:
+    query["id"] = document_id
+    return query
 
 @log_with_args_mongo(level)
 def join_query(self, collection: Collection,query: dict, original_id):
