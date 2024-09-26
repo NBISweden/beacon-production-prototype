@@ -3,8 +3,13 @@ import asyncio
 from concurrent.futures import ThreadPoolExecutor
 from beacon.response.catalog import build_beacon_boolean_response_by_dataset, build_beacon_count_response, build_beacon_collection_response, build_beacon_info_response, build_map, build_configuration, build_entry_types, build_beacon_service_info_response, build_filtering_terms_response, build_beacon_boolean_response
 from beacon.connections.mongo.g_variants import get_variants
+from beacon.connections.mongo.individuals import get_individuals
+from beacon.connections.mongo.analyses import get_analyses
+from beacon.connections.mongo.biosamples import get_biosamples
+from beacon.connections.mongo.runs import get_runs
 from beacon.connections.mongo.filtering_terms import get_filtering_terms
 from beacon.connections.mongo.datasets import get_full_datasets
+from beacon.connections.mongo.cohorts import get_cohorts
 from beacon.logs.logs import log_with_args
 from beacon.conf.conf import level
 from beacon.utils.requests import get_qparams
@@ -22,6 +27,14 @@ async def builder(self, request: Request, datasets, qparams, entry_type):
         new_count=0
         if entry_type == 'genomicVariations':
             function=get_variants
+        elif entry_type == 'individuals':
+            function=get_individuals
+        elif entry_type == 'analyses':
+            function=get_analyses
+        elif entry_type == 'biosamples':
+            function=get_biosamples
+        elif entry_type == 'runs':
+            function=get_runs
         loop = asyncio.get_running_loop()
 
         if datasets != [] and include != 'NONE':
@@ -76,7 +89,11 @@ async def collection_builder(self, request: Request, entry_type):
     try:
         qparams = await get_qparams(self, request)
         entry_id = request.match_info.get('id', None)
-        records, count, entity_schema = get_full_datasets(self, entry_id)
+        if entry_type == 'datasets':
+            function=get_full_datasets
+        elif entry_type == 'cohorts':
+            function=get_cohorts
+        records, count, entity_schema = function(self, entry_id, qparams)
         response_converted = (
                     [r for r in records] if records else []
                 )

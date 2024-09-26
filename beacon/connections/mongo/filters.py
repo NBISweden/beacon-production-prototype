@@ -9,6 +9,7 @@ from beacon.conf.conf import level
 
 CURIE_REGEX = r'^([a-zA-Z0-9]*):\/?[a-zA-Z0-9./]*$'
 
+
 @log_with_args(level)
 def cross_query(self, query: dict, scope: str, collection: str, request_parameters: dict):
     if scope == 'genomicVariation' and collection == 'g_variants' or scope == collection[0:-1]:
@@ -222,6 +223,8 @@ def cross_query(self, query: dict, scope: str, collection: str, request_paramete
             query['$or']=def_list
     return query
 
+
+
 @log_with_args(level)
 def apply_filters(self, query: dict, filters: List[dict], collection: str, query_parameters: dict) -> dict:
     request_parameters = query_parameters
@@ -394,6 +397,7 @@ def apply_filters(self, query: dict, filters: List[dict], collection: str, query
     if total_query == {} and query != {}:
         total_query=query
     return total_query
+
 
 @log_with_args(level)
 def apply_ontology_filter(self, query: dict, filter: OntologyFilter, collection: str, request_parameters: dict) -> dict:
@@ -623,6 +627,8 @@ def apply_ontology_filter(self, query: dict, filter: OntologyFilter, collection:
             query = new_query
         query=cross_query(query, scope, collection, request_parameters)
     return query
+
+
 
 @log_with_args(level)
 def format_value(self, value: Union[str, List[int]]) -> Union[List[int], str, int, float]:

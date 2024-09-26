@@ -5,6 +5,7 @@ from beacon.exceptions.exceptions import raise_exception
 from beacon.connections.mongo.utils import get_count
 from typing import Optional
 from beacon.response.schemas import DefaultSchemas
+from beacon.request.parameters import RequestParams
 
 @log_with_args_mongo(level)
 def get_datasets(self):
@@ -19,7 +20,7 @@ def get_datasets(self):
         raise_exception(err, errcode)
 
 @log_with_args_mongo(level)
-def get_full_datasets(self, entry_id: Optional[str]):
+def get_full_datasets(self, entry_id: Optional[str], qparams: RequestParams):
     try:
         collection = client.beacon.datasets
         if entry_id == None:
