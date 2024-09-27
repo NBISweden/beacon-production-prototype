@@ -8,7 +8,6 @@ from beacon.logs.logs import LOG
 from beacon.auth.__main__ import authentication
 from beacon.logs.logs import log_with_args
 from beacon.conf.conf import level
-from beacon.utils.requests import check_request_content_type, get_qparams
 from beacon.connections.mongo.datasets import get_list_of_datasets
 
 @log_with_args(level)
@@ -35,7 +34,6 @@ async def authorization(self, request):
 @log_with_args(level)
 async def get_datasets_list(self, request: Request, authorized_datasets):
     try:
-        qparams = await get_qparams(self, request)
         specific_datasets_unauthorized = []
         search_and_authorized_datasets = []
         try:
@@ -60,15 +58,16 @@ async def get_datasets_list(self, request: Request, authorized_datasets):
             specific_datasets_unauthorized.append(specific_datasets)
     except Exception:
         raise
-    return response_datasets, qparams
+    return response_datasets
 
 def dataset_permissions(func):
     @log_with_args(level)
-    async def permission(self, request: Request):
+    async def permission(self, post_data, request: Request, qparams, entry_type, entry_id):
         try:
-            post_data = await check_request_content_type(self, request)
-
-            v = post_data.get('datasets')
+            if post_data is not None:
+                v = post_data.get('datasets')
+            else:
+                v = None
             if v is None:
                 requested_datasets = []
             elif isinstance(v, list):
@@ -86,8 +85,8 @@ def dataset_permissions(func):
             authorized_datasets=list(datasets)
             for visa_dataset in list_visa_datasets:
                 authorized_datasets.append(visa_dataset)
-            response_datasets, qparams = await get_datasets_list(self, request, authorized_datasets)
-            return await func(self, request, response_datasets, qparams)
+            response_datasets= await get_datasets_list(self, request, authorized_datasets)
+            return await func(self, post_data, request, qparams, entry_type, entry_id, response_datasets)
         except Exception:
             raise
     return permission

@@ -10,15 +10,10 @@ from beacon.connections.mongo.executor import execute_function
 from beacon.request.classes import Granularity
 
 @log_with_args(level)
-async def builder(self, request: Request, datasets, qparams, entry_type):
+async def builder(self, request: Request, datasets, qparams, entry_type, entry_id):
     granularity = qparams.query.requested_granularity
     try:
-        entry_id = request.match_info.get('id', None)
-        if entry_id == None:
-            entry_id = request.match_info.get('variantInternalId', None)
-
         datasets_docs, datasets_count, count, entity_schema, include = await execute_function(self, entry_type, datasets, qparams, entry_id)
-
         if include != 'NONE':
             response = build_beacon_boolean_response_by_dataset(self, datasets_docs, datasets_count, count, qparams, entity_schema)
         elif include == 'NONE' and granularity == Granularity.RECORD:
@@ -28,13 +23,10 @@ async def builder(self, request: Request, datasets, qparams, entry_type):
         return response
     except Exception:
         raise
-        
 
 @log_with_args(level)
-async def collection_builder(self, request: Request, entry_type):
+async def collection_builder(self, request: Request, qparams, entry_type, entry_id):
     try:
-        qparams = await get_qparams(self, request)
-        entry_id = request.match_info.get('id', None)
         if entry_id == None:
             if entry_type == 'datasets':
                 function=get_full_datasets
@@ -56,7 +48,6 @@ async def collection_builder(self, request: Request, entry_type):
 @log_with_args(level)
 async def info_builder(self, request: Request):
     try:
-        qparams = await get_qparams(self, request)
         response = build_beacon_info_response(
                     self
                 )
@@ -67,7 +58,6 @@ async def info_builder(self, request: Request):
 @log_with_args(level)
 async def configuration_builder(self, request: Request):
     try:
-        qparams = await get_qparams(self, request)
         response = build_configuration(
                     self
                 )
@@ -78,7 +68,6 @@ async def configuration_builder(self, request: Request):
 @log_with_args(level)
 async def map_builder(self, request: Request):
     try:
-        qparams = await get_qparams(self, request)
         response = build_map(
                     self
                 )
@@ -89,7 +78,6 @@ async def map_builder(self, request: Request):
 @log_with_args(level)
 async def entry_types_builder(self, request: Request):
     try:
-        qparams = await get_qparams(self, request)
         response = build_entry_types(
                     self
                 )
@@ -100,7 +88,6 @@ async def entry_types_builder(self, request: Request):
 @log_with_args(level)
 async def service_info_builder(self, request: Request):
     try:
-        qparams = await get_qparams(self, request)
         response = build_beacon_service_info_response(
                     self
                 )
@@ -109,11 +96,9 @@ async def service_info_builder(self, request: Request):
         raise
 
 @log_with_args(level)
-async def filtering_terms_builder(self, request: Request, datasets, qparams, entry_type):
+async def filtering_terms_builder(self, request: Request, qparams):
     try:
-        qparams = await get_qparams(self, request)
-        entry_id = request.match_info.get('id', None)
-        entity_schema, count, records = get_filtering_terms(self, entry_id, qparams)
+        entity_schema, count, records = get_filtering_terms(self, qparams)
         response = build_filtering_terms_response(
                     self, records, count, qparams, entity_schema
                 )

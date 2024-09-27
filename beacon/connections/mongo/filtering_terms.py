@@ -6,7 +6,7 @@ from beacon.request.parameters import RequestParams
 from beacon.connections.mongo.utils import get_filtering_documents
 from beacon.exceptions.exceptions import raise_exception
 
-def get_filtering_terms(self, entry_id: Optional[str], qparams: RequestParams):
+def get_filtering_terms(self, qparams: RequestParams):
     try:
         query = {}
         schema = DefaultSchemas.FILTERINGTERMS

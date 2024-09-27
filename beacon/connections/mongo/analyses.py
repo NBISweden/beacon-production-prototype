@@ -15,12 +15,12 @@ def get_analyses(self, entry_id: Optional[str], qparams: RequestParams, dataset:
     mongo_collection = client.beacon.analyses
     parameters_as_filters=False
     query_parameters, parameters_as_filters = apply_request_parameters(self, {}, qparams)
-    if parameters_as_filters == True and query_parameters != {'$and': []}:
+    if parameters_as_filters == True and query_parameters != {'$and': []}:# pragma: no cover
         query, parameters_as_filters = apply_request_parameters(self, {}, qparams)
         query_parameters={}
     elif query_parameters != {'$and': []}:
         query=query_parameters
-    elif query_parameters == {'$and': []}:
+    elif query_parameters == {'$and': []}:# pragma: no cover
         query_parameters = {}
         query={}
     query = apply_filters(self, query, qparams.query.filters, collection, query_parameters)

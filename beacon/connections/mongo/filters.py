@@ -34,7 +34,7 @@ def cross_query(self, query: dict, scope: str, collection: str, request_paramete
             
             mongo_collection=client.beacon.biosamples
             original_id="individualId"
-            join_ids2=list(join_query(mongo_collection, subquery, original_id))
+            join_ids2=list(join_query(self, mongo_collection, subquery, original_id))
             def_list=[]
             final_id="id"
             for id_item in join_ids2:
@@ -53,7 +53,7 @@ def cross_query(self, query: dict, scope: str, collection: str, request_paramete
         if scope == 'individual' and collection == 'g_variants':
             mongo_collection=client.beacon.individuals
             original_id="id"
-            join_ids=list(join_query(mongo_collection, query, original_id))
+            join_ids=list(join_query(self, mongo_collection, query, original_id))
             final_id="individualId"
             for id_item in join_ids:
                 new_id={}
@@ -63,7 +63,7 @@ def cross_query(self, query: dict, scope: str, collection: str, request_paramete
             query['$or']=def_list
             mongo_collection=client.beacon.biosamples
             original_id="id"
-            join_ids2=list(join_query(mongo_collection, query, original_id))
+            join_ids2=list(join_query(self, mongo_collection, query, original_id))
             def_list=[]
             final_id="caseLevelData.biosampleId"
             for id_item in join_ids2:
@@ -75,7 +75,7 @@ def cross_query(self, query: dict, scope: str, collection: str, request_paramete
         elif scope == 'individual' and collection in ['runs','biosamples', 'analyses']:
             mongo_collection=client.beacon.individuals
             original_id="id"
-            join_ids=list(join_query(mongo_collection, query, original_id))
+            join_ids=list(join_query(self, mongo_collection, query, original_id))
             final_id="individualId"
             for id_item in join_ids:
                 new_id={}
@@ -107,7 +107,7 @@ def cross_query(self, query: dict, scope: str, collection: str, request_paramete
                     query['$or']=def_list
             mongo_collection=client.beacon.biosamples
             original_id="individualId"
-            join_ids2=list(join_query(mongo_collection, query, original_id))
+            join_ids2=list(join_query(self, mongo_collection, query, original_id))
             def_list=[]
             final_id="id"
             for id_item in join_ids2:
@@ -151,19 +151,19 @@ def cross_query(self, query: dict, scope: str, collection: str, request_paramete
             mongo_collection=client.beacon.runs
             if collection == 'g_variants':
                 original_id="biosampleId"
-                join_ids=list(join_query(mongo_collection, query, original_id))
+                join_ids=list(join_query(self, mongo_collection, query, original_id))
                 final_id="caseLevelData.biosampleId"
             elif collection == 'individuals':
                 original_id="individualId"
-                join_ids=list(join_query(mongo_collection, query, original_id))
+                join_ids=list(join_query(self, mongo_collection, query, original_id))
                 final_id="id"
             elif collection == 'analyses':
                 original_id="biosampleId"
-                join_ids=list(join_query(mongo_collection, query, original_id))
+                join_ids=list(join_query(self, mongo_collection, query, original_id))
                 final_id="biosampleId"
             elif collection == 'biosamples':
                 original_id="biosampleId"
-                join_ids=list(join_query(mongo_collection, query, original_id))
+                join_ids=list(join_query(self, mongo_collection, query, original_id))
                 final_id="id"
             for id_item in join_ids:
                 new_id={}
@@ -175,19 +175,19 @@ def cross_query(self, query: dict, scope: str, collection: str, request_paramete
             mongo_collection=client.beacon.analyses
             if collection == 'g_variants':
                 original_id="biosampleId"
-                join_ids=list(join_query(mongo_collection, query, original_id))
+                join_ids=list(join_query(self, mongo_collection, query, original_id))
                 final_id="caseLevelData.biosampleId"
             elif collection == 'individuals':
                 original_id="individualId"
-                join_ids=list(join_query(mongo_collection, query, original_id))
+                join_ids=list(join_query(self, mongo_collection, query, original_id))
                 final_id="id"
             elif collection == 'runs':
                 original_id="biosampleId"
-                join_ids=list(join_query(mongo_collection, query, original_id))
+                join_ids=list(join_query(self, mongo_collection, query, original_id))
                 final_id="biosampleId"
             elif collection == 'biosamples':
                 original_id="biosampleId"
-                join_ids=list(join_query(mongo_collection, query, original_id))
+                join_ids=list(join_query(self, mongo_collection, query, original_id))
                 final_id="id"
             for id_item in join_ids:
                 new_id={}
@@ -199,19 +199,19 @@ def cross_query(self, query: dict, scope: str, collection: str, request_paramete
             mongo_collection=client.beacon.biosamples
             if collection == 'g_variants':
                 original_id="id"
-                join_ids=list(join_query(mongo_collection, query, original_id))
+                join_ids=list(join_query(self, mongo_collection, query, original_id))
                 final_id="caseLevelData.biosampleId"
             elif collection == 'individuals':
                 original_id="individualId"
-                join_ids=list(join_query(mongo_collection, query, original_id))
+                join_ids=list(join_query(self, mongo_collection, query, original_id))
                 final_id="id"
             elif collection == 'analyses':
                 original_id="id"
-                join_ids=list(join_query(mongo_collection, query, original_id))
+                join_ids=list(join_query(self, mongo_collection, query, original_id))
                 final_id="biosampleId"
             elif collection == 'runs':
                 original_id="id"
-                join_ids=list(join_query(mongo_collection, query, original_id))
+                join_ids=list(join_query(self, mongo_collection, query, original_id))
                 final_id="biosampleId"
             query={}
             query['$or']=def_list
@@ -237,14 +237,14 @@ def apply_filters(self, query: dict, filters: List[dict], collection: str, query
             partial_query = {}
             if "value" in filter:
                 filter = AlphanumericFilter(**filter)
-                partial_query = apply_alphanumeric_filter(partial_query, filter, collection)
+                partial_query = apply_alphanumeric_filter(self, partial_query, filter, collection)
             elif "includeDescendantTerms" not in filter and '.' not in filter["id"] and filter["id"].isupper():
                 filter=OntologyFilter(**filter)
                 filter.include_descendant_terms=True
-                partial_query = apply_ontology_filter(partial_query, filter, collection, request_parameters)
+                partial_query = apply_ontology_filter(self, partial_query, filter, collection, request_parameters)
             elif "similarity" in filter or "includeDescendantTerms" in filter or re.match(CURIE_REGEX, filter["id"]) and filter["id"].isupper():
                 filter = OntologyFilter(**filter)
-                partial_query = apply_ontology_filter(partial_query, filter, collection, request_parameters)
+                partial_query = apply_ontology_filter(self, partial_query, filter, collection, request_parameters)
             else:
                 filter = CustomFilter(**filter)
                 partial_query = apply_custom_filter(partial_query, filter, collection)
@@ -283,7 +283,7 @@ def apply_filters(self, query: dict, filters: List[dict], collection: str, query
 
                 mongo_collection=client.beacon.biosamples
                 original_id="individualId"
-                join_ids2=list(join_query(mongo_collection, partial_query, original_id))
+                join_ids2=list(join_query(self, mongo_collection, partial_query, original_id))
                 def_list=[]
                 final_id="id"
                 for id_item in join_ids2:
@@ -320,7 +320,7 @@ def apply_filters(self, query: dict, filters: List[dict], collection: str, query
                 
                 mongo_collection=client.beacon.biosamples
                 original_id="individualId"
-                join_ids2=list(join_query(mongo_collection, partial_query, original_id))
+                join_ids2=list(join_query(self, mongo_collection, partial_query, original_id))
                 def_list=[]
                 final_id="id"
                 for id_item in join_ids2:
@@ -404,7 +404,7 @@ def apply_ontology_filter(self, query: dict, filter: OntologyFilter, collection:
     final_term_list=[]
     query_synonyms={}
     query_synonyms['id']=filter.id
-    synonyms=get_documents(
+    synonyms=get_documents(self,
         client.beacon.synonyms,
         query_synonyms,
         0,
@@ -457,7 +457,7 @@ def apply_ontology_filter(self, query: dict, filter: OntologyFilter, collection:
         dict_id={}
         dict_id['id']=filter.id
         query_filtering['$and'].append(dict_id)
-        docs = get_documents(
+        docs = get_documents(self,
             client.beacon.filtering_terms,
             query_filtering,
             0,
@@ -478,7 +478,7 @@ def apply_ontology_filter(self, query: dict, filter: OntologyFilter, collection:
             dict_id={}
             dict_id['id']=dict_regex
             query_filtering['$and'].append(dict_id)
-            docs_2 = get_documents(
+            docs_2 = get_documents(self,
                 client.beacon.filtering_terms,
                 query_filtering,
                 0,
@@ -532,7 +532,7 @@ def apply_ontology_filter(self, query: dict, filter: OntologyFilter, collection:
         dict_id['id']=filter.id
         query_filtering['$and'].append(dict_id)
         query_filtering['$and'].append(dict_scope)
-        docs = get_documents(
+        docs = get_documents(self,
             client.beacon.filtering_terms,
             query_filtering,
             0,
@@ -554,7 +554,7 @@ def apply_ontology_filter(self, query: dict, filter: OntologyFilter, collection:
         dict_scope['scopes']=scope
         query_filtering['$and'].append(dict_id)
         query_filtering['$and'].append(dict_scope)
-        docs_2 = get_documents(
+        docs_2 = get_documents(self,
             client.beacon.filtering_terms,
             query_filtering,
             0,
@@ -575,7 +575,7 @@ def apply_ontology_filter(self, query: dict, filter: OntologyFilter, collection:
                 new_query['$or'].append(query_id)
             query = new_query
         
-        query=cross_query(query, scope, collection, request_parameters)
+        query=cross_query(self, query, scope, collection, request_parameters)
 
             
     if is_filter_id_required:
@@ -587,7 +587,7 @@ def apply_ontology_filter(self, query: dict, filter: OntologyFilter, collection:
         dict_id={}
         dict_id['id']=filter.id
         query_filtering['$and'].append(dict_id)
-        docs = get_documents(
+        docs = get_documents(self,
         client.beacon.filtering_terms,
         query_filtering,
         0,
@@ -604,7 +604,7 @@ def apply_ontology_filter(self, query: dict, filter: OntologyFilter, collection:
         dict_id={}
         dict_id['id']=dict_regex
         query_filtering['$and'].append(dict_id)
-        docs_2 = get_documents(
+        docs_2 = get_documents(self,
         client.beacon.filtering_terms,
         query_filtering,
         0,
@@ -625,7 +625,7 @@ def apply_ontology_filter(self, query: dict, filter: OntologyFilter, collection:
                 new_query['$or'].append(query_id)
             new_query['$or'].append(query)
             query = new_query
-        query=cross_query(query, scope, collection, request_parameters)
+        query=cross_query(self, query, scope, collection, request_parameters)
     return query
 
 
@@ -758,7 +758,7 @@ def apply_alphanumeric_filter(self, query: dict, filter: AlphanumericFilter, col
                 query_id={}
                 query_id[query_term]=regex_dict
                 query['$or'].append(query_id)
-                query=cross_query(query, scope, collection, {})
+                query=cross_query(self, query, scope, collection, {})
                 
             else:
                 try: 
@@ -771,7 +771,7 @@ def apply_alphanumeric_filter(self, query: dict, filter: AlphanumericFilter, col
                 query_id={}
                 query_id[query_term]=filter.value
                 query['$or'].append(query_id) 
-                query=cross_query(query, scope, collection, {})
+                query=cross_query(self, query, scope, collection, {})
                 
 
         elif formatted_operator == "$ne":
@@ -825,7 +825,7 @@ def apply_alphanumeric_filter(self, query: dict, filter: AlphanumericFilter, col
                 dict_in={}
                 dict_in["$in"]=new_age_list
                 query[filter.id] = dict_in
-                query=cross_query(query, scope, collection, {})
+                query=cross_query(self, query, scope, collection, {})
             elif '<' in filter.operator:
                 age_in_number=""
                 for char in filter.value:
@@ -846,7 +846,7 @@ def apply_alphanumeric_filter(self, query: dict, filter: AlphanumericFilter, col
                 dict_in={}
                 dict_in["$in"]=new_age_list
                 query[filter.id] = dict_in
-                query=cross_query(query, scope, collection, {})
+                query=cross_query(self, query, scope, collection, {})
         else:
             query_filtering={}
             query_filtering['$and']=[]
@@ -858,7 +858,7 @@ def apply_alphanumeric_filter(self, query: dict, filter: AlphanumericFilter, col
             dict_id['id']=dict_regex
             query_filtering['$and'].append(dict_type)
             query_filtering['$and'].append(dict_id)
-            docs = get_documents(
+            docs = get_documents(self,
                 client.beacon.filtering_terms,
                 query_filtering,
                 0,
@@ -882,7 +882,7 @@ def apply_alphanumeric_filter(self, query: dict, filter: AlphanumericFilter, col
             dict_measures={}
             dict_measures[measuresfield]=dict_elemmatch
             query = dict_measures
-            query=cross_query(query, scope, collection, {})
+            query=cross_query(self, query, scope, collection, {})
     return query
 
 
@@ -899,6 +899,6 @@ def apply_custom_filter(self, query: dict, filter: CustomFilter, collection:str)
     else:
         query_term = value_splitted[0] + '.label'
     query[query_term]=value_splitted[1]
-    query=cross_query(query, scope, collection, {})
+    query=cross_query(self, query, scope, collection, {})
 
     return query

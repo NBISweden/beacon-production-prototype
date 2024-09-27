@@ -19,10 +19,13 @@ async def check_request_content_type(self, request: Request):
 
 
 @log_with_args(level)
-async def get_qparams(self, request: Request):
+async def get_qparams(self, post_data, request):
     try:
-        json_body = await request.json() if request.method == "POST" and request.has_body and request.can_read_body else {}
-        qparams = RequestParams(**json_body).from_request(request)
+        if post_data is not None:
+            qparams = RequestParams(**request)
+        else:
+            json_body={}
+            qparams = RequestParams(**json_body).from_request(request)
         return qparams
     except Exception as e:
         raise
