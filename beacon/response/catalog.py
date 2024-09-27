@@ -8,6 +8,7 @@ from beacon.conf.conf import level
 from beacon.source.generator import get_entry_types, get_entry_types_map
 from beacon.filtering_terms.resources import resources
 from beacon.exceptions.exceptions import raise_exception
+from beacon.utils.handovers import list_of_handovers, list_of_handovers_per_dataset
 
 def build_response(self, data, num_total_results, qparams):
     """"Fills the `response` part with the correct format in `results`"""
@@ -21,7 +22,7 @@ def build_response(self, data, num_total_results, qparams):
             'resultsCount': num_total_results,
             'results': data,
             # 'info': None,
-            'resultsHandover': 'beacon_handovers()',  # build_results_handover
+            'resultsHandover': list_of_handovers,  # build_results_handover
         }
     elif limit != 0 and limit < num_total_results:
         response = {
@@ -31,7 +32,7 @@ def build_response(self, data, num_total_results, qparams):
             'resultsCount': limit,
             'results': data,
             # 'info': None,
-            'resultsHandover': 'beacon_handovers()',  # build_results_handover
+            'resultsHandover': list_of_handovers,  # build_results_handover
         }
     else:
         response = {
@@ -41,7 +42,7 @@ def build_response(self, data, num_total_results, qparams):
             'resultsCount': num_total_results,
             'results': data,
             # 'info': None,
-            'resultsHandover': 'beacon_handovers()',  # build_results_handover
+            'resultsHandover': list_of_handovers,  # build_results_handover
         }
 
     return response
@@ -137,16 +138,25 @@ def build_response_by_dataset(self, data, dict_counts, qparams):
         list_of_responses=[]
         for k,v in data.items():
             if v:
-                response = {
-                    'id': k, # TODO: Set the name of the dataset/cohort
-                    'setType': 'dataset', # TODO: Set the type of collection
-                    'exists': dict_counts[k] > 0,
-                    'resultsCount': dict_counts[k],
-                    'results': v,
-                    # 'info': None,
-                    'resultsHandover': 'beacon_handovers_by_dataset(k)',  # build_results_handover
-                }
-                
+                for handover in list_of_handovers_per_dataset:
+                    if handover["dataset"]==k:
+                        response = {
+                            'id': k, # TODO: Set the name of the dataset/cohort
+                            'setType': 'dataset', # TODO: Set the type of collection
+                            'exists': dict_counts[k] > 0,
+                            'resultsCount': dict_counts[k],
+                            'results': v,
+                            # 'info': None,
+                            'resultsHandover': handover["handover"]  # build_results_handover
+                        }
+                    else:
+                        response = {
+                            'id': k, # TODO: Set the name of the dataset/cohort
+                            'setType': 'dataset', # TODO: Set the type of collection
+                            'exists': dict_counts[k] > 0,
+                            'resultsCount': dict_counts[k],
+                            'results': v
+                        }
                 list_of_responses.append(response)
 
         return list_of_responses
@@ -166,7 +176,7 @@ def build_beacon_boolean_response_by_dataset(self, data,
             'response': {
                 'resultSets': build_response_by_dataset(self, data, dict_counts, qparams)
             },
-            'beaconHandovers': 'beacon_handovers()',
+            'beaconHandovers': list_of_handovers,
         }
         return beacon_response
     except Exception:
@@ -182,7 +192,7 @@ def build_beacon_boolean_response(self, data,
             'meta': build_meta(self, qparams, entity_schema, Granularity.BOOLEAN),
             'responseSummary': build_response_summary(self, num_total_results > 0, None),
             # TODO: 'extendedInfo': build_extended_info(),
-            'beaconHandovers': 'beacon_handovers()',
+            'beaconHandovers': list_of_handovers,
         }
         return beacon_response
     except Exception:
@@ -198,7 +208,7 @@ def build_beacon_count_response(self, data,
             'meta': build_meta(self, qparams, entity_schema, Granularity.COUNT),
             'responseSummary': build_response_summary(self, num_total_results > 0, num_total_results),
             # TODO: 'extendedInfo': build_extended_info(),
-            'beaconHandovers': 'beacon_handovers()',
+            'beaconHandovers': list_of_handovers,
         }
         return beacon_response
     except Exception:
@@ -216,7 +226,7 @@ def build_beacon_boolean_response(self, data,
             'response': {
                 'resultSets': [build_response(self, data, num_total_results, qparams)]
             },
-            'beaconHandovers': 'beacon_handovers()',
+            'beaconHandovers': list_of_handovers,
         }
         return beacon_response
     except Exception:
@@ -243,7 +253,7 @@ def build_beacon_collection_response(self, data, num_total_results, qparams: Req
             'meta': build_meta(self, qparams, entity_schema, Granularity.RECORD),
             'responseSummary': build_response_summary(self, num_total_results > 0, num_total_results),
             # TODO: 'info': build_extended_info(),
-            'beaconHandovers': "beacon_handovers()",
+            'beaconHandovers': list_of_handovers,
             'response': {
                 'collections': data
             }
@@ -417,7 +427,7 @@ def build_filtering_terms_response(self, data,
                 'filteringTerms': data,
                 'resources': resources
             },
-            'beaconHandovers': "beacon_handovers()",
+            'beaconHandovers': list_of_handovers,
         }
         return beacon_response
     except Exception:
