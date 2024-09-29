@@ -4,7 +4,7 @@ from beacon.request.parameters import AlphanumericFilter, CustomFilter, Ontology
 from beacon.connections.mongo.utils import get_documents, join_query
 from beacon.connections.mongo.__init__ import client
 from beacon import conf
-from beacon.logs.logs import log_with_args
+from beacon.logs.logs import log_with_args, LOG
 from beacon.conf.conf import level
 
 CURIE_REGEX = r'^([a-zA-Z0-9]*):\/?[a-zA-Z0-9./]*$'
@@ -17,7 +17,7 @@ def cross_query(self, query: dict, scope: str, collection: str, request_paramete
         subquery["$or"]=[]
         if request_parameters != {}:
             biosample_ids = client.beacon.genomicVariations.find(request_parameters, {"caseLevelData.biosampleId": 1, "_id": 0})
-            final_id='id'
+            final_id='caseLevelData.biosampleId'
             original_id="biosampleId"
             def_list=[]
             for iditem in biosample_ids:
@@ -29,20 +29,10 @@ def cross_query(self, query: dict, scope: str, collection: str, request_paramete
                                 new_id[final_id] = id_item[original_id]
                                 try:
                                     subquery['$or'].append(new_id)
-                                except Exception:
+                                except Exception:# pragma: no cover
                                     def_list.append(new_id)
-            
-            mongo_collection=client.beacon.biosamples
-            original_id="individualId"
-            join_ids2=list(join_query(self, mongo_collection, subquery, original_id))
-            def_list=[]
-            final_id="id"
-            for id_item in join_ids2:
-                new_id={}
-                new_id[final_id] = id_item.pop(original_id)
-                def_list.append(new_id)
-            subquery={}
-            subquery['$or']=def_list
+                                    subquery={}
+                                    subquery['$or']=def_list
             try:
                 query["$and"] = []
                 query["$and"].append(subquery)
