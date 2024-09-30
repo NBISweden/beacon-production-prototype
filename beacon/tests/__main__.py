@@ -815,6 +815,72 @@ class TestMain(unittest.TestCase):
                 assert resp == {'$or': [{'caseLevelData.zygosity.id': 'GENO:GENO_0000458'}], '$and': [{'$or': [{'caseLevelData.biosampleId': 'HG03771'}]}]}
             loop.run_until_complete(test_check_cross_query_4_is_working())
             loop.run_until_complete(client.close())
+    def test_main_check_cross_query_5_is_working(self):
+        with loop_context() as loop:
+            app = create_app()
+            client = TestClient(TestServer(app), loop=loop)
+            loop.run_until_complete(client.start_server())
+            async def test_check_cross_query_5_is_working():
+                MagicClass = MagicMock(_id='hohoho')
+                resp = cross_query(MagicClass, {'$or': [{'caseLevelData.zygosity.id': 'GENO:GENO_0000458'}]}, 'genomicVariation', 'individuals', {'$and': [{'variation.location.interval.start.value': {'$gte': 16050074}}, {'variation.location.interval.end.value': {'$lte': 16050075}}, {'variation.alternateBases': {'$eq': 'A'}}, {'variation.referenceBases': {'$eq': 'G'}}, {'$and': [{'$or': [{'identifiers.genomicHGVSId': {'$regex': '^NC_000022'}}]}]}]})
+                assert resp != {}
+            loop.run_until_complete(test_check_cross_query_5_is_working())
+            loop.run_until_complete(client.close())
+    def test_main_check_cross_query_6_is_working(self):
+        with loop_context() as loop:
+            app = create_app()
+            client = TestClient(TestServer(app), loop=loop)
+            loop.run_until_complete(client.start_server())
+            async def test_check_cross_query_6_is_working():
+                MagicClass = MagicMock(_id='hohoho')
+                resp = cross_query(MagicClass, {'$or': [{'caseLevelData.zygosity.id': 'GENO:GENO_0000458'}]}, 'genomicVariation', 'biosamples', {'$and': [{'variation.location.interval.start.value': {'$gte': 16050074}}, {'variation.location.interval.end.value': {'$lte': 16050075}}, {'variation.alternateBases': {'$eq': 'A'}}, {'variation.referenceBases': {'$eq': 'G'}}, {'$and': [{'$or': [{'identifiers.genomicHGVSId': {'$regex': '^NC_000022'}}]}]}]})
+                assert resp != {}
+            loop.run_until_complete(test_check_cross_query_6_is_working())
+            loop.run_until_complete(client.close())
+    def test_main_check_cross_query_7_is_working(self):
+        with loop_context() as loop:
+            app = create_app()
+            client = TestClient(TestServer(app), loop=loop)
+            loop.run_until_complete(client.start_server())
+            async def test_check_cross_query_7_is_working():
+                MagicClass = MagicMock(_id='hohoho')
+                resp = cross_query(MagicClass, {'$or': [{'platformModel.id': 'OBI:0002048'}]}, 'run', 'individuals', {})
+                assert resp != {}
+            loop.run_until_complete(test_check_cross_query_7_is_working())
+            loop.run_until_complete(client.close())
+    def test_main_check_cross_query_8_is_working(self):
+        with loop_context() as loop:
+            app = create_app()
+            client = TestClient(TestServer(app), loop=loop)
+            loop.run_until_complete(client.start_server())
+            async def test_check_cross_query_8_is_working():
+                MagicClass = MagicMock(_id='hohoho')
+                resp = cross_query(MagicClass, {'$or': [{'platformModel.id': 'OBI:0002048'}]}, 'run', 'biosamples', {})
+                assert resp != {}
+            loop.run_until_complete(test_check_cross_query_8_is_working())
+            loop.run_until_complete(client.close())
+    def test_main_check_cross_query_9_is_working(self):
+        with loop_context() as loop:
+            app = create_app()
+            client = TestClient(TestServer(app), loop=loop)
+            loop.run_until_complete(client.start_server())
+            async def test_check_cross_query_9_is_working():
+                MagicClass = MagicMock(_id='hohoho')
+                resp = cross_query(MagicClass, {'$or': [{'platformModel.id': 'OBI:0002048'}]}, 'run', 'g_variants', {})
+                assert resp != {}
+            loop.run_until_complete(test_check_cross_query_9_is_working())
+            loop.run_until_complete(client.close())
+    def test_main_check_cross_query_10_is_working(self):
+        with loop_context() as loop:
+            app = create_app()
+            client = TestClient(TestServer(app), loop=loop)
+            loop.run_until_complete(client.start_server())
+            async def test_check_cross_query_10_is_working():
+                MagicClass = MagicMock(_id='hohoho')
+                resp = cross_query(MagicClass, {'$or': [{'platformModel.id': 'OBI:0002048'}]}, 'run', 'analyses', {})
+                assert resp != {}
+            loop.run_until_complete(test_check_cross_query_10_is_working())
+            loop.run_until_complete(client.close())
 
 
 
