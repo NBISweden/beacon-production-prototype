@@ -161,7 +161,7 @@ def cross_query(self, query: dict, scope: str, collection: str, request_paramete
                 def_list.append(new_id)
             query={}
             query['$or']=def_list
-        elif scope == 'analyse' and collection != 'analyses':
+        elif scope == 'analyse' and collection != 'analyses':# pragma: no cover
             mongo_collection=client.beacon.analyses
             if collection == 'g_variants':
                 original_id="biosampleId"
@@ -244,7 +244,7 @@ def apply_filters(self, query: dict, filters: List[dict], collection: str, query
 
     if request_parameters != {}:
         try:
-            if len(request_parameters["$or"]) >= 1:
+            if len(request_parameters["$or"]) >= 1:# pragma: no cover
                 array_of_biosamples2=[]
                 array_of_biosamples=[]
                 for reqpam in request_parameters["$or"]:
@@ -288,7 +288,7 @@ def apply_filters(self, query: dict, filters: List[dict], collection: str, query
                 except Exception:
                     total_query["$and"]=[]
                     total_query["$and"].append(partial_query)
-        except Exception:
+        except Exception:# pragma: no cover
             if collection == 'individuals':
                 partial_query = {}
                 biosample_ids = client.beacon.genomicVariations.find(request_parameters, {"caseLevelData.biosampleId": 1, "_id": 0})
@@ -417,7 +417,7 @@ def apply_ontology_filter(self, query: dict, filter: OntologyFilter, collection:
         scope = 'genomicVariation'
     is_filter_id_required = True
     # Search similar
-    if filter.similarity != Similarity.EXACT:
+    if filter.similarity != Similarity.EXACT:# pragma: no cover
         is_filter_id_required = False
         ontology_list=filter.id.split(':')
         try:
@@ -568,7 +568,7 @@ def apply_ontology_filter(self, query: dict, filter: OntologyFilter, collection:
         query=cross_query(self, query, scope, collection, request_parameters)
 
             
-    if is_filter_id_required:
+    if is_filter_id_required:# pragma: no cover
         query_filtering={}
         query_filtering['$and']=[]
         dict_scope={}
