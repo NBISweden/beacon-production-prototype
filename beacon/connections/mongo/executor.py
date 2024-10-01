@@ -11,6 +11,8 @@ from typing import Optional
 from beacon.request.parameters import RequestParams
 from beacon.connections.mongo.datasets import get_analyses_of_dataset, get_biosamples_of_dataset, get_individuals_of_dataset, get_variants_of_dataset, get_runs_of_dataset
 from beacon.connections.mongo.cohorts import get_analyses_of_cohort, get_biosamples_of_cohort, get_individuals_of_cohort, get_variants_of_cohort, get_runs_of_cohort
+from beacon.connections.mongo.datasets import get_full_datasets, get_dataset_with_id
+from beacon.connections.mongo.cohorts import get_cohorts, get_cohort_with_id
 
 @log_with_args(level)
 async def execute_function(self, entry_type: str, datasets: list, qparams: RequestParams, entry_id: Optional[str]):
@@ -116,3 +118,18 @@ async def execute_function(self, entry_type: str, datasets: list, qparams: Reque
             count = limit# pragma: no cover
         datasets_count["NONE"]=count
     return datasets_docs, datasets_count, count, entity_schema, include
+
+@log_with_args(level)
+async def execute_collection_function(self, entry_type: str, qparams: RequestParams, entry_id: Optional[str]):
+    if entry_id == None:
+        if entry_type == 'datasets':
+            function=get_full_datasets
+        elif entry_type == 'cohorts':
+            function=get_cohorts
+    else:
+        if entry_type == 'datasets':
+            function=get_dataset_with_id
+        elif entry_type == 'cohorts':
+            function=get_cohort_with_id
+    response_converted, count, entity_schema = function(self, entry_id, qparams)
+    return response_converted, count, entity_schema

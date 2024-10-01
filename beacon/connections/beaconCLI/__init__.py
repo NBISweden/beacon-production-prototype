@@ -1,4 +1,3 @@
-'''
 import paramiko
 from beacon.connections.beaconCLI import conf
 
@@ -9,4 +8,3 @@ def create_ssh(host, username, password):
     return ssh
 
 client = create_ssh(host=conf.host, username=conf.username, password=conf.password)
-'''

@@ -1,4 +1,3 @@
-'''
 from beacon.request.parameters import RequestParams
 from beacon.response.schemas import DefaultSchemas
 from typing import Optional
@@ -46,4 +45,3 @@ def get_variants(self, entry_id: Optional[str], qparams: RequestParams, dataset:
     schema = DefaultSchemas.GENOMICVARIATIONS
 
     return schema, count, dataset_count, docs, dataset
-'''

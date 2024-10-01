@@ -1,3 +1,5 @@
+# Please, name the database as the folder's name inside the connections module.
+
 analyses={
     'granularity': {
         'boolean': False,
@@ -8,7 +10,8 @@ analyses={
     'endpoints': {
         'genomicVariant': False
     },
-    'testMode': False
+    'testMode': False,
+    'database': 'mongo'
 }
 biosamples={
     'granularity': {
@@ -22,7 +25,8 @@ biosamples={
         'genomicVariant': False,
         'run': False
     },
-    'testMode': False
+    'testMode': False,
+    'database': 'mongo'
 }
 cohorts={
     'granularity': {
@@ -36,7 +40,8 @@ cohorts={
         'individual': False,
         'run': False
     },
-    'testMode': False
+    'testMode': False,
+    'database': 'mongo'
 }
 datasets={
     'granularity': {
@@ -52,7 +57,8 @@ datasets={
         'individual': False,
         'run': False
     },
-    'testMode': False
+    'testMode': False,
+    'database': 'mongo'
 }
 g_variants={
     'granularity': {
@@ -67,7 +73,8 @@ g_variants={
         'individual': False,
         'run': False
     },
-    'testMode': False
+    'testMode': False,
+    'database': 'mongo'
 }
 individuals={
     'granularity': {
@@ -82,7 +89,8 @@ individuals={
         'genomicVariant': False,
         'run': False
     },
-    'testMode': False
+    'testMode': False,
+    'database': 'mongo'
 }
 runs={
     'granularity': {
@@ -95,5 +103,9 @@ runs={
         'analysis': False,
         'genomicVariant': False
     },
-    'testMode': False
+    'testMode': False,
+    'database': 'mongo'
+}
+filtering_terms={
+    'database': 'mongo'
 }
