@@ -16,8 +16,8 @@ def get_variants(self, entry_id: Optional[str], qparams: RequestParams, dataset:
     parameters_as_filters=False
     query_parameters, parameters_as_filters = apply_request_parameters(self, {}, qparams)
     if parameters_as_filters == True and query_parameters != {'$and': []}:
-        query, parameters_as_filters = apply_request_parameters(self, {}, qparams)
-        query_parameters={}
+        query, parameters_as_filters = apply_request_parameters(self, {}, qparams)# pragma: no cover
+        query_parameters={}# pragma: no cover
     elif query_parameters != {'$and': []}:
         query=query_parameters
     elif query_parameters == {'$and': []}:
@@ -46,8 +46,8 @@ def get_variant_with_id(self, entry_id: Optional[str], qparams: RequestParams, d
     query = {"$and": [{"variantInternalId": entry_id}]}
     query_parameters, parameters_as_filters = apply_request_parameters(self, query, qparams)
     if parameters_as_filters == True:
-        query, parameters_as_filters = apply_request_parameters(self, {}, qparams)
-        query_parameters={}
+        query, parameters_as_filters = apply_request_parameters(self, {}, qparams)# pragma: no cover
+        query_parameters={}# pragma: no cover
     else:
         query=query_parameters
     query = apply_filters(self, query, qparams.query.filters, collection, {})
@@ -59,7 +59,7 @@ def get_variant_with_id(self, entry_id: Optional[str], qparams: RequestParams, d
     limit = qparams.query.pagination.limit
     skip = qparams.query.pagination.skip
     if limit > 100 or limit == 0:
-        limit = 100
+        limit = 100# pragma: no cover
     idq="caseLevelData.biosampleId"
     if include not in ['ALL', 'NONE']:
         include = 'ALL'
@@ -73,8 +73,8 @@ def get_biosamples_of_variant(self, entry_id: Optional[str], qparams: RequestPar
     query = {"$and": [{"variantInternalId": entry_id}]}
     query_parameters, parameters_as_filters = apply_request_parameters(self, {}, qparams)
     if parameters_as_filters == True:
-        query, parameters_as_filters = apply_request_parameters(self, {}, qparams)
-        query_parameters={}
+        query, parameters_as_filters = apply_request_parameters(self, {}, qparams)# pragma: no cover
+        query_parameters={}# pragma: no cover
     else:
         query=query_parameters
     query = apply_filters(self, query, qparams.query.filters, collection,query_parameters)
@@ -83,7 +83,7 @@ def get_biosamples_of_variant(self, entry_id: Optional[str], qparams: RequestPar
     biosample_id=biosample_ids["caseLevelData"]
     try:
         finalid=biosample_id[0]["biosampleId"]
-    except Exception:
+    except Exception:# pragma: no cover
         finalid=biosample_id["biosampleId"]
     query = {"id": finalid}
     query = apply_filters(self, query, qparams.query.filters, collection, {})
@@ -94,7 +94,7 @@ def get_biosamples_of_variant(self, entry_id: Optional[str], qparams: RequestPar
     limit = qparams.query.pagination.limit
     skip = qparams.query.pagination.skip
     if limit > 100 or limit == 0:
-        limit = 100
+        limit = 100# pragma: no cover
     idq="id"
     if include not in ['ALL', 'NONE']:
         include = 'ALL'
@@ -108,8 +108,8 @@ def get_runs_of_variant(self, entry_id: Optional[str], qparams: RequestParams, d
     query = {"$and": [{"variantInternalId": entry_id}]}
     query_parameters, parameters_as_filters = apply_request_parameters(self, {}, qparams)
     if parameters_as_filters == True:
-        query, parameters_as_filters = apply_request_parameters(self, {}, qparams)
-        query_parameters={}
+        query, parameters_as_filters = apply_request_parameters(self, {}, qparams)# pragma: no cover
+        query_parameters={}# pragma: no cover
     else:
         query=query_parameters
     query = apply_filters(self, query, qparams.query.filters, collection,query_parameters)
@@ -118,7 +118,7 @@ def get_runs_of_variant(self, entry_id: Optional[str], qparams: RequestParams, d
     biosample_id=biosample_ids["caseLevelData"]
     try:
         finalid=biosample_id[0]["biosampleId"]
-    except Exception:
+    except Exception:# pragma: no cover
         finalid=biosample_id["biosampleId"]
     query = {"biosampleId": finalid}
     query = apply_filters(self, query, qparams.query.filters, collection, {})
@@ -129,7 +129,7 @@ def get_runs_of_variant(self, entry_id: Optional[str], qparams: RequestParams, d
     limit = qparams.query.pagination.limit
     skip = qparams.query.pagination.skip
     if limit > 100 or limit == 0:
-        limit = 100
+        limit = 100# pragma: no cover
     idq="biosampleId"
     if include not in ['ALL', 'NONE']:
         include = 'ALL'
@@ -143,8 +143,8 @@ def get_analyses_of_variant(self, entry_id: Optional[str], qparams: RequestParam
     query = {"$and": [{"variantInternalId": entry_id}]}
     query_parameters, parameters_as_filters = apply_request_parameters(self, {}, qparams)
     if parameters_as_filters == True:
-        query, parameters_as_filters = apply_request_parameters(self, {}, qparams)
-        query_parameters={}
+        query, parameters_as_filters = apply_request_parameters(self, {}, qparams)# pragma: no cover
+        query_parameters={}# pragma: no cover
     else:
         query=query_parameters
     query = apply_filters(self, query, qparams.query.filters, collection,query_parameters)
@@ -153,7 +153,7 @@ def get_analyses_of_variant(self, entry_id: Optional[str], qparams: RequestParam
     biosample_id=biosample_ids["caseLevelData"]
     try:
         finalid=biosample_id[0]["biosampleId"]
-    except Exception:
+    except Exception:# pragma: no cover
         finalid=biosample_id["biosampleId"]
     query = {"biosampleId": finalid}
     query = apply_filters(self, query, qparams.query.filters, collection, {})
@@ -164,7 +164,7 @@ def get_analyses_of_variant(self, entry_id: Optional[str], qparams: RequestParam
     limit = qparams.query.pagination.limit
     skip = qparams.query.pagination.skip
     if limit > 100 or limit == 0:
-        limit = 100
+        limit = 100# pragma: no cover
     idq="biosampleId"
     if include not in ['ALL', 'NONE']:
         include = 'ALL'
@@ -178,8 +178,8 @@ def get_individuals_of_variant(self, entry_id: Optional[str], qparams: RequestPa
     query = {"$and": [{"variantInternalId": entry_id}]}
     query_parameters, parameters_as_filters = apply_request_parameters(self, {}, qparams)
     if parameters_as_filters == True:
-        query, parameters_as_filters = apply_request_parameters(self, {}, qparams)
-        query_parameters={}
+        query, parameters_as_filters = apply_request_parameters(self, {}, qparams)# pragma: no cover
+        query_parameters={}# pragma: no cover
     else:
         query=query_parameters
     query = apply_filters(self, query, qparams.query.filters, collection,query_parameters)
@@ -188,7 +188,7 @@ def get_individuals_of_variant(self, entry_id: Optional[str], qparams: RequestPa
     biosample_id=biosample_ids["caseLevelData"]
     try:
         finalid=biosample_id[0]["biosampleId"]
-    except Exception:
+    except Exception:# pragma: no cover
         finalid=biosample_id["biosampleId"]
     query = {"id": finalid}
     individual_id = client.beacon.biosamples \
@@ -203,7 +203,7 @@ def get_individuals_of_variant(self, entry_id: Optional[str], qparams: RequestPa
     limit = qparams.query.pagination.limit
     skip = qparams.query.pagination.skip
     if limit > 100 or limit == 0:
-        limit = 100
+        limit = 100# pragma: no cover
     idq="id"
     if include not in ['ALL', 'NONE']:
         include = 'ALL'

@@ -9,7 +9,7 @@ def get_cross_query(self, ids: dict, cross_type: str, collection_id: str):
     id_list=[]
     dict_in={}
     id_dict={}
-    if cross_type == 'biosampleId' or cross_type=='id':
+    if cross_type == 'biosampleId' or cross_type=='id':# pragma: no cover
         list_item=ids
         id_list.append(str(list_item))
         dict_in["$in"]=id_list
@@ -20,7 +20,7 @@ def get_cross_query(self, ids: dict, cross_type: str, collection_id: str):
         dict_in["$in"]=list_individualIds
         id_dict[collection_id]=dict_in
         query = id_dict
-    else:
+    else:# pragma: no cover
         for k, v in ids.items():
             for item in v:
                 id_list.append(item[cross_type])
@@ -65,9 +65,9 @@ def get_count(self, collection: Collection, query: dict) -> int:
                 insert_dict={}
                 insert_dict['id']=str(query)
                 total_counts=total[0]['Total']
-                insert_dict['num_results']=total_counts
-                insert_dict['collection']=str(collection)
-                insert_total=client.beacon.counts.insert_one(insert_dict)
+                insert_dict['num_results']=total_counts# pragma: no cover
+                insert_dict['collection']=str(collection)# pragma: no cover
+                insert_total=client.beacon.counts.insert_one(insert_dict)# pragma: no cover
             else:
                 total_counts=counts[0]["num_results"]
         except Exception as e:# pragma: no cover

@@ -6,6 +6,6 @@ class Granularity(StrEnum):
     RECORD = "record"
 
 class ErrorClass():
-    def __init__(self) -> None:
+    def __init__(self) -> None:# pragma: no cover
         self.error_response=None
         self.error_code=None

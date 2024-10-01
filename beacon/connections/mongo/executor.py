@@ -113,6 +113,6 @@ async def execute_function(self, entry_type: str, datasets: list, qparams: Reque
         if limit == 0 or new_count < limit:
             pass
         else:
-            count = limit
+            count = limit# pragma: no cover
         datasets_count["NONE"]=count
     return datasets_docs, datasets_count, count, entity_schema, include

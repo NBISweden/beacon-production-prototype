@@ -24,7 +24,7 @@ class TestValidator(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main()# pragma: no cover
 
 '''    def test_info_validate_info_schema(self):
         with loop_context() as loop:

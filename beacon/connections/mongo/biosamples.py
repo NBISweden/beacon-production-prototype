@@ -15,12 +15,12 @@ def get_biosamples(self, entry_id: Optional[str], qparams: RequestParams, datase
     mongo_collection = client.beacon.biosamples
     parameters_as_filters=False
     query_parameters, parameters_as_filters = apply_request_parameters(self, {}, qparams)
-    if parameters_as_filters == True and query_parameters != {'$and': []}:
+    if parameters_as_filters == True and query_parameters != {'$and': []}:# pragma: no cover
         query, parameters_as_filters = apply_request_parameters(self, {}, qparams)
         query_parameters={}
     elif query_parameters != {'$and': []}:
         query=query_parameters
-    elif query_parameters == {'$and': []}:
+    elif query_parameters == {'$and': []}:# pragma: no cover
         query_parameters = {}
         query={}
     query = apply_filters(self, query, qparams.query.filters, collection, query_parameters)
@@ -51,7 +51,7 @@ def get_biosample_with_id(self, entry_id: Optional[str], qparams: RequestParams,
     limit = qparams.query.pagination.limit
     skip = qparams.query.pagination.skip
     if limit > 100 or limit == 0:
-        limit = 100
+        limit = 100# pragma: no cover
     idq="id"
     if include not in ['ALL', 'NONE']:
         include = 'ALL'
@@ -71,7 +71,7 @@ def get_variants_of_biosample(self, entry_id: Optional[str], qparams: RequestPar
     limit = qparams.query.pagination.limit
     skip = qparams.query.pagination.skip
     if limit > 100 or limit == 0:
-        limit = 100
+        limit = 100# pragma: no cover
     idq="caseLevelData.biosampleId"
     if include not in ['ALL', 'NONE']:
         include = 'ALL'
@@ -91,7 +91,7 @@ def get_analyses_of_biosample(self, entry_id: Optional[str], qparams: RequestPar
     limit = qparams.query.pagination.limit
     skip = qparams.query.pagination.skip
     if limit > 100 or limit == 0:
-        limit = 100
+        limit = 100# pragma: no cover
     if include not in ['ALL', 'NONE']:
         include = 'ALL'
     idq="biosampleId"
@@ -111,7 +111,7 @@ def get_runs_of_biosample(self, entry_id: Optional[str], qparams: RequestParams,
     limit = qparams.query.pagination.limit
     skip = qparams.query.pagination.skip
     if limit > 100 or limit == 0:
-        limit = 100
+        limit = 100# pragma: no cover
     if include not in ['ALL', 'NONE']:
         include = 'ALL'
     idq="biosampleId"

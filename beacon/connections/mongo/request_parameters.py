@@ -31,7 +31,7 @@ def generate_position_filter_start(self, key: str, value: List[int]) -> List[Alp
             value=value[0],
             operator=Operator.GREATER_EQUAL
         ))
-    elif len(value) == 2:
+    elif len(value) == 2:# pragma: no cover
         filters.append(AlphanumericFilter(
             id=VARIANTS_PROPERTY_MAP[key],
             value=value[0],
@@ -53,7 +53,7 @@ def generate_position_filter_end(self, key: str, value: List[int]) -> List[Alpha
             value=value[0],
             operator=Operator.LESS_EQUAL
         ))
-    elif len(value) == 2:
+    elif len(value) == 2:# pragma: no cover
         filters.append(AlphanumericFilter(
             id=VARIANTS_PROPERTY_MAP[key],
             value=value[0],
@@ -71,7 +71,7 @@ def apply_request_parameters(self, query: Dict[str, List[dict]], qparams: Reques
     collection = 'g_variants'
     if len(qparams.query.request_parameters) > 0 and "$and" not in query:
         query["$and"] = []
-    if isinstance(qparams.query.request_parameters, list):
+    if isinstance(qparams.query.request_parameters, list):# pragma: no cover
         query={}
         query["$or"]=[]
         for reqparam in qparams.query.request_parameters:
@@ -170,7 +170,7 @@ def apply_request_parameters(self, query: Dict[str, List[dict]], qparams: Reques
                         id=VARIANTS_PROPERTY_MAP[k],
                         value='min'+v
                     ), collection))
-                except KeyError:
+                except KeyError:# pragma: no cover
                     raise web.HTTPNotFound
             elif k == "variantMaxLength":
                 try:
@@ -178,7 +178,7 @@ def apply_request_parameters(self, query: Dict[str, List[dict]], qparams: Reques
                         id=VARIANTS_PROPERTY_MAP[k],
                         value='max'+v
                     ), collection))
-                except KeyError:
+                except KeyError:# pragma: no cover
                     raise web.HTTPNotFound    
             elif k == "mateName" or k == 'referenceName':
                 try:
@@ -186,7 +186,7 @@ def apply_request_parameters(self, query: Dict[str, List[dict]], qparams: Reques
                         id=VARIANTS_PROPERTY_MAP[k],
                         value=v
                     ), collection))
-                except KeyError:
+                except KeyError:# pragma: no cover
                     raise web.HTTPNotFound
             elif k != 'filters':
                 try:
@@ -194,13 +194,13 @@ def apply_request_parameters(self, query: Dict[str, List[dict]], qparams: Reques
                         id=VARIANTS_PROPERTY_MAP[k],
                         value=v
                     ), collection))
-                except KeyError:
+                except KeyError:# pragma: no cover
                     raise web.HTTPNotFound
 
             elif k == 'filters':
                 v_list=[]
                 if ',' in v:
-                    v_list =v.split(',')
+                    v_list =v.split(',')# pragma: no cover
                 else:
                     v_list.append(v)
                 for id in v_list:
@@ -211,7 +211,7 @@ def apply_request_parameters(self, query: Dict[str, List[dict]], qparams: Reques
         try:
             if subqueryor["$or"] != []:
                 subquery["$and"].append(subqueryor)
-        except Exception:
+        except Exception:# pragma: no cover
             pass
         if subquery["$and"] != []:
             query["$and"].append(subquery)

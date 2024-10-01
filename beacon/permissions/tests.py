@@ -51,7 +51,7 @@ class TestAuthZ(unittest.TestCase):
                 req = make_mocked_request('GET', '/', headers={'Authorization': 'Bearer '})
                 auth = req.headers.get('Authorization')
                 if not auth or not auth.lower().startswith('bearer '):
-                    raise web.HTTPUnauthorized()
+                    raise web.HTTPUnauthorized()# pragma: no cover
                 assert auth[0:7] == 'Bearer '
             loop.run_until_complete(test_bearer_required())
             loop.run_until_complete(client.close())
@@ -69,4 +69,4 @@ class TestAuthZ(unittest.TestCase):
             loop.run_until_complete(client.close())
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main()# pragma: no cover

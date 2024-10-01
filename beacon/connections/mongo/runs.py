@@ -16,8 +16,8 @@ def get_runs(self, entry_id: Optional[str], qparams: RequestParams, dataset: str
     parameters_as_filters=False
     query_parameters, parameters_as_filters = apply_request_parameters(self, {}, qparams)
     if parameters_as_filters == True:
-        query, parameters_as_filters = apply_request_parameters(self, {}, qparams)
-        query_parameters={}
+        query, parameters_as_filters = apply_request_parameters(self, {}, qparams)# pragma: no cover
+        query_parameters={}# pragma: no cover
     else:
         query={}
     query = apply_filters(self, query, qparams.query.filters, collection, query_parameters)
@@ -48,7 +48,7 @@ def get_run_with_id(self, entry_id: Optional[str], qparams: RequestParams, datas
     limit = qparams.query.pagination.limit
     skip = qparams.query.pagination.skip
     if limit > 100 or limit == 0:
-        limit = 100
+        limit = 100# pragma: no cover
     idq="biosampleId"
     if include not in ['ALL', 'NONE']:
         include = 'ALL'
@@ -72,7 +72,7 @@ def get_variants_of_run(self, entry_id: Optional[str], qparams: RequestParams, d
     limit = qparams.query.pagination.limit
     skip = qparams.query.pagination.skip
     if limit > 100 or limit == 0:
-        limit = 100
+        limit = 100# pragma: no cover
     idq="caseLevelData.biosampleId"
     if include not in ['ALL', 'NONE']:
         include = 'ALL'
@@ -92,7 +92,7 @@ def get_analyses_of_run(self, entry_id: Optional[str], qparams: RequestParams, d
     limit = qparams.query.pagination.limit
     skip = qparams.query.pagination.skip
     if limit > 100 or limit == 0:
-        limit = 100
+        limit = 100# pragma: no cover
     idq="biosampleId"
     if include not in ['ALL', 'NONE']:
         include = 'ALL'

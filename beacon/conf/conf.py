@@ -27,6 +27,8 @@ update_datetime = ''
 default_beacon_granularity = "record"
 security_levels = ['PUBLIC', 'REGISTERED', 'CONTROLLED']
 documentation_url = 'https://b2ri-documentation-demo.ega-archive.org/'
+alphanumeric_terms = ['libraryStrategy', 'molecularAttributes.geneIds', 'diseases.ageOfOnset.iso8601duration', 'molecularAttributes.aminoacidChanges']
+
 
 # Service Info
 ga4gh_service_type_group = 'org.ga4gh'

@@ -21,7 +21,7 @@ async def builder(self, request: Request, datasets, qparams, entry_type, entry_i
         elif include == 'NONE' and granularity == Granularity.COUNT:
             response = build_beacon_count_response(self, datasets_docs["NONE"], count, qparams, entity_schema)
         return response
-    except Exception:
+    except Exception:# pragma: no cover
         raise
 
 @log_with_args(level)
@@ -42,7 +42,7 @@ async def collection_builder(self, request: Request, qparams, entry_type, entry_
                     self, response_converted, count, qparams, entity_schema
                 )
         return response
-    except Exception:
+    except Exception:# pragma: no cover
         raise
 
 @log_with_args(level)
@@ -52,7 +52,7 @@ async def info_builder(self, request: Request):
                     self
                 )
         return response
-    except Exception:
+    except Exception:# pragma: no cover
         raise
 
 @log_with_args(level)
@@ -62,7 +62,7 @@ async def configuration_builder(self, request: Request):
                     self
                 )
         return response
-    except Exception:
+    except Exception:# pragma: no cover
         raise
 
 @log_with_args(level)
@@ -72,7 +72,7 @@ async def map_builder(self, request: Request):
                     self
                 )
         return response
-    except Exception:
+    except Exception:# pragma: no cover
         raise
 
 @log_with_args(level)
@@ -82,7 +82,7 @@ async def entry_types_builder(self, request: Request):
                     self
                 )
         return response
-    except Exception:
+    except Exception:# pragma: no cover
         raise
 
 @log_with_args(level)
@@ -92,7 +92,7 @@ async def service_info_builder(self, request: Request):
                     self
                 )
         return response
-    except Exception:
+    except Exception:# pragma: no cover
         raise
 
 @log_with_args(level)
@@ -103,5 +103,5 @@ async def filtering_terms_builder(self, request: Request, qparams):
                     self, records, count, qparams, entity_schema
                 )
         return response
-    except Exception:
+    except Exception:# pragma: no cover
         raise

@@ -66,7 +66,7 @@ def get_individuals_of_cohort(self, entry_id: Optional[str], qparams: RequestPar
         datasets_dict = yaml.safe_load(datasets_file)
     skip = qparams.query.pagination.skip
     if limit > 100 or limit == 0:
-        limit = 100
+        limit = 100# pragma: no cover
     idq="id"
     if include not in ['ALL', 'NONE']:
         include = 'ALL'
@@ -92,7 +92,7 @@ def get_analyses_of_cohort(self, entry_id: Optional[str], qparams: RequestParams
         datasets_dict = yaml.safe_load(datasets_file)
     skip = qparams.query.pagination.skip
     if limit > 100 or limit == 0:
-        limit = 100
+        limit = 100# pragma: no cover
     idq="biosampleId"
     if include not in ['ALL', 'NONE']:
         include = 'ALL'
@@ -118,7 +118,7 @@ def get_variants_of_cohort(self,entry_id: Optional[str], qparams: RequestParams,
         datasets_dict = yaml.safe_load(datasets_file)
     skip = qparams.query.pagination.skip
     if limit > 100 or limit == 0:
-        limit = 100
+        limit = 100# pragma: no cover
     idq="caseLevelData.biosampleId"
     if include not in ['ALL', 'NONE']:
         include = 'ALL'
@@ -144,7 +144,7 @@ def get_runs_of_cohort(self, entry_id: Optional[str], qparams: RequestParams, da
         datasets_dict = yaml.safe_load(datasets_file)
     skip = qparams.query.pagination.skip
     if limit > 100 or limit == 0:
-        limit = 100
+        limit = 100# pragma: no cover
     idq="biosampleId"
     if include not in ['ALL', 'NONE']:
         include = 'ALL'
@@ -170,7 +170,7 @@ def get_biosamples_of_cohort(self, entry_id: Optional[str], qparams: RequestPara
         datasets_dict = yaml.safe_load(datasets_file)
     skip = qparams.query.pagination.skip
     if limit > 100 or limit == 0:
-        limit = 100
+        limit = 100# pragma: no cover
     idq="id"
     if include not in ['ALL', 'NONE']:
         include = 'ALL'

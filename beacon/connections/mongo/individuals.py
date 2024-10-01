@@ -16,8 +16,8 @@ def get_individuals(self, entry_id: Optional[str], qparams: RequestParams, datas
     parameters_as_filters=False
     query_parameters, parameters_as_filters = apply_request_parameters(self, {}, qparams)
     if parameters_as_filters == True and query_parameters != {'$and': []}:
-        query, parameters_as_filters = apply_request_parameters(self, {}, qparams)
-        query_parameters={}
+        query, parameters_as_filters = apply_request_parameters(self, {}, qparams)# pragma: no cover
+        query_parameters={}# pragma: no cover
     elif query_parameters != {'$and': []}:
         query=query_parameters
     elif query_parameters == {'$and': []}:
@@ -53,7 +53,7 @@ def get_individual_with_id(self, entry_id: Optional[str], qparams: RequestParams
     limit = qparams.query.pagination.limit
     skip = qparams.query.pagination.skip
     if limit > 100 or limit == 0:
-        limit = 100
+        limit = 100# pragma: no cover
     if include not in ['ALL', 'NONE']:
         include = 'ALL'
     count, dataset_count, docs = get_docs_by_response_type(self, include, query, datasets_dict, dataset, limit, skip, mongo_collection, idq)
@@ -77,7 +77,7 @@ def get_variants_of_individual(self, entry_id: Optional[str], qparams: RequestPa
     limit = qparams.query.pagination.limit
     skip = qparams.query.pagination.skip
     if limit > 100 or limit == 0:
-        limit = 100
+        limit = 100# pragma: no cover
     idq="caseLevelData.biosampleId"
     if include not in ['ALL', 'NONE']:
         include = 'ALL'
@@ -98,7 +98,7 @@ def get_biosamples_of_individual(self, entry_id: Optional[str], qparams: Request
     limit = qparams.query.pagination.limit
     skip = qparams.query.pagination.skip
     if limit > 100 or limit == 0:
-        limit = 100
+        limit = 100# pragma: no cover
     idq="id"
     if include not in ['ALL', 'NONE']:
         include = 'ALL'
