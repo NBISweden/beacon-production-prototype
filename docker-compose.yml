@@ -3,8 +3,6 @@ version: '3.1'
 networks:
   idp-priv:
   pub:
-  proxynet:
-    external: true
 
 services:
   beaconprod:
@@ -17,9 +15,9 @@ services:
     volumes:
       - ./beacon/logs/logs.log:/beacon/logs/logs.log
       - ./beacon/conf/conf.py:/beacon/conf/conf.py
+      - ./beacon/permissions:/beacon/permissions
     networks:
       - pub
-      - proxynet
 
   idp:
     #image: quay.io/keycloak/keycloak:12.0.0
