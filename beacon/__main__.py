@@ -13,10 +13,15 @@ import time
 import os
 import signal
 from threading import Thread
-from beacon.utils.requests import check_request_content_type
 from beacon.utils.requests import get_qparams
+import aiohttp_cors
+from aiohttp_middlewares import cors_middleware
+from aiohttp_middlewares.cors import DEFAULT_ALLOW_HEADERS
+from beacon.conf import middlewares
+from beacon.conf.conf import cors_urls
+from aiohttp_cors import CorsViewMixin
 
-class EndpointView(web.View):
+class EndpointView(web.View, CorsViewMixin):
     def __init__(self, request: Request):
         self._request = request
         self._id = generate_txid(self)
@@ -285,7 +290,7 @@ async def _graceful_shutdown_ctx(app):# pragma: no cover
 
 
 async def create_api():# pragma: no cover
-    app = web.Application()
+    app = web.Application(middlewares=[web.normalize_path_middleware(), middlewares.error_middleware, cors_middleware(origins=cors_urls)])
     app.on_startup.append(initialize)
     app.cleanup_ctx.append(_graceful_shutdown_ctx)
     app.add_routes([web.view('/api', Info)])
@@ -331,6 +336,24 @@ async def create_api():# pragma: no cover
     app.add_routes([web.view('/api/runs/{id}', Resultset)])
     app.add_routes([web.view('/api/runs/{id}/analyses', Resultset)])
     app.add_routes([web.view('/api/runs/{id}/g_variants', Resultset)])
+    cors_dict={}
+    for origin in cors_urls:
+        cors_dict[origin]=aiohttp_cors.ResourceOptions(
+            allow_credentials=True,
+            expose_headers="*",
+            allow_methods=("POST", "PATCH", "GET", "OPTIONS"),
+            allow_headers=DEFAULT_ALLOW_HEADERS
+        )
+    cors = aiohttp_cors.setup(app, defaults={
+    "http://localhost:3000": aiohttp_cors.ResourceOptions(
+            allow_credentials=True,
+            expose_headers="*",
+            allow_methods=("POST", "PATCH", "GET", "OPTIONS"),
+            allow_headers=DEFAULT_ALLOW_HEADERS
+        )
+    })
+    for route in list(app.router.routes()):
+        cors.add(route, cors_dict)
 
     runner = web.AppRunner(app)
     await runner.setup()
