@@ -43,6 +43,7 @@ except Exception:
 #client.beacon.genomicVariations.create_index([("$**", "text")])
 #client.beacon.genomicVariations.create_index([("caseLevelData.biosampleId", 1)])
 #client.beacon.genomicVariations.create_index([("variation.location.interval.end.value", -1), ("variation.location.interval.start.value", 1)])
+client.beacon.genomicVariations.create_index([("datasetId", 1)])
 client.beacon.genomicVariations.create_index([("variantInternalId", 1), ("caseLevelData.biosampleId", 1)])
 #client.beacon.genomicVariations.create_index([("identifiers.genomicHGVSId", 1), ("variation.location.interval.start.value", 1), ("caseLevelData.biosampleId", 1), ("variation.referenceBases", 1), ("variation.alternateBases", 1)])
 client.beacon.genomicVariations.create_index([("variation.location.interval.end.value", -1), ("variation.location.interval.start.value", 1), ("variation.referenceBases", 1), ("variation.alternateBases", 1)])
