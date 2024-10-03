@@ -6,7 +6,6 @@ from beacon.connections.mongo.runs import get_runs, get_run_with_id, get_analyse
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
 from beacon.logs.logs import log_with_args
-from beacon.conf.conf import level
 from typing import Optional
 from beacon.request.parameters import RequestParams
 from beacon.connections.mongo.datasets import get_analyses_of_dataset, get_biosamples_of_dataset, get_individuals_of_dataset, get_variants_of_dataset, get_runs_of_dataset
@@ -97,10 +96,9 @@ async def execute_function(self, entry_type: str, datasets: list, qparams: Reque
             )
         for task in done:
             entity_schema, count, dataset_count, records, dataset = task.result()
-            if dataset_count != -1:
-                new_count+=dataset_count
-                datasets_docs[dataset]=records
-                datasets_count[dataset]=dataset_count
+            new_count+=dataset_count
+            datasets_docs[dataset]=records
+            datasets_count[dataset]=dataset_count
         
         count=new_count
     

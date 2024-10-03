@@ -133,38 +133,37 @@ def build_info_meta(self, entity_schema: Optional[DefaultSchemas]):
             raise_exception(err, errcode)
 
 @log_with_args(level)
-def build_response_by_dataset(self, data, dict_counts, qparams):
+def build_response_by_dataset(self, datasets, data, dict_counts, qparams):
     try:
         list_of_responses=[]
-        for k,v in data.items():
-            if v:
-                for handover in list_of_handovers_per_dataset:
-                    if handover["dataset"]==k:# pragma: no cover
-                        response = {
-                            'id': k, # TODO: Set the name of the dataset/cohort
-                            'setType': 'dataset', # TODO: Set the type of collection
-                            'exists': dict_counts[k] > 0,
-                            'resultsCount': dict_counts[k],
-                            'results': v,
-                            # 'info': None,
-                            'resultsHandover': handover["handover"]  # build_results_handover
-                        }
-                    else:
-                        response = {
-                            'id': k, # TODO: Set the name of the dataset/cohort
-                            'setType': 'dataset', # TODO: Set the type of collection
-                            'exists': dict_counts[k] > 0,
-                            'resultsCount': dict_counts[k],
-                            'results': v
-                        }
-                list_of_responses.append(response)
+        for dataset in datasets:
+            for handover in list_of_handovers_per_dataset:
+                if handover["dataset"]==dataset:# pragma: no cover
+                    response = {
+                        'id': dataset, # TODO: Set the name of the dataset/cohort
+                        'setType': 'dataset', # TODO: Set the type of collection
+                        'exists': dict_counts[dataset] > 0,
+                        'resultsCount': dict_counts[dataset],
+                        'results': data[dataset],
+                        # 'info': None,
+                        'resultsHandover': handover["handover"]  # build_results_handover
+                    }
+                else:
+                    response = {
+                        'id': dataset, # TODO: Set the name of the dataset/cohort
+                        'setType': 'dataset', # TODO: Set the type of collection
+                        'exists': dict_counts[dataset] > 0,
+                        'resultsCount': dict_counts[dataset],
+                        'results': data[dataset]
+                    }
+            list_of_responses.append(response)
 
         return list_of_responses
     except Exception:# pragma: no cover
         raise
 
 @log_with_args(level)
-def build_beacon_boolean_response_by_dataset(self, data,
+def build_beacon_boolean_response_by_dataset(self, datasets, data,
                                     dict_counts,
                                     num_total_results,
                                     qparams: RequestParams,
@@ -174,7 +173,7 @@ def build_beacon_boolean_response_by_dataset(self, data,
             'meta': build_meta(self, qparams, entity_schema, Granularity.BOOLEAN),
             'responseSummary': build_response_summary_by_dataset(self, num_total_results > 0, num_total_results, data),
             'response': {
-                'resultSets': build_response_by_dataset(self, data, dict_counts, qparams)
+                'resultSets': build_response_by_dataset(self, datasets, data, dict_counts, qparams)
             },
             'beaconHandovers': list_of_handovers,
         }

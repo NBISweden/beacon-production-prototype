@@ -711,8 +711,6 @@ class TestMain(unittest.TestCase):
                 }
                 })
                 eo=await resp.text()
-                LOG.debug('ordinary')
-                LOG.debug(eo)
                 assert resp.status == 200
             loop.run_until_complete(test_check_post_cross_query_biosamples_individuals_is_working())
             loop.run_until_complete(client.close())

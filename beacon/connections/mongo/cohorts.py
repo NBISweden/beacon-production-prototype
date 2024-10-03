@@ -56,21 +56,18 @@ def get_individuals_of_cohort(self, entry_id: Optional[str], qparams: RequestPar
     query = apply_filters(self, {}, qparams.query.filters, collection, {})
     query = query_id(self, query, entry_id)
     count = get_count(self, client.beacon.cohorts, query)
-    with open("/beacon/permissions/datasets/cohorts.yml", 'r') as datasets_file:
-        datasets_dict = yaml.safe_load(datasets_file)
-    cohort_ids=get_cross_query(self, datasets_dict[entry_id],'individualIds','id')
-    query = apply_filters(self, cohort_ids, qparams.query.filters, collection, {})
+    dict_in={}
+    dict_in['datasetId']=dataset
+    query = apply_filters(self, dict_in, qparams.query.filters, collection, {})
 
     schema = DefaultSchemas.INDIVIDUALS
-    with open("/beacon/permissions/datasets/datasets.yml", 'r') as datasets_file:
-        datasets_dict = yaml.safe_load(datasets_file)
     skip = qparams.query.pagination.skip
     if limit > 100 or limit == 0:
         limit = 100# pragma: no cover
     idq="id"
     if include not in ['ALL', 'NONE']:
         include = 'ALL'
-    count, dataset_count, docs = get_docs_by_response_type(self, include, query, datasets_dict, dataset, limit, skip, mongo_collection, idq)
+    count, dataset_count, docs = get_docs_by_response_type(self, include, query, dataset, limit, skip, mongo_collection, idq)
     return schema, count, dataset_count, docs, dataset
 
 @log_with_args_mongo(level)
@@ -83,20 +80,17 @@ def get_analyses_of_cohort(self, entry_id: Optional[str], qparams: RequestParams
     query = apply_filters(self, {}, qparams.query.filters, collection, {})
     query = query_id(self, query, entry_id)
     count = get_count(self, client.beacon.cohorts, query)
-    with open("/beacon/permissions/datasets/cohorts.yml", 'r') as datasets_file:
-        datasets_dict = yaml.safe_load(datasets_file)
-    cohort_ids=get_cross_query(self, datasets_dict[entry_id],'biosampleIds','biosampleId')
-    query = apply_filters(self, cohort_ids, qparams.query.filters, collection, {})
+    dict_in={}
+    dict_in['datasetId']=dataset
+    query = apply_filters(self, dict_in, qparams.query.filters, collection, {})
     schema = DefaultSchemas.ANALYSES
-    with open("/beacon/permissions/datasets/datasets.yml", 'r') as datasets_file:
-        datasets_dict = yaml.safe_load(datasets_file)
     skip = qparams.query.pagination.skip
     if limit > 100 or limit == 0:
         limit = 100# pragma: no cover
     idq="biosampleId"
     if include not in ['ALL', 'NONE']:
         include = 'ALL'
-    count, dataset_count, docs = get_docs_by_response_type(self, include, query, datasets_dict, dataset, limit, skip, mongo_collection, idq)
+    count, dataset_count, docs = get_docs_by_response_type(self, include, query, dataset, limit, skip, mongo_collection, idq)
     return schema, count, dataset_count, docs, dataset
 
 @log_with_args_mongo(level)
@@ -109,20 +103,33 @@ def get_variants_of_cohort(self,entry_id: Optional[str], qparams: RequestParams,
     query = apply_filters(self, {}, qparams.query.filters, collection, {})
     query = query_id(self, query, entry_id)
     count = get_count(self, client.beacon.cohorts, query)
-    with open("/beacon/permissions/datasets/cohorts.yml", 'r') as datasets_file:
-        datasets_dict = yaml.safe_load(datasets_file)
-    individual_ids=get_cross_query(self, datasets_dict[entry_id],'individualIds','caseLevelData.biosampleId')
-    query = apply_filters(self, individual_ids, qparams.query.filters, collection, {})
+    query_count={}
+    query_count["$or"]=[]
+    docs = get_documents(self,
+        client.beacon.cohorts,
+        query,
+        qparams.query.pagination.skip,
+        qparams.query.pagination.skip*limit
+    )
+    for doc in docs:
+        if doc["datasetId"] == dataset:
+            entry_id = dataset
+    if dataset == entry_id:
+        queryid={}
+        queryid["datasetId"]=dataset
+        query_count["$or"].append(queryid)
+    else:
+        schema = DefaultSchemas.GENOMICVARIATIONS# pragma: no cover
+        return schema, 0, 0, None, dataset# pragma: no cover
+    query = apply_filters(self, query_count, qparams.query.filters, collection, {})
     schema = DefaultSchemas.GENOMICVARIATIONS
-    with open("/beacon/permissions/datasets/datasets.yml", 'r') as datasets_file:
-        datasets_dict = yaml.safe_load(datasets_file)
     skip = qparams.query.pagination.skip
     if limit > 100 or limit == 0:
         limit = 100# pragma: no cover
     idq="caseLevelData.biosampleId"
     if include not in ['ALL', 'NONE']:
         include = 'ALL'
-    count, dataset_count, docs = get_docs_by_response_type(self, include, query, datasets_dict, dataset, limit, skip, mongo_collection, idq)
+    count, dataset_count, docs = get_docs_by_response_type(self, include, query, dataset, limit, skip, mongo_collection, idq)
     return schema, count, dataset_count, docs, dataset
 
 @log_with_args_mongo(level)
@@ -135,20 +142,17 @@ def get_runs_of_cohort(self, entry_id: Optional[str], qparams: RequestParams, da
     query = apply_filters(self, {}, qparams.query.filters, collection, {})
     query = query_id(self, query, entry_id)
     count = get_count(self, client.beacon.cohorts, query)
-    with open("/beacon/permissions/datasets/cohorts.yml", 'r') as datasets_file:
-        datasets_dict = yaml.safe_load(datasets_file)
-    cohort_ids=get_cross_query(self, datasets_dict[entry_id],'biosampleIds','biosampleId')
-    query = apply_filters(self, cohort_ids, qparams.query.filters, collection, {})
+    dict_in={}
+    dict_in['datasetId']=dataset
+    query = apply_filters(self, dict_in, qparams.query.filters, collection, {})
     schema = DefaultSchemas.RUNS
-    with open("/beacon/permissions/datasets/datasets.yml", 'r') as datasets_file:
-        datasets_dict = yaml.safe_load(datasets_file)
     skip = qparams.query.pagination.skip
     if limit > 100 or limit == 0:
         limit = 100# pragma: no cover
     idq="biosampleId"
     if include not in ['ALL', 'NONE']:
         include = 'ALL'
-    count, dataset_count, docs = get_docs_by_response_type(self, include, query, datasets_dict, dataset, limit, skip, mongo_collection, idq)
+    count, dataset_count, docs = get_docs_by_response_type(self, include, query, dataset, limit, skip, mongo_collection, idq)
     return schema, count, dataset_count, docs, dataset
 
 @log_with_args_mongo(level)
@@ -161,18 +165,15 @@ def get_biosamples_of_cohort(self, entry_id: Optional[str], qparams: RequestPara
     query = apply_filters(self, {}, qparams.query.filters, collection, {})
     query = query_id(self, query, entry_id)
     count = get_count(self, client.beacon.cohorts, query)
-    with open("/beacon/permissions/datasets/cohorts.yml", 'r') as datasets_file:
-        datasets_dict = yaml.safe_load(datasets_file)
-    cohort_ids=get_cross_query(self, datasets_dict[entry_id],'biosampleIds','id')
-    query = apply_filters(self, cohort_ids, qparams.query.filters, collection, {})
+    dict_in={}
+    dict_in['datasetId']=dataset
+    query = apply_filters(self, dict_in, qparams.query.filters, collection, {})
     schema = DefaultSchemas.BIOSAMPLES
-    with open("/beacon/permissions/datasets/datasets.yml", 'r') as datasets_file:
-        datasets_dict = yaml.safe_load(datasets_file)
     skip = qparams.query.pagination.skip
     if limit > 100 or limit == 0:
         limit = 100# pragma: no cover
     idq="id"
     if include not in ['ALL', 'NONE']:
         include = 'ALL'
-    count, dataset_count, docs = get_docs_by_response_type(self, include, query, datasets_dict, dataset, limit, skip, mongo_collection, idq)
+    count, dataset_count, docs = get_docs_by_response_type(self, include, query, dataset, limit, skip, mongo_collection, idq)
     return schema, count, dataset_count, docs, dataset

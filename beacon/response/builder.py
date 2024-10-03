@@ -1,6 +1,6 @@
 from aiohttp.web_request import Request
 from beacon.response.catalog import build_beacon_boolean_response_by_dataset, build_beacon_count_response, build_beacon_collection_response, build_beacon_info_response, build_map, build_configuration, build_entry_types, build_beacon_service_info_response, build_filtering_terms_response, build_beacon_boolean_response
-from beacon.logs.logs import log_with_args
+from beacon.logs.logs import log_with_args, LOG
 from beacon.conf.conf import level
 from beacon.request.classes import Granularity
 from beacon.source.manage import analyses, biosamples, cohorts, datasets, g_variants, individuals, runs, filtering_terms
@@ -37,7 +37,7 @@ async def builder(self, request: Request, datasets, qparams, entry_type, entry_i
         module = importlib.import_module(complete_module, package=None)
         datasets_docs, datasets_count, count, entity_schema, include = await module.execute_function(self, entry_type, datasets, qparams, entry_id)
         if include != 'NONE':
-            response = build_beacon_boolean_response_by_dataset(self, datasets_docs, datasets_count, count, qparams, entity_schema)
+            response = build_beacon_boolean_response_by_dataset(self, datasets, datasets_docs, datasets_count, count, qparams, entity_schema)
         elif include == 'NONE' and granularity == Granularity.RECORD:
             response = build_beacon_boolean_response(self, datasets_docs["NONE"], count, qparams, entity_schema)
         elif include == 'NONE' and granularity == Granularity.COUNT:

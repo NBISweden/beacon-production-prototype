@@ -25,8 +25,6 @@ def get_biosamples(self, entry_id: Optional[str], qparams: RequestParams, datase
         query={}
     query = apply_filters(self, query, qparams.query.filters, collection, query_parameters)
     schema = DefaultSchemas.BIOSAMPLES
-    with open("/beacon/permissions/datasets/datasets.yml", 'r') as datasets_file:
-        datasets_dict = yaml.safe_load(datasets_file)
     include = qparams.query.include_resultset_responses
     limit = qparams.query.pagination.limit
     skip = qparams.query.pagination.skip
@@ -35,7 +33,7 @@ def get_biosamples(self, entry_id: Optional[str], qparams: RequestParams, datase
     if include not in ['ALL', 'NONE']:
         include = 'ALL'
     idq="id"
-    count, dataset_count, docs = get_docs_by_response_type(self, include, query, datasets_dict, dataset, limit, skip, mongo_collection, idq)
+    count, dataset_count, docs = get_docs_by_response_type(self, include, query, dataset, limit, skip, mongo_collection, idq)
     return schema, count, dataset_count, docs, dataset
 
 @log_with_args(level)
@@ -45,8 +43,6 @@ def get_biosample_with_id(self, entry_id: Optional[str], qparams: RequestParams,
     query = apply_filters(self, {}, qparams.query.filters, collection, {})
     query = query_id(self, query, entry_id)
     schema = DefaultSchemas.BIOSAMPLES
-    with open("/beacon/permissions/datasets/datasets.yml", 'r') as datasets_file:
-        datasets_dict = yaml.safe_load(datasets_file)
     include = qparams.query.include_resultset_responses
     limit = qparams.query.pagination.limit
     skip = qparams.query.pagination.skip
@@ -55,7 +51,7 @@ def get_biosample_with_id(self, entry_id: Optional[str], qparams: RequestParams,
     idq="id"
     if include not in ['ALL', 'NONE']:
         include = 'ALL'
-    count, dataset_count, docs = get_docs_by_response_type(self, include, query, datasets_dict, dataset, limit, skip, mongo_collection, idq)
+    count, dataset_count, docs = get_docs_by_response_type(self, include, query, dataset, limit, skip, mongo_collection, idq)
     return schema, count, dataset_count, docs, dataset
 
 @log_with_args(level)
@@ -65,8 +61,6 @@ def get_variants_of_biosample(self, entry_id: Optional[str], qparams: RequestPar
     query = {"caseLevelData.biosampleId": entry_id}
     query = apply_filters(self, query, qparams.query.filters, collection, {})
     schema = DefaultSchemas.GENOMICVARIATIONS
-    with open("/beacon/permissions/datasets/datasets.yml", 'r') as datasets_file:
-        datasets_dict = yaml.safe_load(datasets_file)
     include = qparams.query.include_resultset_responses
     limit = qparams.query.pagination.limit
     skip = qparams.query.pagination.skip
@@ -75,7 +69,7 @@ def get_variants_of_biosample(self, entry_id: Optional[str], qparams: RequestPar
     idq="caseLevelData.biosampleId"
     if include not in ['ALL', 'NONE']:
         include = 'ALL'
-    count, dataset_count, docs = get_docs_by_response_type(self, include, query, datasets_dict, dataset, limit, skip, mongo_collection, idq)
+    count, dataset_count, docs = get_docs_by_response_type(self, include, query, dataset, limit, skip, mongo_collection, idq)
     return schema, count, dataset_count, docs, dataset
 
 @log_with_args(level)
@@ -85,8 +79,6 @@ def get_analyses_of_biosample(self, entry_id: Optional[str], qparams: RequestPar
     query = {"biosampleId": entry_id}
     query = apply_filters(self, query, qparams.query.filters, collection, {})
     schema = DefaultSchemas.ANALYSES
-    with open("/beacon/permissions/datasets/datasets.yml", 'r') as datasets_file:
-        datasets_dict = yaml.safe_load(datasets_file)
     include = qparams.query.include_resultset_responses
     limit = qparams.query.pagination.limit
     skip = qparams.query.pagination.skip
@@ -95,7 +87,7 @@ def get_analyses_of_biosample(self, entry_id: Optional[str], qparams: RequestPar
     if include not in ['ALL', 'NONE']:
         include = 'ALL'
     idq="biosampleId"
-    count, dataset_count, docs = get_docs_by_response_type(self, include, query, datasets_dict, dataset, limit, skip, mongo_collection, idq)
+    count, dataset_count, docs = get_docs_by_response_type(self, include, query, dataset, limit, skip, mongo_collection, idq)
     return schema, count, dataset_count, docs, dataset
 
 @log_with_args(level)
@@ -105,8 +97,6 @@ def get_runs_of_biosample(self, entry_id: Optional[str], qparams: RequestParams,
     query = {"individualId": entry_id}
     query = apply_filters(self, query, qparams.query.filters, collection, {})
     schema = DefaultSchemas.RUNS
-    with open("/beacon/permissions/datasets/datasets.yml", 'r') as datasets_file:
-        datasets_dict = yaml.safe_load(datasets_file)
     include = qparams.query.include_resultset_responses
     limit = qparams.query.pagination.limit
     skip = qparams.query.pagination.skip
@@ -115,5 +105,5 @@ def get_runs_of_biosample(self, entry_id: Optional[str], qparams: RequestParams,
     if include not in ['ALL', 'NONE']:
         include = 'ALL'
     idq="biosampleId"
-    count, dataset_count, docs = get_docs_by_response_type(self, include, query, datasets_dict, dataset, limit, skip, mongo_collection, idq)
+    count, dataset_count, docs = get_docs_by_response_type(self, include, query, dataset, limit, skip, mongo_collection, idq)
     return schema, count, dataset_count, docs, dataset

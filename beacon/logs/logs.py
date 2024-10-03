@@ -12,6 +12,11 @@ formatter = logging.Formatter(fmt)
 fh.setFormatter(formatter)
 LOG.addHandler(fh)
 
+
+# LOGS per iniciar i parar el contenidor (INFO)
+# LOGS per he rebut una request i retorno una response (INFO)
+# Tota la resta per DEBUG
+
 # Acabar de fer els unit tests
 # Formular l'exception bubbling --> mirar qui controla el tall de connexions per netejar que no quedi cap connexió ni procés obert
 # Crear graceful shutdown amb missatge de LOG body + status dins de l'exception bubbling a cada capa

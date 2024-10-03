@@ -1,8 +1,9 @@
 from pymongo.cursor import Cursor
 from beacon.connections.mongo.__init__ import client
 from pymongo.collection import Collection
-from beacon.logs.logs import log_with_args_mongo
+from beacon.logs.logs import log_with_args_mongo, LOG
 from beacon.conf.conf import level
+from bson import json_util
 
 @log_with_args_mongo(level)
 def get_cross_query(self, ids: dict, cross_type: str, collection_id: str):
@@ -75,7 +76,7 @@ def get_count(self, collection: Collection, query: dict) -> int:
         return total_counts
 
 @log_with_args_mongo(level)
-def get_docs_by_response_type(self, include: str, query: dict, datasets_dict: dict, dataset: str, limit: int, skip: int, mongo_collection, idq: str):
+def get_docs_by_response_type(self, include: str, query: dict, dataset: str, limit: int, skip: int, mongo_collection, idq: str):
     if include == 'NONE':
         count = get_count(self, mongo_collection, query)
         dataset_count=0
@@ -90,31 +91,23 @@ def get_docs_by_response_type(self, include: str, query: dict, datasets_dict: di
         count=0
         query_count=query
         i=1
-        query_count["$or"]=[]
-        for k, v in datasets_dict.items():
-            if k == dataset:
-                for id in v:
-                    if i < len(v):
-                        queryid={}
-                        queryid[idq]=id
-                        query_count["$or"].append(queryid)
-                        i+=1
-                    else:
-                        queryid={}
-                        queryid[idq]=id
-                        query_count["$or"].append(queryid)
-                        i=1
-                if query_count["$or"]!=[]:
-                    dataset_count = get_count(self, mongo_collection, query_count)
-                    docs = get_documents(
-                        self,
-                        mongo_collection,
-                        query_count,
-                        skip*limit,
-                        limit
-                    )
-                else:
-                    dataset_count=0# pragma: no cover
+        query_count["$and"]=[]
+        queryid={}
+        queryid['datasetId']=dataset
+        query_count["$and"].append(queryid)
+        i=1
+        if query_count["$and"]!=[]:
+            dataset_count = get_count(self, mongo_collection, query_count)
+            docs = get_documents(
+                self,
+                mongo_collection,
+                query_count,
+                skip*limit,
+                limit
+            )
+            docs=list(docs)
+        else:
+            dataset_count=0# pragma: no cover
     return count, dataset_count, docs
 
 @log_with_args_mongo(level)
