@@ -67,3 +67,55 @@ DEBUG - 2024-09-27 10:31:17,866 - d31c32b8 - build_response_by_dataset(({'CINECA
 DEBUG - 2024-09-27 10:31:17,866 - d31c32b8 - build_response_by_dataset(({'CINECA_synthetic_cohort_EUROPE_UK1': <pymongo.cursor.Cursor object at 0xffff837033d0>}, {'CINECA_synthetic_cohort_EUROPE_UK1': 2504}, RequestParams(meta=RequestMeta(requested_schemas=[], api_version='v2.0.0'), query=RequestQuery(filters=[], include_resultset_responses=<IncludeResultsetResponses.HIT: 'HIT'>, pagination=Pagination(skip=0, limit=10), request_parameters={}, test_mode=False, requested_granularity=<Granularity.RECORD: 'record'>, scope=None))),{}) - 0.00016069412231445312 - returned [{'id': 'CINECA_synthetic_cohort_EUROPE_UK1', 'setType': 'dataset', 'exists': True, 'resultsCount': 2504, 'results': <pymongo.cursor.Cursor object at 0xffff837033d0>}]
 DEBUG - 2024-09-27 10:31:17,866 - d31c32b8 - build_beacon_boolean_response_by_dataset(({'CINECA_synthetic_cohort_EUROPE_UK1': <pymongo.cursor.Cursor object at 0xffff837033d0>}, {'CINECA_synthetic_cohort_EUROPE_UK1': 2504}, 2504, RequestParams(meta=RequestMeta(requested_schemas=[], api_version='v2.0.0'), query=RequestQuery(filters=[], include_resultset_responses=<IncludeResultsetResponses.HIT: 'HIT'>, pagination=Pagination(skip=0, limit=10), request_parameters={}, test_mode=False, requested_granularity=<Granularity.RECORD: 'record'>, scope=None)), <DefaultSchemas.INDIVIDUALS: {'entityType': 'individual', 'schema': 'beacon-individual-v2.0.0'}>),{}) - 0.001344442367553711 - returned {'meta': {'beaconId': 'org.ega-archive.beacon-ri-demo', 'apiVersion': 'v2.0.0', 'returnedGranularity': <Granularity.BOOLEAN: 'boolean'>, 'receivedRequestSummary': {'apiVersion': 'v2.0.0', 'requestedSchemas': [], 'filters': [], 'requestParameters': {}, 'includeResultsetResponses': <IncludeResultsetResponses.HIT: 'HIT'>, 'pagination': {'skip': 0, 'limit': 10}, 'requestedGranularity': <Granularity.RECORD: 'record'>, 'testMode': False}, 'returnedSchemas': [{'entityType': 'individual', 'schema': 'beacon-individual-v2.0.0'}]}, 'responseSummary': {'exists': True, 'numTotalResults': 2504}, 'response': {'resultSets': [{'id': 'CINECA_synthetic_cohort_EUROPE_UK1', 'setType': 'dataset', 'exists': True, 'resultsCount': 2504, 'results': <pymongo.cursor.Cursor object at 0xffff837033d0>}]}, 'beaconHandovers': [{'note': 'Description of the handover', 'url': 'Link for the handover', 'handoverType': {'id': 'NCIT:C189151', 'label': 'Study Data Repository'}}]}
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ERROR - 2024-10-04 07:49:39,917 - test - There was an exception in  fetch_idp
+DEBUG - 2024-10-04 15:26:35,845 - fbae90fa - generate_txid - initial call
+DEBUG - 2024-10-04 15:26:35,845 - fbae90fa - generate_txid- 0.000667572021484375 - returned OK
+DEBUG - 2024-10-04 15:26:35,846 - fbae90fa - get_qparams - initial call
+DEBUG - 2024-10-04 15:26:35,846 - fbae90fa - get_qparams - 0.0003006458282470703 - returned OK
+DEBUG - 2024-10-04 15:26:35,846 - fbae90fa - permission - initial call
+DEBUG - 2024-10-04 15:26:35,847 - fbae90fa - permission - 0.00017881393432617188 - returned OK
+DEBUG - 2024-10-04 15:26:35,847 - fbae90fa - authorization - initial call
+DEBUG - 2024-10-04 15:26:35,847 - fbae90fa - authorization - 0.00018596649169921875 - returned OK
+DEBUG - 2024-10-04 15:26:35,849 - fbae90fa - get_datasets_list - initial call
+DEBUG - 2024-10-04 15:26:35,849 - fbae90fa - get_datasets_list - 0.00024771690368652344 - returned OK
+DEBUG - 2024-10-04 15:26:35,849 - fbae90fa - get_list_of_datasets - initial call
+DEBUG - 2024-10-04 15:26:35,850 - fbae90fa - get_datasets - initial call
+DEBUG - 2024-10-04 15:26:35,850 - fbae90fa - get_datasets - 0.0006628036499023438 - returned OK
+DEBUG - 2024-10-04 15:26:35,864 - fbae90fa - get_list_of_datasets - 0.015046119689941406 - returned OK
+DEBUG - 2024-10-04 15:26:35,865 - fbae90fa - resultset - initial call
+DEBUG - 2024-10-04 15:26:35,865 - fbae90fa - resultset - 0.00011610984802246094 - returned OK
+DEBUG - 2024-10-04 15:26:35,865 - fbae90fa - builder - initial call
+DEBUG - 2024-10-04 15:26:35,865 - fbae90fa - builder - 7.390975952148438e-05 - returned OK
+DEBUG - 2024-10-04 15:26:35,872 - fbae90fa - execute_function - initial call
+DEBUG - 2024-10-04 15:26:35,872 - fbae90fa - execute_function - 0.000171661376953125 - returned OK
+DEBUG - 2024-10-04 15:26:35,872 - fbae90fa - get_individuals - initial call
+DEBUG - 2024-10-04 15:26:35,873 - fbae90fa - apply_request_parameters - initial call
+DEBUG - 2024-10-04 15:26:35,873 - fbae90fa - get_individuals - initial call
+DEBUG - 2024-10-04 15:26:35,873 - fbae90fa - apply_request_parameters - 0.00016927719116210938 - returned OK
+DEBUG - 2024-10-04 15:26:35,873 - fbae90fa - apply_request_parameters - initial call
+DEBUG - 2024-10-04 15:26:35,873 - fbae90fa - apply_filters - initial call
+DEBUG - 2024-10-04 15:26:35,873 - fbae90fa - apply_request_parameters - 0.0001456737518310547 - returned OK
+DEBUG - 2024-10-04 15:26:35,873 - fbae90fa - apply_filters - 0.0001671314239501953 - returned OK
+DEBUG - 2024-10-04 15:26:35,874 - fbae90fa - apply_filters - initial call
+DEBUG - 2024-10-04 15:26:35,874 - fbae90fa - get_docs_by_response_type - initial call
+DEBUG - 2024-10-04 15:26:35,874 - fbae90fa - apply_filters - 0.0002751350402832031 - returned OK
+DEBUG - 2024-10-04 15:26:35,874 - fbae90fa - get_count - initial call
+DEBUG - 2024-10-04 15:26:35,874 - fbae90fa - get_docs_by_response_type - initial call
+DEBUG - 2024-10-04 15:26:35,875 - fbae90fa - get_count - initial call
+DEBUG - 2024-10-04 15:26:35,876 - fbae90fa - get_count - 0.001621246337890625 - returned OK
+DEBUG - 2024-10-04 15:26:35,876 - fbae90fa - get_documents - initial call
+DEBUG - 2024-10-04 15:26:35,876 - fbae90fa - get_documents - 0.0003542900085449219 - returned OK
+DEBUG - 2024-10-04 15:26:35,878 - fbae90fa - get_docs_by_response_type - 0.0038993358612060547 - returned OK
+DEBUG - 2024-10-04 15:26:35,878 - fbae90fa - get_individuals - 0.005435466766357422 - returned OK
+DEBUG - 2024-10-04 15:26:35,880 - fbae90fa - get_count - 0.005815267562866211 - returned OK
+DEBUG - 2024-10-04 15:26:35,881 - fbae90fa - get_documents - initial call
+DEBUG - 2024-10-04 15:26:35,882 - fbae90fa - get_documents - 0.0017001628875732422 - returned OK
+DEBUG - 2024-10-04 15:26:35,884 - fbae90fa - get_docs_by_response_type - 0.010338783264160156 - returned OK
+DEBUG - 2024-10-04 15:26:35,885 - fbae90fa - get_individuals - 0.012140750885009766 - returned OK
+DEBUG - 2024-10-04 15:26:35,885 - fbae90fa - build_beacon_boolean_response_by_dataset - initial call
+DEBUG - 2024-10-04 15:26:35,886 - fbae90fa - build_meta - initial call
+DEBUG - 2024-10-04 15:26:35,886 - fbae90fa - build_meta - 0.0002834796905517578 - returned OK
+DEBUG - 2024-10-04 15:26:35,886 - fbae90fa - build_response_summary_by_dataset - initial call
+DEBUG - 2024-10-04 15:26:35,886 - fbae90fa - build_response_summary_by_dataset - 0.0001690387725830078 - returned OK
+DEBUG - 2024-10-04 15:26:35,887 - fbae90fa - build_response_by_dataset - initial call
+DEBUG - 2024-10-04 15:26:35,887 - fbae90fa - build_response_by_dataset - 0.00020813941955566406 - returned OK
+DEBUG - 2024-10-04 15:26:35,887 - fbae90fa - build_beacon_boolean_response_by_dataset - 0.0014164447784423828 - returned OK
