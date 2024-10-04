@@ -5,7 +5,7 @@ from beacon.connections.mongo.biosamples import get_biosamples, get_biosample_wi
 from beacon.connections.mongo.runs import get_runs, get_run_with_id, get_analyses_of_run, get_variants_of_run
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
-from beacon.logs.logs import log_with_args
+from beacon.logs.logs import log_with_args, level
 from typing import Optional
 from beacon.request.parameters import RequestParams
 from beacon.connections.mongo.datasets import get_analyses_of_dataset, get_biosamples_of_dataset, get_individuals_of_dataset, get_variants_of_dataset, get_runs_of_dataset

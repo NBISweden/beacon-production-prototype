@@ -91,12 +91,12 @@ def get_docs_by_response_type(self, include: str, query: dict, dataset: str, lim
         count=0
         query_count=query
         i=1
-        query_count["$and"]=[]
+        query_count["$or"]=[]
         queryid={}
         queryid['datasetId']=dataset
-        query_count["$and"].append(queryid)
+        query_count["$or"].append(queryid)
         i=1
-        if query_count["$and"]!=[]:
+        if query_count["$or"]!=[]:
             dataset_count = get_count(self, mongo_collection, query_count)
             docs = get_documents(
                 self,
