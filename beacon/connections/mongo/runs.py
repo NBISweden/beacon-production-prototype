@@ -60,6 +60,10 @@ def get_variants_of_run(self, entry_id: Optional[str], qparams: RequestParams, d
     run_ids = client.beacon.runs \
         .find_one(query, {"biosampleId": 1, "_id": 0})
     query = {"caseLevelData.biosampleId": run_ids["biosampleId"]}
+    queryid={}
+    queryid["datasetId"]=dataset
+    query["$or"]=[]
+    query["$or"].append(queryid)
     query = apply_filters(self, query, qparams.query.filters, collection, {})
     schema = DefaultSchemas.GENOMICVARIATIONS
     include = qparams.query.include_resultset_responses

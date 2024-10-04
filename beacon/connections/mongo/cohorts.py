@@ -5,7 +5,7 @@ from beacon.logs.logs import log_with_args_mongo
 from beacon.conf.conf import level
 from beacon.connections.mongo.filters import apply_filters
 from typing import Optional
-from beacon.connections.mongo.utils import get_count, get_documents
+from beacon.connections.mongo.utils import get_count, get_documents, get_documents_for_cohorts
 from beacon.connections.mongo.utils import get_docs_by_response_type, query_id, get_cross_query
 import yaml
 
@@ -105,7 +105,7 @@ def get_variants_of_cohort(self,entry_id: Optional[str], qparams: RequestParams,
     count = get_count(self, client.beacon.cohorts, query)
     query_count={}
     query_count["$or"]=[]
-    docs = get_documents(self,
+    docs = get_documents_for_cohorts(self,
         client.beacon.cohorts,
         query,
         qparams.query.pagination.skip,

@@ -47,6 +47,10 @@ def get_documents(self, collection: Collection, query: dict, skip: int, limit: i
     return collection.find(query,{"_id": 0, "datasetId": 0}).skip(skip).limit(limit).max_time_ms(100 * 1000)
 
 @log_with_args_mongo(level)
+def get_documents_for_cohorts(self, collection: Collection, query: dict, skip: int, limit: int) -> Cursor:
+    return collection.find(query,{"_id": 0}).skip(skip).limit(limit).max_time_ms(100 * 1000)
+
+@log_with_args_mongo(level)
 def get_count(self, collection: Collection, query: dict) -> int:
     if not query:
         return collection.estimated_document_count()
@@ -72,7 +76,12 @@ def get_count(self, collection: Collection, query: dict) -> int:
             else:
                 total_counts=counts[0]["num_results"]
         except Exception as e:# pragma: no cover
+            insert_dict={}
+            insert_dict['id']=str(query)
             total_counts=0
+            insert_dict['num_results']=total_counts# pragma: no cover
+            insert_dict['collection']=str(collection)# pragma: no cover
+            insert_total=client.beacon.counts.insert_one(insert_dict)
         return total_counts
 
 @log_with_args_mongo(level)
@@ -108,21 +117,26 @@ def get_docs_by_response_type(self, include: str, query: dict, dataset: str, lim
     elif include == 'HIT':
         count=0
         query_count=query
-        i=1
         query_count["$or"]=[]
         queryid={}
         queryid['datasetId']=dataset
         query_count["$or"].append(queryid)
         if query_count["$or"]!=[]:
+            LOG.info('hola')
             dataset_count = get_count(self, mongo_collection, query_count)
-            docs = get_documents(
-                self,
-                mongo_collection,
-                query_count,
-                skip*limit,
-                limit
-            )
-            docs=list(docs)
+            LOG.info('adeu')
+            LOG.info(query_count)
+            if dataset_count == 0:
+                docs = []
+            else:
+                docs = get_documents(
+                    self,
+                    mongo_collection,
+                    query_count,
+                    skip*limit,
+                    limit
+                )
+                docs=list(docs)
         else:
             dataset_count=0# pragma: no cover
         if dataset_count==0:
