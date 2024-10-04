@@ -1,6 +1,5 @@
 from beacon.request.parameters import RequestParams
 from beacon.response.schemas import DefaultSchemas
-import yaml
 from beacon.connections.mongo.__init__ import client
 from beacon.connections.mongo.utils import get_docs_by_response_type
 from beacon.logs.logs import log_with_args
