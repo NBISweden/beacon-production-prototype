@@ -96,21 +96,27 @@ async def execute_function(self, entry_type: str, datasets: list, qparams: Reque
             )
         for task in done:
             entity_schema, count, dataset_count, records, dataset = task.result()
-            if include != 'HIT':
+            if include == 'ALL':
                 if dataset_count != -1:
                     new_count+=dataset_count
                     datasets_docs[dataset]=records
                     datasets_count[dataset]=dataset_count
                 else:
                     datasets.remove(dataset)
-            else:
+            elif include == 'HIT':
                 if dataset_count != -1 and dataset_count != 0:
                     new_count+=dataset_count
                     datasets_docs[dataset]=records
                     datasets_count[dataset]=dataset_count
                 else:
-                    datasets.remove(dataset)   
-        
+                    datasets.remove(dataset) 
+            else:  
+                if dataset_count == 0:
+                    new_count+=dataset_count
+                    datasets_docs[dataset]=records
+                    datasets_count[dataset]=dataset_count
+                else:
+                    datasets.remove(dataset)
         count=new_count
     
     else:
