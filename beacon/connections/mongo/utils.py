@@ -44,7 +44,7 @@ def join_query(self, collection: Collection,query: dict, original_id):
 
 @log_with_args_mongo(level)
 def get_documents(self, collection: Collection, query: dict, skip: int, limit: int) -> Cursor:
-    return collection.find(query).skip(skip).limit(limit).max_time_ms(100 * 1000)
+    return collection.find(query,{"_id": 0, "datasetId": 0}).skip(skip).limit(limit).max_time_ms(100 * 1000)
 
 @log_with_args_mongo(level)
 def get_count(self, collection: Collection, query: dict) -> int:

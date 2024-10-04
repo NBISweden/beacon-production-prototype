@@ -1,4 +1,4 @@
-from beacon.logs.logs import log_with_args
+from beacon.logs.logs import log_with_args, LOG
 from beacon.conf.conf import level
 import asyncio
 import aiohttp.web as web
@@ -17,9 +17,10 @@ from beacon.utils.requests import get_qparams
 import aiohttp_cors
 from aiohttp_middlewares import cors_middleware
 from aiohttp_middlewares.cors import DEFAULT_ALLOW_HEADERS
-from beacon.conf import middlewares
+from beacon.conf import middlewares, conf
 from beacon.conf.conf import cors_urls
 from aiohttp_cors import CorsViewMixin
+from datetime import datetime
 
 class EndpointView(web.View, CorsViewMixin):
     def __init__(self, request: Request):
@@ -257,9 +258,12 @@ class Resultset(EndpointView):
         except Exception as e:# pragma: no cover
             response_obj = build_beacon_error_response(self, ErrorClass.error_code, 'prova', ErrorClass.error_response)
             return web.Response(text=json_util.dumps(response_obj), status=ErrorClass.error_code, content_type='application/json')
+        
 
 async def initialize(app):# pragma: no cover
-    pass
+    setattr(conf, 'update_datetime', datetime.now().isoformat())
+
+    LOG.info("Initialization done.")
 
 def _on_shutdown(pid):# pragma: no cover
     time.sleep(6)
@@ -267,6 +271,7 @@ def _on_shutdown(pid):# pragma: no cover
     #  Sending SIGINT to close server
     os.kill(pid, signal.SIGINT)
 
+    LOG.info('Shutting down beacon v2')
 
 async def _graceful_shutdown_ctx(app):# pragma: no cover
     def graceful_shutdown_sigterm_handler():
@@ -293,49 +298,94 @@ async def create_api():# pragma: no cover
     app = web.Application(middlewares=[web.normalize_path_middleware(), middlewares.error_middleware, cors_middleware(origins=cors_urls)])
     app.on_startup.append(initialize)
     app.cleanup_ctx.append(_graceful_shutdown_ctx)
-    app.add_routes([web.view('/api', Info)])
-    app.add_routes([web.view('/api/info', Info)])
-    app.add_routes([web.view('/api/entry_types', EntryTypes)])
-    app.add_routes([web.view('/api/service-info', ServiceInfo)])
-    app.add_routes([web.view('/api/configuration', Configuration)])
-    app.add_routes([web.view('/api/map', Map)])
-    app.add_routes([web.view('/api/filtering_terms', FilteringTerms)])
-    app.add_routes([web.view('/api/datasets', Collection)])
-    app.add_routes([web.view('/api/datasets/{id}', Collection)])
-    app.add_routes([web.view('/api/datasets/{id}/g_variants', Resultset)])
-    app.add_routes([web.view('/api/datasets/{id}/biosamples', Resultset)])
-    app.add_routes([web.view('/api/datasets/{id}/analyses', Resultset)])
-    app.add_routes([web.view('/api/datasets/{id}/runs', Resultset)])
-    app.add_routes([web.view('/api/datasets/{id}/individuals', Resultset)])
-    app.add_routes([web.view('/api/cohorts', Collection)])
-    app.add_routes([web.view('/api/cohorts/{id}', Collection)])
-    app.add_routes([web.view('/api/cohorts/{id}/individuals', Resultset)])
-    app.add_routes([web.view('/api/cohorts/{id}/g_variants', Resultset)])
-    app.add_routes([web.view('/api/cohorts/{id}/biosamples', Resultset)])
-    app.add_routes([web.view('/api/cohorts/{id}/analyses', Resultset)])
-    app.add_routes([web.view('/api/cohorts/{id}/runs', Resultset)])
-    app.add_routes([web.view('/api/g_variants', Resultset)])
-    app.add_routes([web.view('/api/g_variants/{id}', Resultset)])
-    app.add_routes([web.view('/api/g_variants/{id}/analyses', Resultset)])
-    app.add_routes([web.view('/api/g_variants/{id}/biosamples', Resultset)])
-    app.add_routes([web.view('/api/g_variants/{id}/individuals', Resultset)])
-    app.add_routes([web.view('/api/g_variants/{id}/runs', Resultset)])
-    app.add_routes([web.view('/api/individuals', Resultset)])
-    app.add_routes([web.view('/api/individuals/{id}', Resultset)])
-    app.add_routes([web.view('/api/individuals/{id}/g_variants', Resultset)])
-    app.add_routes([web.view('/api/individuals/{id}/biosamples', Resultset)])
-    app.add_routes([web.view('/api/analyses', Resultset)])
-    app.add_routes([web.view('/api/analyses/{id}', Resultset)])
-    app.add_routes([web.view('/api/analyses/{id}/g_variants', Resultset)])
-    app.add_routes([web.view('/api/biosamples', Resultset)])
-    app.add_routes([web.view('/api/biosamples/{id}', Resultset)])
-    app.add_routes([web.view('/api/biosamples/{id}/g_variants', Resultset)])
-    app.add_routes([web.view('/api/biosamples/{id}/analyses', Resultset)])
-    app.add_routes([web.view('/api/biosamples/{id}/runs', Resultset)])
-    app.add_routes([web.view('/api/runs', Resultset)])
-    app.add_routes([web.view('/api/runs/{id}', Resultset)])
-    app.add_routes([web.view('/api/runs/{id}/analyses', Resultset)])
-    app.add_routes([web.view('/api/runs/{id}/g_variants', Resultset)])
+    app.add_routes([web.post('/api', Info)])
+    app.add_routes([web.post('/api/info', Info)])
+    app.add_routes([web.post('/api/info', Info)])
+    app.add_routes([web.post('/api/entry_types', EntryTypes)])
+    app.add_routes([web.post('/api/service-info', ServiceInfo)])
+    app.add_routes([web.post('/api/configuration', Configuration)])
+    app.add_routes([web.post('/api/map', Map)])
+    app.add_routes([web.post('/api/filtering_terms', FilteringTerms)])
+    app.add_routes([web.post('/api/datasets', Collection)])
+    app.add_routes([web.post('/api/datasets/{id}', Collection)])
+    app.add_routes([web.post('/api/datasets/{id}/g_variants', Resultset)])
+    app.add_routes([web.post('/api/datasets/{id}/biosamples', Resultset)])
+    app.add_routes([web.post('/api/datasets/{id}/analyses', Resultset)])
+    app.add_routes([web.post('/api/datasets/{id}/runs', Resultset)])
+    app.add_routes([web.post('/api/datasets/{id}/individuals', Resultset)])
+    app.add_routes([web.post('/api/cohorts', Collection)])
+    app.add_routes([web.post('/api/cohorts/{id}', Collection)])
+    app.add_routes([web.post('/api/cohorts/{id}/individuals', Resultset)])
+    app.add_routes([web.post('/api/cohorts/{id}/g_variants', Resultset)])
+    app.add_routes([web.post('/api/cohorts/{id}/biosamples', Resultset)])
+    app.add_routes([web.post('/api/cohorts/{id}/analyses', Resultset)])
+    app.add_routes([web.post('/api/cohorts/{id}/runs', Resultset)])
+    app.add_routes([web.post('/api/g_variants', Resultset)])
+    app.add_routes([web.post('/api/g_variants/{id}', Resultset)])
+    app.add_routes([web.post('/api/g_variants/{id}/analyses', Resultset)])
+    app.add_routes([web.post('/api/g_variants/{id}/biosamples', Resultset)])
+    app.add_routes([web.post('/api/g_variants/{id}/individuals', Resultset)])
+    app.add_routes([web.post('/api/g_variants/{id}/runs', Resultset)])
+    app.add_routes([web.post('/api/individuals', Resultset)])
+    app.add_routes([web.post('/api/individuals/{id}', Resultset)])
+    app.add_routes([web.post('/api/individuals/{id}/g_variants', Resultset)])
+    app.add_routes([web.post('/api/individuals/{id}/biosamples', Resultset)])
+    app.add_routes([web.post('/api/analyses', Resultset)])
+    app.add_routes([web.post('/api/analyses/{id}', Resultset)])
+    app.add_routes([web.post('/api/analyses/{id}/g_variants', Resultset)])
+    app.add_routes([web.post('/api/biosamples', Resultset)])
+    app.add_routes([web.post('/api/biosamples/{id}', Resultset)])
+    app.add_routes([web.post('/api/biosamples/{id}/g_variants', Resultset)])
+    app.add_routes([web.post('/api/biosamples/{id}/analyses', Resultset)])
+    app.add_routes([web.post('/api/biosamples/{id}/runs', Resultset)])
+    app.add_routes([web.post('/api/runs', Resultset)])
+    app.add_routes([web.post('/api/runs/{id}', Resultset)])
+    app.add_routes([web.post('/api/runs/{id}/analyses', Resultset)])
+    app.add_routes([web.post('/api/runs/{id}/g_variants', Resultset)])
+    app.add_routes([web.get('/api', Info)])
+    app.add_routes([web.get('/api/info', Info)])
+    app.add_routes([web.get('/api/info', Info)])
+    app.add_routes([web.get('/api/entry_types', EntryTypes)])
+    app.add_routes([web.get('/api/service-info', ServiceInfo)])
+    app.add_routes([web.get('/api/configuration', Configuration)])
+    app.add_routes([web.get('/api/map', Map)])
+    app.add_routes([web.get('/api/filtering_terms', FilteringTerms)])
+    app.add_routes([web.get('/api/datasets', Collection)])
+    app.add_routes([web.get('/api/datasets/{id}', Collection)])
+    app.add_routes([web.get('/api/datasets/{id}/g_variants', Resultset)])
+    app.add_routes([web.get('/api/datasets/{id}/biosamples', Resultset)])
+    app.add_routes([web.get('/api/datasets/{id}/analyses', Resultset)])
+    app.add_routes([web.get('/api/datasets/{id}/runs', Resultset)])
+    app.add_routes([web.get('/api/datasets/{id}/individuals', Resultset)])
+    app.add_routes([web.get('/api/cohorts', Collection)])
+    app.add_routes([web.get('/api/cohorts/{id}', Collection)])
+    app.add_routes([web.get('/api/cohorts/{id}/individuals', Resultset)])
+    app.add_routes([web.get('/api/cohorts/{id}/g_variants', Resultset)])
+    app.add_routes([web.get('/api/cohorts/{id}/biosamples', Resultset)])
+    app.add_routes([web.get('/api/cohorts/{id}/analyses', Resultset)])
+    app.add_routes([web.get('/api/cohorts/{id}/runs', Resultset)])
+    app.add_routes([web.get('/api/g_variants', Resultset)])
+    app.add_routes([web.get('/api/g_variants/{id}', Resultset)])
+    app.add_routes([web.get('/api/g_variants/{id}/analyses', Resultset)])
+    app.add_routes([web.get('/api/g_variants/{id}/biosamples', Resultset)])
+    app.add_routes([web.get('/api/g_variants/{id}/individuals', Resultset)])
+    app.add_routes([web.get('/api/g_variants/{id}/runs', Resultset)])
+    app.add_routes([web.get('/api/individuals', Resultset)])
+    app.add_routes([web.get('/api/individuals/{id}', Resultset)])
+    app.add_routes([web.get('/api/individuals/{id}/g_variants', Resultset)])
+    app.add_routes([web.get('/api/individuals/{id}/biosamples', Resultset)])
+    app.add_routes([web.get('/api/analyses', Resultset)])
+    app.add_routes([web.get('/api/analyses/{id}', Resultset)])
+    app.add_routes([web.get('/api/analyses/{id}/g_variants', Resultset)])
+    app.add_routes([web.get('/api/biosamples', Resultset)])
+    app.add_routes([web.get('/api/biosamples/{id}', Resultset)])
+    app.add_routes([web.get('/api/biosamples/{id}/g_variants', Resultset)])
+    app.add_routes([web.get('/api/biosamples/{id}/analyses', Resultset)])
+    app.add_routes([web.get('/api/biosamples/{id}/runs', Resultset)])
+    app.add_routes([web.get('/api/runs', Resultset)])
+    app.add_routes([web.get('/api/runs/{id}', Resultset)])
+    app.add_routes([web.get('/api/runs/{id}/analyses', Resultset)])
+    app.add_routes([web.get('/api/runs/{id}/g_variants', Resultset)])
     cors_dict={}
     for origin in cors_urls:
         cors_dict[origin]=aiohttp_cors.ResourceOptions(

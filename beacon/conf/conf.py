@@ -10,7 +10,7 @@ except Exception as e:# pragma: no cover
     errcode=500
     raise_exception(err, errcode)
 
-level=logging.INFO
+level=logging.NOTSET
 api_version='2.0.0'
 default_beacon_granularity='record'
 beacon_id = 'org.ega-archive.beacon-ri-demo'  # ID of the Beacon

@@ -30,9 +30,9 @@ def log_with_args_initial(level):
                 start = time.time()
                 logging.basicConfig(format=fmt, level=level)
                 result = func(self, *args, **kwargs)
-                LOG.debug(f"{result} - {func.__name__}({args},{kwargs}) - initial call")
+                LOG.debug(f"{result} - {func.__name__} - initial call")
                 finish = time.time()
-                LOG.debug(f"{result} - {func.__name__}({args},{kwargs}) - {finish-start} - returned {result}")
+                LOG.debug(f"{result} - {func.__name__}- {finish-start} - returned OK")
                 if f"{func.__name__}" == 'initialize':
                     LOG.info(f"{result} - Initialization done")# pragma: no cover
                 elif f"{func.__name__}" == 'destroy':
@@ -52,10 +52,10 @@ def log_with_args(level):
             try:
                 start = time.time()
                 logging.basicConfig(format=fmt, level=level)
-                LOG.debug(f"{self._id} - {func.__name__}({args},{kwargs}) - initial call")
+                LOG.debug(f"{self._id} - {func.__name__} - initial call")
                 result = func(self, *args, **kwargs)
                 finish = time.time()
-                LOG.debug(f"{self._id} - {func.__name__}({args},{kwargs}) - {finish-start} - returned {result}")
+                LOG.debug(f"{self._id} - {func.__name__} - {finish-start} - returned OK")
                 if f"{func.__name__}" == 'initialize':
                     LOG.info(f"{self._id} - Initialization done")# pragma: no cover
                 elif f"{func.__name__}" == 'destroy':
@@ -78,7 +78,7 @@ def log_with_args_mongo(level):
                 LOG.debug(f"{self._id} - {func.__name__} - initial call")
                 result = func(self, *args, **kwargs)
                 finish = time.time()
-                LOG.debug(f"{self._id} - {func.__name__} - {finish-start} - returned {result}")
+                LOG.debug(f"{self._id} - {func.__name__} - {finish-start} - returned OK")
                 if f"{func.__name__}" == 'initialize':
                     LOG.info(f"{self._id} - Initialization done")# pragma: no cover
                 elif f"{func.__name__}" == 'destroy':
