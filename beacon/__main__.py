@@ -217,7 +217,7 @@ class FilteringTerms(EndpointView):
 class Resultset(EndpointView):
     @dataset_permissions
     @log_with_args(level)
-    async def resultset(self, post_data, request, qparams, entry_type, entry_id, datasets):
+    async def resultset(self, post_data, request, qparams, entry_type, entry_id, datasets, headers):
         try:
             response_obj = await builder(self, request, datasets, qparams, entry_type, entry_id)
             return web.Response(text=json_util.dumps(response_obj), status=200, content_type='application/json')
@@ -227,6 +227,7 @@ class Resultset(EndpointView):
     async def get(self):
         try:
             post_data = None
+            headers = None
             qparams = await get_qparams(self, post_data, self.request) 
             path_list = self.request.path.split('/')
             if len(path_list) > 4:
@@ -236,7 +237,7 @@ class Resultset(EndpointView):
             entry_id = self.request.match_info.get('id', None)
             if entry_id == None:
                 entry_id = self.request.match_info.get('variantInternalId', None)
-            return await self.resultset(post_data, self.request, qparams, entry_type, entry_id)
+            return await self.resultset(post_data, self.request, qparams, entry_type, entry_id, headers)
         except Exception as e:# pragma: no cover
             response_obj = build_beacon_error_response(self, ErrorClass.error_code, 'prova', ErrorClass.error_response)
             return web.Response(text=json_util.dumps(response_obj), status=ErrorClass.error_code, content_type='application/json')
@@ -244,6 +245,7 @@ class Resultset(EndpointView):
     async def post(self):
         try:
             request = await self.request.json() if self.request.has_body else {}
+            headers = self.request.headers
             post_data = request
             qparams = await get_qparams(self, post_data, request) 
             path_list = self.request.path.split('/')
@@ -254,7 +256,7 @@ class Resultset(EndpointView):
             entry_id = self.request.match_info.get('id', None)
             if entry_id == None:
                 entry_id = self.request.match_info.get('variantInternalId', None)
-            return await self.resultset(post_data, request, qparams, entry_type, entry_id)
+            return await self.resultset(post_data, request, qparams, entry_type, entry_id, headers)
         except Exception as e:# pragma: no cover
             response_obj = build_beacon_error_response(self, ErrorClass.error_code, 'prova', ErrorClass.error_response)
             return web.Response(text=json_util.dumps(response_obj), status=ErrorClass.error_code, content_type='application/json')
@@ -295,9 +297,10 @@ async def _graceful_shutdown_ctx(app):# pragma: no cover
 
 
 async def create_api():# pragma: no cover
-    app = web.Application(middlewares=[web.normalize_path_middleware(), middlewares.error_middleware, cors_middleware(origins=cors_urls)])
+    app = web.Application()
     app.on_startup.append(initialize)
     app.cleanup_ctx.append(_graceful_shutdown_ctx)
+    
     app.add_routes([web.post('/api', Info)])
     app.add_routes([web.post('/api/info', Info)])
     app.add_routes([web.post('/api/entry_types', EntryTypes)])
@@ -384,6 +387,7 @@ async def create_api():# pragma: no cover
     app.add_routes([web.get('/api/runs/{id}', Resultset)])
     app.add_routes([web.get('/api/runs/{id}/analyses', Resultset)])
     app.add_routes([web.get('/api/runs/{id}/g_variants', Resultset)])
+    '''
     cors_dict={}
     for origin in cors_urls:
         cors_dict[origin]=aiohttp_cors.ResourceOptions(
@@ -402,6 +406,9 @@ async def create_api():# pragma: no cover
     })
     for route in list(app.router.routes()):
         cors.add(route, cors_dict)
+
+    cors.add(web.options('/api/g_variants', Resultset), cors_dict)
+    '''
 
     runner = web.AppRunner(app)
     await runner.setup()

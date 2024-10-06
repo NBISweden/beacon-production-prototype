@@ -11,9 +11,9 @@ from beacon.conf.conf import level
 from beacon.connections.mongo.datasets import get_list_of_datasets
 
 @log_with_args(level)
-async def authorization(self, request):
+async def authorization(self, request, headers):
     try:
-        auth = request.headers.get('Authorization')
+        auth = headers.get('Authorization')
         if not auth or not auth.lower().startswith('bearer '):
             raise web.HTTPUnauthorized()
         list_visa_datasets=[]
@@ -25,14 +25,14 @@ async def authorization(self, request):
             username = 'public'# pragma: no cover
         else:
             username = user.get('preferred_username')
-    except Exception:
+    except Exception as e:
         list_visa_datasets = []
         username = 'public'
         return username, list_visa_datasets
     return username, list_visa_datasets
 
 @log_with_args(level)
-async def get_datasets_list(self, request: Request, authorized_datasets):
+async def get_datasets_list(self, qparams, request: Request, authorized_datasets):
     try:
         specific_datasets_unauthorized = []
         search_and_authorized_datasets = []
@@ -62,7 +62,7 @@ async def get_datasets_list(self, request: Request, authorized_datasets):
 
 def dataset_permissions(func):
     @log_with_args(level)
-    async def permission(self, post_data, request: Request, qparams, entry_type, entry_id):
+    async def permission(self, post_data, request: Request, qparams, entry_type, entry_id, headers):
         try:
             if post_data is not None:
                 v = post_data.get('datasets')
@@ -77,7 +77,7 @@ def dataset_permissions(func):
             else:# pragma: no cover
                 requested_datasets = v.split(sep=',')
             
-            username, list_visa_datasets = await authorization(self, request)
+            username, list_visa_datasets = await authorization(self, request, headers)
                 
             datasets = await PermissionsProxy.get(self, username=username, requested_datasets=requested_datasets)
             dict_returned={}
@@ -85,8 +85,8 @@ def dataset_permissions(func):
             authorized_datasets=list(datasets)
             for visa_dataset in list_visa_datasets:
                 authorized_datasets.append(visa_dataset)# pragma: no cover
-            response_datasets= await get_datasets_list(self, request, authorized_datasets)
-            return await func(self, post_data, request, qparams, entry_type, entry_id, response_datasets)
+            response_datasets= await get_datasets_list(self, qparams, request, authorized_datasets)
+            return await func(self, post_data, request, qparams, entry_type, entry_id, response_datasets, headers)
         except Exception:# pragma: no cover
             raise
     return permission
