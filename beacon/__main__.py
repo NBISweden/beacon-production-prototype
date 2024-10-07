@@ -14,13 +14,10 @@ import os
 import signal
 from threading import Thread
 from beacon.utils.requests import get_qparams
-import aiohttp_cors
 from aiohttp_middlewares import cors_middleware
-from aiohttp_middlewares.cors import DEFAULT_ALLOW_HEADERS
-from beacon.conf import middlewares, conf
-from beacon.conf.conf import cors_urls
 from aiohttp_cors import CorsViewMixin
 from datetime import datetime
+from beacon.conf import conf
 
 class EndpointView(web.View, CorsViewMixin):
     def __init__(self, request: Request):
