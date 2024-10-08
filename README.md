@@ -69,7 +69,7 @@ You can automatically fetch the ontologies and extract the filtering terms runni
 
 **If you have the ontologies loaded and the filtering terms extracted**, you can automatically get their descendant and semantic similarity terms by following the next two steps:
 
-1. Add your .obo files inside [ontologies](../beacon/connections/mongo/ontologies) naming them as the ontology prefix in lowercase (e.g. ncit.obo) and rebuild the beacon container with:
+1. Add your .obo files inside [ontologies](https://github.com/EGA-archive/beacon-production-prototype/tree/main/beacon/connections/mongo/ontologies) naming them as the ontology prefix in lowercase (e.g. ncit.obo) and rebuild the beacon container with:
 
 2. Run the following script:
 
@@ -204,7 +204,7 @@ And it will use the ontology filter to filter the results.
 
 ## Allowing authentication/authorization
 
-Go to [auth folder](../beacon/auth/idp_providers) and create an .env file with the next Oauthv2 OIDC Identity Provider Relying Party known information:
+Go to [auth folder](https://github.com/EGA-archive/beacon-production-prototype/tree/main/beacon/auth/idp_providers) and create an .env file with the next Oauthv2 OIDC Identity Provider Relying Party known information:
 ```bash
 CLIENT_ID='your_idp_client_id'
 CLIENT_SECRET='your_idp_client_secret'
@@ -216,7 +216,7 @@ JWKS_URL='https://login.elixir-czech.org/oidc/jwk'
 
 ## Managing configuration
 
-You can edit some parameters for your Beacon v2 API that are in [conf.py](../beacon/conf/conf.py). For that, edit the variables you see fit, save the file and restart the API by executing the next command:
+You can edit some parameters for your Beacon v2 API that are in [conf.py](https://github.com/EGA-archive/beacon-production-prototype/tree/main/beacon/conf/conf.py). For that, edit the variables you see fit, save the file and restart the API by executing the next command:
 
 ```bash
 docker-compose restart beaconprod
@@ -224,7 +224,7 @@ docker-compose restart beaconprod
 
 ## Managing source
 
-You can edit some parameters concerning entry types developed for your Beacon in [manage.py](../beacon/source/manage.py). For that, change to True the entry types you want to have developed and shown with data for your beacon and execute the next command:
+You can edit some parameters concerning entry types developed for your Beacon in [manage.py](https://github.com/EGA-archive/beacon-production-prototype/tree/main/beacon/source/manage.py). For that, change to True the entry types you want to have developed and shown with data for your beacon and execute the next command:
 
 ```bash
 docker-compose restart beaconprod
