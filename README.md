@@ -1,6 +1,6 @@
 # Beacon v2 Production Reference Implementation 
 
-This is an application that makes B2RI production ready. To go to the original B2RI product, please visit [B2RI](https://github.com/EGA-archive/beacon2-ri-api)
+This is an application that makes B2RI production ready. To go to the original B2RI product, please visit [B2RI](https://github.com/EGA-archive/beacon2-ri-api). For further information on how to use this app, please visit [B2RI docs](https://b2ri-documentation-demo.ega-archive.org/)
 
 ## Prerequisites
 
