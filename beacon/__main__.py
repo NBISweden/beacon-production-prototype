@@ -296,7 +296,7 @@ async def _graceful_shutdown_ctx(app):# pragma: no cover
 async def create_api():# pragma: no cover
     app = web.Application(
         middlewares=[
-            cors_middleware(origins=["http://localhost:3000"])
+            cors_middleware(origins=conf.cors_urls)
         ]
     )
     app.on_startup.append(initialize)

@@ -119,3 +119,159 @@ DEBUG - 2024-10-04 15:26:35,886 - fbae90fa - build_response_summary_by_dataset -
 DEBUG - 2024-10-04 15:26:35,887 - fbae90fa - build_response_by_dataset - initial call
 DEBUG - 2024-10-04 15:26:35,887 - fbae90fa - build_response_by_dataset - 0.00020813941955566406 - returned OK
 DEBUG - 2024-10-04 15:26:35,887 - fbae90fa - build_beacon_boolean_response_by_dataset - 0.0014164447784423828 - returned OK
+DEBUG - 2024-10-09 16:13:57,992 - a9abb5f7 - generate_txid - initial call
+DEBUG - 2024-10-09 16:13:57,992 - a9abb5f7 - generate_txid- 0.0005514621734619141 - returned OK
+DEBUG - 2024-10-09 16:13:57,993 - a9abb5f7 - get_qparams - initial call
+DEBUG - 2024-10-09 16:13:57,993 - a9abb5f7 - get_qparams - 0.00019621849060058594 - returned OK
+DEBUG - 2024-10-09 16:13:57,993 - a9abb5f7 - permission - initial call
+DEBUG - 2024-10-09 16:13:57,993 - a9abb5f7 - permission - 0.0002510547637939453 - returned OK
+DEBUG - 2024-10-09 16:13:57,994 - a9abb5f7 - authorization - initial call
+DEBUG - 2024-10-09 16:13:57,994 - a9abb5f7 - authorization - 0.00017333030700683594 - returned OK
+DEBUG - 2024-10-09 16:13:57,997 - a9abb5f7 - get_datasets_list - initial call
+DEBUG - 2024-10-09 16:13:57,997 - a9abb5f7 - get_datasets_list - 0.00023484230041503906 - returned OK
+DEBUG - 2024-10-09 16:13:57,997 - a9abb5f7 - get_list_of_datasets - initial call
+DEBUG - 2024-10-09 16:13:57,997 - a9abb5f7 - get_datasets - initial call
+DEBUG - 2024-10-09 16:13:57,998 - a9abb5f7 - get_datasets - 0.0004937648773193359 - returned OK
+DEBUG - 2024-10-09 16:14:05,411 - a9abb5f7 - get_list_of_datasets - 7.413520812988281 - returned OK
+DEBUG - 2024-10-09 16:14:05,411 - a9abb5f7 - resultset - initial call
+DEBUG - 2024-10-09 16:14:05,411 - a9abb5f7 - resultset - 0.00023365020751953125 - returned OK
+DEBUG - 2024-10-09 16:14:05,412 - a9abb5f7 - builder - initial call
+DEBUG - 2024-10-09 16:14:05,412 - a9abb5f7 - builder - 0.000141143798828125 - returned OK
+DEBUG - 2024-10-09 16:14:05,425 - a9abb5f7 - execute_function - initial call
+DEBUG - 2024-10-09 16:14:05,425 - a9abb5f7 - execute_function - 0.0002124309539794922 - returned OK
+DEBUG - 2024-10-09 16:14:05,426 - a9abb5f7 - get_variants - initial call
+DEBUG - 2024-10-09 16:14:05,426 - a9abb5f7 - apply_request_parameters - initial call
+DEBUG - 2024-10-09 16:14:05,426 - a9abb5f7 - apply_alphanumeric_filter - initial call
+DEBUG - 2024-10-09 16:14:05,426 - a9abb5f7 - format_value - initial call
+DEBUG - 2024-10-09 16:14:05,427 - a9abb5f7 - format_value - 0.00013446807861328125 - returned OK
+DEBUG - 2024-10-09 16:14:05,427 - a9abb5f7 - format_operator - initial call
+DEBUG - 2024-10-09 16:14:05,427 - a9abb5f7 - format_operator - 0.00016164779663085938 - returned OK
+DEBUG - 2024-10-09 16:14:05,427 - a9abb5f7 - format_value - initial call
+DEBUG - 2024-10-09 16:14:05,427 - a9abb5f7 - format_value - 0.00015091896057128906 - returned OK
+DEBUG - 2024-10-09 16:14:05,427 - a9abb5f7 - format_operator - initial call
+DEBUG - 2024-10-09 16:14:05,427 - a9abb5f7 - format_operator - 0.00012946128845214844 - returned OK
+DEBUG - 2024-10-09 16:14:05,428 - a9abb5f7 - apply_alphanumeric_filter - 0.0012536048889160156 - returned OK
+DEBUG - 2024-10-09 16:14:05,428 - a9abb5f7 - apply_alphanumeric_filter - initial call
+DEBUG - 2024-10-09 16:14:05,428 - a9abb5f7 - format_value - initial call
+DEBUG - 2024-10-09 16:14:05,428 - a9abb5f7 - format_value - 0.00013136863708496094 - returned OK
+DEBUG - 2024-10-09 16:14:05,428 - a9abb5f7 - format_operator - initial call
+DEBUG - 2024-10-09 16:14:05,428 - a9abb5f7 - format_operator - 0.0001270771026611328 - returned OK
+DEBUG - 2024-10-09 16:14:05,428 - a9abb5f7 - format_value - initial call
+DEBUG - 2024-10-09 16:14:05,428 - a9abb5f7 - format_value - 0.0001304149627685547 - returned OK
+DEBUG - 2024-10-09 16:14:05,429 - a9abb5f7 - format_operator - initial call
+DEBUG - 2024-10-09 16:14:05,429 - a9abb5f7 - format_operator - 0.0001239776611328125 - returned OK
+DEBUG - 2024-10-09 16:14:05,429 - a9abb5f7 - apply_alphanumeric_filter - 0.001239776611328125 - returned OK
+DEBUG - 2024-10-09 16:14:05,429 - a9abb5f7 - generate_position_filter_start - initial call
+DEBUG - 2024-10-09 16:14:05,429 - a9abb5f7 - generate_position_filter_start - 0.00012040138244628906 - returned OK
+DEBUG - 2024-10-09 16:14:05,429 - a9abb5f7 - apply_alphanumeric_filter - initial call
+DEBUG - 2024-10-09 16:14:05,429 - a9abb5f7 - format_value - initial call
+DEBUG - 2024-10-09 16:14:05,430 - a9abb5f7 - format_value - 0.00014853477478027344 - returned OK
+DEBUG - 2024-10-09 16:14:05,430 - a9abb5f7 - format_operator - initial call
+DEBUG - 2024-10-09 16:14:05,430 - a9abb5f7 - format_operator - 0.00013184547424316406 - returned OK
+DEBUG - 2024-10-09 16:14:05,430 - a9abb5f7 - format_value - initial call
+DEBUG - 2024-10-09 16:14:05,430 - a9abb5f7 - format_value - 0.0001266002655029297 - returned OK
+DEBUG - 2024-10-09 16:14:05,430 - a9abb5f7 - format_operator - initial call
+DEBUG - 2024-10-09 16:14:05,430 - a9abb5f7 - format_operator - 0.00011968612670898438 - returned OK
+DEBUG - 2024-10-09 16:14:05,430 - a9abb5f7 - apply_alphanumeric_filter - 0.0011301040649414062 - returned OK
+DEBUG - 2024-10-09 16:14:05,431 - a9abb5f7 - apply_alphanumeric_filter - initial call
+DEBUG - 2024-10-09 16:14:05,431 - a9abb5f7 - format_value - initial call
+DEBUG - 2024-10-09 16:14:05,431 - a9abb5f7 - format_value - 0.00014090538024902344 - returned OK
+DEBUG - 2024-10-09 16:14:05,431 - a9abb5f7 - format_operator - initial call
+DEBUG - 2024-10-09 16:14:05,431 - a9abb5f7 - format_operator - 0.00011968612670898438 - returned OK
+DEBUG - 2024-10-09 16:14:05,431 - a9abb5f7 - apply_alphanumeric_filter - 0.0006256103515625 - returned OK
+DEBUG - 2024-10-09 16:14:05,431 - a9abb5f7 - apply_request_parameters - 0.005240440368652344 - returned OK
+DEBUG - 2024-10-09 16:14:05,431 - a9abb5f7 - apply_filters - initial call
+DEBUG - 2024-10-09 16:14:05,432 - a9abb5f7 - apply_filters - 0.000133514404296875 - returned OK
+DEBUG - 2024-10-09 16:14:05,432 - a9abb5f7 - get_docs_by_response_type - initial call
+DEBUG - 2024-10-09 16:14:05,432 - a9abb5f7 - get_count - initial call
+DEBUG - 2024-10-09 16:14:05,433 - a9abb5f7 - get_count - 0.0010590553283691406 - returned OK
+DEBUG - 2024-10-09 16:14:05,433 - a9abb5f7 - get_documents - initial call
+DEBUG - 2024-10-09 16:14:05,433 - a9abb5f7 - get_documents - 0.0001666545867919922 - returned OK
+DEBUG - 2024-10-09 16:14:05,439 - a9abb5f7 - get_docs_by_response_type - 0.007301807403564453 - returned OK
+DEBUG - 2024-10-09 16:14:05,439 - a9abb5f7 - get_variants - 0.013436555862426758 - returned OK
+DEBUG - 2024-10-09 16:14:05,440 - a9abb5f7 - build_beacon_boolean_response_by_dataset - initial call
+DEBUG - 2024-10-09 16:14:05,440 - a9abb5f7 - build_meta - initial call
+DEBUG - 2024-10-09 16:14:05,440 - a9abb5f7 - build_meta - 0.00018215179443359375 - returned OK
+DEBUG - 2024-10-09 16:14:05,440 - a9abb5f7 - build_response_summary_by_dataset - initial call
+DEBUG - 2024-10-09 16:14:05,440 - a9abb5f7 - build_response_summary_by_dataset - 0.00011491775512695312 - returned OK
+DEBUG - 2024-10-09 16:14:05,440 - a9abb5f7 - build_response_by_dataset - initial call
+DEBUG - 2024-10-09 16:14:05,440 - a9abb5f7 - build_response_by_dataset - 0.0001277923583984375 - returned OK
+DEBUG - 2024-10-09 16:14:05,440 - a9abb5f7 - build_beacon_boolean_response_by_dataset - 0.0009200572967529297 - returned OK
+DEBUG - 2024-10-09 16:14:14,850 - b567038c - generate_txid - initial call
+DEBUG - 2024-10-09 16:14:14,850 - b567038c - generate_txid- 0.00041604042053222656 - returned OK
+DEBUG - 2024-10-09 16:14:14,850 - b567038c - get_qparams - initial call
+DEBUG - 2024-10-09 16:14:14,851 - b567038c - get_qparams - 0.0001952648162841797 - returned OK
+DEBUG - 2024-10-09 16:14:14,851 - b567038c - permission - initial call
+DEBUG - 2024-10-09 16:14:14,851 - b567038c - permission - 0.00020694732666015625 - returned OK
+DEBUG - 2024-10-09 16:14:14,851 - b567038c - authorization - initial call
+DEBUG - 2024-10-09 16:14:14,852 - b567038c - authorization - 0.00025844573974609375 - returned OK
+DEBUG - 2024-10-09 16:14:14,853 - b567038c - get_datasets_list - initial call
+DEBUG - 2024-10-09 16:14:14,854 - b567038c - get_datasets_list - 0.0003006458282470703 - returned OK
+DEBUG - 2024-10-09 16:14:14,854 - b567038c - get_list_of_datasets - initial call
+DEBUG - 2024-10-09 16:14:14,854 - b567038c - get_datasets - initial call
+DEBUG - 2024-10-09 16:14:14,854 - b567038c - get_datasets - 0.00028204917907714844 - returned OK
+DEBUG - 2024-10-09 16:14:14,856 - b567038c - get_list_of_datasets - 0.0019156932830810547 - returned OK
+DEBUG - 2024-10-09 16:14:14,856 - b567038c - resultset - initial call
+DEBUG - 2024-10-09 16:14:14,856 - b567038c - resultset - 0.00018477439880371094 - returned OK
+DEBUG - 2024-10-09 16:14:14,857 - b567038c - builder - initial call
+DEBUG - 2024-10-09 16:14:14,857 - b567038c - builder - 0.00023627281188964844 - returned OK
+DEBUG - 2024-10-09 16:14:14,857 - b567038c - execute_function - initial call
+DEBUG - 2024-10-09 16:14:14,857 - b567038c - execute_function - 0.0001857280731201172 - returned OK
+DEBUG - 2024-10-09 16:14:14,858 - b567038c - get_variants - initial call
+DEBUG - 2024-10-09 16:14:14,858 - b567038c - apply_request_parameters - initial call
+DEBUG - 2024-10-09 16:14:14,858 - b567038c - apply_alphanumeric_filter - initial call
+DEBUG - 2024-10-09 16:14:14,859 - b567038c - format_value - initial call
+DEBUG - 2024-10-09 16:14:14,859 - b567038c - format_value - 0.00035071372985839844 - returned OK
+DEBUG - 2024-10-09 16:14:14,859 - b567038c - format_operator - initial call
+DEBUG - 2024-10-09 16:14:14,859 - b567038c - format_operator - 0.00020885467529296875 - returned OK
+DEBUG - 2024-10-09 16:14:14,860 - b567038c - format_value - initial call
+DEBUG - 2024-10-09 16:14:14,860 - b567038c - format_value - 0.0001957416534423828 - returned OK
+DEBUG - 2024-10-09 16:14:14,860 - b567038c - format_operator - initial call
+DEBUG - 2024-10-09 16:14:14,860 - b567038c - format_operator - 0.0001850128173828125 - returned OK
+DEBUG - 2024-10-09 16:14:14,860 - b567038c - apply_alphanumeric_filter - 0.002054929733276367 - returned OK
+DEBUG - 2024-10-09 16:14:14,861 - b567038c - apply_alphanumeric_filter - initial call
+DEBUG - 2024-10-09 16:14:14,861 - b567038c - format_value - initial call
+DEBUG - 2024-10-09 16:14:14,861 - b567038c - format_value - 0.00017833709716796875 - returned OK
+DEBUG - 2024-10-09 16:14:14,861 - b567038c - format_operator - initial call
+DEBUG - 2024-10-09 16:14:14,862 - b567038c - format_operator - 0.00019407272338867188 - returned OK
+DEBUG - 2024-10-09 16:14:14,862 - b567038c - format_value - initial call
+DEBUG - 2024-10-09 16:14:14,862 - b567038c - format_value - 0.00016641616821289062 - returned OK
+DEBUG - 2024-10-09 16:14:14,862 - b567038c - format_operator - initial call
+DEBUG - 2024-10-09 16:14:14,862 - b567038c - format_operator - 0.0001609325408935547 - returned OK
+DEBUG - 2024-10-09 16:14:14,862 - b567038c - apply_alphanumeric_filter - 0.001749277114868164 - returned OK
+DEBUG - 2024-10-09 16:14:14,863 - b567038c - generate_position_filter_start - initial call
+DEBUG - 2024-10-09 16:14:14,863 - b567038c - generate_position_filter_start - 0.00020122528076171875 - returned OK
+DEBUG - 2024-10-09 16:14:14,863 - b567038c - apply_alphanumeric_filter - initial call
+DEBUG - 2024-10-09 16:14:14,863 - b567038c - format_value - initial call
+DEBUG - 2024-10-09 16:14:14,864 - b567038c - format_value - 0.0003139972686767578 - returned OK
+DEBUG - 2024-10-09 16:14:14,864 - b567038c - format_operator - initial call
+DEBUG - 2024-10-09 16:14:14,864 - b567038c - format_operator - 0.0003972053527832031 - returned OK
+DEBUG - 2024-10-09 16:14:14,865 - b567038c - format_value - initial call
+DEBUG - 2024-10-09 16:14:14,865 - b567038c - format_value - 0.0003142356872558594 - returned OK
+DEBUG - 2024-10-09 16:14:14,865 - b567038c - format_operator - initial call
+DEBUG - 2024-10-09 16:14:14,866 - b567038c - format_operator - 0.00025200843811035156 - returned OK
+DEBUG - 2024-10-09 16:14:14,866 - b567038c - apply_alphanumeric_filter - 0.0028488636016845703 - returned OK
+DEBUG - 2024-10-09 16:14:14,866 - b567038c - apply_alphanumeric_filter - initial call
+DEBUG - 2024-10-09 16:14:14,866 - b567038c - format_value - initial call
+DEBUG - 2024-10-09 16:14:14,866 - b567038c - format_value - 0.0001666545867919922 - returned OK
+DEBUG - 2024-10-09 16:14:14,867 - b567038c - format_operator - initial call
+DEBUG - 2024-10-09 16:14:14,867 - b567038c - format_operator - 0.000202178955078125 - returned OK
+DEBUG - 2024-10-09 16:14:14,867 - b567038c - apply_alphanumeric_filter - 0.0009324550628662109 - returned OK
+DEBUG - 2024-10-09 16:14:14,867 - b567038c - apply_request_parameters - 0.009212493896484375 - returned OK
+DEBUG - 2024-10-09 16:14:14,867 - b567038c - apply_filters - initial call
+DEBUG - 2024-10-09 16:14:14,868 - b567038c - apply_filters - 0.000179290771484375 - returned OK
+DEBUG - 2024-10-09 16:14:14,868 - b567038c - get_docs_by_response_type - initial call
+DEBUG - 2024-10-09 16:14:14,868 - b567038c - get_count - initial call
+DEBUG - 2024-10-09 16:14:14,869 - b567038c - get_count - 0.0012814998626708984 - returned OK
+DEBUG - 2024-10-09 16:14:14,869 - b567038c - get_documents - initial call
+DEBUG - 2024-10-09 16:14:14,870 - b567038c - get_documents - 0.00022363662719726562 - returned OK
+DEBUG - 2024-10-09 16:14:14,876 - b567038c - get_docs_by_response_type - 0.008071184158325195 - returned OK
+DEBUG - 2024-10-09 16:14:14,876 - b567038c - get_variants - 0.018425464630126953 - returned OK
+DEBUG - 2024-10-09 16:14:14,877 - b567038c - build_beacon_boolean_response_by_dataset - initial call
+DEBUG - 2024-10-09 16:14:14,877 - b567038c - build_meta - initial call
+DEBUG - 2024-10-09 16:14:14,878 - b567038c - build_meta - 0.0004093647003173828 - returned OK
+DEBUG - 2024-10-09 16:14:14,878 - b567038c - build_response_summary_by_dataset - initial call
+DEBUG - 2024-10-09 16:14:14,878 - b567038c - build_response_summary_by_dataset - 0.00017523765563964844 - returned OK
+DEBUG - 2024-10-09 16:14:14,879 - b567038c - build_response_by_dataset - initial call
+DEBUG - 2024-10-09 16:14:14,879 - b567038c - build_response_by_dataset - 0.0003180503845214844 - returned OK
+DEBUG - 2024-10-09 16:14:14,879 - b567038c - build_beacon_boolean_response_by_dataset - 0.002157926559448242 - returned OK
