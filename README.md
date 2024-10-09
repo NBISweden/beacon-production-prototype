@@ -4,17 +4,17 @@ This is an application that makes B2RI production ready. To go to the original B
 
 ## Main changes from B2RI
 
-*Handlers of the endpoints are classes, not functions
-*Unit testing has been developed for the application, starting with 108 unit tests that cover 4000 lines of code approximately (100%)
-*Concurrency testing has been applied for this new beacon instance, showing results of responses for more than 3 million genomic variants splitted in different datasets in less than 100 millisecs, for a total of 1000 requests made by 10 users per second at the same time.
-*Linking ids to a dataset in a yaml file is not needed anymore
-*A couple more indexes for mongoDB have been applied, that, in addition to the restructuration of the code, have improved the quickness of the responses
-*Authentication/Authorization is now applied as a decorator, not as a different container
-*LOGS now show more relevant information about the different processes (from request to response) including transaction id, the time of execution of each function and the initial call and the return call
-*Exceptions now are raised from the lower layer to the top layer, with information and status for the origin of the exception
-*Architecture of the code is not dependent on a particular database, meaning that different types of databases (and more than one) can be potentially applied to this instance (although now only MongoDB is the one developed)
-*Parameters are sanitized
-*Users can manage what entry types want their beacon to show by editing a manage conf file inside source
+* Handlers of the endpoints are classes, not functions
+* Unit testing has been developed for the application, starting with 108 unit tests that cover 4000 lines of code approximately (100%)
+* Concurrency testing has been applied for this new beacon instance, showing results of responses for more than 3 million genomic variants splitted in different datasets in less than 100 millisecs, for a total of 1000 requests made by 10 users per second at the same time.
+* Linking ids to a dataset in a yaml file is not needed anymore
+* A couple more indexes for mongoDB have been applied, that, in addition to the restructuration of the code, have improved the quickness of the responses
+* Authentication/Authorization is now applied as a decorator, not as a different container
+* LOGS now show more relevant information about the different processes (from request to response) including transaction id, the time of execution of each function and the initial call and the return call
+* Exceptions now are raised from the lower layer to the top layer, with information and status for the origin of the exception
+* Architecture of the code is not dependent on a particular database, meaning that different types of databases (and more than one) can be potentially applied to this instance (although now only MongoDB is the one developed)
+* Parameters are sanitized
+* Users can manage what entry types want their beacon to show by editing a manage conf file inside source
 
 
 ## Prerequisites
@@ -82,7 +82,7 @@ You can automatically fetch the ontologies and extract the filtering terms runni
 
 #### Get descendant and semantic similarity terms
 
-**If you have the ontologies loaded and the filtering terms extracted**, you can automatically get their descendant and semantic similarity terms by following the next two steps:
+*  If you have the ontologies loaded and the filtering terms extracted* , you can automatically get their descendant and semantic similarity terms by following the next two steps:
 
 1. Add your .obo files inside [ontologies](https://github.com/EGA-archive/beacon-production-prototype/tree/main/beacon/connections/mongo/ontologies) naming them as the ontology prefix in lowercase (e.g. ncit.obo) and rebuild the beacon container with:
 
