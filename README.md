@@ -214,6 +214,12 @@ ISSUER='https://login.elixir-czech.org/oidc/'
 JWKS_URL='https://login.elixir-czech.org/oidc/jwk'
 ```
 
+For Keycloak IDP, an "aud" parameter will need to be added to the token's mappers, matching the Audience for the Keycloak realm.
+
+## Making a dataset public/registered/controlled
+
+In order to assign the security level for a dataset in your beacon, please go to [permissions/datasets](https://github.com/EGA-archive/beacon-production-prototype/tree/main/beacon/permissions/datasets) and add your dataset into the .yml corresponding file you wish to assign the permissions for it.
+
 ## Managing configuration
 
 You can edit some parameters for your Beacon v2 API that are in [conf.py](https://github.com/EGA-archive/beacon-production-prototype/tree/main/beacon/conf/conf.py). For that, edit the variables you see fit, save the file and restart the API by executing the next command:
