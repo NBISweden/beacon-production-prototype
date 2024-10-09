@@ -252,4 +252,8 @@ You can edit some parameters concerning entry types developed for your Beacon in
 docker-compose restart beaconprod
 ```
 
+## Tests report
+
+![Beacon prod concurrency test](https://github.com/EGA-archive/beacon-production-prototype/blob/main/ri-tools/files/concurrencytest.png)
+
 
