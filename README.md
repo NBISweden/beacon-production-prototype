@@ -23,6 +23,7 @@ You should have installed:
 
 - [Docker](https://docs.docker.com/engine/install/)
 - [Docker Compose](https://docs.docker.com/compose/install/)
+- Data from [RI TOOLS](https://github.com/EGA-archive/beacon2-ri-tools). Please, bear in mind that the datasetId for your records must match the id for the dataset in the /datasets entry type. 
 
 ### Light up the database and the Beacon
 
