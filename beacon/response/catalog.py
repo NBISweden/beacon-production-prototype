@@ -163,14 +163,14 @@ def build_response_by_dataset(self, datasets, data, dict_counts, qparams):
         raise
 
 @log_with_args(level)
-def build_beacon_boolean_response_by_dataset(self, datasets, data,
+def build_beacon_record_response_by_dataset(self, datasets, data,
                                     dict_counts,
                                     num_total_results,
                                     qparams: RequestParams,
                                     entity_schema: DefaultSchemas):
     try:
         beacon_response = {
-            'meta': build_meta(self, qparams, entity_schema, Granularity.BOOLEAN),
+            'meta': build_meta(self, qparams, entity_schema, Granularity.RECORD),
             'responseSummary': build_response_summary_by_dataset(self, num_total_results > 0, num_total_results, data),
             'response': {
                 'resultSets': build_response_by_dataset(self, datasets, data, dict_counts, qparams)
@@ -182,7 +182,7 @@ def build_beacon_boolean_response_by_dataset(self, datasets, data,
         raise
 
 @log_with_args(level)
-def build_beacon_boolean_response(self, data,
+def build_beacon_boolean_response(self,
                                     num_total_results,
                                     qparams: RequestParams,
                                     entity_schema: DefaultSchemas):
@@ -198,7 +198,7 @@ def build_beacon_boolean_response(self, data,
         raise
 
 @log_with_args(level)
-def build_beacon_count_response(self, data,
+def build_beacon_count_response(self,
                                     num_total_results,
                                     qparams: RequestParams,
                                     entity_schema: DefaultSchemas):
@@ -214,13 +214,13 @@ def build_beacon_count_response(self, data,
         raise
 
 @log_with_args(level)
-def build_beacon_boolean_response(self, data,
+def build_beacon_none_response(self, data,
                                     num_total_results,
                                     qparams: RequestParams,
                                     entity_schema: DefaultSchemas):
     try:
         beacon_response = {
-            'meta': build_meta(self, qparams, entity_schema, Granularity.BOOLEAN),
+            'meta': build_meta(self, qparams, entity_schema, Granularity.RECORD),
             'responseSummary': build_response_summary_by_dataset(self, num_total_results > 0, num_total_results, data),
             'response': {
                 'resultSets': [build_response(self, data, num_total_results, qparams)]

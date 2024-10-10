@@ -122,10 +122,7 @@ def get_docs_by_response_type(self, include: str, query: dict, dataset: str, lim
         queryid['datasetId']=dataset
         query_count["$or"].append(queryid)
         if query_count["$or"]!=[]:
-            LOG.info('hola')
             dataset_count = get_count(self, mongo_collection, query_count)
-            LOG.info('adeu')
-            LOG.info(query_count)
             if dataset_count == 0:
                 docs = []
             else:

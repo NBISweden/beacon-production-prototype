@@ -1,7 +1,7 @@
 from aiohttp.web_request import Request
-from beacon.response.catalog import build_beacon_boolean_response_by_dataset, build_beacon_count_response, build_beacon_collection_response, build_beacon_info_response, build_map, build_configuration, build_entry_types, build_beacon_service_info_response, build_filtering_terms_response, build_beacon_boolean_response
+from beacon.response.catalog import build_beacon_record_response_by_dataset, build_beacon_count_response, build_beacon_collection_response, build_beacon_info_response, build_map, build_configuration, build_entry_types, build_beacon_service_info_response, build_filtering_terms_response, build_beacon_boolean_response, build_beacon_none_response
 from beacon.logs.logs import log_with_args, LOG
-from beacon.conf.conf import level
+from beacon.conf.conf import level, default_beacon_granularity
 from beacon.request.classes import Granularity
 from beacon.source.manage import analyses, biosamples, cohorts, datasets, g_variants, individuals, runs, filtering_terms
 
@@ -36,12 +36,14 @@ async def builder(self, request: Request, datasets, qparams, entry_type, entry_i
         import importlib
         module = importlib.import_module(complete_module, package=None)
         datasets_docs, datasets_count, count, entity_schema, include, datasets = await module.execute_function(self, entry_type, datasets, qparams, entry_id)
-        if include != 'NONE':
-            response = build_beacon_boolean_response_by_dataset(self, datasets, datasets_docs, datasets_count, count, qparams, entity_schema)
-        elif include == 'NONE' and granularity == Granularity.RECORD:
-            response = build_beacon_boolean_response(self, datasets_docs["NONE"], count, qparams, entity_schema)
-        elif include == 'NONE' and granularity == Granularity.COUNT:
-            response = build_beacon_count_response(self, datasets_docs["NONE"], count, qparams, entity_schema)
+        if include != 'NONE' and granularity == Granularity.RECORD and default_beacon_granularity == 'record':
+            response = build_beacon_record_response_by_dataset(self, datasets, datasets_docs, datasets_count, count, qparams, entity_schema)
+        elif include == 'NONE' and granularity == Granularity.RECORD and default_beacon_granularity == 'record':
+            response = build_beacon_none_response(self, datasets_docs["NONE"], count, qparams, entity_schema)
+        elif granularity == Granularity.COUNT or granularity == Granularity.RECORD and default_beacon_granularity in ['count', 'record']:
+            response = build_beacon_count_response(self, count, qparams, entity_schema)
+        else:
+            response = build_beacon_boolean_response(self, count, qparams, entity_schema)
         return response
     except Exception:# pragma: no cover
         raise

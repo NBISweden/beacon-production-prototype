@@ -98,8 +98,6 @@ def get_variants_of_dataset(self, entry_id: Optional[str], qparams: RequestParam
     skip = qparams.query.pagination.skip
     if limit > 100 or limit == 0:
         limit = 100# pragma: no cover
-    if include not in ['ALL', 'NONE']:
-        include = 'ALL'
     count, dataset_count, docs = get_docs_by_response_type(self, include, query, dataset, limit, skip, mongo_collection, idq)
     return schema, count, dataset_count, docs, dataset
 
@@ -122,8 +120,6 @@ def get_biosamples_of_dataset(self, entry_id: Optional[str], qparams: RequestPar
     if limit > 100 or limit == 0:
         limit = 100# pragma: no cover
     idq="id"
-    if include not in ['ALL', 'NONE']:
-        include = 'ALL'
     count, dataset_count, docs = get_docs_by_response_type(self, include, query, dataset, limit, skip, mongo_collection, idq)
     return schema, count, dataset_count, docs, dataset
 
@@ -146,8 +142,6 @@ def get_individuals_of_dataset(self, entry_id: Optional[str], qparams: RequestPa
     if limit > 100 or limit == 0:
         limit = 100# pragma: no cover
     idq="id"
-    if include not in ['ALL', 'NONE']:
-        include = 'ALL'
     count, dataset_count, docs = get_docs_by_response_type(self, include, query, dataset, limit, skip, mongo_collection, idq)
     return schema, count, dataset_count, docs, dataset
 
@@ -170,8 +164,6 @@ def get_runs_of_dataset(self, entry_id: Optional[str], qparams: RequestParams, d
     if limit > 100 or limit == 0:
         limit = 100# pragma: no cover
     idq="biosampleId"
-    if include not in ['ALL', 'NONE']:
-        include = 'ALL'
     count, dataset_count, docs = get_docs_by_response_type(self, include, query, dataset, limit, skip, mongo_collection, idq)
     list_of_records = (
             [r for r in docs] if docs else []
@@ -197,7 +189,5 @@ def get_analyses_of_dataset(self, entry_id: Optional[str], qparams: RequestParam
     skip = qparams.query.pagination.skip
     if limit > 100 or limit == 0:
         limit = 100# pragma: no cover
-    if include not in ['ALL', 'NONE']:
-        include = 'ALL'
     count, dataset_count, docs = get_docs_by_response_type(self, include, query, dataset, limit, skip, mongo_collection, idq)
     return schema, count, dataset_count, docs, dataset

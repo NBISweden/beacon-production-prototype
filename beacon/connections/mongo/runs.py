@@ -3,7 +3,7 @@ from beacon.response.schemas import DefaultSchemas
 import yaml
 from beacon.connections.mongo.__init__ import client
 from beacon.connections.mongo.utils import get_docs_by_response_type, query_id
-from beacon.logs.logs import log_with_args
+from beacon.logs.logs import log_with_args, LOG
 from beacon.conf.conf import level
 from beacon.connections.mongo.filters import apply_filters
 from beacon.connections.mongo.request_parameters import apply_request_parameters
@@ -27,8 +27,6 @@ def get_runs(self, entry_id: Optional[str], qparams: RequestParams, dataset: str
     skip = qparams.query.pagination.skip
     if limit > 100 or limit == 0:
         limit = 100
-    if include not in ['ALL', 'NONE']:
-        include = 'ALL'
     idq="biosampleId"
     count, dataset_count, docs = get_docs_by_response_type(self, include, query, dataset, limit, skip, mongo_collection, idq)
     return schema, count, dataset_count, docs, dataset
@@ -46,8 +44,6 @@ def get_run_with_id(self, entry_id: Optional[str], qparams: RequestParams, datas
     if limit > 100 or limit == 0:
         limit = 100# pragma: no cover
     idq="biosampleId"
-    if include not in ['ALL', 'NONE']:
-        include = 'ALL'
     count, dataset_count, docs = get_docs_by_response_type(self, include, query, dataset, limit, skip, mongo_collection, idq)
     return schema, count, dataset_count, docs, dataset
 
@@ -72,8 +68,6 @@ def get_variants_of_run(self, entry_id: Optional[str], qparams: RequestParams, d
     if limit > 100 or limit == 0:
         limit = 100# pragma: no cover
     idq="caseLevelData.biosampleId"
-    if include not in ['ALL', 'NONE']:
-        include = 'ALL'
     count, dataset_count, docs = get_docs_by_response_type(self, include, query, dataset, limit, skip, mongo_collection, idq)
     return schema, count, dataset_count, docs, dataset
 
@@ -90,7 +84,5 @@ def get_analyses_of_run(self, entry_id: Optional[str], qparams: RequestParams, d
     if limit > 100 or limit == 0:
         limit = 100# pragma: no cover
     idq="biosampleId"
-    if include not in ['ALL', 'NONE']:
-        include = 'ALL'
     count, dataset_count, docs = get_docs_by_response_type(self, include, query, dataset, limit, skip, mongo_collection, idq)
     return schema, count, dataset_count, docs, dataset

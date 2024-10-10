@@ -65,8 +65,6 @@ def get_individuals_of_cohort(self, entry_id: Optional[str], qparams: RequestPar
     if limit > 100 or limit == 0:
         limit = 100# pragma: no cover
     idq="id"
-    if include not in ['ALL', 'NONE']:
-        include = 'ALL'
     count, dataset_count, docs = get_docs_by_response_type(self, include, query, dataset, limit, skip, mongo_collection, idq)
     return schema, count, dataset_count, docs, dataset
 
@@ -88,8 +86,6 @@ def get_analyses_of_cohort(self, entry_id: Optional[str], qparams: RequestParams
     if limit > 100 or limit == 0:
         limit = 100# pragma: no cover
     idq="biosampleId"
-    if include not in ['ALL', 'NONE']:
-        include = 'ALL'
     count, dataset_count, docs = get_docs_by_response_type(self, include, query, dataset, limit, skip, mongo_collection, idq)
     return schema, count, dataset_count, docs, dataset
 
@@ -127,8 +123,6 @@ def get_variants_of_cohort(self,entry_id: Optional[str], qparams: RequestParams,
     if limit > 100 or limit == 0:
         limit = 100# pragma: no cover
     idq="caseLevelData.biosampleId"
-    if include not in ['ALL', 'NONE']:
-        include = 'ALL'
     count, dataset_count, docs = get_docs_by_response_type(self, include, query, dataset, limit, skip, mongo_collection, idq)
     return schema, count, dataset_count, docs, dataset
 
@@ -150,8 +144,6 @@ def get_runs_of_cohort(self, entry_id: Optional[str], qparams: RequestParams, da
     if limit > 100 or limit == 0:
         limit = 100# pragma: no cover
     idq="biosampleId"
-    if include not in ['ALL', 'NONE']:
-        include = 'ALL'
     count, dataset_count, docs = get_docs_by_response_type(self, include, query, dataset, limit, skip, mongo_collection, idq)
     return schema, count, dataset_count, docs, dataset
 
@@ -173,7 +165,5 @@ def get_biosamples_of_cohort(self, entry_id: Optional[str], qparams: RequestPara
     if limit > 100 or limit == 0:
         limit = 100# pragma: no cover
     idq="id"
-    if include not in ['ALL', 'NONE']:
-        include = 'ALL'
     count, dataset_count, docs = get_docs_by_response_type(self, include, query, dataset, limit, skip, mongo_collection, idq)
     return schema, count, dataset_count, docs, dataset

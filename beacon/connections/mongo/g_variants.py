@@ -2,7 +2,7 @@ from beacon.request.parameters import RequestParams
 from beacon.response.schemas import DefaultSchemas
 from beacon.connections.mongo.__init__ import client
 from beacon.connections.mongo.utils import get_docs_by_response_type
-from beacon.logs.logs import log_with_args
+from beacon.logs.logs import log_with_args, LOG
 from beacon.conf.conf import level
 from beacon.connections.mongo.filters import apply_filters
 from beacon.connections.mongo.request_parameters import apply_request_parameters
@@ -63,7 +63,7 @@ def get_biosamples_of_variant(self, entry_id: Optional[str], qparams: RequestPar
     collection = 'g_variants'
     mongo_collection = client.beacon.biosamples
     query = {"$and": [{"variantInternalId": entry_id}]}
-    query_parameters, parameters_as_filters = apply_request_parameters(self, {}, qparams)
+    query_parameters, parameters_as_filters = apply_request_parameters(self, query, qparams)
     if parameters_as_filters == True:
         query, parameters_as_filters = apply_request_parameters(self, {}, qparams)# pragma: no cover
         query_parameters={}# pragma: no cover
@@ -71,13 +71,16 @@ def get_biosamples_of_variant(self, entry_id: Optional[str], qparams: RequestPar
         query=query_parameters
     query = apply_filters(self, query, qparams.query.filters, collection,query_parameters)
     biosample_ids = client.beacon.genomicVariations \
-        .find_one(query, {"caseLevelData.biosampleId": 1, "_id": 0})
-    biosample_id=biosample_ids["caseLevelData"]
+        .find(query, {"caseLevelData.biosampleId": 1, "_id": 0})
+    biosample_ids=list(biosample_ids)
+    biosample_id=biosample_ids[0]["caseLevelData"]
     try:
-        finalid=biosample_id[0]["biosampleId"]
+        finalids=[]
+        for bioid in biosample_id:
+            finalids.append({"id": bioid})
     except Exception:# pragma: no cover
-        finalid=biosample_id["biosampleId"]
-    query = {"id": finalid}
+        finalids=[]
+    query = {"$and": [{"$or": finalids}]}
     query = apply_filters(self, query, qparams.query.filters, collection, {})
     schema = DefaultSchemas.BIOSAMPLES
     include = qparams.query.include_resultset_responses
@@ -94,7 +97,7 @@ def get_runs_of_variant(self, entry_id: Optional[str], qparams: RequestParams, d
     collection = 'g_variants'
     mongo_collection = client.beacon.runs
     query = {"$and": [{"variantInternalId": entry_id}]}
-    query_parameters, parameters_as_filters = apply_request_parameters(self, {}, qparams)
+    query_parameters, parameters_as_filters = apply_request_parameters(self, query, qparams)
     if parameters_as_filters == True:
         query, parameters_as_filters = apply_request_parameters(self, {}, qparams)# pragma: no cover
         query_parameters={}# pragma: no cover
@@ -102,13 +105,16 @@ def get_runs_of_variant(self, entry_id: Optional[str], qparams: RequestParams, d
         query=query_parameters
     query = apply_filters(self, query, qparams.query.filters, collection,query_parameters)
     biosample_ids = client.beacon.genomicVariations \
-        .find_one(query, {"caseLevelData.biosampleId": 1, "_id": 0})
-    biosample_id=biosample_ids["caseLevelData"]
+        .find(query, {"caseLevelData.biosampleId": 1, "_id": 0})
+    biosample_ids=list(biosample_ids)
+    biosample_id=biosample_ids[0]["caseLevelData"]
     try:
-        finalid=biosample_id[0]["biosampleId"]
+        finalids=[]
+        for bioid in biosample_id:
+            finalids.append(bioid)
     except Exception:# pragma: no cover
-        finalid=biosample_id["biosampleId"]
-    query = {"biosampleId": finalid}
+        finalids=[]
+    query = {"$and": [{"$or": finalids}]}
     query = apply_filters(self, query, qparams.query.filters, collection, {})
     schema = DefaultSchemas.RUNS
     include = qparams.query.include_resultset_responses
@@ -125,7 +131,7 @@ def get_analyses_of_variant(self, entry_id: Optional[str], qparams: RequestParam
     collection = 'g_variants'
     mongo_collection = client.beacon.analyses
     query = {"$and": [{"variantInternalId": entry_id}]}
-    query_parameters, parameters_as_filters = apply_request_parameters(self, {}, qparams)
+    query_parameters, parameters_as_filters = apply_request_parameters(self, query, qparams)
     if parameters_as_filters == True:
         query, parameters_as_filters = apply_request_parameters(self, {}, qparams)# pragma: no cover
         query_parameters={}# pragma: no cover
@@ -133,13 +139,16 @@ def get_analyses_of_variant(self, entry_id: Optional[str], qparams: RequestParam
         query=query_parameters
     query = apply_filters(self, query, qparams.query.filters, collection,query_parameters)
     biosample_ids = client.beacon.genomicVariations \
-        .find_one(query, {"caseLevelData.biosampleId": 1, "_id": 0})
-    biosample_id=biosample_ids["caseLevelData"]
+        .find(query, {"caseLevelData.biosampleId": 1, "_id": 0})
+    biosample_ids=list(biosample_ids)
+    biosample_id=biosample_ids[0]["caseLevelData"]
     try:
-        finalid=biosample_id[0]["biosampleId"]
+        finalids=[]
+        for bioid in biosample_id:
+            finalids.append(bioid)
     except Exception:# pragma: no cover
-        finalid=biosample_id["biosampleId"]
-    query = {"biosampleId": finalid}
+        finalids=[]
+    query = {"$and": [{"$or": finalids}]}
     query = apply_filters(self, query, qparams.query.filters, collection, {})
     schema = DefaultSchemas.ANALYSES
     include = qparams.query.include_resultset_responses
@@ -156,26 +165,44 @@ def get_individuals_of_variant(self, entry_id: Optional[str], qparams: RequestPa
     collection = 'g_variants'
     mongo_collection = client.beacon.individuals
     query = {"$and": [{"variantInternalId": entry_id}]}
-    query_parameters, parameters_as_filters = apply_request_parameters(self, {}, qparams)
+    query_parameters, parameters_as_filters = apply_request_parameters(self, query, qparams)
     if parameters_as_filters == True:
-        query, parameters_as_filters = apply_request_parameters(self, {}, qparams)# pragma: no cover
+        query, parameters_as_filters = apply_request_parameters(self, query, qparams)# pragma: no cover
         query_parameters={}# pragma: no cover
     else:
         query=query_parameters
     query = apply_filters(self, query, qparams.query.filters, collection,query_parameters)
     biosample_ids = client.beacon.genomicVariations \
-        .find_one(query, {"caseLevelData.biosampleId": 1, "_id": 0})
-    biosample_id=biosample_ids["caseLevelData"]
+        .find(query, {"caseLevelData.biosampleId": 1, "_id": 0})
+    biosample_ids=list(biosample_ids)
+    biosample_id=biosample_ids[0]["caseLevelData"]
     try:
-        finalid=biosample_id[0]["biosampleId"]
+        finalids=[]
+        for bioid in biosample_id:
+            finalids.append(bioid["biosampleId"])
     except Exception:# pragma: no cover
-        finalid=biosample_id["biosampleId"]
-    query = {"id": finalid}
+        finalids=[]
+    finalquery={}
+    finalquery["$or"]=[]
+    for finalid in finalids:
+        query = {"id": finalid}
+        finalquery["$or"].append(query)
     individual_id = client.beacon.biosamples \
-        .find_one(query, {"individualId": 1, "_id": 0})
-    finalid=individual_id["individualId"]
-    query = {"id": finalid}
-    query = apply_filters(self, query, qparams.query.filters, collection, {})
+        .find(finalquery, {"individualId": 1, "_id": 0})
+    try:
+        finalids=[]
+        for indid in individual_id:
+            finalids.append(indid["individualId"])
+    except Exception:# pragma: no cover
+        finalids=[]
+    finalquery={}
+    finalquery["$or"]=[]
+    for finalid in finalids:
+        query = {"id": finalid}
+        finalquery["$or"].append(query)
+    superfinalquery={}
+    superfinalquery["$and"]=[finalquery]
+    query = apply_filters(self, superfinalquery, qparams.query.filters, collection, {})
     schema = DefaultSchemas.INDIVIDUALS
     include = qparams.query.include_resultset_responses
     limit = qparams.query.pagination.limit

@@ -30,8 +30,6 @@ def get_analyses(self, entry_id: Optional[str], qparams: RequestParams, dataset:
     skip = qparams.query.pagination.skip
     if limit > 100 or limit == 0:
         limit = 100
-    if include not in ['ALL', 'NONE']:
-        include = 'ALL'
     idq="biosampleId"
     count, dataset_count, docs = get_docs_by_response_type(self, include, query, dataset, limit, skip, mongo_collection, idq)
     return schema, count, dataset_count, docs, dataset
@@ -49,8 +47,6 @@ def get_analysis_with_id(self, entry_id: Optional[str], qparams: RequestParams, 
     skip = qparams.query.pagination.skip
     if limit > 100 or limit == 0:
         limit = 100# pragma: no cover
-    if include not in ['ALL', 'NONE']:
-        include = 'ALL'
     count, dataset_count, docs = get_docs_by_response_type(self, include, query, dataset, limit, skip, mongo_collection, idq)
     return schema, count, dataset_count, docs, dataset
 
@@ -70,8 +66,6 @@ def get_variants_of_analysis(self, entry_id: Optional[str], qparams: RequestPara
     skip = qparams.query.pagination.skip
     if limit > 100 or limit == 0:
         limit = 100# pragma: no cover
-    if include not in ['ALL', 'NONE']:
-        include = 'ALL'
     idq="caseLevelData.biosampleId"
     count, dataset_count, docs = get_docs_by_response_type(self, include, query, dataset, limit, skip, mongo_collection, idq)
     return schema, count, dataset_count, docs, dataset
