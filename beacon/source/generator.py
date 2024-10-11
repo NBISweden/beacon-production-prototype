@@ -51,7 +51,7 @@ def get_entry_types_map(self):
                 except Exception:
                     map_biosample["endpoints"]={}
                     map_biosample["endpoints"]=biosamples_endpoints
-            if biosamples["endpoints"]==True:
+            if biosamples["endpoints"]["analysis"]==True:
                 biosamples_endpoints["analysis"]=biosample_analysis
                 try:
                     map_biosample["endpoints"]=biosamples_endpoints
