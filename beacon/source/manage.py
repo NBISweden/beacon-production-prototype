@@ -2,45 +2,45 @@
 
 analyses={
     'granularity': {
-        'boolean': False,
-        'count': False,
-        'record': False
+        'boolean': True,
+        'count': True,
+        'record': True
     },
-    'singleEntryUrl': False,
+    'singleEntryUrl': True,
     'endpoints': {
-        'genomicVariant': False
+        'genomicVariant': True
     },
-    'testMode': False,
+    'testMode': True,
     'database': 'mongo'
 }
 biosamples={
     'granularity': {
-        'boolean': False,
-        'count': False,
-        'record': False
+        'boolean': True,
+        'count': True,
+        'record': True
     },
-    'singleEntryUrl': False,
+    'singleEntryUrl': True,
     'endpoints': {
-        'analysis': False,
-        'genomicVariant': False,
-        'run': False
+        'analysis': True,
+        'genomicVariant': True,
+        'run': True
     },
-    'testMode': False,
+    'testMode': True,
     'database': 'mongo'
 }
 cohorts={
     'granularity': {
-        'boolean': False,
-        'count': False,
-        'record': False
+        'boolean': True,
+        'count': True,
+        'record': True
     },
-    'singleEntryUrl': False,
+    'singleEntryUrl': True,
     'endpoints': {
-        'analysis': False,
-        'individual': False,
-        'run': False
+        'analysis': True,
+        'individual': True,
+        'run': True
     },
-    'testMode': False,
+    'testMode': True,
     'database': 'mongo'
 }
 datasets={
@@ -49,15 +49,15 @@ datasets={
         'count': True,
         'record': True
     },
-    'singleEntryUrl': False,
+    'singleEntryUrl': True,
     'endpoints': {
-        'analysis': False,
-        'biosample': False,
-        'genomicVariant': False,
-        'individual': False,
-        'run': False
+        'analysis': True,
+        'biosample': True,
+        'genomicVariant': True,
+        'individual': True,
+        'run': True
     },
-    'testMode': False,
+    'testMode': True,
     'database': 'mongo'
 }
 g_variants={
@@ -66,44 +66,44 @@ g_variants={
         'count': True,
         'record': True
     },
-    'singleEntryUrl': False,
+    'singleEntryUrl': True,
     'endpoints': {
-        'analysis': False,
-        'biosample': False,
-        'individual': False,
-        'run': False
+        'analysis': True,
+        'biosample': True,
+        'individual': True,
+        'run': True
     },
-    'testMode': False,
+    'testMode': True,
     'database': 'mongo'
 }
 individuals={
     'granularity': {
-        'boolean': False,
-        'count': False,
-        'record': False
+        'boolean': True,
+        'count': True,
+        'record': True
     },
-    'singleEntryUrl': False,
+    'singleEntryUrl': True,
     'endpoints': {
-        'analysis': False,
-        'biosample': False,
-        'genomicVariant': False,
-        'run': False
+        'analysis': True,
+        'biosample': True,
+        'genomicVariant': True,
+        'run': True
     },
-    'testMode': False,
+    'testMode': True,
     'database': 'mongo'
 }
 runs={
     'granularity': {
-        'boolean': False,
-        'count': False,
-        'record': False
+        'boolean': True,
+        'count': True,
+        'record': True
     },
-    'singleEntryUrl': False,
+    'singleEntryUrl': True,
     'endpoints': {
-        'analysis': False,
-        'genomicVariant': False
+        'analysis': True,
+        'genomicVariant': True
     },
-    'testMode': False,
+    'testMode': True,
     'database': 'mongo'
 }
 filtering_terms={

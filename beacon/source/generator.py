@@ -33,7 +33,6 @@ def get_entry_types_map(self):
         map_entry_types["endpointSets"]={}
         if analyses["granularity"]["boolean"]==True or analyses["granularity"]["count"]==True or analyses["granularity"]["record"]==True:# pragma: no cover
             analyses_endpoints={}
-            analyses_endpoints["endpoints"]={}
             if analyses["singleEntryUrl"]==True:
                 map_analysis["singleEntryUrl"]=analysis_single
             if analyses["endpoints"]["genomicVariant"]==True:
@@ -43,7 +42,6 @@ def get_entry_types_map(self):
             map_entry_types["endpointSets"]["analysis"]=map_analysis
         if biosamples["granularity"]["boolean"]==True or biosamples["granularity"]["count"]==True or biosamples["granularity"]["record"]==True:# pragma: no cover
             biosamples_endpoints={}
-            biosamples_endpoints["endpoints"]={}
             if biosamples["singleEntryUrl"]==True:
                 map_biosample["singleEntryUrl"]=biosample_single
             if biosamples["endpoints"]["genomicVariant"]==True:
@@ -70,7 +68,6 @@ def get_entry_types_map(self):
             map_entry_types["endpointSets"]["biosample"]=map_biosample
         if cohorts["granularity"]["boolean"]==True or cohorts["granularity"]["count"]==True or cohorts["granularity"]["record"]==True:# pragma: no cover
             cohorts_endpoints={}
-            cohorts_endpoints["endpoints"]={}
             if cohorts["singleEntryUrl"]==True:
                 map_cohort["singleEntryUrl"]=cohort_single
             if cohorts["endpoints"]["individual"]==True:
@@ -97,7 +94,6 @@ def get_entry_types_map(self):
             map_entry_types["endpointSets"]["cohort"]=map_cohort
         if datasets["granularity"]["boolean"]==True or datasets["granularity"]["count"]==True or datasets["granularity"]["record"]==True:
             datasets_endpoints={}
-            datasets_endpoints["endpoints"]={}
             if datasets["singleEntryUrl"]==True:
                 map_dataset["singleEntryUrl"]=dataset_single# pragma: no cover
             if datasets["endpoints"]["individual"]==True:# pragma: no cover
@@ -138,7 +134,6 @@ def get_entry_types_map(self):
             map_entry_types["endpointSets"]["dataset"]=map_dataset
         if g_variants["granularity"]["boolean"]==True or g_variants["granularity"]["count"]==True or g_variants["granularity"]["record"]==True:
             g_variants_endpoints={}
-            g_variants_endpoints["endpoints"]={}
             if g_variants["singleEntryUrl"]==True:# pragma: no cover
                 map_genomicVariant["singleEntryUrl"]=genomicVariant_single
             if g_variants["endpoints"]["individual"]==True:# pragma: no cover
@@ -172,7 +167,6 @@ def get_entry_types_map(self):
             map_entry_types["endpointSets"]["genomicVariant"]=map_genomicVariant
         if individuals["granularity"]["boolean"]==True or individuals["granularity"]["count"]==True or individuals["granularity"]["record"]==True:# pragma: no cover
             individuals_endpoints={}
-            individuals_endpoints["endpoints"]={}
             if individuals["singleEntryUrl"]==True:
                 map_individual["singleEntryUrl"]=individual_single
             if individuals["endpoints"]["genomicVariant"]==True:
@@ -206,7 +200,6 @@ def get_entry_types_map(self):
             map_entry_types["endpointSets"]["individual"]=map_individual
         if runs["granularity"]["boolean"]==True or runs["granularity"]["count"]==True or runs["granularity"]["record"]==True:# pragma: no cover
             runs_endpoints={}
-            runs_endpoints["endpoints"]={}
             if runs["singleEntryUrl"]==True:
                 map_run["singleEntryUrl"]=run_single
             if runs["endpoints"]["genomicVariant"]==True:
