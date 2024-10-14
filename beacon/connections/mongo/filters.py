@@ -219,8 +219,6 @@ def cross_query(self, query: dict, scope: str, collection: str, request_paramete
 def apply_filters(self, query: dict, filters: List[dict], collection: str, query_parameters: dict) -> dict:
     request_parameters = query_parameters
     total_query={}
-    LOG.debug(filters)
-    LOG.debug(query_parameters)
     if len(filters) >= 1:
         total_query["$and"] = []
         if query != {} and request_parameters == {}:
@@ -387,8 +385,6 @@ def apply_filters(self, query: dict, filters: List[dict], collection: str, query
             if total_query["$and"] == [{'$or': []}] or total_query['$and'] == []:
                 total_query = {}
     if total_query == {} and query != {}:
-        LOG.debug('ene')
-        LOG.debug(query)
         total_query=query
     return total_query
 

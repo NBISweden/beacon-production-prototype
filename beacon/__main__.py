@@ -389,34 +389,13 @@ async def create_api():# pragma: no cover
     app.add_routes([web.get('/api/runs/{id}', Resultset)])
     app.add_routes([web.get('/api/runs/{id}/analyses', Resultset)])
     app.add_routes([web.get('/api/runs/{id}/g_variants', Resultset)])
-    '''
-    cors_dict={}
-    for origin in cors_urls:
-        cors_dict[origin]=aiohttp_cors.ResourceOptions(
-            allow_credentials=True,
-            expose_headers="*",
-            allow_methods=("POST", "PATCH", "GET", "OPTIONS"),
-            allow_headers=DEFAULT_ALLOW_HEADERS
-        )
-    cors = aiohttp_cors.setup(app, defaults={
-    "http://localhost:3000": aiohttp_cors.ResourceOptions(
-            allow_credentials=True,
-            expose_headers="*",
-            allow_methods=("POST", "PATCH", "GET", "OPTIONS"),
-            allow_headers=DEFAULT_ALLOW_HEADERS
-        )
-    })
-    for route in list(app.router.routes()):
-        cors.add(route, cors_dict)
 
-    cors.add(web.options('/api/g_variants', Resultset), cors_dict)
-    '''
     ssl_context = None
     if (os.path.isfile(conf.beacon_server_key)) and (os.path.isfile(conf.beacon_server_crt)):
         ssl_context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
         ssl_context.load_cert_chain(certfile=conf.beacon_server_crt, keyfile=conf.beacon_server_key)
 
-    print("Starting app")
+    LOG.debug("Starting app")
     runner = web.AppRunner(app)
     await runner.setup()
     site = web.TCPSite(runner, '0.0.0.0', 5050,  ssl_context=ssl_context)

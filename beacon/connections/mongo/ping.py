@@ -2,6 +2,7 @@ from pymongo.mongo_client import MongoClient
 from pymongo.errors import ConnectionFailure 
 import conf
 import os
+from beacon.logs.logs import LOG
 
 
 uri = "mongodb://{}:{}@{}:{}/{}?authSource={}".format(
@@ -22,4 +23,4 @@ client = MongoClient(uri, serverSelectionTimeoutMS=30000)
 try:
     client.admin.command('ping')
 except ConnectionFailure as err:
-    print(f"Database error encountered: {err}")
+    LOG.debug(f"Database error encountered: {err}")
