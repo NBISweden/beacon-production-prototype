@@ -18,6 +18,7 @@ from aiohttp_middlewares import cors_middleware
 from aiohttp_cors import CorsViewMixin
 from datetime import datetime
 from beacon.conf import conf
+import ssl
 
 class EndpointView(web.View, CorsViewMixin):
     def __init__(self, request: Request):
@@ -410,10 +411,15 @@ async def create_api():# pragma: no cover
 
     cors.add(web.options('/api/g_variants', Resultset), cors_dict)
     '''
+    ssl_context = None
+    if (os.path.isfile(conf.beacon_server_key)) and (os.path.isfile(conf.beacon_server_crt)):
+        ssl_context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
+        ssl_context.load_cert_chain(certfile=conf.beacon_server_crt, keyfile=conf.beacon_server_key)
 
+    print("Starting app")
     runner = web.AppRunner(app)
     await runner.setup()
-    site = web.TCPSite(runner, '0.0.0.0', 5050)
+    site = web.TCPSite(runner, '0.0.0.0', 5050,  ssl_context=ssl_context)
     await site.start()
 
     while True:

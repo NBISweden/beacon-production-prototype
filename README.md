@@ -16,6 +16,15 @@ This is an application that makes B2RI production ready. To go to the original B
 * Parameters are sanitized
 * Users can manage what entry types want their beacon to show by editing a manage conf file inside source
 
+### TLS configuration
+
+To enable TLS for the Becaon API set `beacon_server_crt` and `beacon_server_key` to the full paht of the server certificate and server key in `beacon/conf/conf.py` file.
+
+#### TLS secured MongoDB
+
+Edit the file `beacon/connections/mongo/conf.py` and set `database_certificate` to the full path to the client certificate. If a private CA is used also set the `database_cafile` to the full path to the CA certificate.
+
+* The MongoDB client certificate should be in the combined PEM format `client.key + "\n" + client.crt`
 
 ## Prerequisites
 
