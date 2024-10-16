@@ -77,7 +77,7 @@ Remember to do this step every time you import new data!!
 You can create the necessary indexes running the following Python script:
 
 ```bash
-docker exec beacon python beacon/reindex.py
+docker exec beaconprod python /beacon/connections/mongo/reindex.py
 ```
 
 #### Fetch the ontologies and extract the filtering terms

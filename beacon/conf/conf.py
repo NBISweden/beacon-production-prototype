@@ -12,7 +12,6 @@ except Exception as e:# pragma: no cover
 
 level=logging.NOTSET
 api_version='2.0.0'
-default_beacon_granularity='record'
 beacon_id = 'org.ega-archive.beacon-ri-demo'  # ID of the Beacon
 beacon_name = 'Beacon Reference Implementation demo'  # Name of the Beacon service
 api_version = 'v2.0.0' # Version of the Beacon implementation
@@ -24,7 +23,7 @@ welcome_url = 'https://beacon.ega-archive.org/'
 alternative_url = 'https://beacon.ega-archive.org/api'
 create_datetime = '2021-11-29T12:00:00.000000'
 update_datetime = ''
-default_beacon_granularity = "record"
+default_beacon_granularity = "record" # boolean, count or record
 security_levels = ['PUBLIC', 'REGISTERED', 'CONTROLLED']
 documentation_url = 'https://b2ri-documentation-demo.ega-archive.org/'
 alphanumeric_terms = ['libraryStrategy', 'molecularAttributes.geneIds', 'diseases.ageOfOnset.iso8601duration', 'molecularAttributes.aminoacidChanges']

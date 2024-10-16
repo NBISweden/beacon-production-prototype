@@ -46,6 +46,7 @@ class MyProgressBar:
 
 def load_ontology(ontology_id: str):
     if ontology_id.isalpha():
+        print(ontology_id)
         url_alt = "https://www.ebi.ac.uk/efo/EFO.obo"
         url = "http://purl.obolibrary.org/obo/{}.obo".format(ontology_id.lower())
         path = "/beacon/connections/mongo/ontologies/{}.obo".format(ontology_id)
@@ -60,6 +61,8 @@ def load_ontology(ontology_id: str):
             pass
         except ValueError:
             #print("ERROR", ValueError)
+            pass
+        except Exception:
             pass
         try:
             #print (os.stat(path).st_size)
