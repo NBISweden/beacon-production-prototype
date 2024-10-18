@@ -663,7 +663,7 @@ def apply_alphanumeric_filter(self, query: dict, filter: AlphanumericFilter, col
     formatted_operator = format_operator(self, filter.operator)
     if collection == 'g_variants' and scope != 'individual' and scope != 'run':
         if filter.id == "identifiers.genomicHGVSId":
-            list_chromosomes = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22']
+            list_chromosomes = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','X','Y']
             dict_regex={}
             if filter.value == 'GRCh38':
                 dict_regex['$regex']="11:"
