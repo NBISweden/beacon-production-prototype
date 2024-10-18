@@ -672,7 +672,12 @@ def apply_alphanumeric_filter(self, query: dict, filter: AlphanumericFilter, col
             elif filter.value == 'NCBI36':
                 dict_regex['$regex']="9:"
             elif filter.value in list_chromosomes:
-                dict_regex['$regex']='^NC_0000'+filter.value
+                if filter.value == 'X':
+                    dict_regex['$regex']='^NC_0000'+'23'
+                elif filter.value == 'Y':
+                    dict_regex['$regex']='^NC_0000'+'24'
+                else:
+                    dict_regex['$regex']='^NC_0000'+filter.value
             elif '>' in filter.value:# pragma: no cover
                 dict_regex=filter.value
             elif '.' in filter.value:# pragma: no cover
