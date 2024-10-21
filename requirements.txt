@@ -22,7 +22,7 @@ requests==2.25.1
 pydantic==2.6.2
 StrEnum==0.4.7
 pyhumps==3.8.0
-paramiko==2.7.2
+paramiko==3.4.0
 six==1.16.0
 progressbar==2.5
 tqdm==4.62.3
