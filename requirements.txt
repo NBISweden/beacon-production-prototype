@@ -25,5 +25,5 @@ pyhumps==3.8.0
 paramiko==2.7.2
 six==1.16.0
 progressbar==2.5
-tqdm==4.62.3
+tqdm==4.66.3
 obonet==0.3.1
