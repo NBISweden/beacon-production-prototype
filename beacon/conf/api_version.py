@@ -2,7 +2,7 @@ import subprocess
 import yaml
 
 
-repo_url = 'https://github.com/EGA-archive/beacon2-ri-api.git'
+repo_url = 'https://github.com/EGA-archive/beacon-production-prototype.git'
 output_lines = subprocess.check_output(
     [
         "git",
