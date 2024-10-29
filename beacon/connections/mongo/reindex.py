@@ -34,6 +34,14 @@ try:
 except Exception:
     db=client.beacon.create_collection(name="synonyms")
 try:
+    client.beacon.validate_collection("caseLevelData")
+except Exception:
+    db=client.beacon.create_collection(name="caseLevelData")
+try:
+    client.beacon.validate_collection("targets")
+except Exception:
+    db=client.beacon.create_collection(name="targets")
+try:
     client.beacon.drop_collection("counts")
 except Exception:
     client.beacon.create_collection(name="counts")
