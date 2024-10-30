@@ -3,7 +3,7 @@ from beacon.response.schemas import DefaultSchemas
 import yaml
 from beacon.connections.mongo.__init__ import client
 from beacon.connections.mongo.utils import get_docs_by_response_type, query_id
-from beacon.logs.logs import log_with_args
+from beacon.logs.logs import log_with_args, LOG
 from beacon.conf.conf import level
 from beacon.connections.mongo.filters import apply_filters
 from beacon.connections.mongo.request_parameters import apply_request_parameters
@@ -54,11 +54,34 @@ def get_individual_with_id(self, entry_id: Optional[str], qparams: RequestParams
 @log_with_args(level)
 def get_variants_of_individual(self, entry_id: Optional[str], qparams: RequestParams, dataset: str):
     collection = 'g_variants'
-    query = {"individualId": entry_id}
-    mongo_collection = client.beacon.biosamples
-    excluding_fields={"_id": 0, "id": 1}
-    biosampleId=mongo_collection.find(query, excluding_fields)
-    query = {"caseLevelData.biosampleId": biosampleId[0]["id"]}
+    targets = client.beacon.targets \
+        .find({"datasetId": dataset}, {"biosampleIds": 1, "_id": 0})
+    position=0
+    bioids=targets[0]["biosampleIds"]
+    for bioid in bioids:
+        if bioid == entry_id:
+            break
+        position+=1
+    position=str(position)
+    position1="^"+position+","
+    position2=","+position+","
+    position3=","+position+"$"
+    query_cl={ "$or": [
+    {"biosampleIds": {"$regex": position1}}, 
+    {"biosampleIds": {"$regex": position2}},
+    {"biosampleIds": {"$regex": position3}}
+    ]}
+    string_of_ids = client.beacon.caseLevelData \
+        .find(query_cl, {"id": 1, "_id": 0})
+    HGVSIds=list(string_of_ids)
+    query={}
+    queryHGVS={}
+    listHGVS=[]
+    for HGVSId in HGVSIds:
+        justid=HGVSId["id"]
+        listHGVS.append(justid)
+    queryHGVS["$in"]=listHGVS
+    query["identifiers.genomicHGVSId"]=queryHGVS
     mongo_collection = client.beacon.genomicVariations
     query, parameters_as_filters = apply_request_parameters(self, query, qparams)
     query = apply_filters(self, query, qparams.query.filters, collection, {})

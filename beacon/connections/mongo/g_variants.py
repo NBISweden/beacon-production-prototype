@@ -70,13 +70,26 @@ def get_biosamples_of_variant(self, entry_id: Optional[str], qparams: RequestPar
     else:
         query=query_parameters
     query = apply_filters(self, query, qparams.query.filters, collection,query_parameters)
-    biosample_ids = client.beacon.genomicVariations \
-        .find(query, {"caseLevelData.biosampleId": 1, "_id": 0})
-    biosample_ids=list(biosample_ids)
-    biosample_id=biosample_ids[0]["caseLevelData"]
+    HGVSIds = client.beacon.genomicVariations \
+        .find(query, {"identifiers.genomicHGVSId": 1, "_id": 0})
+    HGVSIds=list(HGVSIds)
+    HGVSId=HGVSIds[0]["identifiers"]["genomicHGVSId"]
+    queryHGVSId={"datasetId": dataset, "id": HGVSId}
+    string_of_ids = client.beacon.caseLevelData \
+        .find(queryHGVSId, {"biosampleIds": 1, "_id": 0})
+    targets = client.beacon.targets \
+        .find({"datasetId": dataset}, {"biosampleIds": 1, "_id": 0})
+    targets=list(targets)
+    list_of_targets=targets[0]["biosampleIds"]
+    list_of_positions_strings= string_of_ids[0]['biosampleIds'].split(',')
+    biosampleIds=[]
+    for position in list_of_positions_strings:
+        if position != '':
+            biosampleIds.append(list_of_targets[int(position)])
+    finalids=biosampleIds
     try:
         finalids=[]
-        for bioid in biosample_id:
+        for bioid in biosampleIds:
             finalids.append({"id": bioid})
     except Exception:# pragma: no cover
         finalids=[]
@@ -104,14 +117,26 @@ def get_runs_of_variant(self, entry_id: Optional[str], qparams: RequestParams, d
     else:
         query=query_parameters
     query = apply_filters(self, query, qparams.query.filters, collection,query_parameters)
-    biosample_ids = client.beacon.genomicVariations \
-        .find(query, {"caseLevelData.biosampleId": 1, "_id": 0})
-    biosample_ids=list(biosample_ids)
-    biosample_id=biosample_ids[0]["caseLevelData"]
+    HGVSIds = client.beacon.genomicVariations \
+        .find(query, {"identifiers.genomicHGVSId": 1, "_id": 0})
+    HGVSIds=list(HGVSIds)
+    HGVSId=HGVSIds[0]["identifiers"]["genomicHGVSId"]
+    queryHGVSId={"datasetId": dataset, "id": HGVSId}
+    string_of_ids = client.beacon.caseLevelData \
+        .find(queryHGVSId, {"biosampleIds": 1, "_id": 0})
+    targets = client.beacon.targets \
+        .find({"datasetId": dataset}, {"biosampleIds": 1, "_id": 0})
+    targets=list(targets)
+    list_of_targets=targets[0]["biosampleIds"]
+    list_of_positions_strings= string_of_ids[0]['biosampleIds'].split(',')
+    biosampleIds=[]
+    for position in list_of_positions_strings:
+        if position != '':
+            biosampleIds.append(list_of_targets[int(position)])
     try:
         finalids=[]
-        for bioid in biosample_id:
-            finalids.append(bioid)
+        for bioid in biosampleIds:
+            finalids.append({"biosampleId": bioid})
     except Exception:# pragma: no cover
         finalids=[]
     query = {"$and": [{"$or": finalids}]}
@@ -138,14 +163,26 @@ def get_analyses_of_variant(self, entry_id: Optional[str], qparams: RequestParam
     else:
         query=query_parameters
     query = apply_filters(self, query, qparams.query.filters, collection,query_parameters)
-    biosample_ids = client.beacon.genomicVariations \
-        .find(query, {"caseLevelData.biosampleId": 1, "_id": 0})
-    biosample_ids=list(biosample_ids)
-    biosample_id=biosample_ids[0]["caseLevelData"]
+    HGVSIds = client.beacon.genomicVariations \
+        .find(query, {"identifiers.genomicHGVSId": 1, "_id": 0})
+    HGVSIds=list(HGVSIds)
+    HGVSId=HGVSIds[0]["identifiers"]["genomicHGVSId"]
+    queryHGVSId={"datasetId": dataset, "id": HGVSId}
+    string_of_ids = client.beacon.caseLevelData \
+        .find(queryHGVSId, {"biosampleIds": 1, "_id": 0})
+    targets = client.beacon.targets \
+        .find({"datasetId": dataset}, {"biosampleIds": 1, "_id": 0})
+    targets=list(targets)
+    list_of_targets=targets[0]["biosampleIds"]
+    list_of_positions_strings= string_of_ids[0]['biosampleIds'].split(',')
+    biosampleIds=[]
+    for position in list_of_positions_strings:
+        if position != '':
+            biosampleIds.append(list_of_targets[int(position)])
     try:
         finalids=[]
-        for bioid in biosample_id:
-            finalids.append(bioid)
+        for bioid in biosampleIds:
+            finalids.append({"biosampleId": bioid})
     except Exception:# pragma: no cover
         finalids=[]
     query = {"$and": [{"$or": finalids}]}
@@ -172,29 +209,42 @@ def get_individuals_of_variant(self, entry_id: Optional[str], qparams: RequestPa
     else:
         query=query_parameters
     query = apply_filters(self, query, qparams.query.filters, collection,query_parameters)
-    biosample_ids = client.beacon.genomicVariations \
-        .find(query, {"caseLevelData.biosampleId": 1, "_id": 0})
-    biosample_ids=list(biosample_ids)
-    biosample_id=biosample_ids[0]["caseLevelData"]
+    HGVSIds = client.beacon.genomicVariations \
+        .find(query, {"identifiers.genomicHGVSId": 1, "_id": 0})
+    HGVSIds=list(HGVSIds)
+    HGVSId=HGVSIds[0]["identifiers"]["genomicHGVSId"]
+    LOG.debug(HGVSId)
+    queryHGVSId={"datasetId": dataset, "id": HGVSId}
+    string_of_ids = client.beacon.caseLevelData \
+        .find(queryHGVSId, {"biosampleIds": 1, "_id": 0})
+    targets = client.beacon.targets \
+        .find({"datasetId": dataset}, {"biosampleIds": 1, "_id": 0})
+    targets=list(targets)
+    list_of_targets=targets[0]["biosampleIds"]
+    LOG.debug(string_of_ids[0])
+    list_of_positions_strings= string_of_ids[0]['biosampleIds'].split(',')
+    biosampleIds=[]
+    for position in list_of_positions_strings:
+        if position != '':
+            biosampleIds.append(list_of_targets[int(position)])
     try:
-        finalids=[]
-        for bioid in biosample_id:
-            finalids.append(bioid["biosampleId"])
-    except Exception:# pragma: no cover
-        finalids=[]
-    finalquery={}
-    finalquery["$or"]=[]
-    for finalid in finalids:
-        query = {"id": finalid}
-        finalquery["$or"].append(query)
-    individual_id = client.beacon.biosamples \
-        .find(finalquery, {"individualId": 1, "_id": 0})
-    try:
-        finalids=[]
-        for indid in individual_id:
-            finalids.append(indid["individualId"])
-    except Exception:# pragma: no cover
-        finalids=[]
+        finalquery={}
+        finalquery["$or"]=[]
+        for finalid in biosampleIds:
+            query = {"id": finalid}
+            finalquery["$or"].append(query)
+        individual_id = client.beacon.biosamples \
+            .find(finalquery, {"individualId": 1, "_id": 0})
+        try:
+            finalids=[]
+            for indid in individual_id:
+                finalids.append(indid["individualId"])
+        except Exception:# pragma: no cover
+            finalids=[]
+        if finalids==[]:
+            finalids=biosampleIds
+    except Exception:
+        finalids=biosampleIds
     finalquery={}
     finalquery["$or"]=[]
     for finalid in finalids:
