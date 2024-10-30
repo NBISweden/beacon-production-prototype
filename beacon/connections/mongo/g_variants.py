@@ -77,7 +77,7 @@ def get_biosamples_of_variant(self, entry_id: Optional[str], qparams: RequestPar
     try:
         finalids=[]
         for bioid in biosample_id:
-            finalids.append({"id": bioid})
+            finalids.append({"id": bioid["biosampleId"]})
     except Exception:# pragma: no cover
         finalids=[]
     query = {"$and": [{"$or": finalids}]}
