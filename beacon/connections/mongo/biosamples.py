@@ -54,34 +54,7 @@ def get_biosample_with_id(self, entry_id: Optional[str], qparams: RequestParams,
 def get_variants_of_biosample(self, entry_id: Optional[str], qparams: RequestParams, dataset: str):
     collection = 'g_variants'
     mongo_collection = client.beacon.genomicVariations
-    targets = client.beacon.targets \
-        .find({"datasetId": dataset}, {"biosampleIds": 1, "_id": 0})
-    position=0
-    bioids=targets[0]["biosampleIds"]
-    for bioid in bioids:
-        if bioid == entry_id:
-            break
-        position+=1
-    position=str(position)
-    position1="^"+position+","
-    position2=","+position+","
-    position3=","+position+"$"
-    query_cl={ "$or": [
-    {"biosampleIds": {"$regex": position1}}, 
-    {"biosampleIds": {"$regex": position2}},
-    {"biosampleIds": {"$regex": position3}}
-    ]}
-    string_of_ids = client.beacon.caseLevelData \
-        .find(query_cl, {"id": 1, "_id": 0})
-    HGVSIds=list(string_of_ids)
-    query={}
-    queryHGVS={}
-    listHGVS=[]
-    for HGVSId in HGVSIds:
-        justid=HGVSId["id"]
-        listHGVS.append(justid)
-    queryHGVS["$in"]=listHGVS
-    query["identifiers.genomicHGVSId"]=queryHGVS
+    query = {"caseLevelData.biosampleId": entry_id}
     query = apply_filters(self, query, qparams.query.filters, collection, {})
     schema = DefaultSchemas.GENOMICVARIATIONS
     include = qparams.query.include_resultset_responses

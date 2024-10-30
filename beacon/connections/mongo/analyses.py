@@ -58,34 +58,7 @@ def get_variants_of_analysis(self, entry_id: Optional[str], qparams: RequestPara
     query = apply_filters(self, query, qparams.query.filters, collection, {})
     analysis_ids = client.beacon.analyses \
         .find_one(query, {"biosampleId": 1, "_id": 0})
-    targets = client.beacon.targets \
-        .find({"datasetId": dataset}, {"biosampleIds": 1, "_id": 0})
-    position=0
-    bioids=targets[0]["biosampleIds"]
-    for bioid in bioids:
-        if bioid == analysis_ids["biosampleId"]:
-            break
-        position+=1
-    position=str(position)
-    position1="^"+position+","
-    position2=","+position+","
-    position3=","+position+"$"
-    query_cl={ "$or": [
-    {"biosampleIds": {"$regex": position1}}, 
-    {"biosampleIds": {"$regex": position2}},
-    {"biosampleIds": {"$regex": position3}}
-    ]}
-    string_of_ids = client.beacon.caseLevelData \
-        .find(query_cl, {"id": 1, "_id": 0})
-    HGVSIds=list(string_of_ids)
-    query={}
-    queryHGVS={}
-    listHGVS=[]
-    for HGVSId in HGVSIds:
-        justid=HGVSId["id"]
-        listHGVS.append(justid)
-    queryHGVS["$in"]=listHGVS
-    query["identifiers.genomicHGVSId"]=queryHGVS
+    query = {"caseLevelData.biosampleId": analysis_ids["biosampleId"]}
     query = apply_filters(self, query, qparams.query.filters, collection, {})
     schema = DefaultSchemas.GENOMICVARIATIONS
     include = qparams.query.include_resultset_responses
