@@ -232,7 +232,7 @@ def insert_all_ontology_terms_used():
         collections.remove('filtering_terms')
     print("Collections:", collections)
     for c_name in collections:
-        if c_name not in ['counts', 'similarities', 'synonyms']:
+        if c_name not in ['counts', 'similarities', 'synonyms', 'caseLevelData', 'targets']:
             terms_ids = find_ontology_terms_used(c_name)
             terms = get_filtering_object(terms_ids, c_name)
             if len(terms) > 0:
