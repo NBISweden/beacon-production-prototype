@@ -77,7 +77,7 @@ def cross_query(self, query: dict, scope: str, collection: str, request_paramete
                 listHGVS.append(justid)
             queryHGVS["$in"]=listHGVS
             query["identifiers.genomicHGVSId"]=queryHGVS
-        elif scope == 'individual' and collection in ['runs','biosamples', 'analyses']:
+        elif scope == 'individual' and collection in ['runs','biosamples','analyses']:
             mongo_collection=client.beacon.individuals
             original_id="id"
             join_ids=list(join_query(self, mongo_collection, query, original_id))
@@ -672,6 +672,7 @@ def apply_ontology_filter(self, query: dict, filter: OntologyFilter, collection:
             dict_regex['$regex']=label
         except Exception:# pragma: no cover
             dict_regex['$regex']=''
+        LOG.debug(dict_regex)
         dict_id={}
         dict_id['id']=dict_regex
         dict_scope={}
