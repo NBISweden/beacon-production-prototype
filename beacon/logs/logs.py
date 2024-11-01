@@ -1,17 +1,24 @@
 import logging
 import time
 from beacon.conf.conf import level
+from beacon.conf.conf import log_file
 from typing import Optional
 import os
 
 LOG = logging.getLogger(__name__)
-fh = logging.FileHandler("beacon/logs/logs.log")
-fh.setLevel(level)
 fmt = '%(levelname)s - %(asctime)s - %(message)s'
 formatter = logging.Formatter(fmt)
-fh.setFormatter(formatter)
-LOG.addHandler(fh)
 
+if log_file:
+    fh = logging.FileHandler(log_file)
+    fh.setLevel(level)
+    fh.setFormatter(formatter)
+    LOG.addHandler(fh)
+else:
+    sh = logging.StreamHandler()
+    sh.setLevel(level)
+    sh.setFormatter(formatter)
+    LOG.addHandler(sh)
 
 # LOGS per iniciar i parar el contenidor (INFO)
 # LOGS per he rebut una request i retorno una response (INFO)

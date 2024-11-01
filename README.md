@@ -1,6 +1,6 @@
-# Beacon v2 Production Reference Implementation 
+# Beacon v2 Production Implementation
 
-This is an application that makes B2RI production ready. To go to the original B2RI product, please visit [B2RI](https://github.com/EGA-archive/beacon2-ri-api). For further information on how to use this app, please visit [B2RI docs](https://b2ri-documentation-demo.ega-archive.org/)
+Welcome to Beacon v2 Production Implementation (B2PI). This is an application that makes an instance of Beacon v2 be production ready. To go to the beacon reference implementation (test instance) please visit [B2RI](https://github.com/EGA-archive/beacon2-ri-api). For further information on how to use this app, please visit [B2RI docs](https://b2ri-documentation-demo.ega-archive.org/)
 
 ## Main changes from B2RI
 
@@ -77,7 +77,7 @@ Remember to do this step every time you import new data!!
 You can create the necessary indexes running the following Python script:
 
 ```bash
-docker exec beacon python beacon/reindex.py
+docker exec beaconprod python /beacon/connections/mongo/reindex.py
 ```
 
 #### Fetch the ontologies and extract the filtering terms

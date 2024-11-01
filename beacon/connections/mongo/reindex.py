@@ -3,14 +3,21 @@ import conf
 import os
 
 
-uri = "mongodb://{}:{}@{}:{}/{}?authSource={}".format(
-    conf.database_user,
-    conf.database_password,
-    conf.database_host,
-    conf.database_port,
-    conf.database_name,
-    conf.database_auth_source
-)
+if conf.database_cluster:
+    uri = "mongodb+srv://{}:{}@{}/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000".format(
+        conf.database_user,
+        conf.database_password,
+        conf.database_host
+    )
+else:
+    uri = "mongodb://{}:{}@{}:{}/{}?authSource={}".format(
+        conf.database_user,
+        conf.database_password,
+        conf.database_host,
+        conf.database_port,
+        conf.database_name,
+        conf.database_auth_source
+    )
 
 if os.path.isfile(conf.database_certificate):
     uri += '&tls=true&tlsCertificateKeyFile={}'.format(conf.database_certificate)
@@ -50,7 +57,7 @@ except Exception:
 #client.beacon.genomicVariations.create_index([("caseLevelData.biosampleId", 1)])
 #client.beacon.genomicVariations.create_index([("variation.location.interval.end.value", -1), ("variation.location.interval.start.value", 1)])
 client.beacon.genomicVariations.create_index([("datasetId", 1)])
-client.beacon.genomicVariations.create_index([("variantInternalId", 1), ("caseLevelData.biosampleId", 1)])
+client.beacon.genomicVariations.create_index([("variantInternalId", 1)])
 #client.beacon.genomicVariations.create_index([("identifiers.genomicHGVSId", 1), ("variation.location.interval.start.value", 1), ("caseLevelData.biosampleId", 1), ("variation.referenceBases", 1), ("variation.alternateBases", 1)])
 client.beacon.genomicVariations.create_index([("variation.location.interval.end.value", -1), ("variation.location.interval.start.value", 1), ("variation.referenceBases", 1), ("variation.alternateBases", 1)])
 client.beacon.genomicVariations.create_index([("datasetId", 1), ("variation.location.interval.start.value", 1), ("variation.referenceBases", 1), ("variation.alternateBases", 1)])

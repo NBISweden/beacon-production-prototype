@@ -67,6 +67,7 @@ services:
 
   db:
     image: mongo:5
+    command: --wiredTigerCacheSizeGB 4
     hostname: mongo
     container_name: mongoprod
     ports:
