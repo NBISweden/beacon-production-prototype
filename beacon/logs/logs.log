@@ -283,3 +283,141 @@ DEBUG - 2024-10-11 14:12:08,603 - a82e92f7 - map_builder - initial call
 DEBUG - 2024-10-11 14:12:08,603 - a82e92f7 - map_builder - 0.00014638900756835938 - returned OK
 DEBUG - 2024-10-11 14:12:08,604 - a82e92f7 - build_map - initial call
 DEBUG - 2024-10-11 14:12:08,604 - a82e92f7 - build_map - 0.00019860267639160156 - returned OK
+DEBUG - 2024-11-02 23:14:10,350 - 2b5711a4 - generate_txid - initial call
+DEBUG - 2024-11-02 23:14:10,351 - 2b5711a4 - generate_txid- 0.0008347034454345703 - returned OK
+DEBUG - 2024-11-02 23:14:10,351 - 2b5711a4 - get_qparams - initial call
+DEBUG - 2024-11-02 23:14:10,352 - 2b5711a4 - get_qparams - 0.00016951560974121094 - returned OK
+DEBUG - 2024-11-02 23:14:10,352 - 2b5711a4 - collection - initial call
+DEBUG - 2024-11-02 23:14:10,352 - 2b5711a4 - collection - 0.00015807151794433594 - returned OK
+DEBUG - 2024-11-02 23:14:10,352 - 2b5711a4 - collection_builder - initial call
+DEBUG - 2024-11-02 23:14:10,352 - 2b5711a4 - collection_builder - 0.0001533031463623047 - returned OK
+DEBUG - 2024-11-02 23:14:10,368 - 2b5711a4 - execute_collection_function - initial call
+DEBUG - 2024-11-02 23:14:10,369 - 2b5711a4 - execute_collection_function - 0.0003871917724609375 - returned OK
+DEBUG - 2024-11-02 23:14:10,369 - 2b5711a4 - get_dataset_with_id - initial call
+DEBUG - 2024-11-02 23:14:10,369 - 2b5711a4 - apply_request_parameters - initial call
+DEBUG - 2024-11-02 23:14:10,369 - 2b5711a4 - apply_request_parameters - 0.00019049644470214844 - returned OK
+DEBUG - 2024-11-02 23:14:10,370 - 2b5711a4 - query_id - initial call
+DEBUG - 2024-11-02 23:14:10,370 - 2b5711a4 - query_id - 0.0002315044403076172 - returned OK
+DEBUG - 2024-11-02 23:14:10,370 - 2b5711a4 - get_count - initial call
+DEBUG - 2024-11-02 23:14:15,393 - 2b5711a4 - get_count - 5.023151397705078 - returned OK
+DEBUG - 2024-11-02 23:14:15,394 - 2b5711a4 - get_documents - initial call
+DEBUG - 2024-11-02 23:14:15,394 - 2b5711a4 - get_documents - 0.00032806396484375 - returned OK
+DEBUG - 2024-11-02 23:14:15,395 - 2b5711a4 - get_dataset_with_id - 5.026194334030151 - returned OK
+DEBUG - 2024-11-02 23:14:15,395 - 2b5711a4 - build_beacon_collection_response - initial call
+DEBUG - 2024-11-02 23:14:15,396 - 2b5711a4 - build_meta - initial call
+DEBUG - 2024-11-02 23:14:15,396 - 2b5711a4 - build_meta - 0.0003445148468017578 - returned OK
+DEBUG - 2024-11-02 23:14:15,396 - 2b5711a4 - build_response_summary - initial call
+DEBUG - 2024-11-02 23:14:15,396 - 2b5711a4 - build_response_summary - 0.0002200603485107422 - returned OK
+DEBUG - 2024-11-02 23:14:15,397 - 2b5711a4 - build_beacon_collection_response - 0.0012629032135009766 - returned OK
+DEBUG - 2024-11-02 23:15:07,134 - e6c89a2a - generate_txid - initial call
+DEBUG - 2024-11-02 23:15:07,135 - e6c89a2a - generate_txid- 0.0005137920379638672 - returned OK
+DEBUG - 2024-11-02 23:15:07,135 - e6c89a2a - get_qparams - initial call
+DEBUG - 2024-11-02 23:15:07,135 - e6c89a2a - get_qparams - 0.0001609325408935547 - returned OK
+DEBUG - 2024-11-02 23:15:07,136 - e6c89a2a - permission - initial call
+DEBUG - 2024-11-02 23:15:07,136 - e6c89a2a - permission - 0.0001704692840576172 - returned OK
+DEBUG - 2024-11-02 23:15:07,136 - e6c89a2a - authorization - initial call
+DEBUG - 2024-11-02 23:15:07,136 - e6c89a2a - authorization - 0.00014257431030273438 - returned OK
+DEBUG - 2024-11-02 23:15:07,138 - e6c89a2a - get_datasets_list - initial call
+DEBUG - 2024-11-02 23:15:07,138 - e6c89a2a - get_datasets_list - 0.00029540061950683594 - returned OK
+DEBUG - 2024-11-02 23:15:07,139 - e6c89a2a - get_list_of_datasets - initial call
+DEBUG - 2024-11-02 23:15:07,139 - e6c89a2a - get_datasets - initial call
+DEBUG - 2024-11-02 23:15:07,139 - e6c89a2a - get_datasets - 0.0002617835998535156 - returned OK
+DEBUG - 2024-11-02 23:15:07,140 - e6c89a2a - get_list_of_datasets - 0.001798391342163086 - returned OK
+DEBUG - 2024-11-02 23:15:07,141 - e6c89a2a - resultset - initial call
+DEBUG - 2024-11-02 23:15:07,141 - e6c89a2a - resultset - 0.0003333091735839844 - returned OK
+DEBUG - 2024-11-02 23:15:07,141 - e6c89a2a - builder - initial call
+DEBUG - 2024-11-02 23:15:07,142 - e6c89a2a - builder - 0.0002307891845703125 - returned OK
+DEBUG - 2024-11-02 23:15:07,142 - e6c89a2a - execute_function - initial call
+DEBUG - 2024-11-02 23:15:07,142 - e6c89a2a - execute_function - 0.00015211105346679688 - returned OK
+DEBUG - 2024-11-02 23:15:07,143 - e6c89a2a - get_variants - initial call
+DEBUG - 2024-11-02 23:15:07,143 - e6c89a2a - apply_request_parameters - initial call
+DEBUG - 2024-11-02 23:15:07,143 - e6c89a2a - apply_request_parameters - 0.0002009868621826172 - returned OK
+DEBUG - 2024-11-02 23:15:07,143 - e6c89a2a - apply_filters - initial call
+DEBUG - 2024-11-02 23:15:07,143 - e6c89a2a - apply_filters - 0.00023317337036132812 - returned OK
+DEBUG - 2024-11-02 23:15:07,144 - e6c89a2a - get_docs_by_response_type - initial call
+DEBUG - 2024-11-02 23:15:07,144 - e6c89a2a - get_count - initial call
+DEBUG - 2024-11-02 23:15:07,145 - e6c89a2a - get_count - 0.0009770393371582031 - returned OK
+DEBUG - 2024-11-02 23:15:07,145 - e6c89a2a - get_documents - initial call
+DEBUG - 2024-11-02 23:15:07,145 - e6c89a2a - get_documents - 0.00020503997802734375 - returned OK
+DEBUG - 2024-11-02 23:15:07,147 - e6c89a2a - get_docs_by_response_type - 0.0037505626678466797 - returned OK
+DEBUG - 2024-11-02 23:15:07,148 - e6c89a2a - get_variants - 0.005189418792724609 - returned OK
+DEBUG - 2024-11-02 23:15:07,148 - e6c89a2a - build_beacon_record_response_by_dataset - initial call
+DEBUG - 2024-11-02 23:15:07,148 - e6c89a2a - build_meta - initial call
+DEBUG - 2024-11-02 23:15:07,149 - e6c89a2a - build_meta - 0.00018310546875 - returned OK
+DEBUG - 2024-11-02 23:15:07,149 - e6c89a2a - build_response_summary_by_dataset - initial call
+DEBUG - 2024-11-02 23:15:07,149 - e6c89a2a - build_response_summary_by_dataset - 0.0001399517059326172 - returned OK
+DEBUG - 2024-11-02 23:15:07,149 - e6c89a2a - build_response_by_dataset - initial call
+DEBUG - 2024-11-02 23:15:07,149 - e6c89a2a - build_response_by_dataset - 0.00012993812561035156 - returned OK
+DEBUG - 2024-11-02 23:15:07,149 - e6c89a2a - build_beacon_record_response_by_dataset - 0.0010402202606201172 - returned OK
+DEBUG - 2024-11-02 23:15:34,033 - c1614990 - generate_txid - initial call
+DEBUG - 2024-11-02 23:15:34,033 - c1614990 - generate_txid- 0.0003554821014404297 - returned OK
+DEBUG - 2024-11-02 23:15:34,034 - c1614990 - get_qparams - initial call
+DEBUG - 2024-11-02 23:15:34,034 - c1614990 - get_qparams - 0.0004374980926513672 - returned OK
+DEBUG - 2024-11-02 23:15:34,034 - c1614990 - collection - initial call
+DEBUG - 2024-11-02 23:15:34,035 - c1614990 - collection - 0.00019288063049316406 - returned OK
+DEBUG - 2024-11-02 23:15:34,035 - c1614990 - collection_builder - initial call
+DEBUG - 2024-11-02 23:15:34,035 - c1614990 - collection_builder - 0.0002868175506591797 - returned OK
+DEBUG - 2024-11-02 23:15:34,036 - c1614990 - execute_collection_function - initial call
+DEBUG - 2024-11-02 23:15:34,036 - c1614990 - execute_collection_function - 0.000225067138671875 - returned OK
+DEBUG - 2024-11-02 23:15:34,036 - c1614990 - get_full_datasets - initial call
+DEBUG - 2024-11-02 23:15:34,037 - c1614990 - get_count - initial call
+DEBUG - 2024-11-02 23:15:34,038 - c1614990 - get_count - 0.0013496875762939453 - returned OK
+DEBUG - 2024-11-02 23:15:34,039 - c1614990 - get_full_datasets - 0.0029144287109375 - returned OK
+DEBUG - 2024-11-02 23:15:34,039 - c1614990 - build_beacon_collection_response - initial call
+DEBUG - 2024-11-02 23:15:34,039 - c1614990 - build_meta - initial call
+DEBUG - 2024-11-02 23:15:34,040 - c1614990 - build_meta - 0.00023055076599121094 - returned OK
+DEBUG - 2024-11-02 23:15:34,040 - c1614990 - build_response_summary - initial call
+DEBUG - 2024-11-02 23:15:34,040 - c1614990 - build_response_summary - 0.00021505355834960938 - returned OK
+DEBUG - 2024-11-02 23:15:34,040 - c1614990 - build_beacon_collection_response - 0.0011241436004638672 - returned OK
+DEBUG - 2024-11-02 23:15:37,148 - 7cb819a9 - generate_txid - initial call
+DEBUG - 2024-11-02 23:15:37,149 - 7cb819a9 - generate_txid- 0.00046563148498535156 - returned OK
+DEBUG - 2024-11-02 23:15:37,149 - 7cb819a9 - get_qparams - initial call
+DEBUG - 2024-11-02 23:15:37,149 - 7cb819a9 - get_qparams - 0.00018095970153808594 - returned OK
+DEBUG - 2024-11-02 23:15:37,149 - 7cb819a9 - collection - initial call
+DEBUG - 2024-11-02 23:15:37,150 - 7cb819a9 - collection - 0.00020360946655273438 - returned OK
+DEBUG - 2024-11-02 23:15:37,150 - 7cb819a9 - collection_builder - initial call
+DEBUG - 2024-11-02 23:15:37,150 - 7cb819a9 - collection_builder - 0.0001499652862548828 - returned OK
+DEBUG - 2024-11-02 23:15:37,150 - 7cb819a9 - execute_collection_function - initial call
+DEBUG - 2024-11-02 23:15:37,151 - 7cb819a9 - execute_collection_function - 0.0002968311309814453 - returned OK
+DEBUG - 2024-11-02 23:15:37,151 - 7cb819a9 - get_dataset_with_id - initial call
+DEBUG - 2024-11-02 23:15:37,151 - 7cb819a9 - apply_request_parameters - initial call
+DEBUG - 2024-11-02 23:15:37,151 - 7cb819a9 - apply_request_parameters - 0.0001742839813232422 - returned OK
+DEBUG - 2024-11-02 23:15:37,152 - 7cb819a9 - query_id - initial call
+DEBUG - 2024-11-02 23:15:37,152 - 7cb819a9 - query_id - 0.00016260147094726562 - returned OK
+DEBUG - 2024-11-02 23:15:37,152 - 7cb819a9 - get_count - initial call
+DEBUG - 2024-11-02 23:15:37,154 - 7cb819a9 - get_count - 0.0016632080078125 - returned OK
+DEBUG - 2024-11-02 23:15:37,154 - 7cb819a9 - get_documents - initial call
+DEBUG - 2024-11-02 23:15:37,154 - 7cb819a9 - get_documents - 0.00020766258239746094 - returned OK
+DEBUG - 2024-11-02 23:15:37,156 - 7cb819a9 - get_dataset_with_id - 0.004978656768798828 - returned OK
+DEBUG - 2024-11-02 23:15:37,156 - 7cb819a9 - build_beacon_collection_response - initial call
+DEBUG - 2024-11-02 23:15:37,156 - 7cb819a9 - build_meta - initial call
+DEBUG - 2024-11-02 23:15:37,157 - 7cb819a9 - build_meta - 0.0002796649932861328 - returned OK
+DEBUG - 2024-11-02 23:15:37,157 - 7cb819a9 - build_response_summary - initial call
+DEBUG - 2024-11-02 23:15:37,157 - 7cb819a9 - build_response_summary - 0.0002930164337158203 - returned OK
+DEBUG - 2024-11-02 23:15:37,158 - 7cb819a9 - build_beacon_collection_response - 0.0012044906616210938 - returned OK
+DEBUG - 2024-11-02 23:15:38,954 - 2a4d8471 - generate_txid - initial call
+DEBUG - 2024-11-02 23:15:38,954 - 2a4d8471 - generate_txid- 0.0004572868347167969 - returned OK
+DEBUG - 2024-11-02 23:15:38,955 - 2a4d8471 - get_qparams - initial call
+DEBUG - 2024-11-02 23:15:38,955 - 2a4d8471 - get_qparams - 0.0001971721649169922 - returned OK
+DEBUG - 2024-11-02 23:15:38,955 - 2a4d8471 - collection - initial call
+DEBUG - 2024-11-02 23:15:38,955 - 2a4d8471 - collection - 0.00017333030700683594 - returned OK
+DEBUG - 2024-11-02 23:15:38,956 - 2a4d8471 - collection_builder - initial call
+DEBUG - 2024-11-02 23:15:38,956 - 2a4d8471 - collection_builder - 0.00017762184143066406 - returned OK
+DEBUG - 2024-11-02 23:15:38,956 - 2a4d8471 - execute_collection_function - initial call
+DEBUG - 2024-11-02 23:15:38,956 - 2a4d8471 - execute_collection_function - 0.00013828277587890625 - returned OK
+DEBUG - 2024-11-02 23:15:38,956 - 2a4d8471 - get_dataset_with_id - initial call
+DEBUG - 2024-11-02 23:15:38,956 - 2a4d8471 - apply_request_parameters - initial call
+DEBUG - 2024-11-02 23:15:38,957 - 2a4d8471 - apply_request_parameters - 0.00018310546875 - returned OK
+DEBUG - 2024-11-02 23:15:38,957 - 2a4d8471 - query_id - initial call
+DEBUG - 2024-11-02 23:15:38,957 - 2a4d8471 - query_id - 0.00013566017150878906 - returned OK
+DEBUG - 2024-11-02 23:15:38,957 - 2a4d8471 - get_count - initial call
+DEBUG - 2024-11-02 23:15:38,960 - 2a4d8471 - get_count - 0.003238201141357422 - returned OK
+DEBUG - 2024-11-02 23:15:38,961 - 2a4d8471 - get_documents - initial call
+DEBUG - 2024-11-02 23:15:38,961 - 2a4d8471 - get_documents - 0.0003116130828857422 - returned OK
+DEBUG - 2024-11-02 23:15:38,963 - 2a4d8471 - get_dataset_with_id - 0.006453275680541992 - returned OK
+DEBUG - 2024-11-02 23:15:38,963 - 2a4d8471 - build_beacon_collection_response - initial call
+DEBUG - 2024-11-02 23:15:38,963 - 2a4d8471 - build_meta - initial call
+DEBUG - 2024-11-02 23:15:38,964 - 2a4d8471 - build_meta - 0.0002875328063964844 - returned OK
+DEBUG - 2024-11-02 23:15:38,964 - 2a4d8471 - build_response_summary - initial call
+DEBUG - 2024-11-02 23:15:38,964 - 2a4d8471 - build_response_summary - 0.00015854835510253906 - returned OK
+DEBUG - 2024-11-02 23:15:38,964 - 2a4d8471 - build_beacon_collection_response - 0.0010828971862792969 - returned OK

@@ -56,9 +56,9 @@ def get_list_of_datasets(self):
 @log_with_args_mongo(level)
 def get_dataset_with_id(self, entry_id: Optional[str], qparams: RequestParams):
     limit = qparams.query.pagination.limit
-    query_parameters, parameters_as_filters = apply_request_parameters(self, {}, qparams, dataset)
+    query_parameters, parameters_as_filters = apply_request_parameters(self, {}, qparams, entry_id)
     if parameters_as_filters == True:
-        query, parameters_as_filters = apply_request_parameters(self, {}, qparams, dataset)# pragma: no cover
+        query, parameters_as_filters = apply_request_parameters(self, {}, qparams, entry_id)# pragma: no cover
     else:
         query={}
     query = query_id(self, query, entry_id)
