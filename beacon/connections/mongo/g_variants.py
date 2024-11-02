@@ -14,9 +14,9 @@ def get_variants(self, entry_id: Optional[str], qparams: RequestParams, dataset:
     collection = 'g_variants'
     mongo_collection = client.beacon.genomicVariations
     parameters_as_filters=False
-    query_parameters, parameters_as_filters = apply_request_parameters(self, {}, qparams)
+    query_parameters, parameters_as_filters = apply_request_parameters(self, {}, qparams, dataset)
     if parameters_as_filters == True and query_parameters != {'$and': []}:
-        query, parameters_as_filters = apply_request_parameters(self, {}, qparams)# pragma: no cover
+        query, parameters_as_filters = apply_request_parameters(self, {}, qparams, dataset)# pragma: no cover
         query_parameters={}# pragma: no cover
     elif query_parameters != {'$and': []}:
         query=query_parameters
@@ -41,9 +41,9 @@ def get_variant_with_id(self, entry_id: Optional[str], qparams: RequestParams, d
     collection = 'g_variants'
     mongo_collection = client.beacon.genomicVariations
     query = {"$and": [{"variantInternalId": entry_id}]}
-    query_parameters, parameters_as_filters = apply_request_parameters(self, query, qparams)
+    query_parameters, parameters_as_filters = apply_request_parameters(self, query, qparams, dataset)
     if parameters_as_filters == True:
-        query, parameters_as_filters = apply_request_parameters(self, {}, qparams)# pragma: no cover
+        query, parameters_as_filters = apply_request_parameters(self, {}, qparams, dataset)# pragma: no cover
         query_parameters={}# pragma: no cover
     else:
         query=query_parameters
@@ -63,9 +63,9 @@ def get_biosamples_of_variant(self, entry_id: Optional[str], qparams: RequestPar
     collection = 'g_variants'
     mongo_collection = client.beacon.biosamples
     query = {"$and": [{"variantInternalId": entry_id}]}
-    query_parameters, parameters_as_filters = apply_request_parameters(self, query, qparams)
+    query_parameters, parameters_as_filters = apply_request_parameters(self, query, qparams, dataset)
     if parameters_as_filters == True:
-        query, parameters_as_filters = apply_request_parameters(self, {}, qparams)# pragma: no cover
+        query, parameters_as_filters = apply_request_parameters(self, {}, qparams, dataset)# pragma: no cover
         query_parameters={}# pragma: no cover
     else:
         query=query_parameters
@@ -110,9 +110,9 @@ def get_runs_of_variant(self, entry_id: Optional[str], qparams: RequestParams, d
     collection = 'g_variants'
     mongo_collection = client.beacon.runs
     query = {"$and": [{"variantInternalId": entry_id}]}
-    query_parameters, parameters_as_filters = apply_request_parameters(self, query, qparams)
+    query_parameters, parameters_as_filters = apply_request_parameters(self, query, qparams, dataset)
     if parameters_as_filters == True:
-        query, parameters_as_filters = apply_request_parameters(self, {}, qparams)# pragma: no cover
+        query, parameters_as_filters = apply_request_parameters(self, {}, qparams, dataset)# pragma: no cover
         query_parameters={}# pragma: no cover
     else:
         query=query_parameters
@@ -156,9 +156,9 @@ def get_analyses_of_variant(self, entry_id: Optional[str], qparams: RequestParam
     collection = 'g_variants'
     mongo_collection = client.beacon.analyses
     query = {"$and": [{"variantInternalId": entry_id}]}
-    query_parameters, parameters_as_filters = apply_request_parameters(self, query, qparams)
+    query_parameters, parameters_as_filters = apply_request_parameters(self, query, qparams, dataset)
     if parameters_as_filters == True:
-        query, parameters_as_filters = apply_request_parameters(self, {}, qparams)# pragma: no cover
+        query, parameters_as_filters = apply_request_parameters(self, {}, qparams, dataset)# pragma: no cover
         query_parameters={}# pragma: no cover
     else:
         query=query_parameters
@@ -202,9 +202,9 @@ def get_individuals_of_variant(self, entry_id: Optional[str], qparams: RequestPa
     collection = 'g_variants'
     mongo_collection = client.beacon.individuals
     query = {"$and": [{"variantInternalId": entry_id}]}
-    query_parameters, parameters_as_filters = apply_request_parameters(self, query, qparams)
+    query_parameters, parameters_as_filters = apply_request_parameters(self, query, qparams, dataset)
     if parameters_as_filters == True:
-        query, parameters_as_filters = apply_request_parameters(self, query, qparams)# pragma: no cover
+        query, parameters_as_filters = apply_request_parameters(self, query, qparams, dataset)# pragma: no cover
         query_parameters={}# pragma: no cover
     else:
         query=query_parameters

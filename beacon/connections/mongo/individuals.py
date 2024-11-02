@@ -14,9 +14,9 @@ def get_individuals(self, entry_id: Optional[str], qparams: RequestParams, datas
     collection = 'individuals'
     mongo_collection = client.beacon.individuals
     parameters_as_filters=False
-    query_parameters, parameters_as_filters = apply_request_parameters(self, {}, qparams)
+    query_parameters, parameters_as_filters = apply_request_parameters(self, {}, qparams, dataset)
     if parameters_as_filters == True and query_parameters != {'$and': []}:
-        query, parameters_as_filters = apply_request_parameters(self, {}, qparams)# pragma: no cover
+        query, parameters_as_filters = apply_request_parameters(self, {}, qparams, dataset)# pragma: no cover
         query_parameters={}# pragma: no cover
     elif query_parameters != {'$and': []}:
         query=query_parameters
@@ -39,7 +39,7 @@ def get_individual_with_id(self, entry_id: Optional[str], qparams: RequestParams
     collection = 'individuals'
     idq="id"
     mongo_collection = client.beacon.individuals
-    query, parameters_as_filters = apply_request_parameters(self, {}, qparams)
+    query, parameters_as_filters = apply_request_parameters(self, {}, qparams, dataset)
     query = apply_filters(self, query, qparams.query.filters, collection, {}, dataset)
     query = query_id(self, query, entry_id)
     schema = DefaultSchemas.INDIVIDUALS
@@ -83,7 +83,7 @@ def get_variants_of_individual(self, entry_id: Optional[str], qparams: RequestPa
     queryHGVS["$in"]=listHGVS
     query["identifiers.genomicHGVSId"]=queryHGVS
     mongo_collection = client.beacon.genomicVariations
-    query, parameters_as_filters = apply_request_parameters(self, query, qparams)
+    query, parameters_as_filters = apply_request_parameters(self, query, qparams, dataset)
     query = apply_filters(self, query, qparams.query.filters, collection, {}, dataset)
     schema = DefaultSchemas.GENOMICVARIATIONS
     include = qparams.query.include_resultset_responses
@@ -100,7 +100,7 @@ def get_biosamples_of_individual(self, entry_id: Optional[str], qparams: Request
     collection = 'biosamples'
     mongo_collection = client.beacon.biosamples
     query = {"individualId": entry_id}
-    query, parameters_as_filters = apply_request_parameters(self, query, qparams)
+    query, parameters_as_filters = apply_request_parameters(self, query, qparams, dataset)
     query = apply_filters(self, query, qparams.query.filters, collection, {}, dataset)
     schema = DefaultSchemas.BIOSAMPLES
     include = qparams.query.include_resultset_responses

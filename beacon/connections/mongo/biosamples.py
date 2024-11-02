@@ -14,9 +14,9 @@ def get_biosamples(self, entry_id: Optional[str], qparams: RequestParams, datase
     collection = 'biosamples'
     mongo_collection = client.beacon.biosamples
     parameters_as_filters=False
-    query_parameters, parameters_as_filters = apply_request_parameters(self, {}, qparams)
+    query_parameters, parameters_as_filters = apply_request_parameters(self, {}, qparams, dataset)
     if parameters_as_filters == True and query_parameters != {'$and': []}:# pragma: no cover
-        query, parameters_as_filters = apply_request_parameters(self, {}, qparams)
+        query, parameters_as_filters = apply_request_parameters(self, {}, qparams, dataset)
         query_parameters={}
     elif query_parameters != {'$and': []}:
         query=query_parameters

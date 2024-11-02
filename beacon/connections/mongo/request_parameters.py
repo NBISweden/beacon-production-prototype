@@ -67,7 +67,7 @@ def generate_position_filter_end(self, key: str, value: List[int]) -> List[Alpha
     return filters
 
 @log_with_args(level)
-def apply_request_parameters(self, query: Dict[str, List[dict]], qparams: RequestParams):
+def apply_request_parameters(self, query: Dict[str, List[dict]], qparams: RequestParams, dataset: str):
     collection = 'g_variants'
     if len(qparams.query.request_parameters) > 0 and "$and" not in query:
         query["$and"] = []
@@ -85,13 +85,13 @@ def apply_request_parameters(self, query: Dict[str, List[dict]], qparams: Reques
                         v = v.split(',')
                     filters = generate_position_filter_start(self, k, v)
                     for filter in filters:
-                        subquery["$and"].append(apply_alphanumeric_filter({}, filter, collection))
+                        subquery["$and"].append(apply_alphanumeric_filter({}, filter, collection, dataset))
                 elif k == "end":
                     if isinstance(v, str):
                         v = v.split(',')
                     filters = generate_position_filter_end(self, k, v)
                     for filter in filters:
-                        subquery["$and"].append(apply_alphanumeric_filter({}, filter, collection))
+                        subquery["$and"].append(apply_alphanumeric_filter({}, filter, collection, dataset))
                 elif k == "datasets":
                     pass
                 elif k == "variantMinLength":
@@ -99,7 +99,7 @@ def apply_request_parameters(self, query: Dict[str, List[dict]], qparams: Reques
                         subquery["$and"].append(apply_alphanumeric_filter({}, AlphanumericFilter(
                             id=VARIANTS_PROPERTY_MAP[k],
                             value='min'+v
-                        ), collection))
+                        ), collection, dataset))
                     except KeyError:
                         raise web.HTTPNotFound
                 elif k == "variantMaxLength":
@@ -107,7 +107,7 @@ def apply_request_parameters(self, query: Dict[str, List[dict]], qparams: Reques
                         subquery["$and"].append(apply_alphanumeric_filter({}, AlphanumericFilter(
                             id=VARIANTS_PROPERTY_MAP[k],
                             value='max'+v
-                        ), collection))
+                        ), collection, dataset))
                     except KeyError:
                         raise web.HTTPNotFound    
                 elif k == "mateName" or k == 'referenceName':
@@ -115,7 +115,7 @@ def apply_request_parameters(self, query: Dict[str, List[dict]], qparams: Reques
                         subqueryor["$or"].append(apply_alphanumeric_filter({}, AlphanumericFilter(
                             id=VARIANTS_PROPERTY_MAP[k],
                             value='max'+v
-                        ), collection))
+                        ), collection, dataset))
                     except KeyError:
                         raise web.HTTPNotFound    
                 elif k != 'filters':
@@ -123,7 +123,7 @@ def apply_request_parameters(self, query: Dict[str, List[dict]], qparams: Reques
                         subquery["$and"].append(apply_alphanumeric_filter({}, AlphanumericFilter(
                             id=VARIANTS_PROPERTY_MAP[k],
                             value=v
-                        ), collection))
+                        ), collection, dataset))
                     except KeyError:
                         raise web.HTTPNotFound
 
@@ -155,13 +155,13 @@ def apply_request_parameters(self, query: Dict[str, List[dict]], qparams: Reques
                     v = v.split(',')
                 filters = generate_position_filter_start(self, k, v)
                 for filter in filters:
-                    query["$and"].append(apply_alphanumeric_filter(self, {}, filter, collection))
+                    query["$and"].append(apply_alphanumeric_filter(self, {}, filter, collection, dataset))
             elif k == "end":
                 if isinstance(v, str):
                     v = v.split(',')
                 filters = generate_position_filter_end(self, k, v)
                 for filter in filters:
-                    query["$and"].append(apply_alphanumeric_filter(self, {}, filter, collection))
+                    query["$and"].append(apply_alphanumeric_filter(self, {}, filter, collection, dataset))
             elif k == "datasets":
                 pass
             elif k == "variantMinLength":
@@ -169,7 +169,7 @@ def apply_request_parameters(self, query: Dict[str, List[dict]], qparams: Reques
                     query["$and"].append(apply_alphanumeric_filter(self, {}, AlphanumericFilter(
                         id=VARIANTS_PROPERTY_MAP[k],
                         value='min'+v
-                    ), collection))
+                    ), collection, dataset))
                 except KeyError:# pragma: no cover
                     raise web.HTTPNotFound
             elif k == "variantMaxLength":
@@ -177,7 +177,7 @@ def apply_request_parameters(self, query: Dict[str, List[dict]], qparams: Reques
                     query["$and"].append(apply_alphanumeric_filter(self, {}, AlphanumericFilter(
                         id=VARIANTS_PROPERTY_MAP[k],
                         value='max'+v
-                    ), collection))
+                    ), collection, dataset))
                 except KeyError:# pragma: no cover
                     raise web.HTTPNotFound    
             elif k == "mateName" or k == 'referenceName':
@@ -185,7 +185,7 @@ def apply_request_parameters(self, query: Dict[str, List[dict]], qparams: Reques
                     subqueryor["$or"].append(apply_alphanumeric_filter(self, {}, AlphanumericFilter(
                         id=VARIANTS_PROPERTY_MAP[k],
                         value=v
-                    ), collection))
+                    ), collection, dataset))
                 except KeyError:# pragma: no cover
                     raise web.HTTPNotFound
             elif k != 'filters':
@@ -193,7 +193,7 @@ def apply_request_parameters(self, query: Dict[str, List[dict]], qparams: Reques
                     query["$and"].append(apply_alphanumeric_filter(self, {}, AlphanumericFilter(
                         id=VARIANTS_PROPERTY_MAP[k],
                         value=v
-                    ), collection))
+                    ), collection, dataset))
                 except KeyError:# pragma: no cover
                     raise web.HTTPNotFound
 

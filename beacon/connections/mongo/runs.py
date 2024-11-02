@@ -14,9 +14,9 @@ def get_runs(self, entry_id: Optional[str], qparams: RequestParams, dataset: str
     collection = 'runs'
     mongo_collection = client.beacon.runs
     parameters_as_filters=False
-    query_parameters, parameters_as_filters = apply_request_parameters(self, {}, qparams)
+    query_parameters, parameters_as_filters = apply_request_parameters(self, {}, qparams, dataset)
     if parameters_as_filters == True:
-        query, parameters_as_filters = apply_request_parameters(self, {}, qparams)# pragma: no cover
+        query, parameters_as_filters = apply_request_parameters(self, {}, qparams, dataset)# pragma: no cover
         query_parameters={}# pragma: no cover
     else:
         query={}
