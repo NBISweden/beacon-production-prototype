@@ -123,3 +123,4 @@ def get_runs_of_biosample(self, entry_id: Optional[str], qparams: RequestParams,
         limit = 100# pragma: no cover
     idq="biosampleId"
     count, dataset_count, docs = get_docs_by_response_type(self, include, query, dataset, limit, skip, mongo_collection, idq)
+    return schema, count, dataset_count, docs, dataset

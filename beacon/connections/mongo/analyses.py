@@ -96,3 +96,4 @@ def get_variants_of_analysis(self, entry_id: Optional[str], qparams: RequestPara
         limit = 100# pragma: no cover
     idq="caseLevelData.biosampleId"
     count, dataset_count, docs = get_docs_by_response_type(self, include, query, dataset, limit, skip, mongo_collection, idq)
+    return schema, count, dataset_count, docs, dataset

@@ -601,7 +601,7 @@ class TestMain(unittest.TestCase):
             client = TestClient(TestServer(app), loop=loop)
             loop.run_until_complete(client.start_server())
             async def test_check_g_variants_with_id_endpoint_is_working():
-                resp = await client.get("/api/g_variants/da5a95e4-bc26-11ee-b6b0-0242ac170002:A:G")
+                resp = await client.get("/api/g_variants/24070fa2-9a01-11ef-907f-0242ac160002:A:G")
                 assert resp.status == 200
             loop.run_until_complete(test_check_g_variants_with_id_endpoint_is_working())
             loop.run_until_complete(client.close())
@@ -611,7 +611,7 @@ class TestMain(unittest.TestCase):
             client = TestClient(TestServer(app), loop=loop)
             loop.run_until_complete(client.start_server())
             async def test_check_g_variants_runs_endpoint_is_working():
-                resp = await client.get("/api/g_variants/da5a95e4-bc26-11ee-b6b0-0242ac170002:A:G/runs")
+                resp = await client.get("/api/g_variants/24070fa2-9a01-11ef-907f-0242ac160002:A:G/runs")
                 assert resp.status == 200
             loop.run_until_complete(test_check_g_variants_runs_endpoint_is_working())
             loop.run_until_complete(client.close())
@@ -621,7 +621,7 @@ class TestMain(unittest.TestCase):
             client = TestClient(TestServer(app), loop=loop)
             loop.run_until_complete(client.start_server())
             async def test_check_g_variants_biosamples_endpoint_is_working():
-                resp = await client.get("/api/g_variants/da5a95e4-bc26-11ee-b6b0-0242ac170002:A:G/biosamples")
+                resp = await client.get("/api/g_variants/24070fa2-9a01-11ef-907f-0242ac160002:A:G/biosamples")
                 assert resp.status == 200
             loop.run_until_complete(test_check_g_variants_biosamples_endpoint_is_working())
             loop.run_until_complete(client.close())
@@ -631,7 +631,7 @@ class TestMain(unittest.TestCase):
             client = TestClient(TestServer(app), loop=loop)
             loop.run_until_complete(client.start_server())
             async def test_check_g_variants_analyses_endpoint_is_working():
-                resp = await client.get("/api/g_variants/da5a95e4-bc26-11ee-b6b0-0242ac170002:A:G/analyses")
+                resp = await client.get("/api/g_variants/24070fa2-9a01-11ef-907f-0242ac160002:A:G/analyses")
                 assert resp.status == 200
             loop.run_until_complete(test_check_g_variants_analyses_endpoint_is_working())
             loop.run_until_complete(client.close())
@@ -641,7 +641,7 @@ class TestMain(unittest.TestCase):
             client = TestClient(TestServer(app), loop=loop)
             loop.run_until_complete(client.start_server())
             async def test_check_g_variants_inividuals_endpoint_is_working():
-                resp = await client.get("/api/g_variants/da5a95e4-bc26-11ee-b6b0-0242ac170002:A:G/individuals")
+                resp = await client.get("/api/g_variants/24070fa2-9a01-11ef-907f-0242ac160002:A:G/individuals")
                 assert resp.status == 200
             loop.run_until_complete(test_check_g_variants_inividuals_endpoint_is_working())
             loop.run_until_complete(client.close())
