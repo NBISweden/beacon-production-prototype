@@ -41,7 +41,7 @@ You should have installed:
 If you are using a build with all the services in the same cluster, you can use:
 
 ```bash
-docker-compose up -d --build
+docker compose up -d --build
 ```
 
 #### Load the data
