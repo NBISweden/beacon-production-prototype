@@ -46,7 +46,7 @@ services:
     volumes:
       - ./beacon/auth/realms/beacon-realm.json:/tmp/beacon-realm.json
     ports:
-      - "8085:8080"
+      - "8080:8080"
       - "9991:8443"
     networks:
       - idp-priv 
