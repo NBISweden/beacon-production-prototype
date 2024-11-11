@@ -41,7 +41,7 @@ You should have installed:
 If you are using a build with all the services in the same cluster, you can use:
 
 ```bash
-docker-compose up -d --build
+docker compose up -d --build
 ```
 
 #### Load the data
@@ -107,7 +107,7 @@ You can automatically fetch the ontologies and extract the filtering terms runni
 Check the logs until the beacon is ready to be queried:
 
 ```bash
-docker-compose logs -f beaconprod
+docker compose logs -f beaconprod
 ```
 
 ## Usage
@@ -250,7 +250,7 @@ In order to assign the security level for a dataset in your beacon, please go to
 You can edit some parameters for your Beacon v2 API that are in [conf.py](https://github.com/EGA-archive/beacon-production-prototype/tree/main/beacon/conf/conf.py). For that, edit the variables you see fit, save the file and restart the API by executing the next command:
 
 ```bash
-docker-compose restart beaconprod
+docker compose restart beaconprod
 ```
 
 ## Managing source
@@ -258,7 +258,7 @@ docker-compose restart beaconprod
 You can edit some parameters concerning entry types developed for your Beacon in [manage.py](https://github.com/EGA-archive/beacon-production-prototype/tree/main/beacon/source/manage.py). For that, change to True the entry types you want to have developed and shown with data for your beacon and execute the next command:
 
 ```bash
-docker-compose restart beaconprod
+docker compose restart beaconprod
 ```
 
 ## Tests report
