@@ -45,13 +45,35 @@ def generate_position_filter_start(self, key: str, value: List[int]) -> List[Alp
     return filters
 
 @log_with_args(level)
-def generate_position_filter_end(self, key: str, value: List[int]) -> List[AlphanumericFilter]:
+def generate_position_filter_start_equal(self, key: str, value: List[int]) -> List[AlphanumericFilter]:
     filters = []
     if len(value) == 1:
         filters.append(AlphanumericFilter(
             id=VARIANTS_PROPERTY_MAP[key],
             value=value[0],
+            operator=Operator.EQUAL
+        ))
+    elif len(value) == 2:# pragma: no cover
+        filters.append(AlphanumericFilter(
+            id=VARIANTS_PROPERTY_MAP[key],
+            value=value[0],
+            operator=Operator.GREATER_EQUAL
+        ))
+        filters.append(AlphanumericFilter(
+            id=VARIANTS_PROPERTY_MAP[key],
+            value=value[1],
             operator=Operator.LESS_EQUAL
+        ))
+    return filters
+
+@log_with_args(level)
+def generate_position_filter_end(self, key: str, value: List[int]) -> List[AlphanumericFilter]:
+    filters = []
+    if len(value) == 1:
+        filters.append(AlphanumericFilter(
+            id=VARIANTS_PROPERTY_MAP["start"],
+            value=value[0],
+            operator=Operator.LESS
         ))
     elif len(value) == 2:# pragma: no cover
         filters.append(AlphanumericFilter(
@@ -79,11 +101,18 @@ def apply_request_parameters(self, query: Dict[str, List[dict]], qparams: Reques
             subquery["$and"] = []
             subqueryor={}
             subqueryor["$or"] = []
+            equal=True
+            for k, v in reqparam.items():
+                if k == 'end':
+                    equal=False
             for k, v in reqparam.items():
                 if k == "start":
                     if isinstance(v, str):
                         v = v.split(',')
-                    filters = generate_position_filter_start(self, k, v)
+                    if equal == False:
+                        filters = generate_position_filter_start(self, k, v)
+                    else:
+                        filters = generate_position_filter_start_equal(self, k, v)
                     for filter in filters:
                         subquery["$and"].append(apply_alphanumeric_filter({}, filter, collection, dataset))
                 elif k == "end":
@@ -149,11 +178,18 @@ def apply_request_parameters(self, query: Dict[str, List[dict]], qparams: Reques
         subquery["$and"] = []
         subqueryor={}
         subqueryor["$or"] = []
+        equal=True
+        for k, v in qparams.query.request_parameters.items():
+            if k == 'end':
+                equal=False
         for k, v in qparams.query.request_parameters.items():
             if k == "start":
                 if isinstance(v, str):
                     v = v.split(',')
-                filters = generate_position_filter_start(self, k, v)
+                if equal == False:
+                    filters = generate_position_filter_start(self, k, v)
+                else:
+                    filters = generate_position_filter_start_equal(self, k, v)
                 for filter in filters:
                     query["$and"].append(apply_alphanumeric_filter(self, {}, filter, collection, dataset))
             elif k == "end":

@@ -92,7 +92,7 @@ class SequenceQuery(BaseModel):
     referenceBases: str
     clinicalRelevance: Optional[str] =None
     mateName: Optional[str] =None
-    assemblyId: Optional[str] =None
+    assemblyId: Optional[str] ='GRCh38'
 
 class RangeQuery(BaseModel):
     referenceName: Union[str,int]
@@ -105,7 +105,7 @@ class RangeQuery(BaseModel):
     variantMaxLength: Optional[int] =None
     clinicalRelevance: Optional[str] =None
     mateName: Optional[str] =None
-    assemblyId: Optional[str] =None
+    assemblyId: Optional[str] ='GRCh38'
 
 class DatasetsRequested(BaseModel):
     datasets: list
@@ -117,7 +117,7 @@ class GeneIdQuery(BaseModel):
     aminoacidChange: Optional[str] =None
     variantMinLength: Optional[int] =None
     variantMaxLength: Optional[int] =None
-    assemblyId: Optional[str] =None
+    assemblyId: Optional[str] ='GRCh38'
 
 class BracketQuery(BaseModel):
     referenceName: Union[str,int]
@@ -126,7 +126,7 @@ class BracketQuery(BaseModel):
     variantType: Optional[str] =None
     clinicalRelevance: Optional[str] =None
     mateName: Optional[str] =None
-    assemblyId: Optional[str] =None
+    assemblyId: Optional[str] ='GRCh38'
     @field_validator('start')
     @classmethod
     def start_must_be_array_of_integers(cls, v: list) -> list:
@@ -146,12 +146,12 @@ class BracketQuery(BaseModel):
 
 class GenomicAlleleQuery(BaseModel):
     genomicAlleleShortForm: str
-    assemblyId: Optional[str] =None
+    assemblyId: Optional[str] ='GRCh38'
 
 class AminoacidChangeQuery(BaseModel):
     aminoacidChange: str
     geneId: str
-    assemblyId: Optional[str] =None
+    assemblyId: Optional[str] ='GRCh38'
 
 class RequestParams(CamelModel):
     meta: RequestMeta = RequestMeta()
