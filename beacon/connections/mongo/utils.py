@@ -59,23 +59,16 @@ def get_count(self, collection: Collection, query: dict) -> int:
         try:
             counts=list(counts)
             if counts == []:
-                match_dict={}
-                match_dict['$match']=query
-                count_dict={}
-                aggregated_query=[]
-                count_dict["$count"]='Total'
-                aggregated_query.append(match_dict)
-                aggregated_query.append(count_dict)
-                total=list(collection.aggregate(aggregated_query))
+                total_counts=collection.count_documents(query)
                 insert_dict={}
                 insert_dict['id']=str(query)
-                total_counts=total[0]['Total']
                 insert_dict['num_results']=total_counts# pragma: no cover
                 insert_dict['collection']=str(collection)# pragma: no cover
                 insert_total=client.beacon.counts.insert_one(insert_dict)# pragma: no cover
             else:
                 total_counts=counts[0]["num_results"]
         except Exception as e:# pragma: no cover
+            LOG.debug(e)
             insert_dict={}
             insert_dict['id']=str(query)
             total_counts=0
@@ -121,6 +114,7 @@ def get_docs_by_response_type(self, include: str, query: dict, dataset: str, lim
         queryid={}
         queryid['datasetId']=dataset
         query_count["$or"].append(queryid)
+        LOG.debug(query_count)
         if query_count["$or"]!=[]:
             dataset_count = get_count(self, mongo_collection, query_count)
             if dataset_count == 0:
