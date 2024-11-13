@@ -31,7 +31,6 @@ def cross_query(self, query: dict, scope: str, collection: str, request_paramete
             mongo_collection=client.beacon.individuals
             original_id="id"
             join_ids=list(join_query(self, mongo_collection, query, original_id))
-            LOG.debug(join_ids)
             '''
             final_id="individualId"
             for id_item in join_ids:
@@ -55,7 +54,6 @@ def cross_query(self, query: dict, scope: str, collection: str, request_paramete
                 biosampleId=id_item.pop(original_id)
                 position=bioids.index(biosampleId)
                 positions_list.append(position)
-            LOG.debug(positions_list)
             query_cl={}
             query_cl["$or"]=[]
             for position in positions_list:
@@ -672,7 +670,6 @@ def apply_ontology_filter(self, query: dict, filter: OntologyFilter, collection:
             dict_regex['$regex']=label
         except Exception:# pragma: no cover
             dict_regex['$regex']=''
-        LOG.debug(dict_regex)
         dict_id={}
         dict_id['id']=dict_regex
         dict_scope={}
