@@ -780,8 +780,7 @@ def format_operator(self, operator: Operator) -> str:
         return "$gte"
     elif operator == Operator.LESS:
         return "$lt"
-    else:
-        # operator == Operator.LESS_EQUAL
+    elif operator == Operator.LESS_EQUAL:
         return "$lte"
 
 @log_with_args(level)
