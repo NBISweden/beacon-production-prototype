@@ -2,7 +2,7 @@
 ## Build env
 ##########################
 
-FROM python:3.10-bullseye AS BUILD
+FROM python:3.13-slim-trixie AS BUILD
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -21,25 +21,20 @@ RUN pip install -r /tmp/requirements.txt
 ##########################
 ## Final image
 ##########################
-FROM python:3.10-bullseye
+FROM python:3.13-slim-trixie
 
 LABEL maintainer "CRG System Developers"
 LABEL org.label-schema.schema-version="2.0"
 LABEL org.label-schema.vcs-url="https://github.com/EGA-archive/beacon-2.x/"
 
-# Too much ?
-COPY --from=BUILD /usr/local/bin      /usr/local/bin
-COPY --from=BUILD /usr/local/lib      /usr/local/lib
+RUN --mount=type=cache,target=/var/cache/apt \
+    --mount=type=cache,target=/var/lib/apt \
+    apt-get update && apt-get upgrade -y
 
-RUN apt-get update && \
-    apt update && apt install -y openssh-client sshpass && \
-    apt-get install -y --no-install-recommends \
-    nginx \
-    && \
-    rm -rf /var/lib/apt/lists/* /etc/apt/sources.list.d/nginx.list && \
-    apt-get purge -y --auto-remove
+COPY --from=BUILD /usr/local/lib/python3.13/site-packages      /usr/local/lib/python3.13/site-packages
 
+USER 65534
 
-COPY . .
+COPY beacon beacon
 
-WORKDIR .
+ENTRYPOINT ["python","-m","beacon"]
