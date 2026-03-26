@@ -14,7 +14,7 @@ dataclasses-json==0.5.6
 pymongo[srv]==4.0.1
 pyopenssl==23.3.0
 coverage==7.6.0
-requests==2.25.1
+requests==2.33.0
 StrEnum==0.4.7
 pyhumps==3.8.0
 paramiko==2.7.2
@@ -27,4 +27,4 @@ django-allauth[idp-oidc]==65.11.0
 django-browser-reload==1.16.0
 Django==4.2.16
 python-dotenv==1.0.1
-requests==2.25.1
+requests==2.33.0
