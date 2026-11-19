@@ -1,0 +1,64 @@
+diff --git a/Dockerfile b/Dockerfile
+index bf4002e9..e5b589af 100644
+--- a/Dockerfile
++++ b/Dockerfile
+@@ -2,7 +2,7 @@
+ ## Build env
+ ##########################
+ 
+-FROM python:3.13.18-bookworm AS BUILD
++FROM python:3.13.18-slim-trixie AS BUILD
+ 
+ ENV DEBIAN_FRONTEND=noninteractive
+ 
+@@ -29,7 +29,7 @@ RUN python -m pip install --no-cache-dir --upgrade \
+ ##########################
+ ## Final image
+ ##########################
+-FROM python:3.13.18-bookworm
++FROM python:3.13.18-slim-trixie
+ 
+ LABEL maintainer "CRG System Developers"
+ LABEL org.label-schema.schema-version="2.0"
+@@ -38,18 +38,15 @@ LABEL org.label-schema.vcs-url="https://github.com/EGA-archive/beacon-2.x/"
+ 
+ ENV PIP_CERT=/etc/ssl/certs/ca-certificates.crt
+ 
++RUN --mount=type=cache,target=/var/cache/apt \
++    --mount=type=cache,target=/var/lib/apt \
++    apt-get update && apt-get upgrade -y
++
+ COPY --from=BUILD /usr/local/bin /usr/local/bin
+-COPY --from=BUILD /usr/local/lib /usr/local/lib
++COPY --from=BUILD /usr/local/lib/python3.13/site-packages      /usr/local/lib/python3.13/site-packages
+ 
+-RUN apt-get update && \
+-    apt-get install -y --no-install-recommends \
+-        ca-certificates \
+-        openssh-client \
+-        sshpass \
+-        nginx \
+-    && update-ca-certificates -f \
+-    && rm -rf /var/lib/apt/lists/*
++USER 65534
+ 
+-COPY . .
++copy beacon beacon
+ 
+-WORKDIR .
+\ No newline at end of file
++ENTRYPOINT ["python","-m","beacon"]
+\ No newline at end of file
+diff --git a/requirements.txt b/requirements.txt
+index 2e9900d9..c83da543 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -12,7 +12,7 @@ jsonschema-specifications==2023.12.1
+ loguru==0.7.2
+ pyyaml==6.0.1
+ dataclasses-json==0.5.6
+-pymongo[srv]==4.18.2
++pymongo[srv]==4.18.3
+ pyopenssl==26.4.0
+ coverage==7.6.0
+ requests==2.33.0
